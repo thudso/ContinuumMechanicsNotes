@@ -792,8 +792,6 @@ Then $$\begin{aligned}
       \int_{\partial\Omega_t}\bfw(\bfy,t)\cdot \bfn(\bfy)\dAy &= \int_{\partial\Omega}\bfw_m(\bfx,t)\cdot\big(\cof\bfF(\bfx,t)\bfnu(\bfx)\big)\dAx\\
       \int_{\partial\Omega_t}\bfT(\bfy,t)\bfn(\bfy)\dAy &= \int_{\partial\Omega}\bfT_m(\bfx,t)\cof\bfF(\bfx,t)\bfnu(\bfx)\dAx,
     \end{aligned}$$ where we recall that the cofactor tensor (as
-previously defined in the statement of
-Proposition [\[prop:derivativedet\]](#prop:derivativedet){reference-type="ref"
-reference="prop:derivativedet"}) is defined to be
+previously defined in the statement of @prp-derivativedet) is defined to be
 $$\cof(\bfF) = (\det\bfF)\bfF^{-T}.$$
 :::

@@ -58,11 +58,13 @@ format: html
 \newcommand{\bfY}{{\boldsymbol{Y}}}
 \newcommand{\bfZ}{{\boldsymbol{Z}}}
 
+\newcommand{\bfomega}{{\boldsymbol{\omega}}}
 \newcommand{\bftau}{{\boldsymbol{\tau}}}
 \newcommand{\bfnu}{{\boldsymbol{\nu}}}
 \newcommand{\bfpsi}{{\boldsymbol{\psi}}}
 \newcommand{\bfphi}{{\boldsymbol{\varphi}}}
 \newcommand{\bfSigma}{{\boldsymbol{\Sigma}}}
+\newcommand{\bfOmega}{{\boldsymbol{\Omega}}}
 \newcommand{\calI}{{\mathcal{I}}}
 \newcommand{\calN}{{\mathcal{N}}}
 \newcommand{\calV}{{\mathcal{V}}}
@@ -88,13 +90,15 @@ format: html
 \newcommand{\D}{{\mathrm{D}}}
 \newcommand{\dd}{{\mathrm{d}}}
 \newcommand{\dt}{{\dd t}}
+\newcommand{\ppt}{{\frac{\partial}{\partial t}}}
 \newcommand{\Dt}{{\D t}}
+\newcommand{\DDt}{{\frac{\D}{\Dt}}}
 \newcommand{\bigO}{{O}}
 \newcommand{\litO}{{o}}
-\newcommand{\dVx}{{\,\d V_{\bfx}}}
-\newcommand{\dAx}{{\,\d A_{\bfx}}}
-\newcommand{\dVy}{{\,\d V_{\bfy}}}
-\newcommand{\dAy}{{\,\d A_{\bfy}}}
-\newcommand{\ds}{{\,\d s}}
+\newcommand{\dVx}{{\,\dd V_{\bfx}}}
+\newcommand{\dAx}{{\,\dd A_{\bfx}}}
+\newcommand{\dVy}{{\,\dd V_{\bfy}}}
+\newcommand{\dAy}{{\,\dd A_{\bfy}}}
+\newcommand{\ds}{{\,\dd s}}
 
 :::

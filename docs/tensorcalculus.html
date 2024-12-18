@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Tensor Calculus – MA4J1 Continuum Mechanics Notes</title>
+<title>3&nbsp; Tensor Calculus – MA4J1 Continuum Mechanics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,7 +127,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tensorcalculus.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tensor Calculus</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tensorcalculus.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tensor Calculus</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -158,37 +158,37 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tensoralgebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tensor Algebra</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tensor Algebra</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tensorcalculus.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tensor Calculus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tensor Calculus</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./massandforces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mass, Forces and Stress</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Mass, Forces and Stress</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./kinematics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kinematics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kinematics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./balancelaws.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Balance laws</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Balance laws</span></span></a>
   </div>
 </li>
     </ul>
@@ -201,28 +201,28 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link active" data-scroll-target="#preliminaries"><span class="header-section-number">2.1</span> Preliminaries</a>
+  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link active" data-scroll-target="#preliminaries"><span class="header-section-number">3.1</span> Preliminaries</a>
   <ul class="collapse">
-  <li><a href="#points-tensors-and-representations" id="toc-points-tensors-and-representations" class="nav-link" data-scroll-target="#points-tensors-and-representations"><span class="header-section-number">2.1.1</span> Points, tensors and representations</a></li>
-  <li><a href="#norms-and-order-symbols" id="toc-norms-and-order-symbols" class="nav-link" data-scroll-target="#norms-and-order-symbols"><span class="header-section-number">2.1.2</span> Norms and order symbols</a></li>
+  <li><a href="#points-tensors-and-representations" id="toc-points-tensors-and-representations" class="nav-link" data-scroll-target="#points-tensors-and-representations"><span class="header-section-number">3.1.1</span> Points, tensors and representations</a></li>
+  <li><a href="#norms-and-order-symbols" id="toc-norms-and-order-symbols" class="nav-link" data-scroll-target="#norms-and-order-symbols"><span class="header-section-number">3.1.2</span> Norms and order symbols</a></li>
   </ul></li>
-  <li><a href="#differentiation-of-tensor-fields" id="toc-differentiation-of-tensor-fields" class="nav-link" data-scroll-target="#differentiation-of-tensor-fields"><span class="header-section-number">2.2</span> Differentiation of tensor fields</a>
+  <li><a href="#differentiation-of-tensor-fields" id="toc-differentiation-of-tensor-fields" class="nav-link" data-scroll-target="#differentiation-of-tensor-fields"><span class="header-section-number">3.2</span> Differentiation of tensor fields</a>
   <ul class="collapse">
-  <li><a href="#derivatives-gradients" id="toc-derivatives-gradients" class="nav-link" data-scroll-target="#derivatives-gradients"><span class="header-section-number">2.2.1</span> Derivatives, gradients</a></li>
-  <li><a href="#divergence" id="toc-divergence" class="nav-link" data-scroll-target="#divergence"><span class="header-section-number">2.2.2</span> Divergence</a></li>
-  <li><a href="#curl" id="toc-curl" class="nav-link" data-scroll-target="#curl"><span class="header-section-number">2.2.3</span> Curl</a></li>
-  <li><a href="#laplacian" id="toc-laplacian" class="nav-link" data-scroll-target="#laplacian"><span class="header-section-number">2.2.4</span> Laplacian</a></li>
+  <li><a href="#derivatives-gradients" id="toc-derivatives-gradients" class="nav-link" data-scroll-target="#derivatives-gradients"><span class="header-section-number">3.2.1</span> Derivatives, gradients</a></li>
+  <li><a href="#divergence" id="toc-divergence" class="nav-link" data-scroll-target="#divergence"><span class="header-section-number">3.2.2</span> Divergence</a></li>
+  <li><a href="#curl" id="toc-curl" class="nav-link" data-scroll-target="#curl"><span class="header-section-number">3.2.3</span> Curl</a></li>
+  <li><a href="#laplacian" id="toc-laplacian" class="nav-link" data-scroll-target="#laplacian"><span class="header-section-number">3.2.4</span> Laplacian</a></li>
   </ul></li>
-  <li><a href="#some-important-integral-theorems" id="toc-some-important-integral-theorems" class="nav-link" data-scroll-target="#some-important-integral-theorems"><span class="header-section-number">2.3</span> Some important integral theorems</a>
+  <li><a href="#some-important-integral-theorems" id="toc-some-important-integral-theorems" class="nav-link" data-scroll-target="#some-important-integral-theorems"><span class="header-section-number">3.3</span> Some important integral theorems</a>
   <ul class="collapse">
-  <li><a href="#divergence-theorem" id="toc-divergence-theorem" class="nav-link" data-scroll-target="#divergence-theorem"><span class="header-section-number">2.3.1</span> Divergence Theorem</a></li>
-  <li><a href="#further-useful-theorems-from-analysis" id="toc-further-useful-theorems-from-analysis" class="nav-link" data-scroll-target="#further-useful-theorems-from-analysis"><span class="header-section-number">2.3.2</span> Further useful theorems from Analysis</a></li>
+  <li><a href="#divergence-theorem" id="toc-divergence-theorem" class="nav-link" data-scroll-target="#divergence-theorem"><span class="header-section-number">3.3.1</span> Divergence Theorem</a></li>
+  <li><a href="#further-useful-theorems-from-analysis" id="toc-further-useful-theorems-from-analysis" class="nav-link" data-scroll-target="#further-useful-theorems-from-analysis"><span class="header-section-number">3.3.2</span> Further useful theorems from Analysis</a></li>
   </ul></li>
-  <li><a href="#functions-of-second-order-tensors" id="toc-functions-of-second-order-tensors" class="nav-link" data-scroll-target="#functions-of-second-order-tensors"><span class="header-section-number">2.4</span> Functions of second-order tensors</a>
+  <li><a href="#functions-of-second-order-tensors" id="toc-functions-of-second-order-tensors" class="nav-link" data-scroll-target="#functions-of-second-order-tensors"><span class="header-section-number">3.4</span> Functions of second-order tensors</a>
   <ul class="collapse">
-  <li><a href="#scalar-valued-functions-of-second-order-tensors" id="toc-scalar-valued-functions-of-second-order-tensors" class="nav-link" data-scroll-target="#scalar-valued-functions-of-second-order-tensors"><span class="header-section-number">2.4.1</span> Scalar-valued functions of second-order tensors</a></li>
+  <li><a href="#scalar-valued-functions-of-second-order-tensors" id="toc-scalar-valued-functions-of-second-order-tensors" class="nav-link" data-scroll-target="#scalar-valued-functions-of-second-order-tensors"><span class="header-section-number">3.4.1</span> Scalar-valued functions of second-order tensors</a></li>
   </ul></li>
-  <li><a href="#time-derivative-of-determinant" id="toc-time-derivative-of-determinant" class="nav-link" data-scroll-target="#time-derivative-of-determinant"><span class="header-section-number">2.5</span> Time derivative of determinant</a></li>
+  <li><a href="#time-derivative-of-determinant" id="toc-time-derivative-of-determinant" class="nav-link" data-scroll-target="#time-derivative-of-determinant"><span class="header-section-number">3.5</span> Time derivative of determinant</a></li>
   </ul>
 </nav>
     </div>
@@ -231,7 +231,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-tensor-calculus" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tensor Calculus</span></span></h1>
+<h1 class="title"><span id="sec-tensor-calculus" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tensor Calculus</span></span></h1>
 </div>
 
 
@@ -251,8 +251,8 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<section id="preliminaries" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="preliminaries"><span class="header-section-number">2.1</span> Preliminaries</h2>
+<section id="preliminaries" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="preliminaries"><span class="header-section-number">3.1</span> Preliminaries</h2>
 <p>Realistic bodies have properties which vary from place to place within them. If we seek to describe their properties using the language of tensors introduced in the previous chapter, then a way to describe their properties is through tensor-valued functions which assign properties to spatial points in the body. More specifically, this chapter will consider functions <span class="math inline">\phi:{\mathbb{E}}^3\to{\mathbb{R}}</span>, <span class="math inline">{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathcal{V}}</span> and <span class="math inline">{\boldsymbol{S}}:{\mathbb{E}}^3\to{\mathcal{V}}^2</span> which describe these properties. We will also wish to consider functions which describe changes in the shape of a body, which take the form <span class="math inline">{\boldsymbol{\varphi}}:{\mathbb{E}}^3\to{\mathbb{E}}^3</span>, <span class="math inline">g:{\mathcal{V}}^2\to{\mathbb{R}}</span> and <span class="math inline">{\boldsymbol{A}}:{\mathcal{V}}^2\to{\mathcal{V}}^2</span>. Many of these concepts will already be very familiar to you from earlier calculus modules.</p>
 <p><strong>Aims.</strong> By the end of this chapter, you should be able to:</p>
 <ul>
@@ -262,8 +262,8 @@ window.Quarto = {
 <li><p>Recall and apply the Divergence Theorem, the Localisation Theorem and the Mean Value Theorem for multidimensional integrals.</p></li>
 <li><p>Understand how to differentiate functions of second-order tensors.</p></li>
 </ul>
-<section id="points-tensors-and-representations" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="points-tensors-and-representations"><span class="header-section-number">2.1.1</span> Points, tensors and representations</h3>
+<section id="points-tensors-and-representations" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="points-tensors-and-representations"><span class="header-section-number">3.1.1</span> Points, tensors and representations</h3>
 <p>Throughout this chapter, we assume that a single fixed Cartesian coordinate frame <span class="math inline">\{{\boldsymbol{e}}_i\}</span> has be specified for Euclidean space <span class="math inline">{\mathbb{E}}^3</span>, and we identify points <span class="math inline">{\boldsymbol{x}}\in{\mathbb{E}}^3</span>, vectors <span class="math inline">{\boldsymbol{v}}\in{\mathcal{V}}</span> and second-order tensors <span class="math inline">{\boldsymbol{S}}\in{\mathcal{V}}^2</span> with their respective matrix representations, writing <span class="math display">\begin{gathered}
   {\boldsymbol{x}}= x_i{\boldsymbol{e}}_i = \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right)\in{\mathbb{R}}^3,\quad
   {\boldsymbol{v}}= v_i{\boldsymbol{e}}_i = \left(\begin{array}{c} v_1 \\ v_2 \\ v_3 \end{array}\right)\in{\mathbb{R}}^3\\
@@ -275,8 +275,8 @@ window.Quarto = {
         \end{array}\right)\in{\mathbb{R}}^{3\times 3}.
 \end{gathered}</span> It follows that we have identified <span class="math inline">{\mathbb{E}}^3</span> and <span class="math inline">{\mathcal{V}}</span> both with <span class="math inline">{\mathbb{R}}^3</span>, and <span class="math inline">{\mathcal{V}}^2</span> with <span class="math inline">{\mathbb{R}}^{3\times3}</span>. Any function of a spatial point <span class="math inline">{\boldsymbol{x}}</span> is a function of the three real variables <span class="math inline">(x_1,x_2,x_3)</span>, and a function of a second-order tensor <span class="math inline">{\boldsymbol{S}}</span> is a function of nine real variables, <span class="math inline">(S_{11},S_{12},\dots,S_{33})</span>.</p>
 </section>
-<section id="norms-and-order-symbols" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="norms-and-order-symbols"><span class="header-section-number">2.1.2</span> Norms and order symbols</h3>
+<section id="norms-and-order-symbols" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="norms-and-order-symbols"><span class="header-section-number">3.1.2</span> Norms and order symbols</h3>
 <p>The standard <em>norms</em> on the spaces <span class="math inline">{\mathbb{E}}^3</span>, <span class="math inline">{\mathcal{V}}</span> and <span class="math inline">{\mathcal{V}}^2</span> are the scalar functions <span class="math display">\begin{aligned}
   |{\boldsymbol{x}}|&amp;=\sqrt{{\boldsymbol{x}}\cdot{\boldsymbol{x}}}&amp;&amp;\text{for any }{\boldsymbol{x}}\in{\mathbb{E}}^3,\\
   |{\boldsymbol{v}}|&amp;=\sqrt{{\boldsymbol{v}}\cdot{\boldsymbol{v}}}&amp;&amp;\text{for any }{\boldsymbol{v}}\in{\mathcal{V}},\\
@@ -288,16 +288,16 @@ window.Quarto = {
 <p>Given two functions <span class="math inline">{\boldsymbol{f}},{\boldsymbol{g}}:U\to W</span>, we will use the notation <span class="math display">{\boldsymbol{f}}({\boldsymbol{u}}) = {\boldsymbol{g}}({\boldsymbol{u}})+{O}(|{\boldsymbol{u}}|^r)\quad\text{as }{\boldsymbol{u}}\to\bf0</span> to mean that <span class="math display">{\boldsymbol{f}}({\boldsymbol{u}}) - {\boldsymbol{g}}({\boldsymbol{u}}) = {O}(|{\boldsymbol{u}}|^r)\quad\text{as }{\boldsymbol{u}}\to\bf0,</span> and the same for the order symbol <span class="math inline">{o}</span>. We sometimes indicate the limit <span class="math inline">{\boldsymbol{u}}\to\bf0</span> using the informal terminology ‘for <span class="math inline">{\boldsymbol{u}}</span> small’.</p>
 </section>
 </section>
-<section id="differentiation-of-tensor-fields" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="differentiation-of-tensor-fields"><span class="header-section-number">2.2</span> Differentiation of tensor fields</h2>
+<section id="differentiation-of-tensor-fields" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="differentiation-of-tensor-fields"><span class="header-section-number">3.2</span> Differentiation of tensor fields</h2>
 <p>In this module, a <em>field</em> is a function defined in a region of <span class="math inline">{\mathbb{E}}^3</span>. A <em>scalar field</em> means a function <span class="math inline">\phi:{\mathbb{E}}^3\to{\mathbb{R}}</span>, a <em>vector field</em> means a function <span class="math inline">{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathcal{V}}</span>, and a <em>second-order tensor field</em> means a function <span class="math inline">{\boldsymbol{S}}:{\mathbb{E}}^3\to{\mathcal{V}}^2</span>. This section will discuss the definitions and properties of various differential operators we may apply to these fields.</p>
-<section id="derivatives-gradients" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="derivatives-gradients"><span class="header-section-number">2.2.1</span> Derivatives, gradients</h3>
+<section id="derivatives-gradients" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="derivatives-gradients"><span class="header-section-number">3.2.1</span> Derivatives, gradients</h3>
 <p>The derivative or gradient of a field is the central notion of differentiation: other operations will be based on these basic definitions.</p>
 <p>A scalar field <span class="math inline">\phi:{\mathbb{E}}^3\to{\mathbb{R}}</span> is said to be differentiable at <span class="math inline">{\boldsymbol{x}}\in{\mathbb{E}}^3</span> if there exists a vector <span class="math inline">\nabla \phi({\boldsymbol{x}})\in{\mathcal{V}}</span> such that <span class="math display">\phi({\boldsymbol{x}}+{\boldsymbol{h}}) = \phi({\boldsymbol{x}}) +\nabla \phi({\boldsymbol{x}})\cdot{\boldsymbol{h}}+{o}(|{\boldsymbol{h}}|),</span> or equivalently, such that <span class="math display">\nabla\phi({\boldsymbol{x}})\cdot{\boldsymbol{a}}= \frac{d}{d\alpha}\phi({\boldsymbol{x}}+\alpha{\boldsymbol{a}})\bigg|_{\alpha=0}\quad\text{for all }{\boldsymbol{a}}\in{\mathcal{V}},</span> where <span class="math inline">\alpha\in{\mathbb{R}}</span>. <span class="math inline">\nabla\phi({\boldsymbol{x}})</span> is called the <em>derivative</em> or <em>gradient</em> of <span class="math inline">\phi</span> at the point <span class="math inline">{\boldsymbol{x}}</span>.</p>
 <p>A vector field <span class="math inline">{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathcal{V}}</span> is said to be differentiable at <span class="math inline">{\boldsymbol{x}}\in{\mathbb{E}}^3</span> if there exists a second-order tensor <span class="math inline">\nabla {\boldsymbol{v}}({\boldsymbol{x}})\in{\mathcal{V}}^2</span> such that <span class="math display">{\boldsymbol{v}}({\boldsymbol{x}}+{\boldsymbol{h}}) = {\boldsymbol{v}}({\boldsymbol{x}}) +\nabla {\boldsymbol{v}}({\boldsymbol{x}}){\boldsymbol{h}}+{o}(|{\boldsymbol{h}}|),</span> or equivalently, such that <span class="math display">\nabla{\boldsymbol{v}}({\boldsymbol{x}}){\boldsymbol{a}}= \frac{d}{d\alpha}{\boldsymbol{v}}({\boldsymbol{x}}+\alpha{\boldsymbol{a}})\bigg|_{\alpha=0}\quad\text{for all }{\boldsymbol{a}}\in{\mathcal{V}},</span> where <span class="math inline">\alpha\in{\mathbb{R}}</span>. <span class="math inline">\nabla{\boldsymbol{v}}({\boldsymbol{x}})</span> is again called the <em>derivative</em> or <em>gradient</em> of <span class="math inline">{\boldsymbol{v}}</span> at the point <span class="math inline">{\boldsymbol{x}}</span>.</p>
 <div id="prp-gradientincoords" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.1 (Gradients in coordinates)</strong></span> Suppose that <span class="math inline">\phi:{\mathbb{E}}^3\to{\mathbb{R}}</span> and <span class="math inline">{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathcal{V}}</span> are differentiable at <span class="math inline">{\boldsymbol{x}}</span>, and let <span class="math inline">\{{\boldsymbol{e}}_i\}</span> be an arbitrary Cartesian coordinate frame. Then <span class="math display">\nabla\phi({\boldsymbol{x}}) = \frac{\partial\phi}{\partial x_i}({\boldsymbol{x}}){\boldsymbol{e}}_i\quad\text{and}\quad
+<p><span class="theorem-title"><strong>Proposition 3.1 (Gradients in coordinates)</strong></span> Suppose that <span class="math inline">\phi:{\mathbb{E}}^3\to{\mathbb{R}}</span> and <span class="math inline">{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathcal{V}}</span> are differentiable at <span class="math inline">{\boldsymbol{x}}</span>, and let <span class="math inline">\{{\boldsymbol{e}}_i\}</span> be an arbitrary Cartesian coordinate frame. Then <span class="math display">\nabla\phi({\boldsymbol{x}}) = \frac{\partial\phi}{\partial x_i}({\boldsymbol{x}}){\boldsymbol{e}}_i\quad\text{and}\quad
     \nabla{\boldsymbol{v}}({\boldsymbol{x}}) = \frac{\partial v_i}{\partial x_j}({\boldsymbol{x}}){\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j,</span> where <span class="math inline">{\boldsymbol{v}}({\boldsymbol{x}}) = v_i({\boldsymbol{x}}){\boldsymbol{e}}_i</span> and <span class="math inline">x_i</span> are the coordinates of <span class="math inline">{\boldsymbol{x}}</span> in the frame considered.</p>
 </div>
 <div class="proof">
@@ -306,20 +306,20 @@ window.Quarto = {
 </div>
 <p><strong>Important note:</strong> We will often use the shorthand <span class="math inline">\phi_{,i}</span> to denote <span class="math inline">\frac{\partial \phi}{\partial x_i}</span> and <span class="math inline">v_{i,j}</span> to denote <span class="math inline">\frac{\partial v_i}{\partial x_j}</span>.</p>
 </section>
-<section id="divergence" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="divergence"><span class="header-section-number">2.2.2</span> Divergence</h3>
+<section id="divergence" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="divergence"><span class="header-section-number">3.2.2</span> Divergence</h3>
 <p>The <em>divergence</em> of a vector field <span class="math inline">{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathcal{V}}</span> is the scalar field <span class="math inline">\nabla\cdot{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathbb{R}}</span> defined to be <span class="math display">\nabla\cdot{\boldsymbol{v}}= {\operatorname{tr}}(\nabla{\boldsymbol{v}}).</span> If <span class="math inline">{\boldsymbol{v}}</span> is the velocity field in a flowing fluid, then <span class="math inline">(\nabla\cdot{\boldsymbol{v}})({\boldsymbol{x}})</span> can be interpreted as the rate of volume expansion at the point <span class="math inline">{\boldsymbol{x}}</span>.</p>
 <p>Similarly, we can also define a divergence for second-order tensor fields. If <span class="math inline">{\boldsymbol{S}}:{\mathbb{E}}^3\to{\mathcal{V}}^2</span>, then the vector field <span class="math inline">\nabla\cdot{\boldsymbol{S}}:{\mathbb{E}}^3\to{\mathcal{V}}</span> is defined to be the vector field which satisfies <span class="math display">(\nabla \cdot {\boldsymbol{S}})\cdot {\boldsymbol{a}}= \nabla \cdot({\boldsymbol{S}}^T{\boldsymbol{a}})</span> for all constant vectors <span class="math inline">{\boldsymbol{a}}\in{\mathcal{V}}</span>. The field <span class="math inline">\nabla\cdot{\boldsymbol{S}}</span> is again called the <em>divergence</em> of <span class="math inline">{\boldsymbol{S}}</span>.</p>
 <p>The following result provides a coordinate expression for these two notions of divergence in any coordinate frame.</p>
 <div id="prp-divincoords" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.2 (Divergence in coordinates)</strong></span> Let <span class="math inline">\{{\boldsymbol{e}}_i\}</span> be an arbitrary coordinate frame, and let <span class="math inline">{\boldsymbol{v}}({\boldsymbol{x}}) = v_i({\boldsymbol{x}}){\boldsymbol{e}}_i</span>, and <span class="math inline">{\boldsymbol{S}}({\boldsymbol{x}}) = S_{ij}({\boldsymbol{x}}){\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j</span>. Then <span class="math display">(\nabla\cdot{\boldsymbol{v}})({\boldsymbol{x}}) = \frac{\partial v_i}{\partial x_i}({\boldsymbol{x}}) = v_{i,i}({\boldsymbol{x}})
+<p><span class="theorem-title"><strong>Proposition 3.2 (Divergence in coordinates)</strong></span> Let <span class="math inline">\{{\boldsymbol{e}}_i\}</span> be an arbitrary coordinate frame, and let <span class="math inline">{\boldsymbol{v}}({\boldsymbol{x}}) = v_i({\boldsymbol{x}}){\boldsymbol{e}}_i</span>, and <span class="math inline">{\boldsymbol{S}}({\boldsymbol{x}}) = S_{ij}({\boldsymbol{x}}){\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j</span>. Then <span class="math display">(\nabla\cdot{\boldsymbol{v}})({\boldsymbol{x}}) = \frac{\partial v_i}{\partial x_i}({\boldsymbol{x}}) = v_{i,i}({\boldsymbol{x}})
     \quad\text{and}\quad (\nabla\cdot{\boldsymbol{S}})({\boldsymbol{x}}) = \frac{\partial S_{ij}}{\partial x_j}({\boldsymbol{x}}){\boldsymbol{e}}_i = S_{ij,j}{\boldsymbol{e}}_i,</span> where <span class="math inline">x_i</span> are the coordinates of <span class="math inline">{\boldsymbol{x}}</span> with respect to the frame.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>We prove only the second expression, since the first follows directly from <a href="#prp-gradientincoords" class="quarto-xref">Proposition&nbsp;<span>2.1</span></a> and the component expression for the trace. Fix <span class="math inline">{\boldsymbol{a}}= a_k{\boldsymbol{e}}_k</span> and let <span class="math inline">{\boldsymbol{q}}= {\boldsymbol{S}}^T{\boldsymbol{a}}</span>. In components, we have <span class="math inline">{\boldsymbol{q}}= q_j{\boldsymbol{e}}_j</span> with <span class="math inline">q_j = S_{ij}a_i</span>. Then, using the definition and the first expression, we have <span class="math display">(\nabla \cdot{\boldsymbol{S}})\cdot{\boldsymbol{a}}= \nabla\cdot{\boldsymbol{q}}= q_{i,i} = S_{ij,j}a_i = \big(s_{ij,j}{\boldsymbol{e}}_i\big)\cdot a_k{\boldsymbol{e}}_k.</span> Since this holds for any <span class="math inline">{\boldsymbol{a}}\in{\mathcal{V}}</span>, we have that <span class="math inline">\nabla \cdot{\boldsymbol{S}}= S_{ij,j}{\boldsymbol{e}}_i</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>We prove only the second expression, since the first follows directly from <a href="#prp-gradientincoords" class="quarto-xref">Proposition&nbsp;<span>3.1</span></a> and the component expression for the trace. Fix <span class="math inline">{\boldsymbol{a}}= a_k{\boldsymbol{e}}_k</span> and let <span class="math inline">{\boldsymbol{q}}= {\boldsymbol{S}}^T{\boldsymbol{a}}</span>. In components, we have <span class="math inline">{\boldsymbol{q}}= q_j{\boldsymbol{e}}_j</span> with <span class="math inline">q_j = S_{ij}a_i</span>. Then, using the definition and the first expression, we have <span class="math display">(\nabla \cdot{\boldsymbol{S}})\cdot{\boldsymbol{a}}= \nabla\cdot{\boldsymbol{q}}= q_{i,i} = S_{ij,j}a_i = \big(s_{ij,j}{\boldsymbol{e}}_i\big)\cdot a_k{\boldsymbol{e}}_k.</span> Since this holds for any <span class="math inline">{\boldsymbol{a}}\in{\mathcal{V}}</span>, we have that <span class="math inline">\nabla \cdot{\boldsymbol{S}}= S_{ij,j}{\boldsymbol{e}}_i</span>.</p>
 </div>
 <div id="prp-productrules" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.3 (Product rules)</strong></span> Let <span class="math inline">\phi</span>, <span class="math inline">{\boldsymbol{v}}</span> and <span class="math inline">{\boldsymbol{S}}</span> respectively be scalar, vector and second-order tensor fields. Then <span class="math display">
+<p><span class="theorem-title"><strong>Proposition 3.3 (Product rules)</strong></span> Let <span class="math inline">\phi</span>, <span class="math inline">{\boldsymbol{v}}</span> and <span class="math inline">{\boldsymbol{S}}</span> respectively be scalar, vector and second-order tensor fields. Then <span class="math display">
 \begin{gathered}
     \nabla(\phi{\boldsymbol{v}}) = {\boldsymbol{v}}\otimes\nabla\phi+\phi\nabla{\boldsymbol{v}},\\
     \nabla\cdot(\phi{\boldsymbol{S}}) = \phi\nabla\cdot{\boldsymbol{S}}+{\boldsymbol{S}}\nabla\phi,\\
@@ -329,28 +329,28 @@ window.Quarto = {
 </div>
 <p><strong>Exercise:</strong> Prove this proposition by using the component expressions given above.</p>
 </section>
-<section id="curl" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="curl"><span class="header-section-number">2.2.3</span> Curl</h3>
+<section id="curl" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="curl"><span class="header-section-number">3.2.3</span> Curl</h3>
 <p>The <em>curl</em> of a vector field <span class="math inline">{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathcal{V}}</span> is the vector field <span class="math inline">\nabla\times{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathcal{V}}</span> which satisfies <span class="math display">(\nabla\times{\boldsymbol{f}})\times{\boldsymbol{a}}= (\nabla{\boldsymbol{v}}-\nabla {\boldsymbol{v}}^T){\boldsymbol{a}}</span> for any constant vector <span class="math inline">{\boldsymbol{a}}\in{\mathcal{V}}</span>.</p>
 <p>If <span class="math inline">{\boldsymbol{v}}</span> is the velocity field of a flowing fluid, then the curl provides information on the rate and direction of rotation of this field. In practice, we use the following result to compute the curl in a particular coordinate frame.</p>
 <div id="prp-curlincoords" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.4 (Curl in coordinates)</strong></span> Let <span class="math inline">\{{\boldsymbol{e}}_i\}</span> be an arbitrary Cartesian coordinate frame, and let <span class="math inline">{\boldsymbol{v}}({\boldsymbol{x}}) = v_i({\boldsymbol{x}}){\boldsymbol{e}}_i</span>. Then <span class="math display">(\nabla\times{\boldsymbol{v}})({\boldsymbol{x}}) = \epsilon_{ijk}v_{i,k}({\boldsymbol{x}}){\boldsymbol{e}}_j,</span> where <span class="math inline">x_i</span> are the coordinates of <span class="math inline">{\boldsymbol{x}}</span> with respect to the frame. Equivalently, we have <span class="math display">\nabla\times{\boldsymbol{v}}= \bigg(\frac{\partial v_3}{\partial x_2}-\frac{\partial v_2}{\partial x_3}\bigg){\boldsymbol{e}}_1+\bigg(\frac{\partial v_1}{\partial x_3}-\frac{\partial v_3}{\partial x_1}\bigg){\boldsymbol{e}}_2+\bigg(\frac{\partial v_2}{\partial x_1}-\frac{\partial v_1}{\partial x_2}\bigg){\boldsymbol{e}}_3.</span></p>
+<p><span class="theorem-title"><strong>Proposition 3.4 (Curl in coordinates)</strong></span> Let <span class="math inline">\{{\boldsymbol{e}}_i\}</span> be an arbitrary Cartesian coordinate frame, and let <span class="math inline">{\boldsymbol{v}}({\boldsymbol{x}}) = v_i({\boldsymbol{x}}){\boldsymbol{e}}_i</span>. Then <span class="math display">(\nabla\times{\boldsymbol{v}})({\boldsymbol{x}}) = \epsilon_{ijk}v_{i,k}({\boldsymbol{x}}){\boldsymbol{e}}_j,</span> where <span class="math inline">x_i</span> are the coordinates of <span class="math inline">{\boldsymbol{x}}</span> with respect to the frame. Equivalently, we have <span class="math display">\nabla\times{\boldsymbol{v}}= \bigg(\frac{\partial v_3}{\partial x_2}-\frac{\partial v_2}{\partial x_3}\bigg){\boldsymbol{e}}_1+\bigg(\frac{\partial v_1}{\partial x_3}-\frac{\partial v_3}{\partial x_1}\bigg){\boldsymbol{e}}_2+\bigg(\frac{\partial v_2}{\partial x_1}-\frac{\partial v_1}{\partial x_2}\bigg){\boldsymbol{e}}_3.</span></p>
 </div>
 </section>
-<section id="laplacian" class="level3" data-number="2.2.4">
-<h3 data-number="2.2.4" class="anchored" data-anchor-id="laplacian"><span class="header-section-number">2.2.4</span> Laplacian</h3>
+<section id="laplacian" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="laplacian"><span class="header-section-number">3.2.4</span> Laplacian</h3>
 <p>The <em>Laplacian</em> of a scalar field <span class="math inline">\phi:{\mathbb{E}}^3\to{\mathbb{R}}</span> is the scalar field <span class="math inline">\nabla^2\phi:{\mathbb{E}}^3\to{\mathbb{R}}</span> defined via <span class="math display">\nabla^2\phi = \nabla\cdot(\nabla \phi).</span> Likewise, the <em>Laplacian</em> of a vector field <span class="math inline">{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathcal{V}}</span> is the vector field <span class="math inline">\nabla^2{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathcal{V}}</span> defined by <span class="math display">\nabla^2{\boldsymbol{v}}= \nabla\cdot(\nabla {\boldsymbol{v}}).</span> We remark that in alternative standard notation the Laplacian is also often denoted <span class="math inline">\Delta</span>, i.e.&nbsp;<span class="math inline">\Delta\phi=\nabla^2\phi</span>. In coordinates, we have the following representation.</p>
 <div id="prp-Laplacianincoords" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.5 (Laplacian in coordinates)</strong></span> Let <span class="math inline">\{{\boldsymbol{e}}_i\}</span> be an arbitrary Cartesian coordinate frame, and let <span class="math inline">{\boldsymbol{v}}({\boldsymbol{x}}) = v_i({\boldsymbol{x}}){\boldsymbol{e}}_i</span>. Then <span class="math display">\nabla^2\phi({\boldsymbol{x}}) = \phi_{,ii}({\boldsymbol{x}}) \quad\text{and}\quad\nabla^2{\boldsymbol{v}}({\boldsymbol{x}}) = v_{i,jj}({\boldsymbol{x}}){\boldsymbol{e}}_i,</span> where <span class="math inline">x_i</span> are the coordinates of <span class="math inline">{\boldsymbol{x}}</span> with respect to the frame.</p>
+<p><span class="theorem-title"><strong>Proposition 3.5 (Laplacian in coordinates)</strong></span> Let <span class="math inline">\{{\boldsymbol{e}}_i\}</span> be an arbitrary Cartesian coordinate frame, and let <span class="math inline">{\boldsymbol{v}}({\boldsymbol{x}}) = v_i({\boldsymbol{x}}){\boldsymbol{e}}_i</span>. Then <span class="math display">\nabla^2\phi({\boldsymbol{x}}) = \phi_{,ii}({\boldsymbol{x}}) \quad\text{and}\quad\nabla^2{\boldsymbol{v}}({\boldsymbol{x}}) = v_{i,jj}({\boldsymbol{x}}){\boldsymbol{e}}_i,</span> where <span class="math inline">x_i</span> are the coordinates of <span class="math inline">{\boldsymbol{x}}</span> with respect to the frame.</p>
 </div>
 <p><strong>Exercise:</strong> Prove this proposition.</p>
 </section>
 </section>
-<section id="some-important-integral-theorems" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="some-important-integral-theorems"><span class="header-section-number">2.3</span> Some important integral theorems</h2>
+<section id="some-important-integral-theorems" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="some-important-integral-theorems"><span class="header-section-number">3.3</span> Some important integral theorems</h2>
 <p>In this section, we provide statements of various important theorems about integrals. We will use these theorems to convert between integral and differential forms of the balance laws we derive later, and to prove various other facts about the physical tensors we study.</p>
-<section id="divergence-theorem" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="divergence-theorem"><span class="header-section-number">2.3.1</span> Divergence Theorem</h3>
+<section id="divergence-theorem" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="divergence-theorem"><span class="header-section-number">3.3.1</span> Divergence Theorem</h3>
 <p>Recall that the divergence theorem for vector fields connects the volume integral of the divergence of a field over a region to the total flux across the boundary of the region. Various versions of this theorem can be proved under different assumptions on the properties of the region. The particular class of regions <span class="math inline">B\subset{\mathbb{E}}^3</span> we will consider are those which are <em>regular</em> in the sense that:</p>
 <ul>
 <li><p><span class="math inline">B</span> consists of a finite number of disjoint, open and bounded components;</p></li>
@@ -359,17 +359,17 @@ window.Quarto = {
 </ul>
 <p>Examples of regions that do fit these assumptions include pretty much all shapes we would like to consider for the purposes of modelling, but it is worth thinking about what sorts of regions do not fit these assumptions!</p>
 <div id="prp-vectordivtheorem" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.6 (Vector divergence theorem)</strong></span> Suppose <span class="math inline">B</span> is a regular region in <span class="math inline">{\mathbb{E}}^3</span> with a piecewise smooth boundary <span class="math inline">\partial B</span>, and consider a vector field <span class="math inline">{\boldsymbol{v}}:B\to{\mathcal{V}}</span>. Then <span class="math display">\int_{\partial B} {\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,\d A_{{\boldsymbol{x}}}}= \int_B\nabla\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{x}}}},</span> or in components, <span class="math display">\int_{\partial B}v_in_i {\,\d A_{{\boldsymbol{x}}}}= \int_Bv_{i,i} {\,\d V_{{\boldsymbol{x}}}},</span> where <span class="math inline">{\boldsymbol{n}}</span> is the outward-point unit normal field on <span class="math inline">\partial B</span>. The quantity on the left-hand side of these equations is called the <em>flux</em> of <span class="math inline">{\boldsymbol{v}}</span> across the oriented surface <span class="math inline">\partial B</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 3.6 (Vector divergence theorem)</strong></span> Suppose <span class="math inline">B</span> is a regular region in <span class="math inline">{\mathbb{E}}^3</span> with a piecewise smooth boundary <span class="math inline">\partial B</span>, and consider a vector field <span class="math inline">{\boldsymbol{v}}:B\to{\mathcal{V}}</span>. Then <span class="math display">\int_{\partial B} {\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}= \int_B\nabla\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}},</span> or in components, <span class="math display">\int_{\partial B}v_in_i {\,{\mathrm{d}}A_{{\boldsymbol{x}}}}= \int_Bv_{i,i} {\,{\mathrm{d}}V_{{\boldsymbol{x}}}},</span> where <span class="math inline">{\boldsymbol{n}}</span> is the outward-point unit normal field on <span class="math inline">\partial B</span>. The quantity on the left-hand side of these equations is called the <em>flux</em> of <span class="math inline">{\boldsymbol{v}}</span> across the oriented surface <span class="math inline">\partial B</span>.</p>
 </div>
 <p>We note that this theorem allows us to understand what the divergence of a vector field really means. Consider a point <span class="math inline">{\boldsymbol{y}}</span>, and the ball of radius <span class="math inline">\delta</span> around that point, <span class="math inline">B_\delta({\boldsymbol{y}})</span>. If <span class="math inline">{\boldsymbol{v}}</span> is smooth, we can use the Divergence theorem and Taylor expand the argument in the volume integral to conclude that <span class="math display">\begin{aligned}
-  \int_{\partial B_\delta({\boldsymbol{y}})}{\boldsymbol{v}}({\boldsymbol{x}})\cdot{\boldsymbol{n}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}
-  &amp;= \int_{B_\delta({\boldsymbol{y}})}(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}\\
-  &amp;= \int_{B_\delta({\boldsymbol{y}})}\big[(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{y}})+{O}(\delta)\big]{\,\d V_{{\boldsymbol{x}}}}\\
+  \int_{\partial B_\delta({\boldsymbol{y}})}{\boldsymbol{v}}({\boldsymbol{x}})\cdot{\boldsymbol{n}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}
+  &amp;= \int_{B_\delta({\boldsymbol{y}})}(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
+  &amp;= \int_{B_\delta({\boldsymbol{y}})}\big[(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{y}})+{O}(\delta)\big]{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
   &amp;= {\operatorname{vol}}\big(B_\delta({\boldsymbol{y}})\big)\big[(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{y}})+{O}(\delta)\big].
-\end{aligned}</span> This implies that, in the limit as <span class="math inline">\delta\to0</span>, <span class="math display">(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{y}}) = \lim_{\delta\to0}\frac{1}{{\operatorname{vol}}(B_\delta({\boldsymbol{y}}))}\int_{\partial B_\delta({\boldsymbol{y}})}{\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,\d A_{{\boldsymbol{x}}}}.</span> If we interpret <span class="math inline">{\boldsymbol{v}}</span> as a velocity field of a fluid, then the flux integral is the volume of fluid per unit time leaving <span class="math inline">B_\delta({\boldsymbol{y}})</span>. When divided by the volume, we therefore obtain the proportion of fluid leaving <span class="math inline">B_\delta({\boldsymbol{y}})</span> per unit time, and so <span class="math inline">(\nabla\cdot{\boldsymbol{v}})({\boldsymbol{y}})</span> is a measure of the volume expansion at the point <span class="math inline">{\boldsymbol{y}}</span>.</p>
+\end{aligned}</span> This implies that, in the limit as <span class="math inline">\delta\to0</span>, <span class="math display">(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{y}}) = \lim_{\delta\to0}\frac{1}{{\operatorname{vol}}(B_\delta({\boldsymbol{y}}))}\int_{\partial B_\delta({\boldsymbol{y}})}{\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.</span> If we interpret <span class="math inline">{\boldsymbol{v}}</span> as a velocity field of a fluid, then the flux integral is the volume of fluid per unit time leaving <span class="math inline">B_\delta({\boldsymbol{y}})</span>. When divided by the volume, we therefore obtain the proportion of fluid leaving <span class="math inline">B_\delta({\boldsymbol{y}})</span> per unit time, and so <span class="math inline">(\nabla\cdot{\boldsymbol{v}})({\boldsymbol{y}})</span> is a measure of the volume expansion at the point <span class="math inline">{\boldsymbol{y}}</span>.</p>
 <p>We can generalise the divergence theorem to second-order tensors as follows:</p>
 <div id="prp-tensordivthm" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.7 (Tensor divergence theorem)</strong></span> Suppose <span class="math inline">B</span> is a regular region in <span class="math inline">{\mathbb{E}}^3</span> with a piecewise smooth boundary <span class="math inline">\partial B</span>, and consider a second-order tensor field <span class="math inline">{\boldsymbol{S}}:B\to{\mathcal{V}}^2</span>. Then <span class="math display">\int_{\partial B} {\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{x}}}}= \int_B\nabla\cdot{\boldsymbol{S}}{\,\d V_{{\boldsymbol{x}}}},</span> or in components, <span class="math display">\int_{\partial B}S_{ij}n_j {\,\d A_{{\boldsymbol{x}}}}= \int_BS_{ij,j} {\,\d V_{{\boldsymbol{x}}}},</span> where <span class="math inline">{\boldsymbol{n}}</span> is the outward-point unit normal field on <span class="math inline">\partial B</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 3.7 (Tensor divergence theorem)</strong></span> Suppose <span class="math inline">B</span> is a regular region in <span class="math inline">{\mathbb{E}}^3</span> with a piecewise smooth boundary <span class="math inline">\partial B</span>, and consider a second-order tensor field <span class="math inline">{\boldsymbol{S}}:B\to{\mathcal{V}}^2</span>. Then <span class="math display">\int_{\partial B} {\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}= \int_B\nabla\cdot{\boldsymbol{S}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}},</span> or in components, <span class="math display">\int_{\partial B}S_{ij}n_j {\,{\mathrm{d}}A_{{\boldsymbol{x}}}}= \int_BS_{ij,j} {\,{\mathrm{d}}V_{{\boldsymbol{x}}}},</span> where <span class="math inline">{\boldsymbol{n}}</span> is the outward-point unit normal field on <span class="math inline">\partial B</span>.</p>
 </div>
 <!-- ### Stokes Theorem -->
 <!-- Next, we recap Stokes' theorem, which relates the line integral of a -->
@@ -422,30 +422,30 @@ window.Quarto = {
 <!-- the fluid at the point $\bfy$ (in fact, $(\nabla\times\bfv)$ is twice -->
 <!-- the angular velocity). -->
 </section>
-<section id="further-useful-theorems-from-analysis" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="further-useful-theorems-from-analysis"><span class="header-section-number">2.3.2</span> Further useful theorems from Analysis</h3>
+<section id="further-useful-theorems-from-analysis" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="further-useful-theorems-from-analysis"><span class="header-section-number">3.3.2</span> Further useful theorems from Analysis</h3>
 <p>For some purposes we will need the following two theorems. The first, a localisation theorem, states that if the integral of a scalar field on any subset of its domain is zero, then the field itself must be zero everywhere. The second provides forms of the Mean Value Theorem for multidimensional integrals.</p>
 <div id="prp-localisation" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.8 (Localisation theorem)</strong></span> Consider a continuous function <span class="math inline">\phi:B\to{\mathbb{R}}</span> where <span class="math inline">B</span> is an open subset of <span class="math inline">{\mathbb{E}}^3</span>, and let <span class="math inline">\Omega</span> denote an arbitrary open subset of <span class="math inline">B</span>. If <span class="math display">\int_\Omega \phi({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}= 0\quad\text{for any }\Omega\subseteq B,</span> then it follows that <span class="math inline">\phi({\boldsymbol{x}})=0</span> for all <span class="math inline">{\boldsymbol{x}}\in B</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 3.8 (Localisation theorem)</strong></span> Consider a continuous function <span class="math inline">\phi:B\to{\mathbb{R}}</span> where <span class="math inline">B</span> is an open subset of <span class="math inline">{\mathbb{E}}^3</span>, and let <span class="math inline">\Omega</span> denote an arbitrary open subset of <span class="math inline">B</span>. If <span class="math display">\int_\Omega \phi({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}= 0\quad\text{for any }\Omega\subseteq B,</span> then it follows that <span class="math inline">\phi({\boldsymbol{x}})=0</span> for all <span class="math inline">{\boldsymbol{x}}\in B</span>.</p>
 </div>
 <p><strong>Exercise:</strong> Prove this by contradiction (assume that <span class="math inline">\phi</span> is non-zero somewhere, and proceed from here).</p>
 <div id="prp-MVTsurfaces" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.9 (Mean Value Theorem for surfaces)</strong></span> Let <span class="math inline">B</span> be an open, connected subset of <span class="math inline">{\mathbb{E}}^3</span>, and let <span class="math inline">\Sigma</span> be a compact, connected surface in <span class="math inline">B</span>. Suppose that <span class="math inline">\phi:B\to{\mathbb{R}}</span> is continuous; then there exist points <span class="math inline">{\boldsymbol{x}}'\in B</span> and <span class="math inline">{\boldsymbol{x}}''\in\Sigma</span> such that <span class="math display">\phi({\boldsymbol{x}}') = \frac{1}{{\operatorname{vol}}(B)}\int_B \phi({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}\quad\text{and}\quad
-    \phi({\boldsymbol{x}}'') = \frac{1}{{\operatorname{area}}(\Sigma)}\int_\Sigma \phi({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}.</span></p>
+<p><span class="theorem-title"><strong>Proposition 3.9 (Mean Value Theorem for surfaces)</strong></span> Let <span class="math inline">B</span> be an open, connected subset of <span class="math inline">{\mathbb{E}}^3</span>, and let <span class="math inline">\Sigma</span> be a compact, connected surface in <span class="math inline">B</span>. Suppose that <span class="math inline">\phi:B\to{\mathbb{R}}</span> is continuous; then there exist points <span class="math inline">{\boldsymbol{x}}'\in B</span> and <span class="math inline">{\boldsymbol{x}}''\in\Sigma</span> such that <span class="math display">\phi({\boldsymbol{x}}') = \frac{1}{{\operatorname{vol}}(B)}\int_B \phi({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\quad\text{and}\quad
+    \phi({\boldsymbol{x}}'') = \frac{1}{{\operatorname{area}}(\Sigma)}\int_\Sigma \phi({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.</span></p>
 </div>
 <p><strong>Exercise:</strong> Prove this. The method of proof is similar to the version you will have seen in Analysis, it just requires some more thought due to the multidimensional setting.</p>
 </section>
 </section>
-<section id="functions-of-second-order-tensors" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="functions-of-second-order-tensors"><span class="header-section-number">2.4</span> Functions of second-order tensors</h2>
+<section id="functions-of-second-order-tensors" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="functions-of-second-order-tensors"><span class="header-section-number">3.4</span> Functions of second-order tensors</h2>
 <p>In this section, we generalise the notions of derivatives which you know for functions which take scalars and vectors as input to the case where functions take second-order tensors a input. In general we consider functions <span class="math inline">\psi:{\mathcal{V}}^2\to{\mathbb{R}}</span>; examples of such functions include the trace, determinant and norm defined above. <!-- and $\bfSigma:\calV^2\to\calV^2$. --> <!-- Examples of the former functions include the trace and determinant, and --> <!-- examples of the latter include the exponential function introduced in --> <!-- Section [\[sec:second-order-tensors\]](#sec:second-order-tensors){reference-type="ref" --> <!-- reference="sec:second-order-tensors"}, as well as the stress response --> <!-- functions we will consider later. --></p>
-<section id="scalar-valued-functions-of-second-order-tensors" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="scalar-valued-functions-of-second-order-tensors"><span class="header-section-number">2.4.1</span> Scalar-valued functions of second-order tensors</h3>
+<section id="scalar-valued-functions-of-second-order-tensors" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="scalar-valued-functions-of-second-order-tensors"><span class="header-section-number">3.4.1</span> Scalar-valued functions of second-order tensors</h3>
 <p>A function <span class="math inline">\psi:{\mathcal{V}}^2\to{\mathbb{R}}</span> is said to be differentiable at <span class="math inline">{\boldsymbol{A}}\in{\mathcal{V}}^2</span> if there exists a second-order tensor <span class="math inline">D\psi({\boldsymbol{A}})\in{\mathcal{V}}^2</span> such that <span class="math display">\psi({\boldsymbol{A}}+{\boldsymbol{H}}) = \psi({\boldsymbol{A}}) + D\psi({\boldsymbol{A}}):{\boldsymbol{H}}+{o}(|{\boldsymbol{H}}|),</span> or equivalently, <span class="math display">D\psi({\boldsymbol{A}}):{\boldsymbol{B}}= \frac{d}{d\alpha}\psi({\boldsymbol{A}}+\alpha{\boldsymbol{B}})\bigg|_{\alpha=0}\quad\text{for all }{\boldsymbol{B}}\in{\mathcal{V}}^2,</span> where <span class="math inline">\alpha\in{\mathbb{R}}</span>. The tensor <span class="math inline">D\psi({\boldsymbol{A}})</span> is called the <em>derivative</em> of <span class="math inline">\psi</span> at <span class="math inline">{\boldsymbol{A}}</span>.</p>
 <p>If <span class="math inline">\psi</span> is differentiable at <span class="math inline">{\boldsymbol{A}}</span> the derivative is unique, a fact which can be shown in much the same way as for the derivative of a real-valued function. The second characterisation follows from the first by choosing <span class="math inline">{\boldsymbol{H}}=\alpha{\boldsymbol{B}}</span>, dividing by <span class="math inline">\alpha</span> and letting <span class="math inline">\alpha\to0</span>.</p>
 <p>The following result provides a characterisation of the derivative in any coordinate frame.</p>
 <div id="prp-derivativetensor2scalar" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.10 (Differentiating scalar functions of tensors)</strong></span> Let <span class="math inline">\{{\boldsymbol{e}}_i\}</span> be an arbitrary coordinate frame, and <span class="math inline">\psi:{\mathcal{V}}^2\to{\mathbb{R}}</span>. Then <span class="math display">D\psi({\boldsymbol{A}}) = \frac{\partial \psi}{\partial A_{ij}}({\boldsymbol{A}}){\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j,</span> where <span class="math inline">A_{ij}</span> are the components of <span class="math inline">{\boldsymbol{A}}\in{\mathcal{V}}^2</span> in the frame <span class="math inline">\{{\boldsymbol{e}}_i\}</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 3.10 (Differentiating scalar functions of tensors)</strong></span> Let <span class="math inline">\{{\boldsymbol{e}}_i\}</span> be an arbitrary coordinate frame, and <span class="math inline">\psi:{\mathcal{V}}^2\to{\mathbb{R}}</span>. Then <span class="math display">D\psi({\boldsymbol{A}}) = \frac{\partial \psi}{\partial A_{ij}}({\boldsymbol{A}}){\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j,</span> where <span class="math inline">A_{ij}</span> are the components of <span class="math inline">{\boldsymbol{A}}\in{\mathcal{V}}^2</span> in the frame <span class="math inline">\{{\boldsymbol{e}}_i\}</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Writing <span class="math inline">\psi</span> as a function of the components <span class="math inline">A_{ij}</span> (and abusing notation), we have <span class="math inline">\psi({\boldsymbol{A}}) = \psi(A_{11},A_{12}\ldots,A_{33})</span>. For any scalar <span class="math inline">\alpha</span> and tensor <span class="math inline">{\boldsymbol{B}}=B_{kl}{\boldsymbol{e}}_k\otimes {\boldsymbol{e}}_l</span>, this gives <span class="math display">\psi({\boldsymbol{A}}+\alpha{\boldsymbol{B}})=\psi(A_{11}+\alpha B_{11},\ldots,A_{33}+\alpha B_{33}).</span> Applying the chain rule, we have <span class="math display">
@@ -460,7 +460,7 @@ window.Quarto = {
 <p><strong>Example:</strong> Consider the function <span class="math inline">\psi:{\mathcal{V}}^2\to{\mathbb{R}}</span> defined by <span class="math display">\psi({\boldsymbol{A}})=\tfrac12 {\boldsymbol{A}}:{\boldsymbol{A}}= \tfrac12 A_{kl}A_{kl}.</span> To compute <span class="math inline">D\psi({\boldsymbol{A}})</span>, we compute the partial derivative with respect to a general component <span class="math inline">A_{ij}</span>, obtaining via the product rule that <span class="math display">\frac{\partial \psi}{\partial A_{ij}} = \frac12\frac{\partial A_{kl}}{\partial A_{ij}}A_{kl}+
   \frac12A_{kl}\frac{\partial A_{kl}}{\partial A_{ij}}=\frac{\partial A_{kl}}{\partial A_{ij}}A_{kl}.</span> Now, since <span class="math inline">\frac{\partial A_{kl}}{\partial A_{ij}}=\delta_{ik}\delta_{jl}</span>, we have <span class="math display">\frac{\partial \psi}{\partial A_{ij}} = \delta_{ik}\delta_{jl}A_{kl} = A_{ij},</span> and hence we deduce <span class="math inline">D\psi({\boldsymbol{A}}) = A_{ij}{\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j = {\boldsymbol{A}}</span>.</p>
 <div id="prp-derivativedet" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.11 (Derivative of determinant)</strong></span> Let <span class="math inline">\psi({\boldsymbol{S}}) = \det{\boldsymbol{S}}</span>. If <span class="math inline">{\boldsymbol{A}}</span> is invertible, then the derivative of <span class="math inline">\psi</span> at <span class="math inline">{\boldsymbol{A}}</span> is <span class="math display">D\psi({\boldsymbol{A}}) = \det({\boldsymbol{A}}){\boldsymbol{A}}^{-T}.</span> The second-order tensor <span class="math inline">\det({\boldsymbol{A}}){\boldsymbol{A}}^{-T}</span> is also called the <em>cofactor</em> tensor, denoted <span class="math inline">{\operatorname{cof}}({\boldsymbol{A}})=\det({\boldsymbol{A}}){\boldsymbol{A}}^{-T}</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 3.11 (Derivative of determinant)</strong></span> Let <span class="math inline">\psi({\boldsymbol{S}}) = \det{\boldsymbol{S}}</span>. If <span class="math inline">{\boldsymbol{A}}</span> is invertible, then the derivative of <span class="math inline">\psi</span> at <span class="math inline">{\boldsymbol{A}}</span> is <span class="math display">D\psi({\boldsymbol{A}}) = \det({\boldsymbol{A}}){\boldsymbol{A}}^{-T}.</span> The second-order tensor <span class="math inline">\det({\boldsymbol{A}}){\boldsymbol{A}}^{-T}</span> is also called the <em>cofactor</em> tensor, denoted <span class="math inline">{\operatorname{cof}}({\boldsymbol{A}})=\det({\boldsymbol{A}}){\boldsymbol{A}}^{-T}</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">{\boldsymbol{B}}\in{\mathcal{V}}^2</span> be arbitrary, and set <span class="math inline">\lambda = -\tfrac1\alpha</span>. Then <span class="math display">\begin{aligned}
@@ -468,7 +468,7 @@ window.Quarto = {
     &amp;= \det({\boldsymbol{A}}+\alpha{\boldsymbol{B}})\\
     &amp;= \det\big(\alpha{\boldsymbol{A}}({\boldsymbol{A}}^{-1}{\boldsymbol{B}}-\lambda{\boldsymbol{I}})\big)\\
     &amp;= \det\big(\alpha{\boldsymbol{A}})\det({\boldsymbol{A}}^{-1}{\boldsymbol{B}}-\lambda{\boldsymbol{I}}).
-\end{aligned}</span> For the first factor above, we note that <span class="math inline">\det(\alpha{\boldsymbol{A}}) = \alpha^3\det {\boldsymbol{A}}</span>. The second factor is the characteristic polynomial of <span class="math inline">{\boldsymbol{A}}^{-1}{\boldsymbol{B}}</span>, and so recalling the facts about the principal invariants stated in <a href="tensoralgebra.html#sec-eigenv-eigenv-princ" class="quarto-xref"><span>Section 1.5.7</span></a>, we have <span class="math display">
+\end{aligned}</span> For the first factor above, we note that <span class="math inline">\det(\alpha{\boldsymbol{A}}) = \alpha^3\det {\boldsymbol{A}}</span>. The second factor is the characteristic polynomial of <span class="math inline">{\boldsymbol{A}}^{-1}{\boldsymbol{B}}</span>, and so recalling the facts about the principal invariants stated in <a href="tensoralgebra.html#sec-eigenv-eigenv-princ" class="quarto-xref"><span>Section 2.5.7</span></a>, we have <span class="math display">
 \begin{aligned}
     \det({\boldsymbol{A}}^{-1}{\boldsymbol{B}}-\lambda{\boldsymbol{I}})
     &amp;=-\lambda^3+\lambda^2I_1({\boldsymbol{A}}^{-1}{\boldsymbol{B}})-\lambda I_2({\boldsymbol{A}}^{-1}{\boldsymbol{B}})+I_3({\boldsymbol{A}}^{-1}{\boldsymbol{B}})\\
@@ -479,8 +479,8 @@ window.Quarto = {
 <p>The following result is handy.</p>
 </section>
 </section>
-<section id="time-derivative-of-determinant" class="level2 {##prp-dotdet}" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="time-derivative-of-determinant"><span class="header-section-number">2.5</span> Time derivative of determinant</h2>
+<section id="time-derivative-of-determinant" class="level2 {##prp-dotdet}" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="time-derivative-of-determinant"><span class="header-section-number">3.5</span> Time derivative of determinant</h2>
 <p>Let <span class="math inline">{\boldsymbol{S}}:{\mathbb{R}}\to{\mathcal{V}}^2</span> be a time-dependent second-order tensor. Then <span class="math display">\frac{d}{dt}\det{\boldsymbol{S}}= \det({\boldsymbol{S}}){\operatorname{tr}}({\boldsymbol{S}}^{-1}\dot{{\boldsymbol{S}}}) = \det({\boldsymbol{S}}){\boldsymbol{S}}^{-T}:\dot{{\boldsymbol{S}}},</span> where <span class="math display">\dot{{\boldsymbol{S}}} = \frac{d{\boldsymbol{S}}}{dt} = \frac{dS_{ij}}{dt}{\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j.</span></p>
 </section>
 <p><strong>Exercise:</strong> Prove this result using the chain rule.</p>
@@ -1094,12 +1094,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./tensoralgebra.html" class="pagination-link" aria-label="Tensor Algebra">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tensor Algebra</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tensor Algebra</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./massandforces.html" class="pagination-link" aria-label="Mass, Forces and Stress">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mass, Forces and Stress</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Mass, Forces and Stress</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

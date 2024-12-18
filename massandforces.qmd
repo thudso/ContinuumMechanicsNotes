@@ -224,7 +224,8 @@ $$\bftau_s(\Gamma;\bfz)= \int_\Gamma (\bfx-\bfz)\times \bft_\Gamma(\bfx)\dAx.$$
 The physical theory of surface forces in classical continuum mechanics
 is based on the following assumption, known as *Cauchy's postulate*.
 
-::: axiom
+::: {.callout-note icon="false"}
+## Cauchy's Postulate
 The traction field $\bft$ on an oriented surface $\Gamma$ which passes
 through a point $\bfx\in B$ depends only on the point $\bfx$, and the
 unit normal $\bfn(\bfx)$ to the surface $\Gamma$ at that point. In
