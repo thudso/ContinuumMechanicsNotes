@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.52">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>massandforces</title>
+<title>3&nbsp; Mass, Forces and Stress – MA4J1 Continuum Mechanics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,23 +30,25 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./kinematics.html" rel="next">
+<link href="./tensorcalculus.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-348f9480ca2773527746b0ae0a361280.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-07889e05e195592e533097ce55888da8.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -116,73 +118,116 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./tensoralgebra.html"> 
-<span class="menu-text">Tensor Algebra</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./massandforces.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mass, Forces and Stress</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MA4J1 Continuum Mechanics Notes</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tensoralgebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tensor Algebra</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tensorcalculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tensor Calculus</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./massandforces.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mass, Forces and Stress</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kinematics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kinematics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./balancelaws.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Balance laws</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-mass-forces" id="toc-sec-mass-forces" class="nav-link active" data-scroll-target="#sec-mass-forces">Mass, Forces and Stress</a>
+  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link active" data-scroll-target="#preliminaries"><span class="header-section-number">3.1</span> Preliminaries</a></li>
+  <li><a href="#bodies" id="toc-bodies" class="nav-link" data-scroll-target="#bodies"><span class="header-section-number">3.2</span> Bodies</a>
   <ul class="collapse">
-  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link" data-scroll-target="#preliminaries">Preliminaries</a></li>
-  <li><a href="#bodies" id="toc-bodies" class="nav-link" data-scroll-target="#bodies">Bodies</a>
-  <ul class="collapse">
-  <li><a href="#volume-and-area" id="toc-volume-and-area" class="nav-link" data-scroll-target="#volume-and-area">Volume and area</a></li>
+  <li><a href="#volume-and-area" id="toc-volume-and-area" class="nav-link" data-scroll-target="#volume-and-area"><span class="header-section-number">3.2.1</span> Volume and area</a></li>
   </ul></li>
-  <li><a href="#mass-momentum-forces-and-torque" id="toc-mass-momentum-forces-and-torque" class="nav-link" data-scroll-target="#mass-momentum-forces-and-torque">Mass, momentum, forces and torque</a>
+  <li><a href="#mass-momentum-forces-and-torque" id="toc-mass-momentum-forces-and-torque" class="nav-link" data-scroll-target="#mass-momentum-forces-and-torque"><span class="header-section-number">3.3</span> Mass, momentum, forces and torque</a>
   <ul class="collapse">
-  <li><a href="#mass-density" id="toc-mass-density" class="nav-link" data-scroll-target="#mass-density">Mass density</a></li>
-  <li><a href="#centre-of-mass" id="toc-centre-of-mass" class="nav-link" data-scroll-target="#centre-of-mass">Centre of Mass</a></li>
-  <li><a href="#body-forces" id="toc-body-forces" class="nav-link" data-scroll-target="#body-forces">Body forces</a></li>
-  <li><a href="#angular-momentum-and-torque" id="toc-angular-momentum-and-torque" class="nav-link" data-scroll-target="#angular-momentum-and-torque">Angular momentum and torque</a></li>
-  <li><a href="#surface-forces" id="toc-surface-forces" class="nav-link" data-scroll-target="#surface-forces">Surface forces</a></li>
-  <li><a href="#cauchys-postulate" id="toc-cauchys-postulate" class="nav-link" data-scroll-target="#cauchys-postulate">Cauchy’s postulate</a></li>
+  <li><a href="#mass-density" id="toc-mass-density" class="nav-link" data-scroll-target="#mass-density"><span class="header-section-number">3.3.1</span> Mass density</a></li>
+  <li><a href="#centre-of-mass" id="toc-centre-of-mass" class="nav-link" data-scroll-target="#centre-of-mass"><span class="header-section-number">3.3.2</span> Centre of Mass</a></li>
+  <li><a href="#body-forces" id="toc-body-forces" class="nav-link" data-scroll-target="#body-forces"><span class="header-section-number">3.3.3</span> Body forces</a></li>
+  <li><a href="#angular-momentum-and-torque" id="toc-angular-momentum-and-torque" class="nav-link" data-scroll-target="#angular-momentum-and-torque"><span class="header-section-number">3.3.4</span> Angular momentum and torque</a></li>
+  <li><a href="#surface-forces" id="toc-surface-forces" class="nav-link" data-scroll-target="#surface-forces"><span class="header-section-number">3.3.5</span> Surface forces</a></li>
+  <li><a href="#cauchys-postulate" id="toc-cauchys-postulate" class="nav-link" data-scroll-target="#cauchys-postulate"><span class="header-section-number">3.3.6</span> Cauchy’s postulate</a></li>
   </ul></li>
-  <li><a href="#the-cauchy-stress-tensor" id="toc-the-cauchy-stress-tensor" class="nav-link" data-scroll-target="#the-cauchy-stress-tensor">The Cauchy stress tensor</a></li>
-  <li><a href="#equilibrium" id="toc-equilibrium" class="nav-link" data-scroll-target="#equilibrium">Equilibrium</a>
+  <li><a href="#the-cauchy-stress-tensor" id="toc-the-cauchy-stress-tensor" class="nav-link" data-scroll-target="#the-cauchy-stress-tensor"><span class="header-section-number">3.4</span> The Cauchy stress tensor</a></li>
+  <li><a href="#equilibrium" id="toc-equilibrium" class="nav-link" data-scroll-target="#equilibrium"><span class="header-section-number">3.5</span> Equilibrium</a>
   <ul class="collapse">
-  <li><a href="#preliminaries-1" id="toc-preliminaries-1" class="nav-link" data-scroll-target="#preliminaries-1">Preliminaries</a></li>
-  <li><a href="#necessary-conditions" id="toc-necessary-conditions" class="nav-link" data-scroll-target="#necessary-conditions">Necessary conditions</a></li>
-  <li><a href="#local-equations" id="toc-local-equations" class="nav-link" data-scroll-target="#local-equations">Local equations</a></li>
+  <li><a href="#preliminaries-1" id="toc-preliminaries-1" class="nav-link" data-scroll-target="#preliminaries-1"><span class="header-section-number">3.5.1</span> Preliminaries</a></li>
+  <li><a href="#necessary-conditions" id="toc-necessary-conditions" class="nav-link" data-scroll-target="#necessary-conditions"><span class="header-section-number">3.5.2</span> Necessary conditions</a></li>
+  <li><a href="#local-equations" id="toc-local-equations" class="nav-link" data-scroll-target="#local-equations"><span class="header-section-number">3.5.3</span> Local equations</a></li>
   </ul></li>
-  <li><a href="#stress-concepts" id="toc-stress-concepts" class="nav-link" data-scroll-target="#stress-concepts">Stress concepts</a>
+  <li><a href="#stress-concepts" id="toc-stress-concepts" class="nav-link" data-scroll-target="#stress-concepts"><span class="header-section-number">3.6</span> Stress concepts</a>
   <ul class="collapse">
-  <li><a href="#simple-stress-states" id="toc-simple-stress-states" class="nav-link" data-scroll-target="#simple-stress-states">Simple stress states</a></li>
-  <li><a href="#principal-normal-and-shear-stresses" id="toc-principal-normal-and-shear-stresses" class="nav-link" data-scroll-target="#principal-normal-and-shear-stresses">Principal, normal and shear stresses</a></li>
-  <li><a href="#maximum-normal-and-shear-stresses" id="toc-maximum-normal-and-shear-stresses" class="nav-link" data-scroll-target="#maximum-normal-and-shear-stresses">Maximum normal and shear stresses</a></li>
-  <li><a href="#spherical-and-deviatoric-stress-tensors" id="toc-spherical-and-deviatoric-stress-tensors" class="nav-link" data-scroll-target="#spherical-and-deviatoric-stress-tensors">Spherical and deviatoric stress tensors</a></li>
-  </ul></li>
+  <li><a href="#simple-stress-states" id="toc-simple-stress-states" class="nav-link" data-scroll-target="#simple-stress-states"><span class="header-section-number">3.6.1</span> Simple stress states</a></li>
+  <li><a href="#principal-normal-and-shear-stresses" id="toc-principal-normal-and-shear-stresses" class="nav-link" data-scroll-target="#principal-normal-and-shear-stresses"><span class="header-section-number">3.6.2</span> Principal, normal and shear stresses</a></li>
+  <li><a href="#maximum-normal-and-shear-stresses" id="toc-maximum-normal-and-shear-stresses" class="nav-link" data-scroll-target="#maximum-normal-and-shear-stresses"><span class="header-section-number">3.6.3</span> Maximum normal and shear stresses</a></li>
+  <li><a href="#spherical-and-deviatoric-stress-tensors" id="toc-spherical-and-deviatoric-stress-tensors" class="nav-link" data-scroll-target="#spherical-and-deviatoric-stress-tensors"><span class="header-section-number">3.6.4</span> Spherical and deviatoric stress tensors</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -190,17 +235,30 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-mass-forces" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mass, Forces and Stress</span></span></h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <div class="hidden">
-<p>$$ </p>
-<p>$$</p>
+
 </div>
-<section id="sec-mass-forces" class="level1">
-<h1>Mass, Forces and Stress</h1>
-<section id="preliminaries" class="level2">
-<h2 class="anchored" data-anchor-id="preliminaries">Preliminaries</h2>
+<section id="preliminaries" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="preliminaries"><span class="header-section-number">3.1</span> Preliminaries</h2>
 <p>With a large amount of mathematical background now out of the way, we are able to begin thinking more carefully about the important physical concepts which will be central to developing models of solids and fluids. The central assumption we will make here is that it is reasonable to treat the objects we consider as <em>continuum</em> objects, i.e.&nbsp;that the objects are infinitely divisible, just like the real numbers that we use to describe them.</p>
 <p>This assumption is of course false, since we know that solids and fluids are made up of atoms, which are not themselves easily divisible in everyday contexts. Nevertheless, the equations of continuum mechanics are one of the great triumphs of mathematical modelling, since the predictions which can made with them are highly accurate, and hold even down to scales which are only just above the atomistic length scale. Exploring the extent of their validity, and the connections between atomistic and continuum models remains an active research topic.</p>
 <p><strong>Aims.</strong> By the end of this chapter, you should be able to:</p>
@@ -211,17 +269,17 @@ window.Quarto = {
 <li><p>Explain the concept of stress, and use various terms to describe particular stress states.</p></li>
 </ul>
 </section>
-<section id="bodies" class="level2">
-<h2 class="anchored" data-anchor-id="bodies">Bodies</h2>
+<section id="bodies" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="bodies"><span class="header-section-number">3.2</span> Bodies</h2>
 <p>Our assumption that a material body is a continuum means that we can identify the body with <span class="math inline">B</span>, an open subset of Euclidean space <span class="math inline">{\mathbb{E}}^3</span>. Each point <span class="math inline">{\boldsymbol{x}}\in B</span> is identified with a material <em>particle</em>. Note here that our use of the word particle does not refer to an atom, but rather an infinitesimal part of the body. We call <span class="math inline">B</span> a configuration of the body in <span class="math inline">{\mathbb{E}}^3</span>. Unless explicitly mentioned otherwise, we will always assume that <span class="math inline">B</span> is a regular region of <span class="math inline">{\mathbb{E}}^3</span>.</p>
 <p>Our own experience tells us that material bodies move and change shape under the effects of physical processes, and we will indeed consider such effects later, which will necessitate thinking about how the body varies. For the moment however, we will ignore time variation, and focus only on a single configuration.</p>
-<section id="volume-and-area" class="level3">
-<h3 class="anchored" data-anchor-id="volume-and-area">Volume and area</h3>
-<p>We recall that the volume <span class="math inline">{\operatorname{vol}}(\Omega)</span> of a set <span class="math inline">\Omega\subseteq{\mathbb{E}}^3</span> can be computed by integration, so that <span class="math display">{\operatorname{vol}}(\Omega) = \int_\Omega {\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span> Similarly, the area <span class="math inline">{\operatorname{area}}(\Gamma)</span> of a surface <span class="math inline">\Gamma\subset{\mathbb{E}}^3</span> can also be computed by integration, so that <span class="math display">{\operatorname{area}}(\Gamma) = \int_\Gamma {\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.</span></p>
+<section id="volume-and-area" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="volume-and-area"><span class="header-section-number">3.2.1</span> Volume and area</h3>
+<p>We recall that the volume <span class="math inline">{\operatorname{vol}}(\Omega)</span> of a set <span class="math inline">\Omega\subseteq{\mathbb{E}}^3</span> can be computed by integration, so that <span class="math display">{\operatorname{vol}}(\Omega) = \int_\Omega {\,\d V_{{\boldsymbol{x}}}}.</span> Similarly, the area <span class="math inline">{\operatorname{area}}(\Gamma)</span> of a surface <span class="math inline">\Gamma\subset{\mathbb{E}}^3</span> can also be computed by integration, so that <span class="math display">{\operatorname{area}}(\Gamma) = \int_\Gamma {\,\d A_{{\boldsymbol{x}}}}.</span></p>
 </section>
 </section>
-<section id="mass-momentum-forces-and-torque" class="level2">
-<h2 class="anchored" data-anchor-id="mass-momentum-forces-and-torque">Mass, momentum, forces and torque</h2>
+<section id="mass-momentum-forces-and-torque" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="mass-momentum-forces-and-torque"><span class="header-section-number">3.3</span> Mass, momentum, forces and torque</h2>
 <p>Mass is the property of matter which quantifies its resistance to acceleration, and forces are the influences acting on an object which may result in an acceleration. In classical mechanics, this is exemplified by Newton’s second law of motion for objects with constant mass, which should be familiar: <span class="math display">
 \begin{aligned}
 \text{Net force acting} &amp;= \text{Mass} \times \text{Acceleration},\\[1mm]
@@ -234,44 +292,44 @@ window.Quarto = {
 \end{aligned}
 </span> where the (linear) momentum <span class="math inline">{\boldsymbol{p}}</span> is the product of the mass and the velocity of an object. Using the first of these relations, we see that the greater the mass of an object, the greater the force that is required to accelerate that object at the same rate.</p>
 <p>When they are first introduced, the concepts of mass and force are typically applied to point particles. Here, we will consider bodies which are extended, and so as concepts, the mass of a single point or a force acting on a single point makes little sense. Instead, we introduce fields representing densities of mass and forces. To represent the mass, we define a <em>mass density</em>, and we focus on two particular types of forces: <em>body force</em> fields which act on points within the object, and <em>surface force</em> fields, which are act on surfaces, either within the object or on its exterior.</p>
-<section id="mass-density" class="level3">
-<h3 class="anchored" data-anchor-id="mass-density">Mass density</h3>
+<section id="mass-density" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="mass-density"><span class="header-section-number">3.3.1</span> Mass density</h3>
 <p>We assume will assume that the mass of a body <span class="math inline">B</span> is distributed across its volume, that any subset of <span class="math inline">B</span> with non-zero volume must also have non-zero mass, and that the mass of any region of the body tends to zero as the volume of the region tends to zero.</p>
-<p>If <span class="math inline">\Omega\subseteq B</span> is an open subset of <span class="math inline">B</span>, we denote the mass of this subset <span class="math inline">{\operatorname{mass}}(\Omega)</span>. We assume that there exists a <em>mass density field</em> <span class="math inline">\rho:B\to{\mathbb{R}}</span>, with units of mass per unit volume, such that <span class="math display">{\operatorname{mass}}(\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span> Theoretically-speaking, if we know the mass and volume functions, we can formally define the mass density field <span class="math inline">\rho</span> as follows. Let <span class="math inline">{\boldsymbol{x}}\in B</span> and let <span class="math inline">\Omega_\delta({\boldsymbol{x}})\subseteq B</span> denote a family of volumes with <span class="math inline">{\boldsymbol{x}}\in\Omega_\delta({\boldsymbol{x}})</span> for all <span class="math inline">\delta&gt;0</span>, and <span class="math inline">{\operatorname{vol}}(\Omega_\delta({\boldsymbol{x}}))\to0</span> as <span class="math inline">\delta\to0</span>. Then <span class="math display">\rho({\boldsymbol{x}}) = \lim_{\delta\to 0} \frac{{\operatorname{mass}}(\Omega_\delta({\boldsymbol{x}}))}{{\operatorname{vol}}(\Omega_\delta({\boldsymbol{x}}))}.</span> Our basic assumptions on the mass distribution is that this limit exists, is strictly postive, i.e.&nbsp;<span class="math inline">\rho({\boldsymbol{x}})&gt;0</span> for each <span class="math inline">{\boldsymbol{x}}\in B</span>, and this limit is independent of the precise choice of family <span class="math inline">\Omega_\delta({\boldsymbol{x}})</span> which have the properties described.</p>
+<p>If <span class="math inline">\Omega\subseteq B</span> is an open subset of <span class="math inline">B</span>, we denote the mass of this subset <span class="math inline">{\operatorname{mass}}(\Omega)</span>. We assume that there exists a <em>mass density field</em> <span class="math inline">\rho:B\to{\mathbb{R}}</span>, with units of mass per unit volume, such that <span class="math display">{\operatorname{mass}}(\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.</span> Theoretically-speaking, if we know the mass and volume functions, we can formally define the mass density field <span class="math inline">\rho</span> as follows. Let <span class="math inline">{\boldsymbol{x}}\in B</span> and let <span class="math inline">\Omega_\delta({\boldsymbol{x}})\subseteq B</span> denote a family of volumes with <span class="math inline">{\boldsymbol{x}}\in\Omega_\delta({\boldsymbol{x}})</span> for all <span class="math inline">\delta&gt;0</span>, and <span class="math inline">{\operatorname{vol}}(\Omega_\delta({\boldsymbol{x}}))\to0</span> as <span class="math inline">\delta\to0</span>. Then <span class="math display">\rho({\boldsymbol{x}}) = \lim_{\delta\to 0} \frac{{\operatorname{mass}}(\Omega_\delta({\boldsymbol{x}}))}{{\operatorname{vol}}(\Omega_\delta({\boldsymbol{x}}))}.</span> Our basic assumptions on the mass distribution is that this limit exists, is strictly postive, i.e.&nbsp;<span class="math inline">\rho({\boldsymbol{x}})&gt;0</span> for each <span class="math inline">{\boldsymbol{x}}\in B</span>, and this limit is independent of the precise choice of family <span class="math inline">\Omega_\delta({\boldsymbol{x}})</span> which have the properties described.</p>
 </section>
-<section id="centre-of-mass" class="level3">
-<h3 class="anchored" data-anchor-id="centre-of-mass">Centre of Mass</h3>
+<section id="centre-of-mass" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="centre-of-mass"><span class="header-section-number">3.3.2</span> Centre of Mass</h3>
 <p>The <em>centre of mass</em> and the <em>centre of volume</em> of an open subset <span class="math inline">\Omega\subseteq B</span> respectively mean the points <span class="math display">
 \begin{aligned}
-{\operatorname{com}}(\Omega) &amp;= \frac{1}{{\operatorname{mass}}(\Omega)}\int_\Omega {\boldsymbol{x}}\rho({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
-  \text{and}\quad {\operatorname{cov}}(\Omega) &amp;= \frac{1}{{\operatorname{vol}}(\Omega)}\int_\Omega {\boldsymbol{x}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.
+{\operatorname{com}}(\Omega) &amp;= \frac{1}{{\operatorname{mass}}(\Omega)}\int_\Omega {\boldsymbol{x}}\rho({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}\\
+  \text{and}\quad {\operatorname{cov}}(\Omega) &amp;= \frac{1}{{\operatorname{vol}}(\Omega)}\int_\Omega {\boldsymbol{x}}{\,\d V_{{\boldsymbol{x}}}}.
 \end{aligned}</span> In general, these points need not be points in <span class="math inline">B</span> (although they will be if <span class="math inline">\Omega</span> is a convex set).</p>
 </section>
-<section id="body-forces" class="level3">
-<h3 class="anchored" data-anchor-id="body-forces">Body forces</h3>
+<section id="body-forces" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="body-forces"><span class="header-section-number">3.3.3</span> Body forces</h3>
 <p><em>Body forces</em> are those forces which do not arise due to direct physical contact between bodies. Prototypical examples include gravity, or electromagnetic forces. The body force per unit volume exerted on a body <span class="math inline">B</span> is assumed to be given by a function <span class="math inline">\widehat{{\boldsymbol{b}}}:B\to{\mathcal{V}}</span>, called a <em>body force field per unit volume</em> acting on <span class="math inline">B</span>.</p>
-<p>Let <span class="math inline">\Omega</span> be an open subset of <span class="math inline">B</span>. Then the <em>resultant force</em> on <span class="math inline">\Omega</span> due to the body force field is defined to be <span class="math display">{\boldsymbol{r}}_b(\Omega) = \int_\Omega \widehat{{\boldsymbol{b}}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span> The result force measures the total effect of the body forces acting on <span class="math inline">\Omega</span>. This interpretation is clear if we think of the integral as ‘summing up’ the contributions from the body force acting on every particle <span class="math inline">{\boldsymbol{x}}\in \Omega</span>.</p>
-<p>The <em>resultant torque about <span class="math inline">{\boldsymbol{z}}</span></em> on <span class="math inline">\Omega</span> is defined to be <span class="math display">{\boldsymbol{\tau}}_b(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times \widehat{{\boldsymbol{b}}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span> The torque measures the total turning effect of the body forces acting on <span class="math inline">\Omega</span> about the centre of rotation <span class="math inline">{\boldsymbol{z}}</span>. Here, the integral sums up the contributions of each force moment <span class="math inline">({\boldsymbol{x}}-{\boldsymbol{z}})\times\widehat{{\boldsymbol{b}}}({\boldsymbol{x}})</span> over <span class="math inline">\Omega</span>.</p>
-<p>Instead of considering body force per unit volume, we can also consider body forces per unit mass. The <em>body force per unit mass</em> is <span class="math display">{\boldsymbol{b}}(x) = \frac{\widehat{{\boldsymbol{b}}}({\boldsymbol{x}})}{\rho({\boldsymbol{x}})},</span> which is well-defined since we assume <span class="math inline">\rho({\boldsymbol{x}})&gt;0</span>. In terms of this new field, we have <span class="math display">{\boldsymbol{r}}_b(\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\quad\text{and}\quad
-  {\boldsymbol{\tau}}_b(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span></p>
+<p>Let <span class="math inline">\Omega</span> be an open subset of <span class="math inline">B</span>. Then the <em>resultant force</em> on <span class="math inline">\Omega</span> due to the body force field is defined to be <span class="math display">{\boldsymbol{r}}_b(\Omega) = \int_\Omega \widehat{{\boldsymbol{b}}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.</span> The result force measures the total effect of the body forces acting on <span class="math inline">\Omega</span>. This interpretation is clear if we think of the integral as ‘summing up’ the contributions from the body force acting on every particle <span class="math inline">{\boldsymbol{x}}\in \Omega</span>.</p>
+<p>The <em>resultant torque about <span class="math inline">{\boldsymbol{z}}</span></em> on <span class="math inline">\Omega</span> is defined to be <span class="math display">{\boldsymbol{\tau}}_b(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times \widehat{{\boldsymbol{b}}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.</span> The torque measures the total turning effect of the body forces acting on <span class="math inline">\Omega</span> about the centre of rotation <span class="math inline">{\boldsymbol{z}}</span>. Here, the integral sums up the contributions of each force moment <span class="math inline">({\boldsymbol{x}}-{\boldsymbol{z}})\times\widehat{{\boldsymbol{b}}}({\boldsymbol{x}})</span> over <span class="math inline">\Omega</span>.</p>
+<p>Instead of considering body force per unit volume, we can also consider body forces per unit mass. The <em>body force per unit mass</em> is <span class="math display">{\boldsymbol{b}}(x) = \frac{\widehat{{\boldsymbol{b}}}({\boldsymbol{x}})}{\rho({\boldsymbol{x}})},</span> which is well-defined since we assume <span class="math inline">\rho({\boldsymbol{x}})&gt;0</span>. In terms of this new field, we have <span class="math display">{\boldsymbol{r}}_b(\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}\quad\text{and}\quad
+  {\boldsymbol{\tau}}_b(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.</span></p>
 </section>
-<section id="angular-momentum-and-torque" class="level3">
-<h3 class="anchored" data-anchor-id="angular-momentum-and-torque">Angular momentum and torque</h3>
+<section id="angular-momentum-and-torque" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="angular-momentum-and-torque"><span class="header-section-number">3.3.4</span> Angular momentum and torque</h3>
 <p>Before discussing forces further, we briefly discuss the definition of angular momentum and torque, which are the rotational versions of (linear) momentum and forces.</p>
 <p>The <em>angular momentum</em> of an object is the rotational equivalent of linear momentum, and is defined to be the vector product of the objects displacement from some chosen point, <span class="math inline">{\boldsymbol{z}}</span>, and its linear momentum, i.e.: <span class="math display">{\boldsymbol{l}}= ({\boldsymbol{x}}-{\boldsymbol{z}})\times{\boldsymbol{p}}= m\big(({\boldsymbol{x}}-{\boldsymbol{z}})\times{\boldsymbol{v}}\big),</span> Here, the point <span class="math inline">{\boldsymbol{z}}</span> used to define the displacement is the point about which we wish to consider the object’s rotation. This could be the centre of mass (in which case, we consider an object’s <em>spin</em>), or some other point about which we wish to consider rotation, such as the origin of our coordinate system.</p>
 <p>The concept which accompanies the angular momentum and mirrors the notion of a force is the <em>torque</em> (or <em>moment</em>), which like angular momentum, must be taken about some point <span class="math inline">{\boldsymbol{z}}</span>. This is denoted <span class="math inline">{\boldsymbol{\tau}}</span> and is defined to be <span class="math display">{\boldsymbol{\tau}}= ({\boldsymbol{x}}-{\boldsymbol{z}})\times{\boldsymbol{F}}.</span> Torques are analogous to forces in that they are additive, and if there is no net torque acting on an object, then there will be no change in the angular momentum. Furthermore, the equivalent of Newton’s second law for the torque and the angular momentum is that the net torque is equal to the rate of change of the angular momentum, i.e. <span class="math display">
 {\boldsymbol{\tau}}= \frac{d{\boldsymbol{l}}}{dt},
 </span> (where both torque and angular momentum are taken about the same point <span class="math inline">{\boldsymbol{z}}</span>).</p>
 </section>
-<section id="surface-forces" class="level3">
-<h3 class="anchored" data-anchor-id="surface-forces">Surface forces</h3>
+<section id="surface-forces" class="level3" data-number="3.3.5">
+<h3 data-number="3.3.5" class="anchored" data-anchor-id="surface-forces"><span class="header-section-number">3.3.5</span> Surface forces</h3>
 <p>A <em>surface force</em> is any force that arises due to direct physical contact between bodies. In the case of imaginary internal surfaces inside a body, we say the surface force is <em>internal</em>. Internal surface forces are what holds a body together, and they resist the tendency for one part of the body to be pulled away from, or pushed through, another part of the body. When the force acts along the exterior surface of the body, we say the surface force is <em>external</em>; these are contact forces applied to a body by its environment.</p>
 <p>Understanding surface forces is a key step in unlocking your understanding of continuum mechanics, so you should take care to cover this material carefully.</p>
 <p>Suppose that <span class="math inline">\Gamma</span> is an oriented surface in <span class="math inline">B</span> with a unit normal field <span class="math inline">{\boldsymbol{n}}:\Gamma\to{\mathcal{V}}</span>. The fact that <span class="math inline">\Gamma</span> is oriented allows us to define a positive and a negative side to <span class="math inline">\Gamma</span>. The force per unit area exerted by the material on the positive side on the material on the negative side will be assumed to be given by a function <span class="math inline">{\boldsymbol{t}}_\Gamma:\Gamma\to{\mathcal{V}}</span>, which we call the <em>traction</em> or <em>surface force field</em> for <span class="math inline">\Gamma</span>. When <span class="math inline">\Gamma</span> is part of the boundary <span class="math inline">\partial B</span>, we always choose <span class="math inline">{\boldsymbol{n}}</span> to be the outward unit normal field. In this case, the traction field represents the external force per unit area applied to this portion of the boundary.</p>
-<p>The <em>resultant traction</em> on <span class="math inline">\Gamma</span> is defined to be <span class="math display">{\boldsymbol{r}}_s(\Gamma)= \int_\Gamma {\boldsymbol{t}}_\Gamma({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}},</span> where <span class="math inline">{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}</span> represents the surface area element at <span class="math inline">{\boldsymbol{x}}\in\Gamma</span>. The <em>resultant torque about <span class="math inline">{\boldsymbol{z}}</span></em> due to the traction field is defined to be <span class="math display">{\boldsymbol{\tau}}_s(\Gamma;{\boldsymbol{z}})= \int_\Gamma ({\boldsymbol{x}}-{\boldsymbol{z}})\times {\boldsymbol{t}}_\Gamma({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.</span></p>
+<p>The <em>resultant traction</em> on <span class="math inline">\Gamma</span> is defined to be <span class="math display">{\boldsymbol{r}}_s(\Gamma)= \int_\Gamma {\boldsymbol{t}}_\Gamma({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}},</span> where <span class="math inline">{\,\d A_{{\boldsymbol{x}}}}</span> represents the surface area element at <span class="math inline">{\boldsymbol{x}}\in\Gamma</span>. The <em>resultant torque about <span class="math inline">{\boldsymbol{z}}</span></em> due to the traction field is defined to be <span class="math display">{\boldsymbol{\tau}}_s(\Gamma;{\boldsymbol{z}})= \int_\Gamma ({\boldsymbol{x}}-{\boldsymbol{z}})\times {\boldsymbol{t}}_\Gamma({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}.</span></p>
 </section>
-<section id="cauchys-postulate" class="level3">
-<h3 class="anchored" data-anchor-id="cauchys-postulate">Cauchy’s postulate</h3>
+<section id="cauchys-postulate" class="level3" data-number="3.3.6">
+<h3 data-number="3.3.6" class="anchored" data-anchor-id="cauchys-postulate"><span class="header-section-number">3.3.6</span> Cauchy’s postulate</h3>
 <p>The physical theory of surface forces in classical continuum mechanics is based on the following assumption, known as <em>Cauchy’s postulate</em>.</p>
 <div class="axiom">
 <p>The traction field <span class="math inline">{\boldsymbol{t}}</span> on an oriented surface <span class="math inline">\Gamma</span> which passes through a point <span class="math inline">{\boldsymbol{x}}\in B</span> depends only on the point <span class="math inline">{\boldsymbol{x}}</span>, and the unit normal <span class="math inline">{\boldsymbol{n}}({\boldsymbol{x}})</span> to the surface <span class="math inline">\Gamma</span> at that point. In particular, there is a function <span class="math inline">{\boldsymbol{t}}:{\mathcal{N}}\times B\to{\mathcal{V}}</span> where <span class="math inline">{\mathcal{N}}\subset{\mathcal{V}}</span> is the set of all unit vectors, such that <span class="math display">{\boldsymbol{t}}_\Gamma({\boldsymbol{x}}) = {\boldsymbol{t}}({\boldsymbol{n}}({\boldsymbol{x}}),{\boldsymbol{x}}).</span> The function <span class="math inline">{\boldsymbol{t}}:{\mathcal{N}}\times B\to{\mathcal{V}}</span> is called the <em>traction function</em> for <span class="math inline">B</span>.</p>
@@ -281,44 +339,44 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./figs/Omegadelta.svg" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption>Illustration of <span class="math inline">\Omega_\delta</span> used in the proof of <a href="#prp-actionreaction" class="quarto-xref">Proposition&nbsp;1</a>.</figcaption>
+<figcaption>Illustration of <span class="math inline">\Omega_\delta</span> used in the proof of <a href="#prp-actionreaction" class="quarto-xref">Proposition&nbsp;<span>3.1</span></a>.</figcaption>
 </figure>
 </div>
 <div id="prp-actionreaction" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1</strong></span> Let <span class="math inline">{\boldsymbol{t}}:{\mathcal{N}}\times B\to{\mathcal{V}}</span> be the traction function for a body <span class="math inline">B</span>. Suppose that <span class="math inline">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})</span> is continuous, and for any sequence of subsets <span class="math inline">\Omega</span> whose volumes tend to zero, we have <span id="eq-arcondition1"><span class="math display">
-\frac{1}{{\operatorname{area}}(\partial\Omega)}\int_{\partial\Omega} {\boldsymbol{t}}({\boldsymbol{n}}({\boldsymbol{x}}),{\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}\to\bf0\quad\text{as}\quad{\operatorname{vol}}(\Omega)\to0.
-\tag{1}</span></span> Then it follows that <span class="math display">{\boldsymbol{t}}(-{\boldsymbol{n}},{\boldsymbol{x}}) = -{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})\quad\text{for any }{\boldsymbol{n}}\in{\mathcal{N}},{\boldsymbol{x}}\in B.</span></p>
+<p><span class="theorem-title"><strong>Proposition 3.1</strong></span> Let <span class="math inline">{\boldsymbol{t}}:{\mathcal{N}}\times B\to{\mathcal{V}}</span> be the traction function for a body <span class="math inline">B</span>. Suppose that <span class="math inline">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})</span> is continuous, and for any sequence of subsets <span class="math inline">\Omega</span> whose volumes tend to zero, we have <span id="eq-arcondition1"><span class="math display">
+\frac{1}{{\operatorname{area}}(\partial\Omega)}\int_{\partial\Omega} {\boldsymbol{t}}({\boldsymbol{n}}({\boldsymbol{x}}),{\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}\to\bf0\quad\text{as}\quad{\operatorname{vol}}(\Omega)\to0.
+\tag{3.1}</span></span> Then it follows that <span class="math display">{\boldsymbol{t}}(-{\boldsymbol{n}},{\boldsymbol{x}}) = -{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})\quad\text{for any }{\boldsymbol{n}}\in{\mathcal{N}},{\boldsymbol{x}}\in B.</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">{\boldsymbol{x}}\in B</span> and <span class="math inline">{\boldsymbol{n}}\in{\mathcal{N}}</span> be arbitrary, and let <span class="math inline">D</span> be a disc of small radius <span class="math inline">r</span>, centred at <span class="math inline">{\boldsymbol{x}}</span> with normal <span class="math inline">{\boldsymbol{n}}</span>. For <span class="math inline">\delta&gt;0</span>, let <span class="math inline">\Omega_\delta</span> be the cylinder with centre of volume at <span class="math inline">{\boldsymbol{x}}</span>, height <span class="math inline">\delta</span>, and axis parallel to <span class="math inline">{\boldsymbol{n}}</span>. Let <span class="math inline">\Gamma_{\pm}</span> be the circular faces of the cylinder parallel to <span class="math inline">D</span>, and the remaining surface be <span class="math inline">\Gamma_\delta</span>.</p>
 <p>We note that <span class="math inline">{\operatorname{area}}(\Gamma_\delta) = 2\pi r\delta</span>, which vanishes as <span class="math inline">\delta\to0</span>, and so <span class="math inline">{\operatorname{area}}(\partial\Omega_\delta)\to 2{\operatorname{area}}(D) = 2\pi r^2</span> as <span class="math inline">\delta\to0</span>. Note also that <span class="math inline">{\operatorname{vol}}(\Omega_\delta) = \delta \pi r^2</span>, so <span class="math inline">{\operatorname{vol}}(\Omega_\delta)\to0</span> as <span class="math inline">\delta\to0</span>, so this sequence of volumes fulfils the assumptions of the proposition, and since <span class="math inline">{\operatorname{area}}(\partial\Omega_\delta)&gt;0</span> for all <span class="math inline">\delta&gt;0</span>, it follows that <span class="math display">\lim_{\delta\to0}\int_{\partial\Omega_\delta} {\boldsymbol{t}}(\widehat{{\boldsymbol{n}}}({\boldsymbol{x}}),{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'}=0</span> by assumption.</p>
-<p>Next, note that the points in <span class="math inline">\Gamma_\pm</span> converge to points in <span class="math inline">D</span> as <span class="math inline">\delta\to0</span>. Let <span class="math inline">\widehat{{\boldsymbol{n}}}:\partial\Omega_\delta\to{\mathcal{V}}</span> be the outward unit normal field on <span class="math inline">\partial\Omega_\delta</span>, so <span class="math inline">\widehat{{\boldsymbol{n}}}=\pm{\boldsymbol{n}}</span> is constant on <span class="math inline">\Gamma_{\pm}</span>. We can therefore express <span class="math inline">\partial\Omega_\delta = \Gamma_\delta\cup\Gamma_+\cup\Gamma_-</span>, and since <span class="math inline">{\operatorname{area}}(\Gamma_\delta)\to0</span> as <span class="math inline">\delta\to0</span> and <span class="math inline">{\boldsymbol{t}}</span> is continuous and so bounded, we have <span class="math display">\lim_{\delta\to0}\int_{\Gamma_\delta} {\boldsymbol{t}}(\widehat{{\boldsymbol{n}}}({\boldsymbol{x}}),{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'}=\bf0.</span> It follows that <span class="math display">\int_D {\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}}')+{\boldsymbol{t}}(-{\boldsymbol{n}},{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'} = \bf0.</span> Now, we apply the result of <strong>?@prp-MVTsurfaces</strong>, which allows us to conclude that there is a point <span class="math inline">{\boldsymbol{x}}_r\in D_r</span> such that <span class="math display">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}}_r)+{\boldsymbol{t}}(-{\boldsymbol{n}},{\boldsymbol{x}}_r)=\bf0.</span> Since this result holds for all <span class="math inline">r&gt;0</span>, we can now let <span class="math inline">r\to0</span>. In this limit, <span class="math inline">{\boldsymbol{x}}_r\to {\boldsymbol{x}}</span>, and since <span class="math inline">{\boldsymbol{t}}</span> was assumed to be continuous, it follows that <span class="math display">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})+{\boldsymbol{t}}(-{\boldsymbol{n}},{\boldsymbol{x}})=\bf0.</span> This establishes the result.</p>
+<p>Next, note that the points in <span class="math inline">\Gamma_\pm</span> converge to points in <span class="math inline">D</span> as <span class="math inline">\delta\to0</span>. Let <span class="math inline">\widehat{{\boldsymbol{n}}}:\partial\Omega_\delta\to{\mathcal{V}}</span> be the outward unit normal field on <span class="math inline">\partial\Omega_\delta</span>, so <span class="math inline">\widehat{{\boldsymbol{n}}}=\pm{\boldsymbol{n}}</span> is constant on <span class="math inline">\Gamma_{\pm}</span>. We can therefore express <span class="math inline">\partial\Omega_\delta = \Gamma_\delta\cup\Gamma_+\cup\Gamma_-</span>, and since <span class="math inline">{\operatorname{area}}(\Gamma_\delta)\to0</span> as <span class="math inline">\delta\to0</span> and <span class="math inline">{\boldsymbol{t}}</span> is continuous and so bounded, we have <span class="math display">\lim_{\delta\to0}\int_{\Gamma_\delta} {\boldsymbol{t}}(\widehat{{\boldsymbol{n}}}({\boldsymbol{x}}),{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'}=\bf0.</span> It follows that <span class="math display">\int_D {\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}}')+{\boldsymbol{t}}(-{\boldsymbol{n}},{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'} = \bf0.</span> Now, we apply the result of <a href="tensorcalculus.html#prp-MVTsurfaces" class="quarto-xref">Proposition&nbsp;<span>2.9</span></a>, which allows us to conclude that there is a point <span class="math inline">{\boldsymbol{x}}_r\in D_r</span> such that <span class="math display">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}}_r)+{\boldsymbol{t}}(-{\boldsymbol{n}},{\boldsymbol{x}}_r)=\bf0.</span> Since this result holds for all <span class="math inline">r&gt;0</span>, we can now let <span class="math inline">r\to0</span>. In this limit, <span class="math inline">{\boldsymbol{x}}_r\to {\boldsymbol{x}}</span>, and since <span class="math inline">{\boldsymbol{t}}</span> was assumed to be continuous, it follows that <span class="math display">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})+{\boldsymbol{t}}(-{\boldsymbol{n}},{\boldsymbol{x}})=\bf0.</span> This establishes the result.</p>
 </div>
 <p>We have just shown that the traction exerted by material on the positive side of a surface on the negative side is equal and opposite to the traction exerted by the negative side on the positive. This is Newton’s Third Law in action.</p>
-<p>We note that the proof given above does not make complete use of the full strength of the condition <a href="#eq-arcondition1" class="quarto-xref">Equation&nbsp;1</a>, since the sequence of volumes we consider does not have a vanishing surface area, but we will use the full strength of this condition in the results which follow.</p>
+<p>We note that the proof given above does not make complete use of the full strength of the condition <a href="#eq-arcondition1" class="quarto-xref">Equation&nbsp;<span>3.1</span></a>, since the sequence of volumes we consider does not have a vanishing surface area, but we will use the full strength of this condition in the results which follow.</p>
 </section>
 </section>
-<section id="the-cauchy-stress-tensor" class="level2">
-<h2 class="anchored" data-anchor-id="the-cauchy-stress-tensor">The Cauchy stress tensor</h2>
-<p>Using <a href="#prp-actionreaction" class="quarto-xref">Proposition&nbsp;1</a> allows us to say more about the dependence of the function <span class="math inline">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})</span> upon <span class="math inline">{\boldsymbol{n}}</span>. This result is often called <em>Cauchy’s Theorem</em>, and is fundamental to Continuum Mechanics.</p>
+<section id="the-cauchy-stress-tensor" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="the-cauchy-stress-tensor"><span class="header-section-number">3.4</span> The Cauchy stress tensor</h2>
+<p>Using <a href="#prp-actionreaction" class="quarto-xref">Proposition&nbsp;<span>3.1</span></a> allows us to say more about the dependence of the function <span class="math inline">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})</span> upon <span class="math inline">{\boldsymbol{n}}</span>. This result is often called <em>Cauchy’s Theorem</em>, and is fundamental to Continuum Mechanics.</p>
 <div id="prp-stresstensor" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2 (Stress Tensor)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Proposition 3.2 (Stress Tensor)</strong></span> &nbsp;</p>
 <div id="fig:stresstetradhedron" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./figs/stresstetrahedron.svg" class="img-fluid figure-img" style="width:90.0%"></p>
-<figcaption>The tetrahedral region used in the proof of <a href="#prp-stresstensor" class="quarto-xref">Proposition&nbsp;2</a>.</figcaption>
+<figcaption>The tetrahedral region used in the proof of <a href="#prp-stresstensor" class="quarto-xref">Proposition&nbsp;<span>3.2</span></a>.</figcaption>
 </figure>
 </div>
-<p>Let <span class="math inline">{\boldsymbol{t}}:{\mathcal{N}}\times B\to{\mathcal{V}}</span> be the traction function for a body <span class="math inline">B</span> which satisfies the conditions of <a href="#prp-actionreaction" class="quarto-xref">Proposition&nbsp;1</a>. Then <span class="math inline">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})</span> is a linear function of <span class="math inline">{\boldsymbol{n}}</span>, i.e.&nbsp;for each <span class="math inline">{\boldsymbol{x}}\in B</span>, there exists a second-order tensor <span class="math inline">{\boldsymbol{S}}({\boldsymbol{x}})\in{\mathcal{V}}^2</span> such that <span class="math display">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})= {\boldsymbol{S}}({\boldsymbol{x}}){\boldsymbol{n}}.</span> The field <span class="math inline">{\boldsymbol{S}}:B\to{\mathcal{V}}^2</span> is called the <em>Cauchy stress field</em> for <span class="math inline">B</span>.</p>
+<p>Let <span class="math inline">{\boldsymbol{t}}:{\mathcal{N}}\times B\to{\mathcal{V}}</span> be the traction function for a body <span class="math inline">B</span> which satisfies the conditions of <a href="#prp-actionreaction" class="quarto-xref">Proposition&nbsp;<span>3.1</span></a>. Then <span class="math inline">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})</span> is a linear function of <span class="math inline">{\boldsymbol{n}}</span>, i.e.&nbsp;for each <span class="math inline">{\boldsymbol{x}}\in B</span>, there exists a second-order tensor <span class="math inline">{\boldsymbol{S}}({\boldsymbol{x}})\in{\mathcal{V}}^2</span> such that <span class="math display">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})= {\boldsymbol{S}}({\boldsymbol{x}}){\boldsymbol{n}}.</span> The field <span class="math inline">{\boldsymbol{S}}:B\to{\mathcal{V}}^2</span> is called the <em>Cauchy stress field</em> for <span class="math inline">B</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>We will briefly suspend the summation convention for the first section of this proof.</p>
 <p>Consider an arbitrary Cartesian coordinate frame <span class="math inline">\{{\boldsymbol{e}}_i\}</span>, and suppose that <span class="math inline">{\boldsymbol{n}}\cdot{\boldsymbol{e}}_i&gt;0</span> for all <span class="math inline">i</span>. Define the tetrahedral region <span class="math display">T_\delta = \big\{{\boldsymbol{x}}'\in B: 0\leq ({\boldsymbol{x}}'-{\boldsymbol{x}})\cdot{\boldsymbol{e}}_i\text{ and }({\boldsymbol{x}}'-{\boldsymbol{x}})\cdot{\boldsymbol{n}}\leq\delta \big\},</span> which is illustrated in Figure&nbsp;<a href="#fig:stresstetradhedron" data-reference-type="ref" data-reference="fig:stresstetradhedron">1.1</a>. <span class="math inline">T_\delta</span> has four faces; let the three faces with outward-pointing unit normal <span class="math inline">-{\boldsymbol{e}}_i</span> be denoted <span class="math inline">\Gamma_{\delta,i}</span>, and let the final face be denoted <span class="math inline">\Gamma_{\delta,n}</span>, which has outward-pointing unit normal <span class="math inline">{\boldsymbol{n}}</span>.</p>
-We note that <span class="math inline">{\operatorname{vol}}(T_\delta)\to0</span> as <span class="math inline">\delta\to0</span>, and hence condition&nbsp;<a href="#eq-arcondition1" class="quarto-xref">Equation&nbsp;1</a> implies that <span class="math display">\lim_{\delta\to0}\frac{1}{{\operatorname{area}}(\partial T_\delta)}\int_{\partial T_\delta} {\boldsymbol{t}}(\widehat{{\boldsymbol{n}}}({\boldsymbol{x}}'),{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'} = \bf0,</span> where <span class="math inline">\widehat{{\boldsymbol{n}}}({\boldsymbol{x}}')</span> denotes the outward-pointing unit normal field on <span class="math inline">\partial T_\delta</span>. Using the explicit form for this field on each of the faces, we have <span id="eq-tetlimit"><span class="math display">
-    \lim_{\delta\to0}\frac{1}{{\operatorname{area}}(\partial T_\delta)}\bigg(\int_{\Gamma_{\delta,n}} {\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'}+\sum_{i=1}^3\int_{\Gamma_{\delta,i}} {\boldsymbol{t}}(-{\boldsymbol{e}}_i,{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'}\bigg) = \bf0. \tag{2}</span></span> It can be computed that the area of each face is <span class="math display">{\operatorname{area}}(\Gamma_{\delta,i}) = \frac{\delta^2}{2}\frac{n_i}{n_1n_2n_3}\quad\text{and}\quad{\operatorname{area}}(\Gamma_{\delta,n}) = \frac{\delta^2}{2}\frac{1}{n_1n_2n_3},</span> so that <span id="eq-tetarearelation1"><span class="math display">
+We note that <span class="math inline">{\operatorname{vol}}(T_\delta)\to0</span> as <span class="math inline">\delta\to0</span>, and hence condition&nbsp;<a href="#eq-arcondition1" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> implies that <span class="math display">\lim_{\delta\to0}\frac{1}{{\operatorname{area}}(\partial T_\delta)}\int_{\partial T_\delta} {\boldsymbol{t}}(\widehat{{\boldsymbol{n}}}({\boldsymbol{x}}'),{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'} = \bf0,</span> where <span class="math inline">\widehat{{\boldsymbol{n}}}({\boldsymbol{x}}')</span> denotes the outward-pointing unit normal field on <span class="math inline">\partial T_\delta</span>. Using the explicit form for this field on each of the faces, we have <span id="eq-tetlimit"><span class="math display">
+    \lim_{\delta\to0}\frac{1}{{\operatorname{area}}(\partial T_\delta)}\bigg(\int_{\Gamma_{\delta,n}} {\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'}+\sum_{i=1}^3\int_{\Gamma_{\delta,i}} {\boldsymbol{t}}(-{\boldsymbol{e}}_i,{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'}\bigg) = \bf0. \tag{3.2}</span></span> It can be computed that the area of each face is <span class="math display">{\operatorname{area}}(\Gamma_{\delta,i}) = \frac{\delta^2}{2}\frac{n_i}{n_1n_2n_3}\quad\text{and}\quad{\operatorname{area}}(\Gamma_{\delta,n}) = \frac{\delta^2}{2}\frac{1}{n_1n_2n_3},</span> so that <span id="eq-tetarearelation1"><span class="math display">
     {\operatorname{area}}(\Gamma_\delta) = n_1 {\operatorname{area}}(\Gamma_1)=n_2{\operatorname{area}}(\Gamma_2) = n_3{\operatorname{area}}(\Gamma_3),
-\tag{3}</span></span> and thus <span id="eq-tetarearelation2"><span class="math display">
-    {\operatorname{area}}(\partial T_\delta) = (1+n_1+n_2+n_3){\operatorname{area}}(\Gamma_{\delta,n}). \tag{4}</span></span> We now consider the integral over each face, and apply the Mean Value Theorem, which entails that there exist points <span class="math inline">{\boldsymbol{x}}'_{\delta,i}\in\Gamma_{\delta,i}</span> and a point <span class="math inline">{\boldsymbol{x}}'_{\delta,n}\in\Gamma_{\delta,n}</span> such that $$
+\tag{3.3}</span></span> and thus <span id="eq-tetarearelation2"><span class="math display">
+    {\operatorname{area}}(\partial T_\delta) = (1+n_1+n_2+n_3){\operatorname{area}}(\Gamma_{\delta,n}). \tag{3.4}</span></span> We now consider the integral over each face, and apply the Mean Value Theorem, which entails that there exist points <span class="math inline">{\boldsymbol{x}}'_{\delta,i}\in\Gamma_{\delta,i}</span> and a point <span class="math inline">{\boldsymbol{x}}'_{\delta,n}\in\Gamma_{\delta,n}</span> such that $$
 <span class="math display">\begin{gathered}
     {\boldsymbol{t}}(-{\boldsymbol{e}}_i,{\boldsymbol{x}}'_{\delta,i}) = \frac{1}{{\operatorname{area}}(\Gamma_{\delta,i})}\int_{\Gamma_{\delta,i}}{\boldsymbol{t}}(-{\boldsymbol{e}}_i,{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'}\\
     \text{and}\quad
@@ -326,48 +384,48 @@ We note that <span class="math inline">{\operatorname{vol}}(T_\delta)\to0</span>
   
 \end{gathered}</span>
 <p>$$ We note that as <span class="math inline">\delta\to0</span>, we have that <span class="math inline">{\boldsymbol{x}}'_{\delta,n}\to{\boldsymbol{x}}</span> and <span class="math inline">{\boldsymbol{x}}'_{\delta,i}\to{\boldsymbol{x}}</span>, since the faces shrink to the point <span class="math inline">{\boldsymbol{x}}</span>.</p>
-<p>Using these facts and <a href="#eq-tetarearelation1" class="quarto-xref">Equation&nbsp;3</a>, we have <span class="math display">\begin{gathered}
+<p>Using these facts and <a href="#eq-tetarearelation1" class="quarto-xref">Equation&nbsp;<span>3.3</span></a>, we have <span class="math display">\begin{gathered}
     \int_{\Gamma_{\delta,n}} {\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'}+\sum_{i=1}^3\int_{\Gamma_{\delta,i}} {\boldsymbol{t}}(-{\boldsymbol{e}}_i,{\boldsymbol{x}}')\,dA_{{\boldsymbol{x}}'}\\
     = {\operatorname{area}}(\Gamma_{\delta,n})\bigg({\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}}'_{\delta,n})+\sum_{i=1}^3n_i{\boldsymbol{t}}(-{\boldsymbol{e}}_i,{\boldsymbol{x}}_{\delta,i})\bigg).  
-\end{gathered}</span> Dividing by <span class="math inline">{\operatorname{area}}(\partial T_\delta)</span>, and applying <a href="#eq-tetarearelation2" class="quarto-xref">Equation&nbsp;4</a> with the limit, we deduce that <span class="math display">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})+\sum_{i=1}^3n_i{\boldsymbol{t}}(-{\boldsymbol{e}}_i,{\boldsymbol{x}}) = \bf0.</span> Applying <a href="#prp-actionreaction" class="quarto-xref">Proposition&nbsp;1</a>, and reinstating the summation convention, this can be rewritten as <span class="math display">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}}) = n_i{\boldsymbol{t}}({\boldsymbol{e}}_i,{\boldsymbol{x}}) = \Big({\boldsymbol{t}}({\boldsymbol{e}}_i,{\boldsymbol{x}})\otimes{\boldsymbol{e}}_i\Big){\boldsymbol{n}}={\boldsymbol{S}}({\boldsymbol{x}}){\boldsymbol{n}}</span> where we define <span id="eq-stresstensordefinition"><span class="math display">
+\end{gathered}</span> Dividing by <span class="math inline">{\operatorname{area}}(\partial T_\delta)</span>, and applying <a href="#eq-tetarearelation2" class="quarto-xref">Equation&nbsp;<span>3.4</span></a> with the limit, we deduce that <span class="math display">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})+\sum_{i=1}^3n_i{\boldsymbol{t}}(-{\boldsymbol{e}}_i,{\boldsymbol{x}}) = \bf0.</span> Applying <a href="#prp-actionreaction" class="quarto-xref">Proposition&nbsp;<span>3.1</span></a>, and reinstating the summation convention, this can be rewritten as <span class="math display">{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}}) = n_i{\boldsymbol{t}}({\boldsymbol{e}}_i,{\boldsymbol{x}}) = \Big({\boldsymbol{t}}({\boldsymbol{e}}_i,{\boldsymbol{x}})\otimes{\boldsymbol{e}}_i\Big){\boldsymbol{n}}={\boldsymbol{S}}({\boldsymbol{x}}){\boldsymbol{n}}</span> where we define <span id="eq-stresstensordefinition"><span class="math display">
     {\boldsymbol{S}}({\boldsymbol{x}}) = {\boldsymbol{t}}({\boldsymbol{e}}_i,{\boldsymbol{x}})\otimes{\boldsymbol{e}}_i.
-\tag{5}</span></span> This demonstrates the result for all <span class="math inline">{\boldsymbol{n}}</span> such that <span class="math inline">{\boldsymbol{n}}\cdot{\boldsymbol{e}}_i&gt;0</span>.</p>
+\tag{3.5}</span></span> This demonstrates the result for all <span class="math inline">{\boldsymbol{n}}</span> such that <span class="math inline">{\boldsymbol{n}}\cdot{\boldsymbol{e}}_i&gt;0</span>.</p>
 <p>To show the result for all remaining vectors, we can first repeat the argument above for any <span class="math inline">{\boldsymbol{n}}</span> such that <span class="math inline">{\boldsymbol{n}}\cdot{\boldsymbol{e}}_i\neq0</span> by changing frame <span class="math inline">\{{\boldsymbol{e}}_i\}</span> to <span class="math inline">\{{\boldsymbol{e}}_i'\}</span> by a sequence of <span class="math inline">90^\circ</span> rotations of the axes. To include vectors for which <span class="math inline">{\boldsymbol{n}}\cdot{\boldsymbol{e}}_i=0</span> for at least one <span class="math inline">i</span>, we can use the fact that <span class="math inline">{\boldsymbol{t}}</span> is a assumed to be continuous.</p>
 </div>
 <p>From now on, we will abbreviate notation for <span class="math inline">{\boldsymbol{t}}({\boldsymbol{n}}({\boldsymbol{x}}),{\boldsymbol{x}})</span>, writing <span class="math inline">{\boldsymbol{t}}({\boldsymbol{x}})</span>, where the dependence on the normal field <span class="math inline">{\boldsymbol{n}}</span> is kept implicit, and so we have <span class="math inline">{\boldsymbol{t}}({\boldsymbol{x}}) = {\boldsymbol{S}}({\boldsymbol{x}}){\boldsymbol{n}}</span>, or in some cases suppress all arguments to write <span class="math inline">{\boldsymbol{t}}={\boldsymbol{S}}{\boldsymbol{n}}</span>.</p>
-<p>The nine components of the stress tensor <span class="math inline">{\boldsymbol{S}}({\boldsymbol{x}})</span> can be understood as the components of the three traction vectors <span class="math inline">{\boldsymbol{t}}({\boldsymbol{e}}_i,{\boldsymbol{x}})</span> acting across the coordinate planes at the point <span class="math inline">{\boldsymbol{x}}</span>. In particular, taking components in <a href="#eq-stresstensordefinition" class="quarto-xref">Equation&nbsp;5</a>, we have <span class="math display">{\boldsymbol{S}}({\boldsymbol{x}}) = S_{ij}({\boldsymbol{x}}){\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j\quad\text{with}\quad S_{ij}({\boldsymbol{x}}) = t_i({\boldsymbol{e}}_j,{\boldsymbol{x}}),</span> and so <span class="math display">{\boldsymbol{t}}({\boldsymbol{e}}_j,{\boldsymbol{x}}) = t_i({\boldsymbol{e}}_j,{\boldsymbol{x}}){\boldsymbol{e}}_i = S_{ij}({\boldsymbol{x}}){\boldsymbol{e}}_i.</span></p>
+<p>The nine components of the stress tensor <span class="math inline">{\boldsymbol{S}}({\boldsymbol{x}})</span> can be understood as the components of the three traction vectors <span class="math inline">{\boldsymbol{t}}({\boldsymbol{e}}_i,{\boldsymbol{x}})</span> acting across the coordinate planes at the point <span class="math inline">{\boldsymbol{x}}</span>. In particular, taking components in <a href="#eq-stresstensordefinition" class="quarto-xref">Equation&nbsp;<span>3.5</span></a>, we have <span class="math display">{\boldsymbol{S}}({\boldsymbol{x}}) = S_{ij}({\boldsymbol{x}}){\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j\quad\text{with}\quad S_{ij}({\boldsymbol{x}}) = t_i({\boldsymbol{e}}_j,{\boldsymbol{x}}),</span> and so <span class="math display">{\boldsymbol{t}}({\boldsymbol{e}}_j,{\boldsymbol{x}}) = t_i({\boldsymbol{e}}_j,{\boldsymbol{x}}){\boldsymbol{e}}_i = S_{ij}({\boldsymbol{x}}){\boldsymbol{e}}_i.</span></p>
 </section>
-<section id="equilibrium" class="level2">
-<h2 class="anchored" data-anchor-id="equilibrium">Equilibrium</h2>
+<section id="equilibrium" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="equilibrium"><span class="header-section-number">3.5</span> Equilibrium</h2>
 <p>In this section, we define what is meant by a state of mechanical equilibrium, and use the definition to derive differential equations satisfied.</p>
-<section id="preliminaries-1" class="level3">
-<h3 class="anchored" data-anchor-id="preliminaries-1">Preliminaries</h3>
+<section id="preliminaries-1" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="preliminaries-1"><span class="header-section-number">3.5.1</span> Preliminaries</h3>
 <p>Consider a body <span class="math inline">B_0</span> in Euclidean space <span class="math inline">{\mathbb{E}}^3</span>, which is at a state of rest. Suppose the body is then subjected to an external traction and body force fields which cause the body to change shape and come to rest in a possibly different configuration <span class="math inline">B</span>. The mass density field in the latter configuration is denoted <span class="math inline">\rho:B\to{\mathbb{R}}</span>, the external traction field per unit area is <span class="math inline">{\boldsymbol{h}}:\partial B\to{\mathcal{V}}</span>, and the body force field per unit mass is <span class="math inline">{\boldsymbol{b}}:B\to{\mathcal{V}}</span>. All of these fields are assumed not to depend on time.</p>
 </section>
-<section id="necessary-conditions" class="level3">
-<h3 class="anchored" data-anchor-id="necessary-conditions">Necessary conditions</h3>
+<section id="necessary-conditions" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="necessary-conditions"><span class="header-section-number">3.5.2</span> Necessary conditions</h3>
 <p>Let <span class="math inline">\Omega\subseteq B</span> be any open subset of <span class="math inline">B</span> and let <span class="math inline">{\boldsymbol{t}}:\partial\Omega\to{\mathcal{V}}</span> be the traction field acting on its outer surface, with orientation determined by the outward-point normal field. The resultant force on <span class="math inline">\Omega</span> due to body and surface forces is <span id="eq-resultantforce"><span class="math display">
-  {\boldsymbol{r}}(\Omega) = {\boldsymbol{r}}_b(\Omega)+{\boldsymbol{r}}_s(\partial\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{t}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}, \tag{6}</span></span> and the resultant torque on <span class="math inline">\Omega</span> about the point <span class="math inline">{\boldsymbol{z}}\in{\mathbb{E}}^3</span> is <span id="eq-resultanttorque"><span class="math display">
+  {\boldsymbol{r}}(\Omega) = {\boldsymbol{r}}_b(\Omega)+{\boldsymbol{r}}_s(\partial\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{t}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}, \tag{3.6}</span></span> and the resultant torque on <span class="math inline">\Omega</span> about the point <span class="math inline">{\boldsymbol{z}}\in{\mathbb{E}}^3</span> is <span id="eq-resultanttorque"><span class="math display">
   \begin{aligned}
     {\boldsymbol{\tau}}(\Omega;{\boldsymbol{z}})
     &amp;= {\boldsymbol{\tau}}_b(\Omega;{\boldsymbol{z}})+{\boldsymbol{\tau}}_s(\partial\Omega;{\boldsymbol{z}})\\
-    &amp;=\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial \Omega}({\boldsymbol{x}}-{\boldsymbol{x}})\times{\boldsymbol{t}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.
+    &amp;=\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}+\int_{\partial \Omega}({\boldsymbol{x}}-{\boldsymbol{x}})\times{\boldsymbol{t}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}.
   \end{aligned}
-   \tag{7}</span></span> At a static equilibrium, we assume that both the resultant force and torque for any <span class="math inline">\Omega</span> vanish, which is encoded in the following axiom.</p>
+   \tag{3.7}</span></span> At a static equilibrium, we assume that both the resultant force and torque for any <span class="math inline">\Omega</span> vanish, which is encoded in the following axiom.</p>
 <div class="axiom">
-<p><span id="ax:staticequilibrium" label="ax:staticequilibrium"></span> If a body <span class="math inline">B</span> is in a state of <em>static mechanical equilibrium</em>, then the resultant force and resultant torque (taken about any fixed point) which act on any sub-body must vanish. That is, it holds that <span id="eq-equilibriumconditionsINT"><span class="math display">
+<p><span id="ax:staticequilibrium" data-label="ax:staticequilibrium"></span> If a body <span class="math inline">B</span> is in a state of <em>static mechanical equilibrium</em>, then the resultant force and resultant torque (taken about any fixed point) which act on any sub-body must vanish. That is, it holds that <span id="eq-equilibriumconditionsINT"><span class="math display">
     \begin{gathered}
-      {\boldsymbol{r}}(\Omega)=\int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{t}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}=\bf0\\
-      {\boldsymbol{\tau}}(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial \Omega}({\boldsymbol{x}}-{\boldsymbol{z}})\times{\boldsymbol{t}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}=\bf0
-    \end{gathered} \tag{8}</span></span> for any <span class="math inline">\Omega\subseteq B</span>.</p>
+      {\boldsymbol{r}}(\Omega)=\int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{t}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}=\bf0\\
+      {\boldsymbol{\tau}}(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}+\int_{\partial \Omega}({\boldsymbol{x}}-{\boldsymbol{z}})\times{\boldsymbol{t}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}=\bf0
+    \end{gathered} \tag{3.8}</span></span> for any <span class="math inline">\Omega\subseteq B</span>.</p>
 </div>
 <p>The fact that we have freedom of choice in choosing the point <span class="math inline">{\boldsymbol{z}}</span> in the second equation above is a consequence of the first equation: see Exercises for details.</p>
 </section>
-<section id="local-equations" class="level3">
-<h3 class="anchored" data-anchor-id="local-equations">Local equations</h3>
-<p>We now use Axiom&nbsp;<a href="#ax:staticequilibrium" data-reference-type="ref" data-reference="ax:staticequilibrium">[ax:staticequilibrium]</a> to derive differential equations which are the ‘local’ form of the equilibrium conditions. Since <a href="#prp-stresstensor" class="quarto-xref">Proposition&nbsp;2</a> asserts that <span class="math inline">{\boldsymbol{t}}</span> is expressed in terms of the Cauchy stress tensor <span class="math inline">{\boldsymbol{S}}</span>, it is unsurprising that these equations naturally involve this field.</p>
+<section id="local-equations" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="local-equations"><span class="header-section-number">3.5.3</span> Local equations</h3>
+<p>We now use Axiom&nbsp;<a href="#ax:staticequilibrium" data-reference-type="ref" data-reference="ax:staticequilibrium">[ax:staticequilibrium]</a> to derive differential equations which are the ‘local’ form of the equilibrium conditions. Since <a href="#prp-stresstensor" class="quarto-xref">Proposition&nbsp;<span>3.2</span></a> asserts that <span class="math inline">{\boldsymbol{t}}</span> is expressed in terms of the Cauchy stress tensor <span class="math inline">{\boldsymbol{S}}</span>, it is unsurprising that these equations naturally involve this field.</p>
 <div id="prp-staticequilibriumeqns" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3</strong></span> If the Cauchy stress field <span class="math inline">{\boldsymbol{S}}:B\to{\mathcal{V}}^2</span> is continuously differentiable, and the density field <span class="math inline">\rho:B\to{\mathbb{R}}</span> and body force field <span class="math inline">{\boldsymbol{b}}</span> are continuous, then the equilibrium conditions <a href="#eq:equilibriumconditionsINT" data-reference-type="eqref" data-reference="eq:equilibriumconditionsINT">[eq:equilibriumconditionsINT]</a> are equivalent to <span class="math display">\label{eq:equilibriumequationsDE}
+<p><span class="theorem-title"><strong>Proposition 3.3</strong></span> If the Cauchy stress field <span class="math inline">{\boldsymbol{S}}:B\to{\mathcal{V}}^2</span> is continuously differentiable, and the density field <span class="math inline">\rho:B\to{\mathbb{R}}</span> and body force field <span class="math inline">{\boldsymbol{b}}</span> are continuous, then the equilibrium conditions <a href="#eq:equilibriumconditionsINT" data-reference-type="eqref" data-reference="eq:equilibriumconditionsINT">[eq:equilibriumconditionsINT]</a> are equivalent to <span class="math display">\label{eq:equilibriumequationsDE}
     \begin{gathered}
       (\nabla\cdot{\boldsymbol{S}})({\boldsymbol{x}})+\rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}) = \bf0 \\
       {\boldsymbol{S}}^T({\boldsymbol{x}})={\boldsymbol{S}}({\boldsymbol{x}})
@@ -377,9 +435,9 @@ We note that <span class="math inline">{\operatorname{vol}}(T_\delta)\to0</span>
     \end{gathered}</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>To establish the first equation in <a href="#eq:equilibriumequationsDE" data-reference-type="eqref" data-reference="eq:equilibriumequationsDE">[eq:equilibriumequationsDE]</a> assuming that Axiom&nbsp;<a href="#ax:staticequilibrium" data-reference-type="ref" data-reference="ax:staticequilibrium">[ax:staticequilibrium]</a> holds, we first use the definition of <span class="math inline">{\boldsymbol{S}}</span> to write the first equation in <a href="#eq:equilibriumconditionsINT" data-reference-type="eqref" data-reference="eq:equilibriumconditionsINT">[eq:equilibriumconditionsINT]</a> as <span class="math display">\int_{\partial \Omega}{\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}+\int_\Omega\rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.</span> Applying the Tensor Divergence Theorem <strong>?@prp-tensordivthm</strong> to the first integral, we obtain <span class="math display">\int_\Omega \big(\nabla\cdot{\boldsymbol{S}}+\rho{\boldsymbol{b}}\big){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.</span> Since this equation hold for an arbitrary open set <span class="math inline">\Omega\subseteq B</span>, the Localisation Theorem (<strong>?@prp-localisation</strong>) allows us to conclude that the integrand vanishes, which is exactly the first result.</p>
-To establish the second result, we write the second equation in <a href="#eq:equilibriumconditionsINT" data-reference-type="eqref" data-reference="eq:equilibriumconditionsINT">[eq:equilibriumconditionsINT]</a> as <span class="math display">\int_{\partial\Omega} ({\boldsymbol{x}}-{\boldsymbol{z}})\times ({\boldsymbol{S}}{\boldsymbol{n}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}+\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.</span> Since we have just shown <span class="math inline">\rho{\boldsymbol{b}}=-\nabla\cdot{\boldsymbol{S}}</span>, we can substitute, and rewrite <span class="math display">
-    \int_{\partial\Omega} ({\boldsymbol{x}}-{\boldsymbol{z}})\times ({\boldsymbol{S}}{\boldsymbol{n}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}-\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\big(\nabla\cdot{\boldsymbol{S}}\big){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.</span> {#eq-equilibriumproof1} Next, note that we may define the tensor <span class="math inline">{\boldsymbol{R}}=R_{il}{\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_l</span> to be <span class="math display">R_{il} = \epsilon_{ijk}(x_j-z_j)S_{kl},</span> which has the property that <span class="math inline">{\boldsymbol{R}}{\boldsymbol{n}}=({\boldsymbol{x}}-{\boldsymbol{z}})\times({\boldsymbol{S}}{\boldsymbol{n}})</span>, and hence <a href="#eq:equilibriumproof1" data-reference-type="eqref" data-reference="eq:equilibriumproof1">[eq:equilibriumproof1]</a> can be written as <span class="math display">\int_{\partial\Omega}{\boldsymbol{R}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}-\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times(\nabla\cdot {\boldsymbol{S}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.</span> Applying the Tensor Divergence Theorem to the first of these integrals, we find that <span class="math display">\int_\Omega\nabla\cdot {\boldsymbol{R}}- ({\boldsymbol{x}}-{\boldsymbol{z}})\times(\nabla\cdot {\boldsymbol{S}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.</span> Applying the Localisation Theorem in the same way as we did above, it follows that <span class="math display">\big(\nabla\cdot{\boldsymbol{R}}\big)({\boldsymbol{x}})-({\boldsymbol{x}}-{\boldsymbol{z}})\times(\nabla\cdot{\boldsymbol{S}})({\boldsymbol{x}})=\bf0</span> for all <span class="math inline">{\boldsymbol{x}}\in B</span>, which in components becomes <span class="math display">(\epsilon_{ijk}(x_j-z_j)S_{kl})_{,l}-\epsilon_{ijk}(x_j-z_j)S_{kl,l}=0.</span> Using the product rule, we have $$
+<p><span class="proof-title"><em>Proof</em>. </span>To establish the first equation in <a href="#eq:equilibriumequationsDE" data-reference-type="eqref" data-reference="eq:equilibriumequationsDE">[eq:equilibriumequationsDE]</a> assuming that Axiom&nbsp;<a href="#ax:staticequilibrium" data-reference-type="ref" data-reference="ax:staticequilibrium">[ax:staticequilibrium]</a> holds, we first use the definition of <span class="math inline">{\boldsymbol{S}}</span> to write the first equation in <a href="#eq:equilibriumconditionsINT" data-reference-type="eqref" data-reference="eq:equilibriumconditionsINT">[eq:equilibriumconditionsINT]</a> as <span class="math display">\int_{\partial \Omega}{\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{x}}}}+\int_\Omega\rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{x}}}}=\bf0.</span> Applying the Tensor Divergence Theorem <a href="tensorcalculus.html#prp-tensordivthm" class="quarto-xref">Proposition&nbsp;<span>2.7</span></a> to the first integral, we obtain <span class="math display">\int_\Omega \big(\nabla\cdot{\boldsymbol{S}}+\rho{\boldsymbol{b}}\big){\,\d V_{{\boldsymbol{x}}}}=\bf0.</span> Since this equation hold for an arbitrary open set <span class="math inline">\Omega\subseteq B</span>, the Localisation Theorem (<a href="tensorcalculus.html#prp-localisation" class="quarto-xref">Proposition&nbsp;<span>2.8</span></a>) allows us to conclude that the integrand vanishes, which is exactly the first result.</p>
+To establish the second result, we write the second equation in <a href="#eq:equilibriumconditionsINT" data-reference-type="eqref" data-reference="eq:equilibriumconditionsINT">[eq:equilibriumconditionsINT]</a> as <span class="math display">\int_{\partial\Omega} ({\boldsymbol{x}}-{\boldsymbol{z}})\times ({\boldsymbol{S}}{\boldsymbol{n}}){\,\d A_{{\boldsymbol{x}}}}+\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{x}}}}=\bf0.</span> Since we have just shown <span class="math inline">\rho{\boldsymbol{b}}=-\nabla\cdot{\boldsymbol{S}}</span>, we can substitute, and rewrite <span class="math display">
+    \int_{\partial\Omega} ({\boldsymbol{x}}-{\boldsymbol{z}})\times ({\boldsymbol{S}}{\boldsymbol{n}}){\,\d A_{{\boldsymbol{x}}}}-\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\big(\nabla\cdot{\boldsymbol{S}}\big){\,\d V_{{\boldsymbol{x}}}}=\bf0.</span> {#eq-equilibriumproof1} Next, note that we may define the tensor <span class="math inline">{\boldsymbol{R}}=R_{il}{\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_l</span> to be <span class="math display">R_{il} = \epsilon_{ijk}(x_j-z_j)S_{kl},</span> which has the property that <span class="math inline">{\boldsymbol{R}}{\boldsymbol{n}}=({\boldsymbol{x}}-{\boldsymbol{z}})\times({\boldsymbol{S}}{\boldsymbol{n}})</span>, and hence <a href="#eq:equilibriumproof1" data-reference-type="eqref" data-reference="eq:equilibriumproof1">[eq:equilibriumproof1]</a> can be written as <span class="math display">\int_{\partial\Omega}{\boldsymbol{R}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{x}}}}-\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times(\nabla\cdot {\boldsymbol{S}}){\,\d V_{{\boldsymbol{x}}}}=\bf0.</span> Applying the Tensor Divergence Theorem to the first of these integrals, we find that <span class="math display">\int_\Omega\nabla\cdot {\boldsymbol{R}}- ({\boldsymbol{x}}-{\boldsymbol{z}})\times(\nabla\cdot {\boldsymbol{S}}){\,\d V_{{\boldsymbol{x}}}}=\bf0.</span> Applying the Localisation Theorem in the same way as we did above, it follows that <span class="math display">\big(\nabla\cdot{\boldsymbol{R}}\big)({\boldsymbol{x}})-({\boldsymbol{x}}-{\boldsymbol{z}})\times(\nabla\cdot{\boldsymbol{S}})({\boldsymbol{x}})=\bf0</span> for all <span class="math inline">{\boldsymbol{x}}\in B</span>, which in components becomes <span class="math display">(\epsilon_{ijk}(x_j-z_j)S_{kl})_{,l}-\epsilon_{ijk}(x_j-z_j)S_{kl,l}=0.</span> Using the product rule, we have $$
 <span class="math display">\begin{aligned}
     &amp;(\epsilon_{ijk}(x_j-z_j)S_{kl})_{,l}-\epsilon_{ijk}(x_j-z_j)S_{kl,l}\\
     &amp;\quad\qquad=\epsilon_{ijk}x_{j,l}S_{kl}+\epsilon_{ijk}(x_j-z_j)S_{kl,l}-\epsilon_{ijk}(x_j-z_j)S_{kl,l}\\
@@ -395,16 +453,16 @@ see that
 <ol type="1">
 <li><p>The Cauchy stress field is always symmetric, even when a body is not in equilibrium (see later).</p></li>
 <li><p>The local equilibrium equations <a href="#eq:equilibriumequationsDE" data-reference-type="eqref" data-reference="eq:equilibriumequationsDE">[eq:equilibriumequationsDE]</a> do not completely determine the stress field for a body in equilibrium, since there are 3 PDEs and 3 algebraic equations for 9 unknown components of <span class="math inline">{\boldsymbol{S}}</span>. This demonstrates that we need additional information to determine the Cauchy stress, and we may address this by prescribing <em>constitutive equations</em> characterising the specific material properties of a body.</p></li>
-<li><p>The traction field <span class="math inline">{\boldsymbol{h}}</span> acting on <span class="math inline">\partial B</span> represents the surface force per unit area exterted on <span class="math inline">B</span> by its environment. Applying <a href="#prp-stresstensor" class="quarto-xref">Proposition&nbsp;2</a>, we have <span class="math inline">{\boldsymbol{S}}{\boldsymbol{n}}={\boldsymbol{h}}</span> for any <span class="math inline">{\boldsymbol{x}}\in\partial B</span>, where <span class="math inline">{\boldsymbol{n}}</span> is the outward-point normal vector on <span class="math inline">\partial B</span>. This equation provides a boundary condition for the local equilibrium equations <a href="#eq:equilibriumequationsDE" data-reference-type="eqref" data-reference="eq:equilibriumequationsDE">[eq:equilibriumequationsDE]</a>.</p></li>
+<li><p>The traction field <span class="math inline">{\boldsymbol{h}}</span> acting on <span class="math inline">\partial B</span> represents the surface force per unit area exterted on <span class="math inline">B</span> by its environment. Applying <a href="#prp-stresstensor" class="quarto-xref">Proposition&nbsp;<span>3.2</span></a>, we have <span class="math inline">{\boldsymbol{S}}{\boldsymbol{n}}={\boldsymbol{h}}</span> for any <span class="math inline">{\boldsymbol{x}}\in\partial B</span>, where <span class="math inline">{\boldsymbol{n}}</span> is the outward-point normal vector on <span class="math inline">\partial B</span>. This equation provides a boundary condition for the local equilibrium equations <a href="#eq:equilibriumequationsDE" data-reference-type="eqref" data-reference="eq:equilibriumequationsDE">[eq:equilibriumequationsDE]</a>.</p></li>
 <li><p>In deriving the equilibrium equations, we assumed that the mass density <span class="math inline">\rho</span> and body force field <span class="math inline">{\boldsymbol{b}}</span> are continuous, and that <span class="math inline">{\boldsymbol{S}}</span> is continuously differentiable. In practice, establishing such regularity properties is an important part of the subject, and a topic of active research. In this module, we will assume that all fields are sufficiently regular to allow us to exchange integral laws for differential equations and vice versa.</p></li>
 </ol>
 </section>
 </section>
-<section id="stress-concepts" class="level2">
-<h2 class="anchored" data-anchor-id="stress-concepts">Stress concepts</h2>
+<section id="stress-concepts" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="stress-concepts"><span class="header-section-number">3.6</span> Stress concepts</h2>
 <p>We now study stress in more detail, describing various states of stress which may exist at a point in a body. We also discuss the decomposition of the stress into various components which have important physical meaning.</p>
-<section id="simple-stress-states" class="level3">
-<h3 class="anchored" data-anchor-id="simple-stress-states">Simple stress states</h3>
+<section id="simple-stress-states" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="simple-stress-states"><span class="header-section-number">3.6.1</span> Simple stress states</h3>
 <p>If the stress tensor <span class="math inline">{\boldsymbol{S}}</span> at a point <span class="math inline">{\boldsymbol{x}}\in B</span> takes the form <span class="math display">{\boldsymbol{S}}= -\pi{\boldsymbol{I}},</span> where <span class="math inline">\pi</span> is a scalar, we say that a <em>spherical</em> state of stress exists at <span class="math inline">{\boldsymbol{x}}</span>. In this stress state, the traction on any surface is parallel to the normal vector <span class="math inline">{\boldsymbol{n}}</span>: <span class="math display">{\boldsymbol{t}}= {\boldsymbol{S}}{\boldsymbol{n}}= -\pi{\boldsymbol{n}}.</span></p>
 <p>The stress at a point <span class="math inline">{\boldsymbol{x}}\in B</span> is said to be <em>uniaxial</em> is there exists a unit vector <span class="math inline">{\boldsymbol{e}}</span> and a scalar <span class="math inline">\sigma</span> such that <span class="math display">{\boldsymbol{S}}= \sigma {\boldsymbol{e}}\otimes{\boldsymbol{e}}.</span> If <span class="math inline">\sigma&gt;0</span>, we call this state a <em>pure tension</em>, and if <span class="math inline">\sigma&lt;0</span>, a <em>pure compression</em>. In this case, the traction on a surface with normal <span class="math inline">{\boldsymbol{n}}</span> at <span class="math inline">{\boldsymbol{x}}</span> is <span class="math display">{\boldsymbol{t}}= {\boldsymbol{S}}{\boldsymbol{n}}= ({\boldsymbol{e}}\cdot{\boldsymbol{n}})\sigma {\boldsymbol{e}}.</span> The traction is always parallel to <span class="math inline">{\boldsymbol{e}}</span>, and vanishes if <span class="math inline">{\boldsymbol{n}}</span> is orthogonal to <span class="math inline">{\boldsymbol{e}}</span>.</p>
 <p>If there are a pair of orthogonal unit vectors <span class="math inline">{\boldsymbol{a}}</span> and <span class="math inline">{\boldsymbol{b}}</span> and a scalar <span class="math inline">\tau</span> such that the stress at a point <span class="math inline">{\boldsymbol{x}}\in B</span> takes the form <span class="math display">{\boldsymbol{S}}=\tau\big({\boldsymbol{a}}\otimes{\boldsymbol{b}}+{\boldsymbol{b}}\otimes{\boldsymbol{a}}),</span> then we say that a state of <em>pure shear</em> exists at <span class="math inline">{\boldsymbol{x}}</span>. For this stress state, the traction on a surface with normal <span class="math inline">{\boldsymbol{n}}</span> is <span class="math display">{\boldsymbol{t}}= {\boldsymbol{S}}{\boldsymbol{n}}= \tau ({\boldsymbol{b}}\cdot{\boldsymbol{n}}){\boldsymbol{a}}+\tau ({\boldsymbol{a}}\cdot{\boldsymbol{n}}){\boldsymbol{b}}.</span> When <span class="math inline">{\boldsymbol{n}}={\boldsymbol{a}}</span>, <span class="math inline">{\boldsymbol{t}}=\tau{\boldsymbol{b}}</span> and when <span class="math inline">{\boldsymbol{n}}={\boldsymbol{b}}</span>, <span class="math inline">{\boldsymbol{t}}=\tau{\boldsymbol{a}}</span>.</p>
@@ -415,31 +473,30 @@ see that
       0     &amp; 0     &amp; 0
     \end{array}\right),</span> we say that a state of <em>plane stress</em> exists at <span class="math inline">{\boldsymbol{x}}</span>.</p>
 </section>
-<section id="principal-normal-and-shear-stresses" class="level3">
-<h3 class="anchored" data-anchor-id="principal-normal-and-shear-stresses">Principal, normal and shear stresses</h3>
+<section id="principal-normal-and-shear-stresses" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="principal-normal-and-shear-stresses"><span class="header-section-number">3.6.2</span> Principal, normal and shear stresses</h3>
 <p>The eigenvalues of the Cauchy stress <span class="math inline">{\boldsymbol{S}}</span> evaluated at a point <span class="math inline">{\boldsymbol{x}}\in B</span> are called the <em>principal stresses</em> at <span class="math inline">{\boldsymbol{x}}</span>. The corresponding eigenvectors are called the <em>principal stress directions</em> at <span class="math inline">{\boldsymbol{x}}</span>. We note that since the stress tensor is symmetric, there exist three real principal stresses, and three orthogonal principal stress directions for each point.</p>
 <p>Consider a surface with normal in direction <span class="math inline">{\boldsymbol{n}}</span> at <span class="math inline">{\boldsymbol{x}}</span>. Then the corresponding traction vector can be decomposed into two parts: <span class="math display">\begin{aligned}
     \text{a \emph{normal traction}:}&amp;\qquad&amp;{\boldsymbol{t}}_n &amp;= ({\boldsymbol{t}}\cdot{\boldsymbol{n}}){\boldsymbol{n}},\\
     \text{and a \emph{shear traction}:}&amp;\qquad&amp;{\boldsymbol{t}}_s&amp;= {\boldsymbol{t}}-({\boldsymbol{t}}\cdot{\boldsymbol{n}}){\boldsymbol{n}},
   \end{aligned}</span> In particular, we have <span class="math inline">{\boldsymbol{t}}={\boldsymbol{t}}_n+{\boldsymbol{t}}_s</span>, and we call <span class="math inline">\sigma_n=|{\boldsymbol{t}}_n|</span> the <em>normal stress</em> and <span class="math inline">\sigma_s=|{\boldsymbol{t}}_s|</span> the <em>shear stress</em> on the surface with normal <span class="math inline">{\boldsymbol{n}}</span> at <span class="math inline">{\boldsymbol{x}}</span>.</p>
 </section>
-<section id="maximum-normal-and-shear-stresses" class="level3">
-<h3 class="anchored" data-anchor-id="maximum-normal-and-shear-stresses">Maximum normal and shear stresses</h3>
+<section id="maximum-normal-and-shear-stresses" class="level3" data-number="3.6.3">
+<h3 data-number="3.6.3" class="anchored" data-anchor-id="maximum-normal-and-shear-stresses"><span class="header-section-number">3.6.3</span> Maximum normal and shear stresses</h3>
 <p>Given a point <span class="math inline">{\boldsymbol{x}}</span> in a body of interest, it is often of interest to understand what surfaces passing through <span class="math inline">{\boldsymbol{x}}</span> experience the largest normal and shear stresses. In practice, this may be relevant due to knowledge about the level at which a particular material will undergo failure due to stresses of these types. For example, both high levels of tension (a normal stress state) and high levels of shear stress can induce cracking, and the threshold for these two different modes of failure is often different.</p>
 <div id="prp-maxstresses" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 4</strong></span> Suppose that the principal stresses <span class="math inline">\sigma_i</span> at a point <span class="math inline">{\boldsymbol{x}}\in B</span> are distinct and ordered, with <span class="math display">\sigma_1&gt;\sigma_2&gt;\sigma_3.</span> Then</p>
+<p><span class="theorem-title"><strong>Proposition 3.4</strong></span> Suppose that the principal stresses <span class="math inline">\sigma_i</span> at a point <span class="math inline">{\boldsymbol{x}}\in B</span> are distinct and ordered, with <span class="math display">\sigma_1&gt;\sigma_2&gt;\sigma_3.</span> Then</p>
 <ul>
 <li><p>The maximum normal stress <span class="math inline">\sigma_n</span> is <span class="math inline">\max_i|\sigma_i|</span>.</p></li>
 <li><p>The maximum shear stress <span class="math inline">\sigma_s</span> is <span class="math inline">\frac12|\sigma_1-\sigma_3|</span>, and this is achieved for for the two pairs of normals <span class="math display">{\boldsymbol{n}}= \pm\frac{1}{\sqrt 2}({\boldsymbol{e}}_1+{\boldsymbol{e}}_3)\quad\text{and}\quad{\boldsymbol{n}}= \pm\frac{1}{\sqrt 2}({\boldsymbol{e}}_1-{\boldsymbol{e}}_3).</span></p></li>
 </ul>
 </div>
 </section>
-<section id="spherical-and-deviatoric-stress-tensors" class="level3">
-<h3 class="anchored" data-anchor-id="spherical-and-deviatoric-stress-tensors">Spherical and deviatoric stress tensors</h3>
+<section id="spherical-and-deviatoric-stress-tensors" class="level3" data-number="3.6.4">
+<h3 data-number="3.6.4" class="anchored" data-anchor-id="spherical-and-deviatoric-stress-tensors"><span class="header-section-number">3.6.4</span> Spherical and deviatoric stress tensors</h3>
 <p>At any point <span class="math inline">{\boldsymbol{x}}</span>, the Cauchy stress tensor can be decomposed into two parts, a <em>spherical stress tensor</em> <span class="math display">{\boldsymbol{S}}_S = -p{\boldsymbol{I}},</span> and a <em>deviatoric stress tensor</em> <span class="math display">{\boldsymbol{S}}_D = {\boldsymbol{S}}+p{\boldsymbol{I}}= {\boldsymbol{S}}-{\boldsymbol{S}}_S,</span> where <span class="math inline">p=-\frac13{\operatorname{tr}}{\boldsymbol{S}}</span> is called the pressure. Note that <span class="math inline">{\boldsymbol{S}}={\boldsymbol{S}}_S+{\boldsymbol{S}}_D</span>.</p>
 
 
-</section>
 </section>
 </section>
 
@@ -670,8 +727,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -782,7 +837,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1008,6 +1062,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./tensorcalculus.html" class="pagination-link" aria-label="Tensor Calculus">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tensor Calculus</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./kinematics.html" class="pagination-link" aria-label="Kinematics">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kinematics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
