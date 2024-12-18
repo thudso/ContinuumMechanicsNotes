@@ -166,7 +166,7 @@
 
 \title{MA4J1 Continuum Mechanics Notes}
 \author{Thomas Hudson}
-\date{2024-06-01}
+\date{2025-01-01}
 
 \begin{document}
 \maketitle
@@ -185,19 +185,31 @@
 
 \markboth{Preface}{Preface}
 
-\$\$ \newcommand{\bfa}{{\boldsymbol{a}}}
-\newcommand{\bfb}{{\boldsymbol{b}}} \newcommand{\bfc}{{\boldsymbol{c}}}
-\newcommand{\bfd}{{\boldsymbol{d}}} \newcommand{\bfe}{{\boldsymbol{e}}}
-\newcommand{\bff}{{\boldsymbol{f}}} \newcommand{\bfg}{{\boldsymbol{g}}}
-\newcommand{\bfh}{{\boldsymbol{h}}} \newcommand{\bfi}{{\boldsymbol{i}}}
-\newcommand{\bfj}{{\boldsymbol{j}}} \newcommand{\bfk}{{\boldsymbol{k}}}
-\newcommand{\bfl}{{\boldsymbol{l}}} \newcommand{\bfm}{{\boldsymbol{m}}}
-\newcommand{\bfn}{{\boldsymbol{n}}} \newcommand{\bfo}{{\boldsymbol{o}}}
-\newcommand{\bfp}{{\boldsymbol{p}}} \newcommand{\bfq}{{\boldsymbol{q}}}
-\newcommand{\bfr}{{\boldsymbol{r}}} \newcommand{\bfs}{{\boldsymbol{s}}}
-\newcommand{\bft}{{\boldsymbol{t}}} \newcommand{\bfu}{{\boldsymbol{u}}}
-\newcommand{\bfv}{{\boldsymbol{v}}} \newcommand{\bfw}{{\boldsymbol{w}}}
-\newcommand{\bfx}{{\boldsymbol{x}}} \newcommand{\bfy}{{\boldsymbol{y}}}
+\newcommand{\bfa}{{\boldsymbol{a}}}
+\newcommand{\bfb}{{\boldsymbol{b}}}
+\newcommand{\bfc}{{\boldsymbol{c}}}
+\newcommand{\bfd}{{\boldsymbol{d}}}
+\newcommand{\bfe}{{\boldsymbol{e}}}
+\newcommand{\bff}{{\boldsymbol{f}}}
+\newcommand{\bfg}{{\boldsymbol{g}}}
+\newcommand{\bfh}{{\boldsymbol{h}}}
+\newcommand{\bfi}{{\boldsymbol{i}}}
+\newcommand{\bfj}{{\boldsymbol{j}}}
+\newcommand{\bfk}{{\boldsymbol{k}}}
+\newcommand{\bfl}{{\boldsymbol{l}}}
+\newcommand{\bfm}{{\boldsymbol{m}}}
+\newcommand{\bfn}{{\boldsymbol{n}}}
+\newcommand{\bfo}{{\boldsymbol{o}}}
+\newcommand{\bfp}{{\boldsymbol{p}}}
+\newcommand{\bfq}{{\boldsymbol{q}}}
+\newcommand{\bfr}{{\boldsymbol{r}}}
+\newcommand{\bfs}{{\boldsymbol{s}}}
+\newcommand{\bft}{{\boldsymbol{t}}}
+\newcommand{\bfu}{{\boldsymbol{u}}}
+\newcommand{\bfv}{{\boldsymbol{v}}}
+\newcommand{\bfw}{{\boldsymbol{w}}}
+\newcommand{\bfx}{{\boldsymbol{x}}}
+\newcommand{\bfy}{{\boldsymbol{y}}}
 \newcommand{\bfz}{{\boldsymbol{z}}}
 
 \newcommand{\bfA}{{\boldsymbol{A}}}
@@ -255,8 +267,8 @@
 \newcommand{\cov}{{\operatorname{cov}}}
 \newcommand{\e}{{\mathrm{e}}}
 \newcommand{\D}{{\mathrm{D}}}
-\newcommand{\d}{{\mathrm{d}}}
-\newcommand{\dt}{{\d t}}
+\newcommand{\dd}{{\mathrm{d}}}
+\newcommand{\dt}{{\dd t}}
 \newcommand{\Dt}{{\D t}}
 \newcommand{\bigO}{{O}}
 \newcommand{\litO}{{o}}
@@ -265,8 +277,6 @@
 \newcommand{\dVy}{{\,\d V_{\bfy}}}
 \newcommand{\dAy}{{\,\d A_{\bfy}}}
 \newcommand{\ds}{{\,\d s}}
-
-\$\$
 
 These notes are a guide to the main content of the fourth-year Maths
 module MA4J1 Continuum Mechanics taught at Warwick. They are intended to
@@ -320,26 +330,38 @@ is generally used for the study of solid materials.
 There will doubtless be errors and typos in these notes. If you spot
 anything, please feel free to let me know via email.
 
-\href{https://sites.google.com/view/thudso/}{Dr Thomas Hudson}, March
-2024
+\href{https://sites.google.com/view/thudso/}{Dr Thomas Hudson}, Janury
+2025
 
 \bookmarksetup{startatroot}
 
 \chapter{Tensor Algebra}\label{sec-tensor-algebra}
 
-\$\$ \newcommand{\bfa}{{\boldsymbol{a}}}
-\newcommand{\bfb}{{\boldsymbol{b}}} \newcommand{\bfc}{{\boldsymbol{c}}}
-\newcommand{\bfd}{{\boldsymbol{d}}} \newcommand{\bfe}{{\boldsymbol{e}}}
-\newcommand{\bff}{{\boldsymbol{f}}} \newcommand{\bfg}{{\boldsymbol{g}}}
-\newcommand{\bfh}{{\boldsymbol{h}}} \newcommand{\bfi}{{\boldsymbol{i}}}
-\newcommand{\bfj}{{\boldsymbol{j}}} \newcommand{\bfk}{{\boldsymbol{k}}}
-\newcommand{\bfl}{{\boldsymbol{l}}} \newcommand{\bfm}{{\boldsymbol{m}}}
-\newcommand{\bfn}{{\boldsymbol{n}}} \newcommand{\bfo}{{\boldsymbol{o}}}
-\newcommand{\bfp}{{\boldsymbol{p}}} \newcommand{\bfq}{{\boldsymbol{q}}}
-\newcommand{\bfr}{{\boldsymbol{r}}} \newcommand{\bfs}{{\boldsymbol{s}}}
-\newcommand{\bft}{{\boldsymbol{t}}} \newcommand{\bfu}{{\boldsymbol{u}}}
-\newcommand{\bfv}{{\boldsymbol{v}}} \newcommand{\bfw}{{\boldsymbol{w}}}
-\newcommand{\bfx}{{\boldsymbol{x}}} \newcommand{\bfy}{{\boldsymbol{y}}}
+\newcommand{\bfa}{{\boldsymbol{a}}}
+\newcommand{\bfb}{{\boldsymbol{b}}}
+\newcommand{\bfc}{{\boldsymbol{c}}}
+\newcommand{\bfd}{{\boldsymbol{d}}}
+\newcommand{\bfe}{{\boldsymbol{e}}}
+\newcommand{\bff}{{\boldsymbol{f}}}
+\newcommand{\bfg}{{\boldsymbol{g}}}
+\newcommand{\bfh}{{\boldsymbol{h}}}
+\newcommand{\bfi}{{\boldsymbol{i}}}
+\newcommand{\bfj}{{\boldsymbol{j}}}
+\newcommand{\bfk}{{\boldsymbol{k}}}
+\newcommand{\bfl}{{\boldsymbol{l}}}
+\newcommand{\bfm}{{\boldsymbol{m}}}
+\newcommand{\bfn}{{\boldsymbol{n}}}
+\newcommand{\bfo}{{\boldsymbol{o}}}
+\newcommand{\bfp}{{\boldsymbol{p}}}
+\newcommand{\bfq}{{\boldsymbol{q}}}
+\newcommand{\bfr}{{\boldsymbol{r}}}
+\newcommand{\bfs}{{\boldsymbol{s}}}
+\newcommand{\bft}{{\boldsymbol{t}}}
+\newcommand{\bfu}{{\boldsymbol{u}}}
+\newcommand{\bfv}{{\boldsymbol{v}}}
+\newcommand{\bfw}{{\boldsymbol{w}}}
+\newcommand{\bfx}{{\boldsymbol{x}}}
+\newcommand{\bfy}{{\boldsymbol{y}}}
 \newcommand{\bfz}{{\boldsymbol{z}}}
 
 \newcommand{\bfA}{{\boldsymbol{A}}}
@@ -397,8 +419,8 @@ anything, please feel free to let me know via email.
 \newcommand{\cov}{{\operatorname{cov}}}
 \newcommand{\e}{{\mathrm{e}}}
 \newcommand{\D}{{\mathrm{D}}}
-\newcommand{\d}{{\mathrm{d}}}
-\newcommand{\dt}{{\d t}}
+\newcommand{\dd}{{\mathrm{d}}}
+\newcommand{\dt}{{\dd t}}
 \newcommand{\Dt}{{\D t}}
 \newcommand{\bigO}{{O}}
 \newcommand{\litO}{{o}}
@@ -407,8 +429,6 @@ anything, please feel free to let me know via email.
 \newcommand{\dVy}{{\,\d V_{\bfy}}}
 \newcommand{\dAy}{{\,\d A_{\bfy}}}
 \newcommand{\ds}{{\,\d s}}
-
-\$\$
 
 \section{Preliminaries}\label{preliminaries}
 
@@ -1443,19 +1463,31 @@ as claimed.
 
 \chapter{Tensor Calculus}\label{sec-tensor-calculus}
 
-\$\$ \newcommand{\bfa}{{\boldsymbol{a}}}
-\newcommand{\bfb}{{\boldsymbol{b}}} \newcommand{\bfc}{{\boldsymbol{c}}}
-\newcommand{\bfd}{{\boldsymbol{d}}} \newcommand{\bfe}{{\boldsymbol{e}}}
-\newcommand{\bff}{{\boldsymbol{f}}} \newcommand{\bfg}{{\boldsymbol{g}}}
-\newcommand{\bfh}{{\boldsymbol{h}}} \newcommand{\bfi}{{\boldsymbol{i}}}
-\newcommand{\bfj}{{\boldsymbol{j}}} \newcommand{\bfk}{{\boldsymbol{k}}}
-\newcommand{\bfl}{{\boldsymbol{l}}} \newcommand{\bfm}{{\boldsymbol{m}}}
-\newcommand{\bfn}{{\boldsymbol{n}}} \newcommand{\bfo}{{\boldsymbol{o}}}
-\newcommand{\bfp}{{\boldsymbol{p}}} \newcommand{\bfq}{{\boldsymbol{q}}}
-\newcommand{\bfr}{{\boldsymbol{r}}} \newcommand{\bfs}{{\boldsymbol{s}}}
-\newcommand{\bft}{{\boldsymbol{t}}} \newcommand{\bfu}{{\boldsymbol{u}}}
-\newcommand{\bfv}{{\boldsymbol{v}}} \newcommand{\bfw}{{\boldsymbol{w}}}
-\newcommand{\bfx}{{\boldsymbol{x}}} \newcommand{\bfy}{{\boldsymbol{y}}}
+\newcommand{\bfa}{{\boldsymbol{a}}}
+\newcommand{\bfb}{{\boldsymbol{b}}}
+\newcommand{\bfc}{{\boldsymbol{c}}}
+\newcommand{\bfd}{{\boldsymbol{d}}}
+\newcommand{\bfe}{{\boldsymbol{e}}}
+\newcommand{\bff}{{\boldsymbol{f}}}
+\newcommand{\bfg}{{\boldsymbol{g}}}
+\newcommand{\bfh}{{\boldsymbol{h}}}
+\newcommand{\bfi}{{\boldsymbol{i}}}
+\newcommand{\bfj}{{\boldsymbol{j}}}
+\newcommand{\bfk}{{\boldsymbol{k}}}
+\newcommand{\bfl}{{\boldsymbol{l}}}
+\newcommand{\bfm}{{\boldsymbol{m}}}
+\newcommand{\bfn}{{\boldsymbol{n}}}
+\newcommand{\bfo}{{\boldsymbol{o}}}
+\newcommand{\bfp}{{\boldsymbol{p}}}
+\newcommand{\bfq}{{\boldsymbol{q}}}
+\newcommand{\bfr}{{\boldsymbol{r}}}
+\newcommand{\bfs}{{\boldsymbol{s}}}
+\newcommand{\bft}{{\boldsymbol{t}}}
+\newcommand{\bfu}{{\boldsymbol{u}}}
+\newcommand{\bfv}{{\boldsymbol{v}}}
+\newcommand{\bfw}{{\boldsymbol{w}}}
+\newcommand{\bfx}{{\boldsymbol{x}}}
+\newcommand{\bfy}{{\boldsymbol{y}}}
 \newcommand{\bfz}{{\boldsymbol{z}}}
 
 \newcommand{\bfA}{{\boldsymbol{A}}}
@@ -1513,8 +1545,8 @@ as claimed.
 \newcommand{\cov}{{\operatorname{cov}}}
 \newcommand{\e}{{\mathrm{e}}}
 \newcommand{\D}{{\mathrm{D}}}
-\newcommand{\d}{{\mathrm{d}}}
-\newcommand{\dt}{{\d t}}
+\newcommand{\dd}{{\mathrm{d}}}
+\newcommand{\dt}{{\dd t}}
 \newcommand{\Dt}{{\D t}}
 \newcommand{\bigO}{{O}}
 \newcommand{\litO}{{o}}
@@ -1523,8 +1555,6 @@ as claimed.
 \newcommand{\dVy}{{\,\d V_{\bfy}}}
 \newcommand{\dAy}{{\,\d A_{\bfy}}}
 \newcommand{\ds}{{\,\d s}}
-
-\$\$
 
 \section{Preliminaries}\label{preliminaries-1}
 
@@ -1884,9 +1914,9 @@ theorem]\protect\hypertarget{prp-vectordivtheorem}{}\label{prp-vectordivtheorem}
 Suppose \(B\) is a regular region in \({\mathbb{E}}^3\) with a piecewise
 smooth boundary \(\partial B\), and consider a vector field
 \({\boldsymbol{v}}:B\to{\mathcal{V}}\). Then
-\[\int_{\partial B} {\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}= \int_B\nabla\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}},\]
+\[\int_{\partial B} {\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,\d A_{{\boldsymbol{x}}}}= \int_B\nabla\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{x}}}},\]
 or in components,
-\[\int_{\partial B}v_in_i {\,{\mathrm{d}}A_{{\boldsymbol{x}}}}= \int_Bv_{i,i} {\,{\mathrm{d}}V_{{\boldsymbol{x}}}},\]
+\[\int_{\partial B}v_in_i {\,\d A_{{\boldsymbol{x}}}}= \int_Bv_{i,i} {\,\d V_{{\boldsymbol{x}}}},\]
 where \({\boldsymbol{n}}\) is the outward-point unit normal field on
 \(\partial B\). The quantity on the left-hand side of these equations is
 called the \emph{flux} of \({\boldsymbol{v}}\) across the oriented
@@ -1900,12 +1930,12 @@ the ball of radius \(\delta\) around that point,
 \(B_\delta({\boldsymbol{y}})\). If \({\boldsymbol{v}}\) is smooth, we
 can use the Divergence theorem and Taylor expand the argument in the
 volume integral to conclude that \[\begin{aligned}
-  \int_{\partial B_\delta({\boldsymbol{y}})}{\boldsymbol{v}}({\boldsymbol{x}})\cdot{\boldsymbol{n}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}
-  &= \int_{B_\delta({\boldsymbol{y}})}(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
-  &= \int_{B_\delta({\boldsymbol{y}})}\big[(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{y}})+{O}(\delta)\big]{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
+  \int_{\partial B_\delta({\boldsymbol{y}})}{\boldsymbol{v}}({\boldsymbol{x}})\cdot{\boldsymbol{n}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}
+  &= \int_{B_\delta({\boldsymbol{y}})}(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}\\
+  &= \int_{B_\delta({\boldsymbol{y}})}\big[(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{y}})+{O}(\delta)\big]{\,\d V_{{\boldsymbol{x}}}}\\
   &= {\operatorname{vol}}\big(B_\delta({\boldsymbol{y}})\big)\big[(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{y}})+{O}(\delta)\big].
 \end{aligned}\] This implies that, in the limit as \(\delta\to0\),
-\[(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{y}}) = \lim_{\delta\to0}\frac{1}{{\operatorname{vol}}(B_\delta({\boldsymbol{y}}))}\int_{\partial B_\delta({\boldsymbol{y}})}{\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.\]
+\[(\nabla \cdot {\boldsymbol{v}})({\boldsymbol{y}}) = \lim_{\delta\to0}\frac{1}{{\operatorname{vol}}(B_\delta({\boldsymbol{y}}))}\int_{\partial B_\delta({\boldsymbol{y}})}{\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,\d A_{{\boldsymbol{x}}}}.\]
 If we interpret \({\boldsymbol{v}}\) as a velocity field of a fluid,
 then the flux integral is the volume of fluid per unit time leaving
 \(B_\delta({\boldsymbol{y}})\). When divided by the volume, we therefore
@@ -1923,9 +1953,9 @@ theorem]\protect\hypertarget{prp-tensordivthm}{}\label{prp-tensordivthm}
 Suppose \(B\) is a regular region in \({\mathbb{E}}^3\) with a piecewise
 smooth boundary \(\partial B\), and consider a second-order tensor field
 \({\boldsymbol{S}}:B\to{\mathcal{V}}^2\). Then
-\[\int_{\partial B} {\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}= \int_B\nabla\cdot{\boldsymbol{S}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}},\]
+\[\int_{\partial B} {\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{x}}}}= \int_B\nabla\cdot{\boldsymbol{S}}{\,\d V_{{\boldsymbol{x}}}},\]
 or in components,
-\[\int_{\partial B}S_{ij}n_j {\,{\mathrm{d}}A_{{\boldsymbol{x}}}}= \int_BS_{ij,j} {\,{\mathrm{d}}V_{{\boldsymbol{x}}}},\]
+\[\int_{\partial B}S_{ij}n_j {\,\d A_{{\boldsymbol{x}}}}= \int_BS_{ij,j} {\,\d V_{{\boldsymbol{x}}}},\]
 where \({\boldsymbol{n}}\) is the outward-point unit normal field on
 \(\partial B\).
 
@@ -1946,7 +1976,7 @@ theorem]\protect\hypertarget{prp-localisation}{}\label{prp-localisation}
 Consider a continuous function \(\phi:B\to{\mathbb{R}}\) where \(B\) is
 an open subset of \({\mathbb{E}}^3\), and let \(\Omega\) denote an
 arbitrary open subset of \(B\). If
-\[\int_\Omega \phi({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}= 0\quad\text{for any }\Omega\subseteq B,\]
+\[\int_\Omega \phi({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}= 0\quad\text{for any }\Omega\subseteq B,\]
 then it follows that \(\phi({\boldsymbol{x}})=0\) for all
 \({\boldsymbol{x}}\in B\).
 
@@ -1962,8 +1992,8 @@ Let \(B\) be an open, connected subset of \({\mathbb{E}}^3\), and let
 \(\Sigma\) be a compact, connected surface in \(B\). Suppose that
 \(\phi:B\to{\mathbb{R}}\) is continuous; then there exist points
 \({\boldsymbol{x}}'\in B\) and \({\boldsymbol{x}}''\in\Sigma\) such that
-\[\phi({\boldsymbol{x}}') = \frac{1}{{\operatorname{vol}}(B)}\int_B \phi({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\quad\text{and}\quad
-    \phi({\boldsymbol{x}}'') = \frac{1}{{\operatorname{area}}(\Sigma)}\int_\Sigma \phi({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.\]
+\[\phi({\boldsymbol{x}}') = \frac{1}{{\operatorname{vol}}(B)}\int_B \phi({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}\quad\text{and}\quad
+    \phi({\boldsymbol{x}}'') = \frac{1}{{\operatorname{area}}(\Sigma)}\int_\Sigma \phi({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}.\]
 
 \end{proposition}
 
@@ -2122,19 +2152,31 @@ where
 
 \chapter{Mass, Forces and Stress}\label{sec-mass-forces}
 
-\$\$ \newcommand{\bfa}{{\boldsymbol{a}}}
-\newcommand{\bfb}{{\boldsymbol{b}}} \newcommand{\bfc}{{\boldsymbol{c}}}
-\newcommand{\bfd}{{\boldsymbol{d}}} \newcommand{\bfe}{{\boldsymbol{e}}}
-\newcommand{\bff}{{\boldsymbol{f}}} \newcommand{\bfg}{{\boldsymbol{g}}}
-\newcommand{\bfh}{{\boldsymbol{h}}} \newcommand{\bfi}{{\boldsymbol{i}}}
-\newcommand{\bfj}{{\boldsymbol{j}}} \newcommand{\bfk}{{\boldsymbol{k}}}
-\newcommand{\bfl}{{\boldsymbol{l}}} \newcommand{\bfm}{{\boldsymbol{m}}}
-\newcommand{\bfn}{{\boldsymbol{n}}} \newcommand{\bfo}{{\boldsymbol{o}}}
-\newcommand{\bfp}{{\boldsymbol{p}}} \newcommand{\bfq}{{\boldsymbol{q}}}
-\newcommand{\bfr}{{\boldsymbol{r}}} \newcommand{\bfs}{{\boldsymbol{s}}}
-\newcommand{\bft}{{\boldsymbol{t}}} \newcommand{\bfu}{{\boldsymbol{u}}}
-\newcommand{\bfv}{{\boldsymbol{v}}} \newcommand{\bfw}{{\boldsymbol{w}}}
-\newcommand{\bfx}{{\boldsymbol{x}}} \newcommand{\bfy}{{\boldsymbol{y}}}
+\newcommand{\bfa}{{\boldsymbol{a}}}
+\newcommand{\bfb}{{\boldsymbol{b}}}
+\newcommand{\bfc}{{\boldsymbol{c}}}
+\newcommand{\bfd}{{\boldsymbol{d}}}
+\newcommand{\bfe}{{\boldsymbol{e}}}
+\newcommand{\bff}{{\boldsymbol{f}}}
+\newcommand{\bfg}{{\boldsymbol{g}}}
+\newcommand{\bfh}{{\boldsymbol{h}}}
+\newcommand{\bfi}{{\boldsymbol{i}}}
+\newcommand{\bfj}{{\boldsymbol{j}}}
+\newcommand{\bfk}{{\boldsymbol{k}}}
+\newcommand{\bfl}{{\boldsymbol{l}}}
+\newcommand{\bfm}{{\boldsymbol{m}}}
+\newcommand{\bfn}{{\boldsymbol{n}}}
+\newcommand{\bfo}{{\boldsymbol{o}}}
+\newcommand{\bfp}{{\boldsymbol{p}}}
+\newcommand{\bfq}{{\boldsymbol{q}}}
+\newcommand{\bfr}{{\boldsymbol{r}}}
+\newcommand{\bfs}{{\boldsymbol{s}}}
+\newcommand{\bft}{{\boldsymbol{t}}}
+\newcommand{\bfu}{{\boldsymbol{u}}}
+\newcommand{\bfv}{{\boldsymbol{v}}}
+\newcommand{\bfw}{{\boldsymbol{w}}}
+\newcommand{\bfx}{{\boldsymbol{x}}}
+\newcommand{\bfy}{{\boldsymbol{y}}}
 \newcommand{\bfz}{{\boldsymbol{z}}}
 
 \newcommand{\bfA}{{\boldsymbol{A}}}
@@ -2192,8 +2234,8 @@ where
 \newcommand{\cov}{{\operatorname{cov}}}
 \newcommand{\e}{{\mathrm{e}}}
 \newcommand{\D}{{\mathrm{D}}}
-\newcommand{\d}{{\mathrm{d}}}
-\newcommand{\dt}{{\d t}}
+\newcommand{\dd}{{\mathrm{d}}}
+\newcommand{\dt}{{\dd t}}
 \newcommand{\Dt}{{\D t}}
 \newcommand{\bigO}{{O}}
 \newcommand{\litO}{{o}}
@@ -2202,8 +2244,6 @@ where
 \newcommand{\dVy}{{\,\d V_{\bfy}}}
 \newcommand{\dAy}{{\,\d A_{\bfy}}}
 \newcommand{\ds}{{\,\d s}}
-
-\$\$
 
 \section{Preliminaries}\label{preliminaries-2}
 
@@ -2264,11 +2304,11 @@ only on a single configuration.
 We recall that the volume \({\operatorname{vol}}(\Omega)\) of a set
 \(\Omega\subseteq{\mathbb{E}}^3\) can be computed by integration, so
 that
-\[{\operatorname{vol}}(\Omega) = \int_\Omega {\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[{\operatorname{vol}}(\Omega) = \int_\Omega {\,\d V_{{\boldsymbol{x}}}}.\]
 Similarly, the area \({\operatorname{area}}(\Gamma)\) of a surface
 \(\Gamma\subset{\mathbb{E}}^3\) can also be computed by integration, so
 that
-\[{\operatorname{area}}(\Gamma) = \int_\Gamma {\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.\]
+\[{\operatorname{area}}(\Gamma) = \int_\Gamma {\,\d A_{{\boldsymbol{x}}}}.\]
 
 \section{Mass, momentum, forces and
 torque}\label{mass-momentum-forces-and-torque}
@@ -2313,7 +2353,7 @@ If \(\Omega\subseteq B\) is an open subset of \(B\), we denote the mass
 of this subset \({\operatorname{mass}}(\Omega)\). We assume that there
 exists a \emph{mass density field} \(\rho:B\to{\mathbb{R}}\), with units
 of mass per unit volume, such that
-\[{\operatorname{mass}}(\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[{\operatorname{mass}}(\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.\]
 Theoretically-speaking, if we know the mass and volume functions, we can
 formally define the mass density field \(\rho\) as follows. Let
 \({\boldsymbol{x}}\in B\) and let
@@ -2334,8 +2374,8 @@ properties described.
 The \emph{centre of mass} and the \emph{centre of volume} of an open
 subset \(\Omega\subseteq B\) respectively mean the points \[
 \begin{aligned}
-{\operatorname{com}}(\Omega) &= \frac{1}{{\operatorname{mass}}(\Omega)}\int_\Omega {\boldsymbol{x}}\rho({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
-  \text{and}\quad {\operatorname{cov}}(\Omega) &= \frac{1}{{\operatorname{vol}}(\Omega)}\int_\Omega {\boldsymbol{x}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.
+{\operatorname{com}}(\Omega) &= \frac{1}{{\operatorname{mass}}(\Omega)}\int_\Omega {\boldsymbol{x}}\rho({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}\\
+  \text{and}\quad {\operatorname{cov}}(\Omega) &= \frac{1}{{\operatorname{vol}}(\Omega)}\int_\Omega {\boldsymbol{x}}{\,\d V_{{\boldsymbol{x}}}}.
 \end{aligned}\] In general, these points need not be points in \(B\)
 (although they will be if \(\Omega\) is a convex set).
 
@@ -2350,7 +2390,7 @@ force field per unit volume} acting on \(B\).
 
 Let \(\Omega\) be an open subset of \(B\). Then the \emph{resultant
 force} on \(\Omega\) due to the body force field is defined to be
-\[{\boldsymbol{r}}_b(\Omega) = \int_\Omega \widehat{{\boldsymbol{b}}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[{\boldsymbol{r}}_b(\Omega) = \int_\Omega \widehat{{\boldsymbol{b}}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.\]
 The result force measures the total effect of the body forces acting on
 \(\Omega\). This interpretation is clear if we think of the integral as
 `summing up' the contributions from the body force acting on every
@@ -2358,7 +2398,7 @@ particle \({\boldsymbol{x}}\in \Omega\).
 
 The \emph{resultant torque about \({\boldsymbol{z}}\)} on \(\Omega\) is
 defined to be
-\[{\boldsymbol{\tau}}_b(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times \widehat{{\boldsymbol{b}}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[{\boldsymbol{\tau}}_b(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times \widehat{{\boldsymbol{b}}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.\]
 The torque measures the total turning effect of the body forces acting
 on \(\Omega\) about the centre of rotation \({\boldsymbol{z}}\). Here,
 the integral sums up the contributions of each force moment
@@ -2370,8 +2410,8 @@ body forces per unit mass. The \emph{body force per unit mass} is
 \[{\boldsymbol{b}}(x) = \frac{\widehat{{\boldsymbol{b}}}({\boldsymbol{x}})}{\rho({\boldsymbol{x}})},\]
 which is well-defined since we assume \(\rho({\boldsymbol{x}})>0\). In
 terms of this new field, we have
-\[{\boldsymbol{r}}_b(\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\quad\text{and}\quad
-  {\boldsymbol{\tau}}_b(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[{\boldsymbol{r}}_b(\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}\quad\text{and}\quad
+  {\boldsymbol{\tau}}_b(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.\]
 
 \subsection{Angular momentum and
 torque}\label{angular-momentum-and-torque}
@@ -2435,12 +2475,11 @@ the traction field represents the external force per unit area applied
 to this portion of the boundary.
 
 The \emph{resultant traction} on \(\Gamma\) is defined to be
-\[{\boldsymbol{r}}_s(\Gamma)= \int_\Gamma {\boldsymbol{t}}_\Gamma({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}},\]
-where \({\,{\mathrm{d}}A_{{\boldsymbol{x}}}}\) represents the surface
-area element at \({\boldsymbol{x}}\in\Gamma\). The \emph{resultant
-torque about \({\boldsymbol{z}}\)} due to the traction field is defined
-to be
-\[{\boldsymbol{\tau}}_s(\Gamma;{\boldsymbol{z}})= \int_\Gamma ({\boldsymbol{x}}-{\boldsymbol{z}})\times {\boldsymbol{t}}_\Gamma({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.\]
+\[{\boldsymbol{r}}_s(\Gamma)= \int_\Gamma {\boldsymbol{t}}_\Gamma({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}},\]
+where \({\,\d A_{{\boldsymbol{x}}}}\) represents the surface area
+element at \({\boldsymbol{x}}\in\Gamma\). The \emph{resultant torque
+about \({\boldsymbol{z}}\)} due to the traction field is defined to be
+\[{\boldsymbol{\tau}}_s(\Gamma;{\boldsymbol{z}})= \int_\Gamma ({\boldsymbol{x}}-{\boldsymbol{z}})\times {\boldsymbol{t}}_\Gamma({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}.\]
 
 \subsection{Cauchy's postulate}\label{cauchys-postulate}
 
@@ -2490,7 +2529,7 @@ traction function for a body \(B\). Suppose that
 \({\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})\) is continuous,
 and for any sequence of subsets \(\Omega\) whose volumes tend to zero,
 we have \begin{equation}\phantomsection\label{eq-arcondition1}{
-\frac{1}{{\operatorname{area}}(\partial\Omega)}\int_{\partial\Omega} {\boldsymbol{t}}({\boldsymbol{n}}({\boldsymbol{x}}),{\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}\to\bf0\quad\text{as}\quad{\operatorname{vol}}(\Omega)\to0.
+\frac{1}{{\operatorname{area}}(\partial\Omega)}\int_{\partial\Omega} {\boldsymbol{t}}({\boldsymbol{n}}({\boldsymbol{x}}),{\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}\to\bf0\quad\text{as}\quad{\operatorname{vol}}(\Omega)\to0.
 }\end{equation} Then it follows that
 \[{\boldsymbol{t}}(-{\boldsymbol{n}},{\boldsymbol{x}}) = -{\boldsymbol{t}}({\boldsymbol{n}},{\boldsymbol{x}})\quad\text{for any }{\boldsymbol{n}}\in{\mathcal{N}},{\boldsymbol{x}}\in B.\]
 
@@ -2708,14 +2747,14 @@ field acting on its outer surface, with orientation determined by the
 outward-point normal field. The resultant force on \(\Omega\) due to
 body and surface forces is
 \begin{equation}\phantomsection\label{eq-resultantforce}{
-  {\boldsymbol{r}}(\Omega) = {\boldsymbol{r}}_b(\Omega)+{\boldsymbol{r}}_s(\partial\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{t}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}},}\end{equation}
+  {\boldsymbol{r}}(\Omega) = {\boldsymbol{r}}_b(\Omega)+{\boldsymbol{r}}_s(\partial\Omega) = \int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{t}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}},}\end{equation}
 and the resultant torque on \(\Omega\) about the point
 \({\boldsymbol{z}}\in{\mathbb{E}}^3\) is
 \begin{equation}\phantomsection\label{eq-resultanttorque}{
   \begin{aligned}
     {\boldsymbol{\tau}}(\Omega;{\boldsymbol{z}})
     &= {\boldsymbol{\tau}}_b(\Omega;{\boldsymbol{z}})+{\boldsymbol{\tau}}_s(\partial\Omega;{\boldsymbol{z}})\\
-    &=\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial \Omega}({\boldsymbol{x}}-{\boldsymbol{x}})\times{\boldsymbol{t}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.
+    &=\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}+\int_{\partial \Omega}({\boldsymbol{x}}-{\boldsymbol{x}})\times{\boldsymbol{t}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}.
   \end{aligned}
   }\end{equation} At a static equilibrium, we assume that both the
 resultant force and torque for any \(\Omega\) vanish, which is encoded
@@ -2727,8 +2766,8 @@ and resultant torque (taken about any fixed point) which act on any
 sub-body must vanish. That is, it holds that
 \begin{equation}\phantomsection\label{eq-equilibriumconditionsINT}{
     \begin{gathered}
-      {\boldsymbol{r}}(\Omega)=\int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{t}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}=\bf0\\
-      {\boldsymbol{\tau}}(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial \Omega}({\boldsymbol{x}}-{\boldsymbol{z}})\times{\boldsymbol{t}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}=\bf0
+      {\boldsymbol{r}}(\Omega)=\int_\Omega \rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{t}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}=\bf0\\
+      {\boldsymbol{\tau}}(\Omega;{\boldsymbol{z}}) = \int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho({\boldsymbol{x}}){\boldsymbol{b}}({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}+\int_{\partial \Omega}({\boldsymbol{x}}-{\boldsymbol{z}})\times{\boldsymbol{t}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}=\bf0
     \end{gathered}}\end{equation} for any \(\Omega\subseteq B\).
 
 The fact that we have freedom of choice in choosing the point
@@ -2773,10 +2812,10 @@ we first use the definition of \({\boldsymbol{S}}\) to write the first
 equation in
 \hyperref[eq:equilibriumconditionsINT]{{[}eq:equilibriumconditionsINT{]}}
 as
-\[\int_{\partial \Omega}{\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}+\int_\Omega\rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.\]
+\[\int_{\partial \Omega}{\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{x}}}}+\int_\Omega\rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{x}}}}=\bf0.\]
 Applying the Tensor Divergence Theorem
 Proposition~\ref{prp-tensordivthm} to the first integral, we obtain
-\[\int_\Omega \big(\nabla\cdot{\boldsymbol{S}}+\rho{\boldsymbol{b}}\big){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.\]
+\[\int_\Omega \big(\nabla\cdot{\boldsymbol{S}}+\rho{\boldsymbol{b}}\big){\,\d V_{{\boldsymbol{x}}}}=\bf0.\]
 Since this equation hold for an arbitrary open set
 \(\Omega\subseteq B\), the Localisation Theorem
 (Proposition~\ref{prp-localisation}) allows us to conclude that the
@@ -2785,11 +2824,11 @@ integrand vanishes, which is exactly the first result.
 To establish the second result, we write the second equation in
 \hyperref[eq:equilibriumconditionsINT]{{[}eq:equilibriumconditionsINT{]}}
 as
-\[\int_{\partial\Omega} ({\boldsymbol{x}}-{\boldsymbol{z}})\times ({\boldsymbol{S}}{\boldsymbol{n}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}+\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.\]
+\[\int_{\partial\Omega} ({\boldsymbol{x}}-{\boldsymbol{z}})\times ({\boldsymbol{S}}{\boldsymbol{n}}){\,\d A_{{\boldsymbol{x}}}}+\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{x}}}}=\bf0.\]
 Since we have just shown
 \(\rho{\boldsymbol{b}}=-\nabla\cdot{\boldsymbol{S}}\), we can
 substitute, and rewrite \[
-    \int_{\partial\Omega} ({\boldsymbol{x}}-{\boldsymbol{z}})\times ({\boldsymbol{S}}{\boldsymbol{n}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}-\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\big(\nabla\cdot{\boldsymbol{S}}\big){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.\]
+    \int_{\partial\Omega} ({\boldsymbol{x}}-{\boldsymbol{z}})\times ({\boldsymbol{S}}{\boldsymbol{n}}){\,\d A_{{\boldsymbol{x}}}}-\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times\big(\nabla\cdot{\boldsymbol{S}}\big){\,\d V_{{\boldsymbol{x}}}}=\bf0.\]
 \{\#eq-equilibriumproof1\} Next, note that we may define the tensor
 \({\boldsymbol{R}}=R_{il}{\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_l\)
 to be \[R_{il} = \epsilon_{ijk}(x_j-z_j)S_{kl},\] which has the property
@@ -2797,10 +2836,10 @@ that
 \({\boldsymbol{R}}{\boldsymbol{n}}=({\boldsymbol{x}}-{\boldsymbol{z}})\times({\boldsymbol{S}}{\boldsymbol{n}})\),
 and hence \hyperref[eq:equilibriumproof1]{{[}eq:equilibriumproof1{]}}
 can be written as
-\[\int_{\partial\Omega}{\boldsymbol{R}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}-\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times(\nabla\cdot {\boldsymbol{S}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.\]
+\[\int_{\partial\Omega}{\boldsymbol{R}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{x}}}}-\int_\Omega ({\boldsymbol{x}}-{\boldsymbol{z}})\times(\nabla\cdot {\boldsymbol{S}}){\,\d V_{{\boldsymbol{x}}}}=\bf0.\]
 Applying the Tensor Divergence Theorem to the first of these integrals,
 we find that
-\[\int_\Omega\nabla\cdot {\boldsymbol{R}}- ({\boldsymbol{x}}-{\boldsymbol{z}})\times(\nabla\cdot {\boldsymbol{S}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=\bf0.\]
+\[\int_\Omega\nabla\cdot {\boldsymbol{R}}- ({\boldsymbol{x}}-{\boldsymbol{z}})\times(\nabla\cdot {\boldsymbol{S}}){\,\d V_{{\boldsymbol{x}}}}=\bf0.\]
 Applying the Localisation Theorem in the same way as we did above, it
 follows that
 \[\big(\nabla\cdot{\boldsymbol{R}}\big)({\boldsymbol{x}})-({\boldsymbol{x}}-{\boldsymbol{z}})\times(\nabla\cdot{\boldsymbol{S}})({\boldsymbol{x}})=\bf0\]
@@ -2989,19 +3028,31 @@ pressure. Note that
 
 \chapter{Kinematics}\label{sec-kinematics}
 
-\$\$ \newcommand{\bfa}{{\boldsymbol{a}}}
-\newcommand{\bfb}{{\boldsymbol{b}}} \newcommand{\bfc}{{\boldsymbol{c}}}
-\newcommand{\bfd}{{\boldsymbol{d}}} \newcommand{\bfe}{{\boldsymbol{e}}}
-\newcommand{\bff}{{\boldsymbol{f}}} \newcommand{\bfg}{{\boldsymbol{g}}}
-\newcommand{\bfh}{{\boldsymbol{h}}} \newcommand{\bfi}{{\boldsymbol{i}}}
-\newcommand{\bfj}{{\boldsymbol{j}}} \newcommand{\bfk}{{\boldsymbol{k}}}
-\newcommand{\bfl}{{\boldsymbol{l}}} \newcommand{\bfm}{{\boldsymbol{m}}}
-\newcommand{\bfn}{{\boldsymbol{n}}} \newcommand{\bfo}{{\boldsymbol{o}}}
-\newcommand{\bfp}{{\boldsymbol{p}}} \newcommand{\bfq}{{\boldsymbol{q}}}
-\newcommand{\bfr}{{\boldsymbol{r}}} \newcommand{\bfs}{{\boldsymbol{s}}}
-\newcommand{\bft}{{\boldsymbol{t}}} \newcommand{\bfu}{{\boldsymbol{u}}}
-\newcommand{\bfv}{{\boldsymbol{v}}} \newcommand{\bfw}{{\boldsymbol{w}}}
-\newcommand{\bfx}{{\boldsymbol{x}}} \newcommand{\bfy}{{\boldsymbol{y}}}
+\newcommand{\bfa}{{\boldsymbol{a}}}
+\newcommand{\bfb}{{\boldsymbol{b}}}
+\newcommand{\bfc}{{\boldsymbol{c}}}
+\newcommand{\bfd}{{\boldsymbol{d}}}
+\newcommand{\bfe}{{\boldsymbol{e}}}
+\newcommand{\bff}{{\boldsymbol{f}}}
+\newcommand{\bfg}{{\boldsymbol{g}}}
+\newcommand{\bfh}{{\boldsymbol{h}}}
+\newcommand{\bfi}{{\boldsymbol{i}}}
+\newcommand{\bfj}{{\boldsymbol{j}}}
+\newcommand{\bfk}{{\boldsymbol{k}}}
+\newcommand{\bfl}{{\boldsymbol{l}}}
+\newcommand{\bfm}{{\boldsymbol{m}}}
+\newcommand{\bfn}{{\boldsymbol{n}}}
+\newcommand{\bfo}{{\boldsymbol{o}}}
+\newcommand{\bfp}{{\boldsymbol{p}}}
+\newcommand{\bfq}{{\boldsymbol{q}}}
+\newcommand{\bfr}{{\boldsymbol{r}}}
+\newcommand{\bfs}{{\boldsymbol{s}}}
+\newcommand{\bft}{{\boldsymbol{t}}}
+\newcommand{\bfu}{{\boldsymbol{u}}}
+\newcommand{\bfv}{{\boldsymbol{v}}}
+\newcommand{\bfw}{{\boldsymbol{w}}}
+\newcommand{\bfx}{{\boldsymbol{x}}}
+\newcommand{\bfy}{{\boldsymbol{y}}}
 \newcommand{\bfz}{{\boldsymbol{z}}}
 
 \newcommand{\bfA}{{\boldsymbol{A}}}
@@ -3059,8 +3110,8 @@ pressure. Note that
 \newcommand{\cov}{{\operatorname{cov}}}
 \newcommand{\e}{{\mathrm{e}}}
 \newcommand{\D}{{\mathrm{D}}}
-\newcommand{\d}{{\mathrm{d}}}
-\newcommand{\dt}{{\d t}}
+\newcommand{\dd}{{\mathrm{d}}}
+\newcommand{\dt}{{\dd t}}
 \newcommand{\Dt}{{\D t}}
 \newcommand{\bigO}{{O}}
 \newcommand{\litO}{{o}}
@@ -3069,8 +3120,6 @@ pressure. Note that
 \newcommand{\dVy}{{\,\d V_{\bfy}}}
 \newcommand{\dAy}{{\,\d A_{\bfy}}}
 \newcommand{\ds}{{\,\d s}}
-
-\$\$
 
 \section{Preliminaries}\label{preliminaries-4}
 
@@ -3889,7 +3938,7 @@ material point. This volume change factor is given by the \emph{Jacobian
 \({\boldsymbol{y}}= {\boldsymbol{\varphi}}({\boldsymbol{x}},t)\) is
 \[\det(\nabla_{\boldsymbol{x}}{\boldsymbol{\varphi}}({\boldsymbol{x}},t))=\det{\boldsymbol{F}}({\boldsymbol{x}},t),\]
 and hence
-\({\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\).
+\({\,\d V_{{\boldsymbol{y}}}}= \det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}\).
 This leads to the following change of variable formula for volume
 integrals.
 
@@ -3898,7 +3947,7 @@ integrals.
 If \(\phi({\boldsymbol{y}},t)\) is a spatial scalar field defined on
 \(B_t\), and let \(\Omega_t\subset B_t\), with
 \(\Omega = {\boldsymbol{\psi}}(\Omega_t,t)\subset B\). Then
-\[\int_{\Omega_t}\phi({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_\Omega \phi_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[\int_{\Omega_t}\phi({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}= \int_\Omega \phi_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}.\]
 
 \end{proposition}
 
@@ -4003,9 +4052,9 @@ motion with an associated spatial velocity field \({\boldsymbol{v}}\).
 Let \(\Omega_t\subset B_t\) be an arbitrary volume with boundary
 \(\partial \Omega_t\) which has outward normal field
 \({\boldsymbol{n}}\). Then for any spatial scalar field \(\phi\) we have
-\[\DDt{}\int_{\Omega_t}\phi{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega_t}\DDt{\phi}+\phi(\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{v}}){\,{\mathrm{d}}V_{{\boldsymbol{y}}}},\]
+\[\DDt{}\int_{\Omega_t}\phi{\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega_t}\DDt{\phi}+\phi(\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{v}}){\,\d V_{{\boldsymbol{y}}}},\]
 or equivalently
-\[\DDt{}\int_{\Omega_t}\phi{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega_t}\frac{\partial \phi}{\partial t}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}+\int_{\partial \Omega_t}\phi {\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}.\]
+\[\DDt{}\int_{\Omega_t}\phi{\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega_t}\frac{\partial \phi}{\partial t}{\,\d V_{{\boldsymbol{y}}}}+\int_{\partial \Omega_t}\phi {\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}.\]
 
 \end{proposition}
 
@@ -4042,7 +4091,7 @@ surface in the deformed configuration, with accompanying normal field
 
 It can be shown that in this case that the oriented surface area element
 satisfies
-\[{\boldsymbol{n}}({\boldsymbol{y}}){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}= {\operatorname{cof}}\big({\boldsymbol{F}}({\boldsymbol{x}},t)\big){\boldsymbol{\nu}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.\]
+\[{\boldsymbol{n}}({\boldsymbol{y}}){\,\d A_{{\boldsymbol{y}}}}= {\operatorname{cof}}\big({\boldsymbol{F}}({\boldsymbol{x}},t)\big){\boldsymbol{\nu}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}.\]
 The argument is similar to that made for a transformation of surface
 integrals, but since it is relatively technical, we omit it. This leads
 us to the following result.
@@ -4055,9 +4104,9 @@ is a subset which is mapped to
 outward-pointing normal field \({\boldsymbol{\nu}}\), and
 \(\partial\Omega_t\subset B_t\) has outward-pointing normal field
 \({\boldsymbol{n}}\). Then \[\begin{aligned}
-      \int_{\partial\Omega_t}\phi({\boldsymbol{y}},t){\boldsymbol{n}}({\boldsymbol{y}}){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}&= \int_{\partial\Omega}\phi_m({\boldsymbol{x}},t){\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}\\
-      \int_{\partial\Omega_t}{\boldsymbol{w}}({\boldsymbol{y}},t)\cdot {\boldsymbol{n}}({\boldsymbol{y}}){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}&= \int_{\partial\Omega}{\boldsymbol{w}}_m({\boldsymbol{x}},t)\cdot\big({\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}})\big){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}\\
-      \int_{\partial\Omega_t}{\boldsymbol{T}}({\boldsymbol{y}},t){\boldsymbol{n}}({\boldsymbol{y}}){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}&= \int_{\partial\Omega}{\boldsymbol{T}}_m({\boldsymbol{x}},t){\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}},
+      \int_{\partial\Omega_t}\phi({\boldsymbol{y}},t){\boldsymbol{n}}({\boldsymbol{y}}){\,\d A_{{\boldsymbol{y}}}}&= \int_{\partial\Omega}\phi_m({\boldsymbol{x}},t){\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}\\
+      \int_{\partial\Omega_t}{\boldsymbol{w}}({\boldsymbol{y}},t)\cdot {\boldsymbol{n}}({\boldsymbol{y}}){\,\d A_{{\boldsymbol{y}}}}&= \int_{\partial\Omega}{\boldsymbol{w}}_m({\boldsymbol{x}},t)\cdot\big({\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}})\big){\,\d A_{{\boldsymbol{x}}}}\\
+      \int_{\partial\Omega_t}{\boldsymbol{T}}({\boldsymbol{y}},t){\boldsymbol{n}}({\boldsymbol{y}}){\,\d A_{{\boldsymbol{y}}}}&= \int_{\partial\Omega}{\boldsymbol{T}}_m({\boldsymbol{x}},t){\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}},
     \end{aligned}\] where we recall that the cofactor tensor (as
 previously defined in the statement of
 Proposition~\hyperref[prop:derivativedet]{{[}prop:derivativedet{]}}) is
@@ -4068,19 +4117,31 @@ defined to be
 
 \chapter{Balance laws}\label{sec-balance-laws}
 
-\$\$ \newcommand{\bfa}{{\boldsymbol{a}}}
-\newcommand{\bfb}{{\boldsymbol{b}}} \newcommand{\bfc}{{\boldsymbol{c}}}
-\newcommand{\bfd}{{\boldsymbol{d}}} \newcommand{\bfe}{{\boldsymbol{e}}}
-\newcommand{\bff}{{\boldsymbol{f}}} \newcommand{\bfg}{{\boldsymbol{g}}}
-\newcommand{\bfh}{{\boldsymbol{h}}} \newcommand{\bfi}{{\boldsymbol{i}}}
-\newcommand{\bfj}{{\boldsymbol{j}}} \newcommand{\bfk}{{\boldsymbol{k}}}
-\newcommand{\bfl}{{\boldsymbol{l}}} \newcommand{\bfm}{{\boldsymbol{m}}}
-\newcommand{\bfn}{{\boldsymbol{n}}} \newcommand{\bfo}{{\boldsymbol{o}}}
-\newcommand{\bfp}{{\boldsymbol{p}}} \newcommand{\bfq}{{\boldsymbol{q}}}
-\newcommand{\bfr}{{\boldsymbol{r}}} \newcommand{\bfs}{{\boldsymbol{s}}}
-\newcommand{\bft}{{\boldsymbol{t}}} \newcommand{\bfu}{{\boldsymbol{u}}}
-\newcommand{\bfv}{{\boldsymbol{v}}} \newcommand{\bfw}{{\boldsymbol{w}}}
-\newcommand{\bfx}{{\boldsymbol{x}}} \newcommand{\bfy}{{\boldsymbol{y}}}
+\newcommand{\bfa}{{\boldsymbol{a}}}
+\newcommand{\bfb}{{\boldsymbol{b}}}
+\newcommand{\bfc}{{\boldsymbol{c}}}
+\newcommand{\bfd}{{\boldsymbol{d}}}
+\newcommand{\bfe}{{\boldsymbol{e}}}
+\newcommand{\bff}{{\boldsymbol{f}}}
+\newcommand{\bfg}{{\boldsymbol{g}}}
+\newcommand{\bfh}{{\boldsymbol{h}}}
+\newcommand{\bfi}{{\boldsymbol{i}}}
+\newcommand{\bfj}{{\boldsymbol{j}}}
+\newcommand{\bfk}{{\boldsymbol{k}}}
+\newcommand{\bfl}{{\boldsymbol{l}}}
+\newcommand{\bfm}{{\boldsymbol{m}}}
+\newcommand{\bfn}{{\boldsymbol{n}}}
+\newcommand{\bfo}{{\boldsymbol{o}}}
+\newcommand{\bfp}{{\boldsymbol{p}}}
+\newcommand{\bfq}{{\boldsymbol{q}}}
+\newcommand{\bfr}{{\boldsymbol{r}}}
+\newcommand{\bfs}{{\boldsymbol{s}}}
+\newcommand{\bft}{{\boldsymbol{t}}}
+\newcommand{\bfu}{{\boldsymbol{u}}}
+\newcommand{\bfv}{{\boldsymbol{v}}}
+\newcommand{\bfw}{{\boldsymbol{w}}}
+\newcommand{\bfx}{{\boldsymbol{x}}}
+\newcommand{\bfy}{{\boldsymbol{y}}}
 \newcommand{\bfz}{{\boldsymbol{z}}}
 
 \newcommand{\bfA}{{\boldsymbol{A}}}
@@ -4138,8 +4199,8 @@ defined to be
 \newcommand{\cov}{{\operatorname{cov}}}
 \newcommand{\e}{{\mathrm{e}}}
 \newcommand{\D}{{\mathrm{D}}}
-\newcommand{\d}{{\mathrm{d}}}
-\newcommand{\dt}{{\d t}}
+\newcommand{\dd}{{\mathrm{d}}}
+\newcommand{\dt}{{\dd t}}
 \newcommand{\Dt}{{\D t}}
 \newcommand{\bigO}{{O}}
 \newcommand{\litO}{{o}}
@@ -4148,8 +4209,6 @@ defined to be
 \newcommand{\dVy}{{\,\d V_{\bfy}}}
 \newcommand{\dAy}{{\,\d A_{\bfy}}}
 \newcommand{\ds}{{\,\d s}}
-
-\$\$
 
 In this chapter, we state a variety of axioms for a mechanical theory of
 continuum bodies. As in
@@ -4247,9 +4306,9 @@ the mass density and \({\boldsymbol{v}}({\boldsymbol{y}},t)\) be the
 velocity at a spatial point \({\boldsymbol{y}}\in B_t\), and let
 \(\Omega_t\subseteq B_t\) be an arbitrary open subset of \(B_t\). Then:
 \[\begin{aligned}
-    \text{The \emph{mass} of $\Omega_t$ is:}&&{\operatorname{mass}}[\Omega_t] &= \int_{\Omega_t}\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}},\\
-    \text{The \emph{linear momentum} of $\Omega_t$ is:}&&{\boldsymbol{l}}[\Omega_t] &= \int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}},\\
-    \text{The \emph{angular momentum} of $\Omega_t$ about ${\boldsymbol{z}}$ is:}&&{\boldsymbol{j}}[\Omega_t;{\boldsymbol{z}}] &= \int_{\Omega_t}({\boldsymbol{y}}-{\boldsymbol{z}})\times \rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.
+    \text{The \emph{mass} of $\Omega_t$ is:}&&{\operatorname{mass}}[\Omega_t] &= \int_{\Omega_t}\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}},\\
+    \text{The \emph{linear momentum} of $\Omega_t$ is:}&&{\boldsymbol{l}}[\Omega_t] &= \int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}},\\
+    \text{The \emph{angular momentum} of $\Omega_t$ about ${\boldsymbol{z}}$ is:}&&{\boldsymbol{j}}[\Omega_t;{\boldsymbol{z}}] &= \int_{\Omega_t}({\boldsymbol{y}}-{\boldsymbol{z}})\times \rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.
   \end{aligned}\]
 
 Assuming that we are neglecting relativistic effects and possible
@@ -4332,16 +4391,16 @@ heating: \[Q[\Omega_t] = Q_b[\Omega_t]+Q_s[\partial\Omega_t].\] As with
 our treatment of mass density and body forces, we assume there exists a
 \emph{heat supply field} per unit volume
 \(\hat{r}({\boldsymbol{y}},t)\in{\mathbb{R}}\) such that
-\[Q_b[\Omega_t] = \int_{\Omega_t}\hat{r}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}},\]
+\[Q_b[\Omega_t] = \int_{\Omega_t}\hat{r}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}},\]
 and equivalently, a heat supply field per unit mass
 \(r({\boldsymbol{y}},t)\in{\mathbb{R}}\) with
 \(r({\boldsymbol{y}},t) = \hat{r}({\boldsymbol{y}},t)/\rho({\boldsymbol{y}},t)\)
 so that, equivalently,
-\[Q_b[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[Q_b[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.\]
 
 We similarly assume that there is a \emph{heat transfer field} per unit
 area \(h({\boldsymbol{y}},t)\in{\mathbb{R}}\) so that
-\[Q_s[\partial\Omega_t] = \int_{\partial \Omega_t} h({\boldsymbol{y}},t){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}.\]
+\[Q_s[\partial\Omega_t] = \int_{\partial \Omega_t} h({\boldsymbol{y}},t){\,\d A_{{\boldsymbol{y}}}}.\]
 More specifically, we assume that the heat transfer field takes the form
 \(h({\boldsymbol{y}},t) = -{\boldsymbol{q}}({\boldsymbol{y}},t)\cdot{\boldsymbol{n}}({\boldsymbol{y}})\),
 where \({\boldsymbol{n}}\) is the outward-pointing unit normal field for
@@ -4363,12 +4422,12 @@ and \hyperref[prop:stresstensor]{{[}prop:stresstensor{]}} show that heat
 transfer must take this form.
 
 Together, we now have that
-\[Q[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}{\boldsymbol{q}}({\boldsymbol{y}},t)\cdot{\boldsymbol{n}}({\boldsymbol{y}}){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}.\]
+\[Q[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}{\boldsymbol{q}}({\boldsymbol{y}},t)\cdot{\boldsymbol{n}}({\boldsymbol{y}}){\,\d A_{{\boldsymbol{y}}}}.\]
 
 The \emph{kinetic energy} of \(\Omega_t\) is
-\[K[\Omega_t] = \int_{\Omega_t}\tfrac12\rho({\boldsymbol{y}},t)|{\boldsymbol{v}}({\boldsymbol{y}},t)|^2{\,{\mathrm{d}}V_{{\boldsymbol{y}}}},\]
+\[K[\Omega_t] = \int_{\Omega_t}\tfrac12\rho({\boldsymbol{y}},t)|{\boldsymbol{v}}({\boldsymbol{y}},t)|^2{\,\d V_{{\boldsymbol{y}}}},\]
 and the \emph{power of external forces} acting on \(\Omega_t\) is
-\[P[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{b}}({\boldsymbol{y}},t)\cdot{\boldsymbol{v}}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}+\int_{\partial \Omega_t}{\boldsymbol{t}}({\boldsymbol{y}},t)\cdot{\boldsymbol{v}}({\boldsymbol{y}},t){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}.\]
+\[P[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{b}}({\boldsymbol{y}},t)\cdot{\boldsymbol{v}}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}+\int_{\partial \Omega_t}{\boldsymbol{t}}({\boldsymbol{y}},t)\cdot{\boldsymbol{v}}({\boldsymbol{y}},t){\,\d A_{{\boldsymbol{y}}}}.\]
 The \emph{net rate of internal mechanical work} of external forces
 acting on \(\Omega_t\) is the power not used up in producing motion,
 i.e. \[W[\Omega_t] = P[\Omega_t]-\frac{d}{dt}K[\Omega_t].\] It
@@ -4392,12 +4451,12 @@ Given a subset \(\Omega_t\subseteq B_t\), we denote its internal energy
 \(U[\Omega_t]\), and assume that there exists an \emph{internal energy
 density field} per unit volume
 \(\hat{\phi}({\boldsymbol{y}},t)\in{\mathbb{R}}\) such that
-\[U[\Omega_t] = \int_{\Omega_t}\hat{\phi}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[U[\Omega_t] = \int_{\Omega_t}\hat{\phi}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.\]
 As usual, we can define a corresponding internal energy density per unit
 mass
 \(\phi({\boldsymbol{y}},t) = \hat{\phi}({\boldsymbol{y}},t)/\rho({\boldsymbol{y}},t)\)
 so that
-\[U[\Omega_t] = \int_{\Omega_t} \rho({\boldsymbol{y}},t)\phi({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[U[\Omega_t] = \int_{\Omega_t} \rho({\boldsymbol{y}},t)\phi({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.\]
 
 \phantomsection\label{ax:1stLaw}{} The rate of change of the internal
 energy of any open subset of a continuum body is the sum of the net rate
@@ -4454,9 +4513,9 @@ To make progress in our continuum setting, we now assume that the
 entropy varies throughout the body, and is described by an \emph{entropy
 density field} per unit volume
 \(\hat{\eta}({\boldsymbol{y}},t)\in{\mathbb{R}}\) so that
-\[H[\Omega_t] = \int_{\Omega_t}\hat{\eta}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[H[\Omega_t] = \int_{\Omega_t}\hat{\eta}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.\]
 As usualy, we introduce an entropy density per unit mass:
-\[\eta({\boldsymbol{y}},t) = \frac{\hat{\eta}({\boldsymbol{y}},t)}{\rho({\boldsymbol{y}},t)}\quad\text{so that}\quad H[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)\eta({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[\eta({\boldsymbol{y}},t) = \frac{\hat{\eta}({\boldsymbol{y}},t)}{\rho({\boldsymbol{y}},t)}\quad\text{so that}\quad H[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)\eta({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.\]
 
 The generalisation of
 \hyperref[eq:ClausiusPlanck]{{[}eq:ClausiusPlanck{]}} to spatially
@@ -4465,7 +4524,7 @@ inhomogeneous systems is then the following.
 \phantomsection\label{ax:2ndLaw}{} The rate of entropy production in any
 open subset of a continuum body is bounded below by the heating per unit
 temperature, i.e.
-\[\frac{d}{dt}H[\Omega_t] \geq \int_{\Omega_t}\frac{\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t)}{\theta({\boldsymbol{y}},t)}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}\frac{{\boldsymbol{q}}({\boldsymbol{y}},t)\cdot{\boldsymbol{n}}({\boldsymbol{y}})}{\theta({\boldsymbol{y}},t)}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}\]
+\[\frac{d}{dt}H[\Omega_t] \geq \int_{\Omega_t}\frac{\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t)}{\theta({\boldsymbol{y}},t)}{\,\d V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}\frac{{\boldsymbol{q}}({\boldsymbol{y}},t)\cdot{\boldsymbol{n}}({\boldsymbol{y}})}{\theta({\boldsymbol{y}},t)}{\,\d A_{{\boldsymbol{y}}}}\]
 for all \(\Omega_t\subseteq B_t\).
 
 This formulation of the Second Law is called the \emph{Clausius-Duhem
@@ -4501,14 +4560,14 @@ Axiom~\hyperref[ax:ConservationOfMass]{{[}ax:ConservationOfMass{]}}
 entails that
 \[{\operatorname{mass}}[\Omega_t] = {\operatorname{mass}}[\Omega_0],\]
 where \(\Omega_0 = \Omega\). Furthermore, we have
-\[{\operatorname{mass}}[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_\Omega \rho_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}},\]
+\[{\operatorname{mass}}[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}= \int_\Omega \rho_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}},\]
 and as we have assumed that
 \({\boldsymbol{\varphi}}({\boldsymbol{x}},0) ={\boldsymbol{x}}\), we
 have
-\[{\operatorname{mass}}[\Omega_0] = \int_{\Omega}\rho({\boldsymbol{x}},0){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_\Omega \rho_0({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}},\]
+\[{\operatorname{mass}}[\Omega_0] = \int_{\Omega}\rho({\boldsymbol{x}},0){\,\d V_{{\boldsymbol{y}}}}= \int_\Omega \rho_0({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}},\]
 where \(\rho_0({\boldsymbol{x}}) =\rho({\boldsymbol{x}},0)\). We must
 therefore have
-\[\int_\Omega \rho_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t)-\rho_0({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=0\]
+\[\int_\Omega \rho_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t)-\rho_0({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}=0\]
 for any \(t\geq0\) and any \(\Omega\subseteq B\), so the Localisation
 Theorem entails that \[\label{eq:ConsOfMass1}
   \rho_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t) = \rho_0({\boldsymbol{x}})\quad\text{for all }{\boldsymbol{x}}\in B, t\geq0.\]
@@ -4548,7 +4607,7 @@ integrals involving the mass density \(\rho\).
 with associated spatial velocity field \({\boldsymbol{v}}\) and spatial
 mass density field \(\rho\), \(\Phi\) is any spatial scalar, vector or
 tensor field, and \(\Omega_t\subseteq B_t\), then
-\[\frac{d}{dt}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\Omega_t}\DDt{\Phi}({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[\frac{d}{dt}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}=\int_{\Omega_t}\DDt{\Phi}({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.\]
 
 \begin{proof}
 \leavevmode
@@ -4556,24 +4615,24 @@ tensor field, and \(\Omega_t\subseteq B_t\), then
 \emph{Proof.} Applying
 Proposition~\hyperref[prop:TransformationOfVolumeIntegrals]{{[}prop:TransformationOfVolumeIntegrals{]}},
 we have
-\[\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_\Omega \Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}},\]
+\[\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}= \int_\Omega \Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}},\]
 where \(\Omega_t={\boldsymbol{\varphi}}(\Omega,t)\). Applying the
 equality \hyperref[eq:ConsOfMass1]{{[}eq:ConsOfMass1{]}}, i.e.
 \(\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t) = \rho_0({\boldsymbol{x}})\),
 we can rewrite the RHS as
-\[\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_\Omega \Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\rho_0({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}= \int_\Omega \Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\rho_0({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.\]
 Differentiating with respect to time, and exchanging the order of
 integration and differentiation on the RHS, we have
-\[\frac{d}{dt}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_\Omega \frac{d}{dt}\bigg(\Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\bigg)\rho_0({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[\frac{d}{dt}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}= \int_\Omega \frac{d}{dt}\bigg(\Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\bigg)\rho_0({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.\]
 But now, using equality \hyperref[eq:ConsOfMass1]{{[}eq:ConsOfMass1{]}}
 again, and then applying the definition of the total derivative and
 Proposition~\hyperref[prop:TransformationOfVolumeIntegrals]{{[}prop:TransformationOfVolumeIntegrals{]}},
 we have \$\$
 
 \begin{aligned}
-    \DDt{}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}
-    &= \int_\Omega \frac{d}{dt}\bigg(\Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\bigg)\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
-    &=\int_{\Omega_t}\DDt{\Phi}({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.
+    \DDt{}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}
+    &= \int_\Omega \frac{d}{dt}\bigg(\Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\bigg)\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}\\
+    &=\int_{\Omega_t}\DDt{\Phi}({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.
   
 \end{aligned}
 
@@ -4585,14 +4644,14 @@ momentum}\label{balance-of-linear-momentum}
 
 As stated in Axiom~\hyperref[ax:LawsOfInertia]{{[}ax:LawsOfInertia{]}},
 we have
-\[\int_{\Omega_t}\rho{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{t}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}},\]
+\[\int_{\Omega_t}\rho{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{t}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{y}}}},\]
 where all of the integrated quantities are spatial fields. The results
 of Chapter~\hyperref[cha:mass-forces]{{[}cha:mass-forces{]}} state that
 the traction field
 \({\boldsymbol{t}}={\boldsymbol{S}}{\boldsymbol{n}}\), so that
-\[\int_{\Omega_t}\rho{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[\int_{\Omega_t}\rho{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{y}}}}.\]
 Using the tensorial version of the Divergence Theorem, we have
-\[\int_{\Omega_t}\rho{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\Omega_t}\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}}+\rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[\int_{\Omega_t}\rho{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}=\int_{\Omega_t}\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}}+\rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{y}}}}.\]
 Now, as \(\Omega_t\) is an arbitrary subset of \(B_t\), the Localisation
 Theorem entails that we have the following result:
 
@@ -4624,7 +4683,7 @@ momentum}\label{balance-of-angular-momentum}
 Taking the point about which we compute angular momentum to be
 \({\boldsymbol{z}}=\bf0\), recall that the balance of angular momentum
 is \[\label{eq:angularmomentum}
-  \frac{d}{dt}\int_{\Omega_t}{\boldsymbol{y}}\times (\rho{\boldsymbol{v}}){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{t}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}{\boldsymbol{y}}\times \rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}},\]
+  \frac{d}{dt}\int_{\Omega_t}{\boldsymbol{y}}\times (\rho{\boldsymbol{v}}){\,\d V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{t}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}{\boldsymbol{y}}\times \rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{y}}}},\]
 where as before, all fields in the integrands are spatial. To simplify
 the LHS of this equation, note that
 \(\DDt{}{\boldsymbol{y}}= {\boldsymbol{v}}\), and hence
@@ -4632,17 +4691,17 @@ the LHS of this equation, note that
 Moreover,
 Proposition~\hyperref[prop:TimeDerivativeMassIntegrals]{{[}prop:TimeDerivativeMassIntegrals{]}}
 entails that \[\begin{aligned}
-  \DDt{}\int_{\Omega_t}({\boldsymbol{y}}\times {\boldsymbol{v}})\rho{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}&= \int_{\Omega_t}\rho\,\DDt{}\left({\boldsymbol{y}}\times{\boldsymbol{v}}\right){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}\\
-&=\int_{\Omega_t}\rho\,{\boldsymbol{y}}\times\DDt{{\boldsymbol{v}}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}
+  \DDt{}\int_{\Omega_t}({\boldsymbol{y}}\times {\boldsymbol{v}})\rho{\,\d V_{{\boldsymbol{y}}}}&= \int_{\Omega_t}\rho\,\DDt{}\left({\boldsymbol{y}}\times{\boldsymbol{v}}\right){\,\d V_{{\boldsymbol{y}}}}\\
+&=\int_{\Omega_t}\rho\,{\boldsymbol{y}}\times\DDt{{\boldsymbol{v}}}{\,\d V_{{\boldsymbol{y}}}}
 \end{aligned}\] Substituting into
 \hyperref[eq:angularmomentum]{{[}eq:angularmomentum{]}} and using the
 fact that \({\boldsymbol{t}}={\boldsymbol{S}}{\boldsymbol{n}}\), we
 obtain
-\[\int_{\Omega_t}{\boldsymbol{y}}\times \left(\rho\DDt{{\boldsymbol{v}}}\right){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}{\boldsymbol{y}}\times \rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[\int_{\Omega_t}{\boldsymbol{y}}\times \left(\rho\DDt{{\boldsymbol{v}}}\right){\,\d V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}{\boldsymbol{y}}\times \rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{y}}}}.\]
 Now, using
 Proposition~\hyperref[prop:LinearMomentumEulerian]{{[}prop:LinearMomentumEulerian{]}}
 to substitute for \(\rho\DDt{\boldsymbol{v}}\) on the LHS, we have
-\[\int_{\Omega_t}{\boldsymbol{y}}\times (\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}}){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}.\]
+\[\int_{\Omega_t}{\boldsymbol{y}}\times (\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}}){\,\d V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}.\]
 Now, proceeding as in the proof of
 Proposition~\hyperref[prop:staticequilibriumeqns]{{[}prop:staticequilibriumeqns{]}},
 we have:
@@ -4665,27 +4724,27 @@ kinetic energy and the power of internal and external forces.
 
 We begin by taking the local balance of linear momentum, taking the dot
 product of each term with the velocity field and integrating to obtain
-\[\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega_t}(\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}})\cdot{\boldsymbol{v}}+\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega_t}(\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}})\cdot{\boldsymbol{v}}+\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}.\]
 We recall that
 \(\nabla_{\boldsymbol{y}}\cdot({\boldsymbol{S}}^T{\boldsymbol{v}}) = (\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}})\cdot{\boldsymbol{v}}+{\boldsymbol{S}}:\nabla_{\boldsymbol{y}}{\boldsymbol{v}}\),
 so applying this equality and the Divergence Theorem, we obtain
-\[\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega_t}-{\boldsymbol{S}}:\nabla_{\boldsymbol{y}}{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}+\int_{\partial\Omega_t}{\boldsymbol{S}}^T{\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega_t}-{\boldsymbol{S}}:\nabla_{\boldsymbol{y}}{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}+\int_{\partial\Omega_t}{\boldsymbol{S}}^T{\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}.\]
 Recalling that \({\boldsymbol{S}}\) is symmetric and
 \({\boldsymbol{L}}= {\operatorname{sym}}(\nabla_{\boldsymbol{y}}{\boldsymbol{v}})\),
 we have that
 \({\boldsymbol{S}}:\nabla_{\boldsymbol{y}}{\boldsymbol{v}}= {\boldsymbol{S}}:{\boldsymbol{L}}\),
 so:
-\[\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}+{\boldsymbol{S}}:{\boldsymbol{L}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\partial\Omega_t}{\boldsymbol{v}}\cdot{\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}+{\boldsymbol{S}}:{\boldsymbol{L}}{\,\d V_{{\boldsymbol{y}}}}= \int_{\partial\Omega_t}{\boldsymbol{v}}\cdot{\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}.\]
 This leads us to the following result.
 
 If \({\boldsymbol{\varphi}}\) is a motion, \({\boldsymbol{S}}\) is the
 Cauchy stress field, \({\boldsymbol{L}}\) is the rate of strain field,
 and \(\Omega_t\subset B_t\), then
-\[\frac{d}{dt}K[\Omega_t]+\int_{\Omega_t} {\boldsymbol{S}}:{\boldsymbol{L}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= P[\Omega_t]\quad\text{for all }t\in[0,T],\]
+\[\frac{d}{dt}K[\Omega_t]+\int_{\Omega_t} {\boldsymbol{S}}:{\boldsymbol{L}}{\,\d V_{{\boldsymbol{y}}}}= P[\Omega_t]\quad\text{for all }t\in[0,T],\]
 where \(K[\Omega_t]\) is the kinetic energy of \(\Omega_t\), and
 \(P[\Omega_t]\) is the power of external forces acting on \(\Omega_t\).
 The net rate of work done on \(W[\Omega_t]\) is therefore
-\[W[\Omega_t] = \int_{\Omega_t} {\boldsymbol{S}}:{\boldsymbol{L}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[W[\Omega_t] = \int_{\Omega_t} {\boldsymbol{S}}:{\boldsymbol{L}}{\,\d V_{{\boldsymbol{y}}}}.\]
 
 The quantity \({\boldsymbol{S}}:{\boldsymbol{L}}\) is called the
 \emph{stress power} associated with a motion. It corresponds to the rate
@@ -4698,7 +4757,7 @@ Thermodynamics}\label{first-law-of-thermodynamics}
 Using the expressions derived in the previous section, we can invoke
 Axiom~\hyperref[ax:1stLaw]{{[}ax:1stLaw{]}} to deduce that the balance
 law for energy in \(\Omega_t\subseteq B_t\) is
-\[\frac{d}{dt}\int_{\Omega_t} \rho\phi{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega_t}{\boldsymbol{S}}:{\boldsymbol{L}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}{\boldsymbol{q}}\cdot{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho r{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.\]
+\[\frac{d}{dt}\int_{\Omega_t} \rho\phi{\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega_t}{\boldsymbol{S}}:{\boldsymbol{L}}{\,\d V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}{\boldsymbol{q}}\cdot{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho r{\,\d V_{{\boldsymbol{y}}}}.\]
 Recall that:
 
 \begin{itemize}
@@ -4719,7 +4778,7 @@ Recall that:
 We can apply
 Proposition~\hyperref[prop:TimeDerivativeMassIntegrals]{{[}prop:TimeDerivativeMassIntegrals{]}}
 along with the divergence theorem to deduce that
-\[\int_{\Omega_t} \rho\DDt\phi{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega_t}{\boldsymbol{S}}:{\boldsymbol{L}}-\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{q}}+\rho r{\,{\mathrm{d}}V_{{\boldsymbol{y}}}},\]
+\[\int_{\Omega_t} \rho\DDt\phi{\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega_t}{\boldsymbol{S}}:{\boldsymbol{L}}-\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{q}}+\rho r{\,\d V_{{\boldsymbol{y}}}},\]
 and then an application of the Localisation Theorem entails:
 
 If \({\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3\) is a motion,
@@ -4731,7 +4790,7 @@ Thermodynamics, entails that
 Thermodynamics}\label{second-law-of-thermodynamics}
 
 The Clausius-Duhem inequality states that
-\[\frac{d}{dt}\int_{\Omega_t} \rho\eta{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}\geq \int_{\Omega_t}\frac{\rho r}{\theta}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}-\int_{\partial\Omega_t}\frac{{\boldsymbol{q}}\cdot{\boldsymbol{n}}}{\theta}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}},\]
+\[\frac{d}{dt}\int_{\Omega_t} \rho\eta{\,\d V_{{\boldsymbol{y}}}}\geq \int_{\Omega_t}\frac{\rho r}{\theta}{\,\d V_{{\boldsymbol{y}}}}-\int_{\partial\Omega_t}\frac{{\boldsymbol{q}}\cdot{\boldsymbol{n}}}{\theta}{\,\d A_{{\boldsymbol{y}}}},\]
 where:
 
 \begin{itemize}
@@ -4865,14 +4924,14 @@ Changing variable, and recalling that
 Proposition~\hyperref[prop:MassLagrangian]{{[}prop:MassLagrangian{]}},
 we find \[\begin{aligned}
   {\boldsymbol{l}}[\Omega_t]
-  &= \int_{\Omega_t} \rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}\\
-  &=\int_\Omega \rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t){\boldsymbol{v}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
-  &=\int_\Omega \rho_0({\boldsymbol{x}})\ppt{{\boldsymbol{\varphi}}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.
+  &= \int_{\Omega_t} \rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}\\
+  &=\int_\Omega \rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t){\boldsymbol{v}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}\\
+  &=\int_\Omega \rho_0({\boldsymbol{x}})\ppt{{\boldsymbol{\varphi}}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}.
 \end{aligned}\] A similar argument for \({\boldsymbol{r}}[\Omega_t]\)
 yields \[\begin{aligned}
   {\boldsymbol{r}}[\Omega_t]
-  &= \int_{\partial \Omega_t} {\boldsymbol{S}}({\boldsymbol{y}},t){\boldsymbol{n}}({\boldsymbol{y}}){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{b}}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}\\
-  &= \int_{\partial \Omega} {\boldsymbol{S}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t){\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}+\int_{\Omega}\rho_m({\boldsymbol{x}},t){\boldsymbol{b}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.
+  &= \int_{\partial \Omega_t} {\boldsymbol{S}}({\boldsymbol{y}},t){\boldsymbol{n}}({\boldsymbol{y}}){\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{b}}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}\\
+  &= \int_{\partial \Omega} {\boldsymbol{S}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t){\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}+\int_{\Omega}\rho_m({\boldsymbol{x}},t){\boldsymbol{b}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}.
 \end{aligned}\] Inspecting the first integral, we see that if we want to
 apply the Divergence Theorem, we will end up with a divergence of
 \({\boldsymbol{S}}{\operatorname{cof}}{\boldsymbol{F}}\). This motivates
@@ -4894,16 +4953,16 @@ This stress tensor field
 We now proceed by using the above definition and
 Proposition~\hyperref[prop:MassLagrangian]{{[}prop:MassLagrangian{]}} to
 write \[{\boldsymbol{r}}[\Omega_t]
-  = \int_{\partial \Omega} {\boldsymbol{P}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}+\int_{\Omega_t}\rho_0({\boldsymbol{x}}){\boldsymbol{b}}_m({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}},\]
+  = \int_{\partial \Omega} {\boldsymbol{P}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}+\int_{\Omega_t}\rho_0({\boldsymbol{x}}){\boldsymbol{b}}_m({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}},\]
 where \({\boldsymbol{b}}_m({\boldsymbol{x}},t)\) is the material
 description of the body force field \({\boldsymbol{b}}\). The
 conservation of linear momentum therefore entails that
-\[\frac{d}{dt}\int_\Omega \rho_0({\boldsymbol{x}})\ppt{{\boldsymbol{\varphi}}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}
-  = \int_{\partial \Omega} {\boldsymbol{P}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}+\int_{\Omega_t}\rho_0({\boldsymbol{x}}){\boldsymbol{b}}_m({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[\frac{d}{dt}\int_\Omega \rho_0({\boldsymbol{x}})\ppt{{\boldsymbol{\varphi}}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}
+  = \int_{\partial \Omega} {\boldsymbol{P}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}+\int_{\Omega_t}\rho_0({\boldsymbol{x}}){\boldsymbol{b}}_m({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}.\]
 Using the fact that \(\rho_0\) is independent of time, and applying the
 Divergence Theorem, we obtain
-\[\int_\Omega \rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}
-  = \int_\Omega \nabla_{\boldsymbol{x}}\cdot {\boldsymbol{P}}+\rho_0{\boldsymbol{b}}_m{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[\int_\Omega \rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}{\,\d V_{{\boldsymbol{x}}}}
+  = \int_\Omega \nabla_{\boldsymbol{x}}\cdot {\boldsymbol{P}}+\rho_0{\boldsymbol{b}}_m{\,\d V_{{\boldsymbol{x}}}}.\]
 Now, since this holds for all \(\Omega\subset B\) (as
 \({\boldsymbol{\varphi}}\) is a bijection), we have the following
 result.
@@ -4940,29 +4999,29 @@ for all \({\boldsymbol{x}}\in B\) and \(t\in[0,T]\), where
 We now consider energies and power as considered when discussing the
 Laws of Thermodynamics. Recall that for \(\Omega_t\subseteq B_t\), we
 have that the kinetic energy is
-\[K[\Omega_t] = \int_{\Omega_t}\tfrac12\rho|{\boldsymbol{v}}|^2{\,{\mathrm{d}}V_{{\boldsymbol{y}}}},\]
+\[K[\Omega_t] = \int_{\Omega_t}\tfrac12\rho|{\boldsymbol{v}}|^2{\,\d V_{{\boldsymbol{y}}}},\]
 which, by applying
 Proposition~\hyperref[prop:MassLagrangian]{{[}prop:MassLagrangian{]}}
 and a change of variable, transforms to
-\[K[\Omega_t] = \int_\Omega \tfrac12\rho_0({\boldsymbol{x}})\left|\ppt{\boldsymbol{\varphi}}({\boldsymbol{x}},t)\right|^2{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[K[\Omega_t] = \int_\Omega \tfrac12\rho_0({\boldsymbol{x}})\left|\ppt{\boldsymbol{\varphi}}({\boldsymbol{x}},t)\right|^2{\,\d V_{{\boldsymbol{x}}}}.\]
 Changing variable, the power of the external forces can be expressed as
 \[\begin{aligned}
   P[\Omega_t]
-  &= \int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}+\int_{\partial\Omega_t}{\boldsymbol{v}}\cdot({\boldsymbol{S}}{\boldsymbol{n}}){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}\\
-  &= \int_{\Omega}\rho_m{\boldsymbol{b}}_m\cdot{\boldsymbol{v}}_m\det{\boldsymbol{F}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{v}}_m\cdot({\boldsymbol{S}}_m{\operatorname{cof}}{\boldsymbol{F}}{\boldsymbol{\nu}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}\\
-  &= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\dot{\boldsymbol{\varphi}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}\dot{\boldsymbol{\varphi}}\cdot({\boldsymbol{P}}{\boldsymbol{\nu}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}\\
-  &= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\dot{\boldsymbol{\varphi}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}({\boldsymbol{P}}^T\dot{\boldsymbol{\varphi}})\cdot{\boldsymbol{\nu}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.
+  &= \int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}+\int_{\partial\Omega_t}{\boldsymbol{v}}\cdot({\boldsymbol{S}}{\boldsymbol{n}}){\,\d A_{{\boldsymbol{y}}}}\\
+  &= \int_{\Omega}\rho_m{\boldsymbol{b}}_m\cdot{\boldsymbol{v}}_m\det{\boldsymbol{F}}{\,\d V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{v}}_m\cdot({\boldsymbol{S}}_m{\operatorname{cof}}{\boldsymbol{F}}{\boldsymbol{\nu}}){\,\d A_{{\boldsymbol{x}}}}\\
+  &= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\dot{\boldsymbol{\varphi}}{\,\d V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}\dot{\boldsymbol{\varphi}}\cdot({\boldsymbol{P}}{\boldsymbol{\nu}}){\,\d A_{{\boldsymbol{x}}}}\\
+  &= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\dot{\boldsymbol{\varphi}}{\,\d V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}({\boldsymbol{P}}^T\dot{\boldsymbol{\varphi}})\cdot{\boldsymbol{\nu}}{\,\d A_{{\boldsymbol{x}}}}.
 \end{aligned}\] The Divergence Theorem and product rule for the
 divergence of a tensor applied to a vector now gives \[\begin{aligned}
   P[\Omega_t]
-  &= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\ppt{\boldsymbol{\varphi}}+\nabla_{\boldsymbol{x}}\cdot\left({\boldsymbol{P}}^T\ppt{\boldsymbol{\varphi}}\right){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
-  &=\int_{\Omega}(\nabla_{\boldsymbol{x}}\cdot{\boldsymbol{P}}+\rho_0{\boldsymbol{b}}_m)\cdot\ppt{\boldsymbol{\varphi}}+{\boldsymbol{P}}:\nabla_{\boldsymbol{x}}\ppt{\boldsymbol{\varphi}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.
+  &= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\ppt{\boldsymbol{\varphi}}+\nabla_{\boldsymbol{x}}\cdot\left({\boldsymbol{P}}^T\ppt{\boldsymbol{\varphi}}\right){\,\d V_{{\boldsymbol{x}}}}\\
+  &=\int_{\Omega}(\nabla_{\boldsymbol{x}}\cdot{\boldsymbol{P}}+\rho_0{\boldsymbol{b}}_m)\cdot\ppt{\boldsymbol{\varphi}}+{\boldsymbol{P}}:\nabla_{\boldsymbol{x}}\ppt{\boldsymbol{\varphi}}{\,\d V_{{\boldsymbol{x}}}}.
 \end{aligned}\] Differentiating and substituting for
 \(\rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}\) using
 Proposition~\hyperref[prop:LinearMomentumEulerian]{{[}prop:LinearMomentumEulerian{]}},
 we have
-\[\frac{d}{dt}K[\Omega_t] = \int_{\Omega}\rho_0\ppt{\boldsymbol{\varphi}}\cdot\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=
-  \int_{\Omega}\ppt{\boldsymbol{\varphi}}\cdot(\nabla_{\boldsymbol{x}}\cdot{\boldsymbol{S}}+\rho_0{\boldsymbol{b}}_m){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[\frac{d}{dt}K[\Omega_t] = \int_{\Omega}\rho_0\ppt{\boldsymbol{\varphi}}\cdot\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}{\,\d V_{{\boldsymbol{x}}}}=
+  \int_{\Omega}\ppt{\boldsymbol{\varphi}}\cdot(\nabla_{\boldsymbol{x}}\cdot{\boldsymbol{S}}+\rho_0{\boldsymbol{b}}_m){\,\d V_{{\boldsymbol{x}}}}.\]
 Equating this expression with the expression for the power
 \(P[\Omega_t]\), we have shown the following result.
 
@@ -4970,10 +5029,10 @@ If \({\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3\) is a motion
 with associated deformation gradient
 \({\boldsymbol{F}}:B\times[0,T]\to{\mathcal{V}}^2\) and the
 Piola-Kirchhoff stress is \({\boldsymbol{P}}({\boldsymbol{x}},t)\), then
-\[\frac{d}{dt}K[\Omega_t] +\int_\Omega {\boldsymbol{P}}:\ppt{\boldsymbol{F}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}= P[\Omega_t]\]
+\[\frac{d}{dt}K[\Omega_t] +\int_\Omega {\boldsymbol{P}}:\ppt{\boldsymbol{F}}{\,\d V_{{\boldsymbol{x}}}}= P[\Omega_t]\]
 for any \(\Omega_t\subseteq B_t\) and \(t\in[0,T]\). Put differently,
 the net rate of work done on \(\Omega_t\) is
-\[W[\Omega_t] = \int_\Omega {\boldsymbol{P}}:\ppt{\boldsymbol{F}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\quad\text{for any }t\in[0,T].\]
+\[W[\Omega_t] = \int_\Omega {\boldsymbol{P}}:\ppt{\boldsymbol{F}}{\,\d V_{{\boldsymbol{x}}}}\quad\text{for any }t\in[0,T].\]
 
 We compare this result with the Eulerian version, and note that
 \({\boldsymbol{S}}:{\boldsymbol{L}}\) and
@@ -4991,14 +5050,14 @@ Thermodynamics, states that
 definition of \(U\), we can change variable to the reference
 configuration and use the conservation of mass in Lagrangian form to
 write
-\[U[\Omega_t] = \int_{\Omega_t}\phi\rho {\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega} \rho_0\phi_m{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.\]
+\[U[\Omega_t] = \int_{\Omega_t}\phi\rho {\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega} \rho_0\phi_m{\,\d V_{{\boldsymbol{x}}}}.\]
 For the net rate of heating, we have
-\[Q[\Omega_t] = \int_{\Omega_t}\rho r {\,{\mathrm{d}}V_{{\boldsymbol{y}}}}-\int_{\partial\Omega_t}{\boldsymbol{q}}\cdot{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}= \int_\Omega\rho_0r_m{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}-\int_{\partial \Omega}{\boldsymbol{q}}_m\cdot({\operatorname{cof}}{\boldsymbol{F}}{\boldsymbol{\nu}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.\]
+\[Q[\Omega_t] = \int_{\Omega_t}\rho r {\,\d V_{{\boldsymbol{y}}}}-\int_{\partial\Omega_t}{\boldsymbol{q}}\cdot{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}= \int_\Omega\rho_0r_m{\,\d V_{{\boldsymbol{x}}}}-\int_{\partial \Omega}{\boldsymbol{q}}_m\cdot({\operatorname{cof}}{\boldsymbol{F}}{\boldsymbol{\nu}}){\,\d A_{{\boldsymbol{x}}}}.\]
 Defining the material heat flux vector field
 \(\bfkappa:B\times[0,T]\to{\mathcal{V}}\) via
 \[\bfkappa({\boldsymbol{x}},t) = \big({\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t)\big)^T{\boldsymbol{q}}_m({\boldsymbol{x}},t),\]
 we have
-\[Q[\Omega_t] = \int_\Omega\rho_0r_m{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}-\int_{\partial \Omega}\bfkappa\cdot{\boldsymbol{\nu}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.\]
+\[Q[\Omega_t] = \int_\Omega\rho_0r_m{\,\d V_{{\boldsymbol{x}}}}-\int_{\partial \Omega}\bfkappa\cdot{\boldsymbol{\nu}}{\,\d A_{{\boldsymbol{x}}}}.\]
 Applying the Divergence Theorem, we have:
 
 If \({\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3\) is a motion
@@ -5013,7 +5072,7 @@ Thermodynamics}\label{second-law-of-thermodynamics-1}
 For the Second Law of Thermodynamics, we can again change variables in
 the integral expression of the Clausius-Duhem inequality and apply the
 conservation of mass as we have done above to find that
-\[\int_\Omega \rho_0\ppt{\eta_m}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\geq \int_{\Omega}\frac{\rho_0r_m}{\theta_m}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}-\int_{\partial \Omega} \frac{\bfkappa\cdot{\boldsymbol{\nu}}}{\theta_m}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.\]
+\[\int_\Omega \rho_0\ppt{\eta_m}{\,\d V_{{\boldsymbol{x}}}}\geq \int_{\Omega}\frac{\rho_0r_m}{\theta_m}{\,\d V_{{\boldsymbol{x}}}}-\int_{\partial \Omega} \frac{\bfkappa\cdot{\boldsymbol{\nu}}}{\theta_m}{\,\d A_{{\boldsymbol{x}}}}.\]
 Applying the Divergence Theorem and Localisation Theorem, we obtain:
 
 Let \({\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3\) be a motion
@@ -5169,41 +5228,6 @@ frame-indifference, since the relationships we have derived above are
 nonlinear. It is therefore important to assess whether any linearisation
 could be breaking down when using a linearised model to make
 predictions.
-
-\bookmarksetup{startatroot}
-
-\chapter{Isothermal Solid Mechanics}\label{cha:isoth-solid-mech}
-
-In this chapter, we state a variety of axioms for a mechanical theory of
-continuum bodies. As in
-Chapter~\hyperref[cha:mass-forces]{{[}cha:mass-forces{]}}, we first
-state laws in integral form, and then derive local versions, which yield
-(systems of) PDEs. It is important to state at the outset that these
-laws apply to all continuum bodies, regardless of whether they are solid
-or fluid.
-
-\paragraph{Aims:}\label{aims-1}
-
-By the end of this chapter, you should be able to:
-
-\begin{itemize}
-\item
-  Provide definitions of the \emph{mass}, \emph{linear} and
-  \emph{angular momentum} of a subset of body as integrals.
-\item
-  Explain why we must include a description of temperature in a
-  continuum theory of matter.
-\item
-  State the physical principles of the \emph{conservation of mass},
-  \emph{laws of inertia}, and the \emph{first and second laws of
-  thermodynamics} as used in continuum mechanics.
-\item
-  Using physical principles and theorems to derive local forms of the
-  balance laws, in both the Eulerian and Lagrangian formalisms.
-\item
-  Explain how the principle of \emph{frame indifference} limits the
-  constitutive laws which are possible to close the equations derived.
-\end{itemize}
 
 
 

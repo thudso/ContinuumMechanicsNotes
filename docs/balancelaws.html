@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.52">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>balancelaws</title>
+<title>5&nbsp; Balance laws – MA4J1 Continuum Mechanics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,23 +30,24 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./kinematics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b7c2d8834e08b04a63bb76a724ffbcac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c1966a8c70583a3816b1e3a216c1caf1.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -116,76 +117,119 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./tensoralgebra.html"> 
-<span class="menu-text">Tensor Algebra</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./balancelaws.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Balance laws</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MA4J1 Continuum Mechanics Notes</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tensoralgebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Tensor Algebra</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tensorcalculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tensor Calculus</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./massandforces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mass, Forces and Stress</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kinematics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kinematics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./balancelaws.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Balance laws</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-balance-laws" id="toc-sec-balance-laws" class="nav-link active" data-scroll-target="#sec-balance-laws">Balance laws</a>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">5.1</span> Motivation</a></li>
+  <li><a href="#balance-laws-in-integral-form" id="toc-balance-laws-in-integral-form" class="nav-link" data-scroll-target="#balance-laws-in-integral-form"><span class="header-section-number">5.2</span> Balance laws in integral form</a>
   <ul class="collapse">
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#balance-laws-in-integral-form" id="toc-balance-laws-in-integral-form" class="nav-link" data-scroll-target="#balance-laws-in-integral-form">Balance laws in integral form</a>
-  <ul class="collapse">
-  <li><a href="#first-and-second-laws-of-thermodynamics" id="toc-first-and-second-laws-of-thermodynamics" class="nav-link" data-scroll-target="#first-and-second-laws-of-thermodynamics">First and second laws of thermodynamics</a></li>
-  <li><a href="#integral-versus-local-balance-laws" id="toc-integral-versus-local-balance-laws" class="nav-link" data-scroll-target="#integral-versus-local-balance-laws">Integral versus local balance laws</a></li>
+  <li><a href="#first-and-second-laws-of-thermodynamics" id="toc-first-and-second-laws-of-thermodynamics" class="nav-link" data-scroll-target="#first-and-second-laws-of-thermodynamics"><span class="header-section-number">5.2.1</span> First and second laws of thermodynamics</a></li>
+  <li><a href="#integral-versus-local-balance-laws" id="toc-integral-versus-local-balance-laws" class="nav-link" data-scroll-target="#integral-versus-local-balance-laws"><span class="header-section-number">5.2.2</span> Integral versus local balance laws</a></li>
   </ul></li>
-  <li><a href="#localised-eulerian-form-of-balance-laws" id="toc-localised-eulerian-form-of-balance-laws" class="nav-link" data-scroll-target="#localised-eulerian-form-of-balance-laws">Localised Eulerian form of balance laws</a>
+  <li><a href="#localised-eulerian-form-of-balance-laws" id="toc-localised-eulerian-form-of-balance-laws" class="nav-link" data-scroll-target="#localised-eulerian-form-of-balance-laws"><span class="header-section-number">5.3</span> Localised Eulerian form of balance laws</a>
   <ul class="collapse">
-  <li><a href="#sec:EulerianMass" id="toc-sec:EulerianMass" class="nav-link" data-scroll-target="#sec\:EulerianMass">Conservation of mass</a></li>
-  <li><a href="#balance-of-linear-momentum" id="toc-balance-of-linear-momentum" class="nav-link" data-scroll-target="#balance-of-linear-momentum">Balance of linear momentum</a></li>
-  <li><a href="#balance-of-angular-momentum" id="toc-balance-of-angular-momentum" class="nav-link" data-scroll-target="#balance-of-angular-momentum">Balance of angular momentum</a></li>
-  <li><a href="#net-work" id="toc-net-work" class="nav-link" data-scroll-target="#net-work">Net work</a></li>
-  <li><a href="#first-law-of-thermodynamics" id="toc-first-law-of-thermodynamics" class="nav-link" data-scroll-target="#first-law-of-thermodynamics">First Law of Thermodynamics</a></li>
-  <li><a href="#second-law-of-thermodynamics" id="toc-second-law-of-thermodynamics" class="nav-link" data-scroll-target="#second-law-of-thermodynamics">Second Law of Thermodynamics</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#sec:EulerianMass" id="toc-sec:EulerianMass" class="nav-link" data-scroll-target="#sec\:EulerianMass"><span class="header-section-number">5.3.1</span> Conservation of mass</a></li>
+  <li><a href="#balance-of-linear-momentum" id="toc-balance-of-linear-momentum" class="nav-link" data-scroll-target="#balance-of-linear-momentum"><span class="header-section-number">5.3.2</span> Balance of linear momentum</a></li>
+  <li><a href="#balance-of-angular-momentum" id="toc-balance-of-angular-momentum" class="nav-link" data-scroll-target="#balance-of-angular-momentum"><span class="header-section-number">5.3.3</span> Balance of angular momentum</a></li>
+  <li><a href="#net-work" id="toc-net-work" class="nav-link" data-scroll-target="#net-work"><span class="header-section-number">5.3.4</span> Net work</a></li>
+  <li><a href="#first-law-of-thermodynamics" id="toc-first-law-of-thermodynamics" class="nav-link" data-scroll-target="#first-law-of-thermodynamics"><span class="header-section-number">5.3.5</span> First Law of Thermodynamics</a></li>
+  <li><a href="#second-law-of-thermodynamics" id="toc-second-law-of-thermodynamics" class="nav-link" data-scroll-target="#second-law-of-thermodynamics"><span class="header-section-number">5.3.6</span> Second Law of Thermodynamics</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5.3.7</span> Summary</a></li>
   </ul></li>
-  <li><a href="#localised-lagrangian-form-of-balance-laws" id="toc-localised-lagrangian-form-of-balance-laws" class="nav-link" data-scroll-target="#localised-lagrangian-form-of-balance-laws">Localised Lagrangian form of balance laws</a>
+  <li><a href="#localised-lagrangian-form-of-balance-laws" id="toc-localised-lagrangian-form-of-balance-laws" class="nav-link" data-scroll-target="#localised-lagrangian-form-of-balance-laws"><span class="header-section-number">5.4</span> Localised Lagrangian form of balance laws</a>
   <ul class="collapse">
-  <li><a href="#conservation-of-mass" id="toc-conservation-of-mass" class="nav-link" data-scroll-target="#conservation-of-mass">Conservation of mass</a></li>
-  <li><a href="#balance-of-linear-momentum-1" id="toc-balance-of-linear-momentum-1" class="nav-link" data-scroll-target="#balance-of-linear-momentum-1">Balance of linear momentum</a></li>
-  <li><a href="#balance-of-angular-momentum-1" id="toc-balance-of-angular-momentum-1" class="nav-link" data-scroll-target="#balance-of-angular-momentum-1">Balance of angular momentum</a></li>
-  <li><a href="#net-rate-of-work" id="toc-net-rate-of-work" class="nav-link" data-scroll-target="#net-rate-of-work">Net rate of work</a></li>
-  <li><a href="#first-law-of-thermodynamics-1" id="toc-first-law-of-thermodynamics-1" class="nav-link" data-scroll-target="#first-law-of-thermodynamics-1">First Law of Thermodynamics</a></li>
-  <li><a href="#second-law-of-thermodynamics-1" id="toc-second-law-of-thermodynamics-1" class="nav-link" data-scroll-target="#second-law-of-thermodynamics-1">Second Law of Thermodynamics</a></li>
-  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1">Summary</a></li>
+  <li><a href="#conservation-of-mass" id="toc-conservation-of-mass" class="nav-link" data-scroll-target="#conservation-of-mass"><span class="header-section-number">5.4.1</span> Conservation of mass</a></li>
+  <li><a href="#balance-of-linear-momentum-1" id="toc-balance-of-linear-momentum-1" class="nav-link" data-scroll-target="#balance-of-linear-momentum-1"><span class="header-section-number">5.4.2</span> Balance of linear momentum</a></li>
+  <li><a href="#balance-of-angular-momentum-1" id="toc-balance-of-angular-momentum-1" class="nav-link" data-scroll-target="#balance-of-angular-momentum-1"><span class="header-section-number">5.4.3</span> Balance of angular momentum</a></li>
+  <li><a href="#net-rate-of-work" id="toc-net-rate-of-work" class="nav-link" data-scroll-target="#net-rate-of-work"><span class="header-section-number">5.4.4</span> Net rate of work</a></li>
+  <li><a href="#first-law-of-thermodynamics-1" id="toc-first-law-of-thermodynamics-1" class="nav-link" data-scroll-target="#first-law-of-thermodynamics-1"><span class="header-section-number">5.4.5</span> First Law of Thermodynamics</a></li>
+  <li><a href="#second-law-of-thermodynamics-1" id="toc-second-law-of-thermodynamics-1" class="nav-link" data-scroll-target="#second-law-of-thermodynamics-1"><span class="header-section-number">5.4.6</span> Second Law of Thermodynamics</a></li>
+  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1"><span class="header-section-number">5.4.7</span> Summary</a></li>
   </ul></li>
-  <li><a href="#frame-indifference" id="toc-frame-indifference" class="nav-link" data-scroll-target="#frame-indifference">Frame indifference</a>
+  <li><a href="#frame-indifference" id="toc-frame-indifference" class="nav-link" data-scroll-target="#frame-indifference"><span class="header-section-number">5.5</span> Frame indifference</a>
   <ul class="collapse">
-  <li><a href="#superposed-rigid-motions" id="toc-superposed-rigid-motions" class="nav-link" data-scroll-target="#superposed-rigid-motions">Superposed rigid motions</a></li>
-  <li><a href="#the-axiom-of-frame-indifference" id="toc-the-axiom-of-frame-indifference" class="nav-link" data-scroll-target="#the-axiom-of-frame-indifference">The Axiom of Frame-indifference</a></li>
-  </ul></li>
+  <li><a href="#superposed-rigid-motions" id="toc-superposed-rigid-motions" class="nav-link" data-scroll-target="#superposed-rigid-motions"><span class="header-section-number">5.5.1</span> Superposed rigid motions</a></li>
+  <li><a href="#the-axiom-of-frame-indifference" id="toc-the-axiom-of-frame-indifference" class="nav-link" data-scroll-target="#the-axiom-of-frame-indifference"><span class="header-section-number">5.5.2</span> The Axiom of Frame-indifference</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -193,18 +237,31 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-balance-laws" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Balance laws</span></span></h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <div class="hidden">
-<p>$$ </p>
-<p>$$</p>
+
 </div>
-<section id="sec-balance-laws" class="level1">
-<h1>Balance laws</h1>
 <p>In this chapter, we state a variety of axioms for a mechanical theory of continuum bodies. As in Chapter&nbsp;<a href="#cha:mass-forces" data-reference-type="ref" data-reference="cha:mass-forces">[cha:mass-forces]</a>, we first state laws in integral form, and then derive local versions, which yield (systems of) PDEs. It is important to state at the outset that these laws apply to all continuum bodies, regardless of whether they are solid or fluid.</p>
-<section id="aims" class="level5">
-<h5 class="anchored" data-anchor-id="aims">Aims:</h5>
+<section id="aims" class="level5" data-number="5.0.0.0.1">
+<h5 data-number="5.0.0.0.1" class="anchored" data-anchor-id="aims"><span class="header-section-number">5.0.0.0.1</span> Aims:</h5>
 <p>By the end of this chapter, you should be able to:</p>
 <ul>
 <li><p>Provide definitions of the <em>mass</em>, <em>linear</em> and <em>angular momentum</em> of a subset of body as integrals.</p></li>
@@ -214,8 +271,8 @@ window.Quarto = {
 <li><p>Explain how the principle of <em>frame indifference</em> limits the constitutive laws which are possible to close the equations derived.</p></li>
 </ul>
 </section>
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<section id="motivation" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">5.1</span> Motivation</h2>
 <p>Consider <span class="math inline">N</span> particles with masses <span class="math inline">m_i\in{\mathbb{R}}</span> and positions <span class="math inline">{\boldsymbol{x}}_i\in{\mathbb{E}}^3</span>. We may think of these as the atoms (or perhaps molecules) making up a continuum body. Suppose that the potential energy of interaction between particles <span class="math inline">i</span> and <span class="math inline">j</span> is described by an energy <span class="math inline">U_{ij}</span>, which is symmetric in exchange of particle indices, i.e. <span class="math inline">U_{ij} = U_{ji}</span>. The force on particle <span class="math inline">i</span> due to interaction with particle <span class="math inline">j</span> is denoted <span class="math display">{\boldsymbol{f}}^{\text{int}}_{ij} = -\nabla_{{\boldsymbol{x}}_i}U_{ij}.</span> Assuming that the environment of the particle also acts on each particle through a force <span class="math inline">{\boldsymbol{f}}^{\text{env}}_i</span>, and these are the only forces acting, then a complete description of the motion of the particles is: <span class="math display">\dot{m}_i=0,\qquad m_i\ddot{{\boldsymbol{x}}}_i = {\boldsymbol{f}}^{\text{env}}_i+\sum_{j\neq i}{\boldsymbol{f}}^{\text{int}}_{ij},</span> where we do not apply the summation convention, and <span class="math inline">i</span> ranges from <span class="math inline">1,\ldots,N</span>. These two sets of equations state that the mass of each particle is constant, and each particle obeys Newton’s Second Law.</p>
 <p>Consider an arbitrary subset of indices <span class="math inline">I\subset\{1,\ldots,N\}</span>, and let <span class="math inline">\Omega_t</span> be the current configuration of particles with indices <span class="math inline">I</span> at time <span class="math inline">t\geq 0</span>. We can associate to <span class="math inline">\Omega_t</span> a total mass <span class="math inline">M[\Omega_t]</span>, a linear momentum <span class="math inline">{\boldsymbol{l}}[\Omega_t]</span>, an angular momentum <span class="math inline">{\boldsymbol{j}}[\Omega_t]</span>, an internal energy <span class="math inline">U[\Omega_t]</span> and a kinetic energy <span class="math inline">K[\Omega_t]</span> as follows: <span class="math display">\begin{gathered}
     M[\Omega_t] = \sum_{i\in I}m_i,\quad{\boldsymbol{l}}[\Omega_t] = \sum_{i\in I}m_i\dot{{\boldsymbol{x}}}_i,\quad {\boldsymbol{j}}[\Omega_t] = = \sum_{i\in I}{\boldsymbol{x}}_i\times m_i\dot{{\boldsymbol{x}}}_i,\\
@@ -228,24 +285,24 @@ window.Quarto = {
 \end{aligned}</span> These equations state that the mass of <span class="math inline">\Omega_t</span> does not change with time, the rate of change of linear momentum is equal to the resultant external force acting on <span class="math inline">\Omega_t</span>, the rate of change of the angular momentum is equal to the resultant external torque acting on <span class="math inline">\Omega_t</span>, and the rate of change of the energy is equal to the power of the external forces acting on <span class="math inline">\Omega_t</span>.</p>
 <p>The equations above are balance laws, and describe how various physically important quantities are conserved or change due to external influences. These four laws provide a fundamental starting point for the modelling of continuum bodies, by (at least informally) letting the number of particles tend to infinity, and replacing sums by integrals. In the case of mass and linear and angular momentum, this limit is straightforward. However, for the energy balance, things are more complicated: a continuum field cannot directly represent fluctuations on the atomic scale. As such, continuum fields should be treated as ‘averages over’ sufficiently large collections of atoms, where fluctuations are smoothed out.</p>
 </section>
-<section id="balance-laws-in-integral-form" class="level2">
-<h2 class="anchored" data-anchor-id="balance-laws-in-integral-form">Balance laws in integral form</h2>
+<section id="balance-laws-in-integral-form" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="balance-laws-in-integral-form"><span class="header-section-number">5.2</span> Balance laws in integral form</h2>
 <p>Consider a motion <span class="math inline">{\boldsymbol{\varphi}}</span>, which maps a reference configuration <span class="math inline">B</span> to the current configuration <span class="math inline">B_t={\boldsymbol{\varphi}}(B,t)</span>. Let <span class="math inline">\rho({\boldsymbol{y}},t)</span> be the mass density and <span class="math inline">{\boldsymbol{v}}({\boldsymbol{y}},t)</span> be the velocity at a spatial point <span class="math inline">{\boldsymbol{y}}\in B_t</span>, and let <span class="math inline">\Omega_t\subseteq B_t</span> be an arbitrary open subset of <span class="math inline">B_t</span>. Then: <span class="math display">\begin{aligned}
-    \text{The \emph{mass} of $\Omega_t$ is:}&amp;&amp;{\operatorname{mass}}[\Omega_t] &amp;= \int_{\Omega_t}\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}},\\
-    \text{The \emph{linear momentum} of $\Omega_t$ is:}&amp;&amp;{\boldsymbol{l}}[\Omega_t] &amp;= \int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}},\\
-    \text{The \emph{angular momentum} of $\Omega_t$ about ${\boldsymbol{z}}$ is:}&amp;&amp;{\boldsymbol{j}}[\Omega_t;{\boldsymbol{z}}] &amp;= \int_{\Omega_t}({\boldsymbol{y}}-{\boldsymbol{z}})\times \rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.
+    \text{The \emph{mass} of $\Omega_t$ is:}&amp;&amp;{\operatorname{mass}}[\Omega_t] &amp;= \int_{\Omega_t}\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}},\\
+    \text{The \emph{linear momentum} of $\Omega_t$ is:}&amp;&amp;{\boldsymbol{l}}[\Omega_t] &amp;= \int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}},\\
+    \text{The \emph{angular momentum} of $\Omega_t$ about ${\boldsymbol{z}}$ is:}&amp;&amp;{\boldsymbol{j}}[\Omega_t;{\boldsymbol{z}}] &amp;= \int_{\Omega_t}({\boldsymbol{y}}-{\boldsymbol{z}})\times \rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.
   \end{aligned}</span></p>
 <p>Assuming that we are neglecting relativistic effects and possible chemical reactions, the balance laws can be generalised to continuum bodies as follows.</p>
 <div class="axiom">
-<p><span id="ax:ConservationOfMass" label="ax:ConservationOfMass"></span> <span id="ax:massconservation" label="ax:massconservation"></span> The mass of any open subset of a continuum body is invariant as the body changes position and shape, i.e. <span class="math display">\frac{d}{dt}{\operatorname{mass}}[\Omega_t] = 0\quad\text{for all }\Omega_t\subseteq B_t.</span></p>
+<p><span id="ax:ConservationOfMass" data-label="ax:ConservationOfMass"></span> <span id="ax:massconservation" data-label="ax:massconservation"></span> The mass of any open subset of a continuum body is invariant as the body changes position and shape, i.e. <span class="math display">\frac{d}{dt}{\operatorname{mass}}[\Omega_t] = 0\quad\text{for all }\Omega_t\subseteq B_t.</span></p>
 </div>
 <p>Now, recalling the definitions of the resultant force <span class="math inline">{\boldsymbol{r}}[\Omega]</span> and resultant torque <span class="math inline">{\boldsymbol{\tau}}[\Omega;{\boldsymbol{z}}]</span>, we can state the laws of inertia:</p>
 <div class="axiom">
-<p><span id="ax:LawsOfInertia" label="ax:LawsOfInertia"></span> <span id="ax:lawsofinertia" label="ax:lawsofinertia"></span> The rate of change of linear momentum of any open subset of a continuum body equals the resultant force applied to it, and the rate of change of angular momentum equals the resultant torque, i.e. <span class="math display">\frac{d}{dt}{\boldsymbol{l}}[\Omega_t] = {\boldsymbol{r}}[\Omega_t]\quad\text{and}\quad \frac{d}{dt}{\boldsymbol{j}}[\Omega_t;{\boldsymbol{z}}]={\boldsymbol{\tau}}[\Omega_t;{\boldsymbol{z}}]\qquad\text{for all }\Omega_t\subseteq B_t.</span></p>
+<p><span id="ax:LawsOfInertia" data-label="ax:LawsOfInertia"></span> <span id="ax:lawsofinertia" data-label="ax:lawsofinertia"></span> The rate of change of linear momentum of any open subset of a continuum body equals the resultant force applied to it, and the rate of change of angular momentum equals the resultant torque, i.e. <span class="math display">\frac{d}{dt}{\boldsymbol{l}}[\Omega_t] = {\boldsymbol{r}}[\Omega_t]\quad\text{and}\quad \frac{d}{dt}{\boldsymbol{j}}[\Omega_t;{\boldsymbol{z}}]={\boldsymbol{\tau}}[\Omega_t;{\boldsymbol{z}}]\qquad\text{for all }\Omega_t\subseteq B_t.</span></p>
 </div>
 <p>Both Axiom&nbsp;<a href="#ax:massconservation" data-reference-type="ref" data-reference="ax:massconservation">[ax:massconservation]</a> and Axiom&nbsp;<a href="#ax:lawsofinertia" data-reference-type="ref" data-reference="ax:lawsofinertia">[ax:lawsofinertia]</a> are assumed to hold for every motion and every subset of a continuum body.</p>
-<section id="first-and-second-laws-of-thermodynamics" class="level3">
-<h3 class="anchored" data-anchor-id="first-and-second-laws-of-thermodynamics">First and second laws of thermodynamics</h3>
+<section id="first-and-second-laws-of-thermodynamics" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="first-and-second-laws-of-thermodynamics"><span class="header-section-number">5.2.1</span> First and second laws of thermodynamics</h3>
 <p>Temperature is a physical property of matter that is based on our perceptions of hot and cold, and quantifies the microscopic fluctuations in the velocity of the atoms making up the material about their mean value.</p>
 <p>To see this more clearly, we note that the continuum velocity field <span class="math inline">{\boldsymbol{v}}({\boldsymbol{y}},t)</span> measures the average velocity of the atoms in the body at a spatial point <span class="math inline">{\boldsymbol{y}}\in B_t</span>, but it is perfectly possible that, at some instant in time, many of the atoms close to this point are moving in different directions. This variation in the microscopic velocities of the atoms is what temperature is. To describe temperature at the continuum level, we will assume the existence of a (scalar) absolute <em>temperature field</em> <span class="math inline">\theta({\boldsymbol{y}},t)&gt;0</span> for all points <span class="math inline">{\boldsymbol{y}}\in B_t</span> and times <span class="math inline">t\geq0</span>. This field is positive, since we always assume that there is some (possibly very small) variation about the mean.</p>
 <p>By the <em>thermal energy</em> or <em>heat content</em> of a body we mean an energy associated with the velocity fluctuations of atoms within the body, and so with its temperature. We note however that heat and temperature are not the same! We know from our own experience that heat can be converted into mechanical work: deforming a body can affect its temperature and therefore its heat content. Similarly, heating a body can affect its temperature and set it in motion, for example through thermal expansion. This tells us that we may use the same units to describe heat energy as we use to describe mechanical work.</p>
@@ -254,15 +311,15 @@ window.Quarto = {
 <li><p>It can be produced or consumed by mechanical, chemical, or electromagnetic processes. For example, a flowing electrical current produces heat as it encounters resistance in the body.</p></li>
 <li><p>It can be transferred from one body to another through physical contact or thermal radiation. Heat transfer through contact can be further classified as heat conduction or convection depending on the circumstances and nature of the bodies involved.</p></li>
 </ul>
-<p>Given <span class="math inline">\Omega_t\subseteq B_t</span>, we define the <em>net rate of heating</em> <span class="math inline">Q[\Omega_t]</span> to be the rate at which heat is being added to <span class="math inline">\Omega_t</span>. As suggested above (and in analogy with the treatment of forces in Chapter&nbsp;<a href="#cha:mass-forces" data-reference-type="ref" data-reference="cha:mass-forces">[cha:mass-forces]</a>), we assume that the net heating can be decomposed into a bulk and surface heating: <span class="math display">Q[\Omega_t] = Q_b[\Omega_t]+Q_s[\partial\Omega_t].</span> As with our treatment of mass density and body forces, we assume there exists a <em>heat supply field</em> per unit volume <span class="math inline">\hat{r}({\boldsymbol{y}},t)\in{\mathbb{R}}</span> such that <span class="math display">Q_b[\Omega_t] = \int_{\Omega_t}\hat{r}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}},</span> and equivalently, a heat supply field per unit mass <span class="math inline">r({\boldsymbol{y}},t)\in{\mathbb{R}}</span> with <span class="math inline">r({\boldsymbol{y}},t) = \hat{r}({\boldsymbol{y}},t)/\rho({\boldsymbol{y}},t)</span> so that, equivalently, <span class="math display">Q_b[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span></p>
-<p>We similarly assume that there is a <em>heat transfer field</em> per unit area <span class="math inline">h({\boldsymbol{y}},t)\in{\mathbb{R}}</span> so that <span class="math display">Q_s[\partial\Omega_t] = \int_{\partial \Omega_t} h({\boldsymbol{y}},t){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}.</span> More specifically, we assume that the heat transfer field takes the form <span class="math inline">h({\boldsymbol{y}},t) = -{\boldsymbol{q}}({\boldsymbol{y}},t)\cdot{\boldsymbol{n}}({\boldsymbol{y}})</span>, where <span class="math inline">{\boldsymbol{n}}</span> is the outward-pointing unit normal field for the surface <span class="math inline">\partial\Omega_t</span>, and <span class="math inline">{\boldsymbol{q}}</span> is the <em>heat flux vector field</em> in <span class="math inline">B_t</span>.</p>
+<p>Given <span class="math inline">\Omega_t\subseteq B_t</span>, we define the <em>net rate of heating</em> <span class="math inline">Q[\Omega_t]</span> to be the rate at which heat is being added to <span class="math inline">\Omega_t</span>. As suggested above (and in analogy with the treatment of forces in Chapter&nbsp;<a href="#cha:mass-forces" data-reference-type="ref" data-reference="cha:mass-forces">[cha:mass-forces]</a>), we assume that the net heating can be decomposed into a bulk and surface heating: <span class="math display">Q[\Omega_t] = Q_b[\Omega_t]+Q_s[\partial\Omega_t].</span> As with our treatment of mass density and body forces, we assume there exists a <em>heat supply field</em> per unit volume <span class="math inline">\hat{r}({\boldsymbol{y}},t)\in{\mathbb{R}}</span> such that <span class="math display">Q_b[\Omega_t] = \int_{\Omega_t}\hat{r}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}},</span> and equivalently, a heat supply field per unit mass <span class="math inline">r({\boldsymbol{y}},t)\in{\mathbb{R}}</span> with <span class="math inline">r({\boldsymbol{y}},t) = \hat{r}({\boldsymbol{y}},t)/\rho({\boldsymbol{y}},t)</span> so that, equivalently, <span class="math display">Q_b[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.</span></p>
+<p>We similarly assume that there is a <em>heat transfer field</em> per unit area <span class="math inline">h({\boldsymbol{y}},t)\in{\mathbb{R}}</span> so that <span class="math display">Q_s[\partial\Omega_t] = \int_{\partial \Omega_t} h({\boldsymbol{y}},t){\,\d A_{{\boldsymbol{y}}}}.</span> More specifically, we assume that the heat transfer field takes the form <span class="math inline">h({\boldsymbol{y}},t) = -{\boldsymbol{q}}({\boldsymbol{y}},t)\cdot{\boldsymbol{n}}({\boldsymbol{y}})</span>, where <span class="math inline">{\boldsymbol{n}}</span> is the outward-pointing unit normal field for the surface <span class="math inline">\partial\Omega_t</span>, and <span class="math inline">{\boldsymbol{q}}</span> is the <em>heat flux vector field</em> in <span class="math inline">B_t</span>.</p>
 <p>The direction and intensity of the heat flow across any surface is determined by the field <span class="math inline">{\boldsymbol{q}}</span>, and the negative sign in the relation <span class="math inline">h=-{\boldsymbol{q}}\cdot{\boldsymbol{n}}</span> is due to choosing the outward rather than the inward pointing normal (we compute the flow of heat <em>into</em> the region <span class="math inline">\Omega_t</span>). The relationship between the surface heat transfer <span class="math inline">h</span> and the flux <span class="math inline">{\boldsymbol{q}}</span> is analogous to the relationship between the traction <span class="math inline">{\boldsymbol{t}}</span> and the Cauchy stress tensor <span class="math inline">{\boldsymbol{S}}</span>. Indeed, similar conditions and arguments to those deployed in Propositions&nbsp;<a href="#prop:action+reaction" data-reference-type="ref" data-reference="prop:action+reaction">[prop:action+reaction]</a> and <a href="#prop:stresstensor" data-reference-type="ref" data-reference="prop:stresstensor">[prop:stresstensor]</a> show that heat transfer must take this form.</p>
-<p>Together, we now have that <span class="math display">Q[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}{\boldsymbol{q}}({\boldsymbol{y}},t)\cdot{\boldsymbol{n}}({\boldsymbol{y}}){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}.</span></p>
-<p>The <em>kinetic energy</em> of <span class="math inline">\Omega_t</span> is <span class="math display">K[\Omega_t] = \int_{\Omega_t}\tfrac12\rho({\boldsymbol{y}},t)|{\boldsymbol{v}}({\boldsymbol{y}},t)|^2{\,{\mathrm{d}}V_{{\boldsymbol{y}}}},</span> and the <em>power of external forces</em> acting on <span class="math inline">\Omega_t</span> is <span class="math display">P[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{b}}({\boldsymbol{y}},t)\cdot{\boldsymbol{v}}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}+\int_{\partial \Omega_t}{\boldsymbol{t}}({\boldsymbol{y}},t)\cdot{\boldsymbol{v}}({\boldsymbol{y}},t){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}.</span> The <em>net rate of internal mechanical work</em> of external forces acting on <span class="math inline">\Omega_t</span> is the power not used up in producing motion, i.e. <span class="math display">W[\Omega_t] = P[\Omega_t]-\frac{d}{dt}K[\Omega_t].</span> It <span class="math inline">W[\Omega_t]=0</span> over some time interval, then all of the mechanical energy delivered to the body by external forces is converted to kinetic energy. If <span class="math inline">W[\Omega_t]&gt;0</span> over some time interval, then some of the energy delivered to the body is stored, and if <span class="math inline">W[\Omega_t]&lt;0</span>, energy is released from the body.</p>
+<p>Together, we now have that <span class="math display">Q[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}{\boldsymbol{q}}({\boldsymbol{y}},t)\cdot{\boldsymbol{n}}({\boldsymbol{y}}){\,\d A_{{\boldsymbol{y}}}}.</span></p>
+<p>The <em>kinetic energy</em> of <span class="math inline">\Omega_t</span> is <span class="math display">K[\Omega_t] = \int_{\Omega_t}\tfrac12\rho({\boldsymbol{y}},t)|{\boldsymbol{v}}({\boldsymbol{y}},t)|^2{\,\d V_{{\boldsymbol{y}}}},</span> and the <em>power of external forces</em> acting on <span class="math inline">\Omega_t</span> is <span class="math display">P[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{b}}({\boldsymbol{y}},t)\cdot{\boldsymbol{v}}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}+\int_{\partial \Omega_t}{\boldsymbol{t}}({\boldsymbol{y}},t)\cdot{\boldsymbol{v}}({\boldsymbol{y}},t){\,\d A_{{\boldsymbol{y}}}}.</span> The <em>net rate of internal mechanical work</em> of external forces acting on <span class="math inline">\Omega_t</span> is the power not used up in producing motion, i.e. <span class="math display">W[\Omega_t] = P[\Omega_t]-\frac{d}{dt}K[\Omega_t].</span> It <span class="math inline">W[\Omega_t]=0</span> over some time interval, then all of the mechanical energy delivered to the body by external forces is converted to kinetic energy. If <span class="math inline">W[\Omega_t]&gt;0</span> over some time interval, then some of the energy delivered to the body is stored, and if <span class="math inline">W[\Omega_t]&lt;0</span>, energy is released from the body.</p>
 <p>From the above discussion, we see that there may be some part of the energy of a continuum body which is not kinetic energy. This component of the energy is called the <em>internal energy</em>, and represents a store of energy that can be increased in various ways (e.g.&nbsp;by heating or applying forces to the body), or released (e.g.&nbsp;by heat transfer or through performing mechanical work). We will assume that the internal energy of a body consists only of thermal and mechanical energy, neglecting chemical and electromagnetic effects (which can be treated within a similar framework).</p>
-<p>Given a subset <span class="math inline">\Omega_t\subseteq B_t</span>, we denote its internal energy <span class="math inline">U[\Omega_t]</span>, and assume that there exists an <em>internal energy density field</em> per unit volume <span class="math inline">\hat{\phi}({\boldsymbol{y}},t)\in{\mathbb{R}}</span> such that <span class="math display">U[\Omega_t] = \int_{\Omega_t}\hat{\phi}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span> As usual, we can define a corresponding internal energy density per unit mass <span class="math inline">\phi({\boldsymbol{y}},t) = \hat{\phi}({\boldsymbol{y}},t)/\rho({\boldsymbol{y}},t)</span> so that <span class="math display">U[\Omega_t] = \int_{\Omega_t} \rho({\boldsymbol{y}},t)\phi({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span></p>
+<p>Given a subset <span class="math inline">\Omega_t\subseteq B_t</span>, we denote its internal energy <span class="math inline">U[\Omega_t]</span>, and assume that there exists an <em>internal energy density field</em> per unit volume <span class="math inline">\hat{\phi}({\boldsymbol{y}},t)\in{\mathbb{R}}</span> such that <span class="math display">U[\Omega_t] = \int_{\Omega_t}\hat{\phi}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.</span> As usual, we can define a corresponding internal energy density per unit mass <span class="math inline">\phi({\boldsymbol{y}},t) = \hat{\phi}({\boldsymbol{y}},t)/\rho({\boldsymbol{y}},t)</span> so that <span class="math display">U[\Omega_t] = \int_{\Omega_t} \rho({\boldsymbol{y}},t)\phi({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.</span></p>
 <div class="axiom">
-<p><span id="ax:1stLaw" label="ax:1stLaw"></span> The rate of change of the internal energy of any open subset of a continuum body is the sum of the net rate of heating and net rate of work applied to it, i.e. <span class="math display">\frac{d}{dt}U[\Omega_t]=Q[\Omega_t]+W[\Omega_t]\quad\text{for all }\Omega_t\subseteq B_t,</span> or using the relationship between <span class="math inline">W</span>, <span class="math inline">P</span> and <span class="math inline">K</span>: <span class="math display">\frac{d}{dt}\Big(U[\Omega_t]+K[\Omega_t]\Big)=Q[\Omega_t]+P[\Omega_t]\quad\text{for all }\Omega_t\subseteq B_t.</span></p>
+<p><span id="ax:1stLaw" data-label="ax:1stLaw"></span> The rate of change of the internal energy of any open subset of a continuum body is the sum of the net rate of heating and net rate of work applied to it, i.e. <span class="math display">\frac{d}{dt}U[\Omega_t]=Q[\Omega_t]+W[\Omega_t]\quad\text{for all }\Omega_t\subseteq B_t,</span> or using the relationship between <span class="math inline">W</span>, <span class="math inline">P</span> and <span class="math inline">K</span>: <span class="math display">\frac{d}{dt}\Big(U[\Omega_t]+K[\Omega_t]\Big)=Q[\Omega_t]+P[\Omega_t]\quad\text{for all }\Omega_t\subseteq B_t.</span></p>
 </div>
 <p>There are various fundamental differences between the continuum versions of the energy balance and the corresponding law for particles. These arise from the fact that our continuum description cannot capture the atomic fluctuations, which are separated from the kinetic energy.</p>
 <p>The energy balance relates the rate of change of internal energy with the net rate of heating and net rate of work due to external influences on a body. While these must be balanced, there is no restriction on the rates of these processes themselves. For example, if the net rate of work is zero over some time interval, then there is no limit on the rate at which a body may absorb heat and store it as internal energy. In its simplest form, the Second Law of Thermodynamics expresses the fact that bodies <em>do</em> have limits on the rate at which heat can be absorbed, but no limit on the rate at which heat can be released.</p>
@@ -272,24 +329,24 @@ window.Quarto = {
 <p>In our framework, the <em>entropy</em> of the homogeneous body <span class="math inline">\Omega_t</span> means the quantity <span class="math inline">H[\Omega_t]</span> defined to satisfy <span class="math display">\frac{d}{dt}H[\Omega_t] = \frac{\Xi[\Omega_t]}{\Theta[\Omega_t]}.</span> The entropy is therefore a quantity whose rate of change at any instant is the upper bound on the rate of heating per unit temperature, and so measures the body’s ability to absorb heat.</p>
 <p>In terms of entropy, the bound in <a href="#eq:heatinglimit" data-reference-type="eqref" data-reference="eq:heatinglimit">[eq:heatinglimit]</a> becomes <span class="math display">\label{eq:ClausiusPlanck}
   \frac{Q[\Omega_t]}{\Theta[\Omega_t]}\leq \frac{d}{dt}H[\Omega_t].</span> This inequality is a form of the Second Law called the <em>Clausius-Planck inequality</em>. If <span class="math inline">Q[\Omega_t]=0</span>, this becomes <span class="math display">0\leq \frac{d}{dt}H[\Omega_t],</span> which states that the entropy of a body always prefers to increase, even when the neat heating vanishes (as in the case of an isolated body).</p>
-<p>To make progress in our continuum setting, we now assume that the entropy varies throughout the body, and is described by an <em>entropy density field</em> per unit volume <span class="math inline">\hat{\eta}({\boldsymbol{y}},t)\in{\mathbb{R}}</span> so that <span class="math display">H[\Omega_t] = \int_{\Omega_t}\hat{\eta}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span> As usualy, we introduce an entropy density per unit mass: <span class="math display">\eta({\boldsymbol{y}},t) = \frac{\hat{\eta}({\boldsymbol{y}},t)}{\rho({\boldsymbol{y}},t)}\quad\text{so that}\quad H[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)\eta({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span></p>
+<p>To make progress in our continuum setting, we now assume that the entropy varies throughout the body, and is described by an <em>entropy density field</em> per unit volume <span class="math inline">\hat{\eta}({\boldsymbol{y}},t)\in{\mathbb{R}}</span> so that <span class="math display">H[\Omega_t] = \int_{\Omega_t}\hat{\eta}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.</span> As usualy, we introduce an entropy density per unit mass: <span class="math display">\eta({\boldsymbol{y}},t) = \frac{\hat{\eta}({\boldsymbol{y}},t)}{\rho({\boldsymbol{y}},t)}\quad\text{so that}\quad H[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t)\eta({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.</span></p>
 <p>The generalisation of <a href="#eq:ClausiusPlanck" data-reference-type="eqref" data-reference="eq:ClausiusPlanck">[eq:ClausiusPlanck]</a> to spatially inhomogeneous systems is then the following.</p>
 <div class="axiom">
-<p><span id="ax:2ndLaw" label="ax:2ndLaw"></span> The rate of entropy production in any open subset of a continuum body is bounded below by the heating per unit temperature, i.e. <span class="math display">\frac{d}{dt}H[\Omega_t] \geq \int_{\Omega_t}\frac{\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t)}{\theta({\boldsymbol{y}},t)}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}\frac{{\boldsymbol{q}}({\boldsymbol{y}},t)\cdot{\boldsymbol{n}}({\boldsymbol{y}})}{\theta({\boldsymbol{y}},t)}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}</span> for all <span class="math inline">\Omega_t\subseteq B_t</span>.</p>
+<p><span id="ax:2ndLaw" data-label="ax:2ndLaw"></span> The rate of entropy production in any open subset of a continuum body is bounded below by the heating per unit temperature, i.e. <span class="math display">\frac{d}{dt}H[\Omega_t] \geq \int_{\Omega_t}\frac{\rho({\boldsymbol{y}},t)r({\boldsymbol{y}},t)}{\theta({\boldsymbol{y}},t)}{\,\d V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}\frac{{\boldsymbol{q}}({\boldsymbol{y}},t)\cdot{\boldsymbol{n}}({\boldsymbol{y}})}{\theta({\boldsymbol{y}},t)}{\,\d A_{{\boldsymbol{y}}}}</span> for all <span class="math inline">\Omega_t\subseteq B_t</span>.</p>
 </div>
 <p>This formulation of the Second Law is called the <em>Clausius-Duhem inequality</em>. We will assume that it hold for every motion and subset of a continuum body, and study its consequences.</p>
 </section>
-<section id="integral-versus-local-balance-laws" class="level3">
-<h3 class="anchored" data-anchor-id="integral-versus-local-balance-laws">Integral versus local balance laws</h3>
+<section id="integral-versus-local-balance-laws" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="integral-versus-local-balance-laws"><span class="header-section-number">5.2.2</span> Integral versus local balance laws</h3>
 <p>So far, we have summarised balance laws for the mass, momentum, energy and entropy in terms of arbitrary open subsets of the current configuration <span class="math inline">B_t</span>. We will now exploit the Localisation Theorem, Proposition&nbsp;<a href="#prop:localisation" data-reference-type="ref" data-reference="prop:localisation">[prop:localisation]</a>, to derive partial differential equations for the various fields we have considered. When expressed in terms of the spatial coordinates, we refer to such balance laws as <em>Eulerian</em>, and when expressed in material coordinates, we refer to the balance laws as being in <em>Lagrangian</em> form.</p>
 </section>
 </section>
-<section id="localised-eulerian-form-of-balance-laws" class="level2">
-<h2 class="anchored" data-anchor-id="localised-eulerian-form-of-balance-laws">Localised Eulerian form of balance laws</h2>
+<section id="localised-eulerian-form-of-balance-laws" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="localised-eulerian-form-of-balance-laws"><span class="header-section-number">5.3</span> Localised Eulerian form of balance laws</h2>
 <p>We will assume in this section that <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion which satisfies <span class="math inline">{\boldsymbol{\varphi}}({\boldsymbol{x}},0) = {\boldsymbol{x}}</span>.</p>
-<section id="sec:EulerianMass" class="level3">
-<h3 class="anchored" data-anchor-id="sec:EulerianMass">Conservation of mass</h3>
-<p>Consider <span class="math inline">\Omega_t\subseteq B_t</span>, and let <span class="math inline">\Omega\subseteq B</span> such that <span class="math inline">{\boldsymbol{\varphi}}(\Omega,t) = \Omega_t</span>. Axiom&nbsp;<a href="#ax:ConservationOfMass" data-reference-type="ref" data-reference="ax:ConservationOfMass">[ax:ConservationOfMass]</a> entails that <span class="math display">{\operatorname{mass}}[\Omega_t] = {\operatorname{mass}}[\Omega_0],</span> where <span class="math inline">\Omega_0 = \Omega</span>. Furthermore, we have <span class="math display">{\operatorname{mass}}[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_\Omega \rho_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}},</span> and as we have assumed that <span class="math inline">{\boldsymbol{\varphi}}({\boldsymbol{x}},0) ={\boldsymbol{x}}</span>, we have <span class="math display">{\operatorname{mass}}[\Omega_0] = \int_{\Omega}\rho({\boldsymbol{x}},0){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_\Omega \rho_0({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}},</span> where <span class="math inline">\rho_0({\boldsymbol{x}}) =\rho({\boldsymbol{x}},0)</span>. We must therefore have <span class="math display">\int_\Omega \rho_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t)-\rho_0({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=0</span> for any <span class="math inline">t\geq0</span> and any <span class="math inline">\Omega\subseteq B</span>, so the Localisation Theorem entails that <span class="math display">\label{eq:ConsOfMass1}
+<section id="sec:EulerianMass" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="sec:EulerianMass"><span class="header-section-number">5.3.1</span> Conservation of mass</h3>
+<p>Consider <span class="math inline">\Omega_t\subseteq B_t</span>, and let <span class="math inline">\Omega\subseteq B</span> such that <span class="math inline">{\boldsymbol{\varphi}}(\Omega,t) = \Omega_t</span>. Axiom&nbsp;<a href="#ax:ConservationOfMass" data-reference-type="ref" data-reference="ax:ConservationOfMass">[ax:ConservationOfMass]</a> entails that <span class="math display">{\operatorname{mass}}[\Omega_t] = {\operatorname{mass}}[\Omega_0],</span> where <span class="math inline">\Omega_0 = \Omega</span>. Furthermore, we have <span class="math display">{\operatorname{mass}}[\Omega_t] = \int_{\Omega_t}\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}= \int_\Omega \rho_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}},</span> and as we have assumed that <span class="math inline">{\boldsymbol{\varphi}}({\boldsymbol{x}},0) ={\boldsymbol{x}}</span>, we have <span class="math display">{\operatorname{mass}}[\Omega_0] = \int_{\Omega}\rho({\boldsymbol{x}},0){\,\d V_{{\boldsymbol{y}}}}= \int_\Omega \rho_0({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}},</span> where <span class="math inline">\rho_0({\boldsymbol{x}}) =\rho({\boldsymbol{x}},0)</span>. We must therefore have <span class="math display">\int_\Omega \rho_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t)-\rho_0({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}=0</span> for any <span class="math inline">t\geq0</span> and any <span class="math inline">\Omega\subseteq B</span>, so the Localisation Theorem entails that <span class="math display">\label{eq:ConsOfMass1}
   \rho_m({\boldsymbol{x}},t)\det{\boldsymbol{F}}({\boldsymbol{x}},t) = \rho_0({\boldsymbol{x}})\quad\text{for all }{\boldsymbol{x}}\in B, t\geq0.</span> To convert this form to Eulerian form, we take the total time derivative of both sides of this equation, finding that <span class="math display">\bigg(\frac{d}{dt}\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\bigg)\det{\boldsymbol{F}}({\boldsymbol{x}},t)+\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\frac{d}{d t}\det{\boldsymbol{F}}({\boldsymbol{x}},t) = 0.</span> For the latter term, we apply Proposition&nbsp;<a href="#prop:TotalDerivativeDetF" data-reference-type="ref" data-reference="prop:TotalDerivativeDetF">[prop:TotalDerivativeDetF]</a>, so that <span class="math display">\bigg(\frac{d}{dt}\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\bigg)\det{\boldsymbol{F}}({\boldsymbol{x}},t)+\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t)\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{v}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t) = 0.</span> Dividing through by the non-zero determinant term, and taking the total derivative in the first term, then re-expressing everything in spatial coordinates by substituting <span class="math inline">{\boldsymbol{y}}={\boldsymbol{\varphi}}({\boldsymbol{x}},t)</span>, we have <span class="math display">\frac{\partial\rho}{\partial t}({\boldsymbol{y}},t) + \nabla_{\boldsymbol{y}}\rho({\boldsymbol{y}},t)\cdot{\boldsymbol{v}}({\boldsymbol{y}},t)+\rho({\boldsymbol{y}},t)\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{v}}({\boldsymbol{y}},t)= 0.</span> Finally, using the property of the divergence that <span class="math inline">\nabla\cdot(\phi{\boldsymbol{w}}) = \nabla\phi\cdot{\boldsymbol{w}}+\phi\nabla\cdot{\boldsymbol{w}}</span>, we have: <span class="math display">\frac{\partial\rho}{\partial t}({\boldsymbol{y}},t) + \nabla_{\boldsymbol{y}}\cdot\big(\rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t)\big)= 0.</span> We have just proved the following result:</p>
 <div class="proposition">
 <p>If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion with associated spatial velocity field <span class="math inline">{\boldsymbol{v}}</span> and spatial mass density field <span class="math inline">\rho</span>, then the conservation of mass entails that <span class="math display">\frac{\partial \rho}{\partial t} +\nabla_{\boldsymbol{y}}\cdot(\rho{\boldsymbol{v}}) = 0</span> for all <span class="math inline">{\boldsymbol{y}}\in B_t</span> and <span class="math inline">t\in[0,T]</span>. Equivalently, we have</p>
@@ -297,53 +354,53 @@ window.Quarto = {
 </div>
 <p>The following result allows us to express the time derivative of integrals involving the mass density <span class="math inline">\rho</span>.</p>
 <div class="proposition">
-<p><span id="prop:TimeDerivativeMassIntegrals" label="prop:TimeDerivativeMassIntegrals"></span> If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion with associated spatial velocity field <span class="math inline">{\boldsymbol{v}}</span> and spatial mass density field <span class="math inline">\rho</span>, <span class="math inline">\Phi</span> is any spatial scalar, vector or tensor field, and <span class="math inline">\Omega_t\subseteq B_t</span>, then <span class="math display">\frac{d}{dt}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\Omega_t}\DDt{\Phi}({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span></p>
+<p><span id="prop:TimeDerivativeMassIntegrals" data-label="prop:TimeDerivativeMassIntegrals"></span> If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion with associated spatial velocity field <span class="math inline">{\boldsymbol{v}}</span> and spatial mass density field <span class="math inline">\rho</span>, <span class="math inline">\Phi</span> is any spatial scalar, vector or tensor field, and <span class="math inline">\Omega_t\subseteq B_t</span>, then <span class="math display">\frac{d}{dt}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}=\int_{\Omega_t}\DDt{\Phi}({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
-<em>Proof.</em> Applying Proposition&nbsp;<a href="#prop:TransformationOfVolumeIntegrals" data-reference-type="ref" data-reference="prop:TransformationOfVolumeIntegrals">[prop:TransformationOfVolumeIntegrals]</a>, we have <span class="math display">\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_\Omega \Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}},</span> where <span class="math inline">\Omega_t={\boldsymbol{\varphi}}(\Omega,t)</span>. Applying the equality <a href="#eq:ConsOfMass1" data-reference-type="eqref" data-reference="eq:ConsOfMass1">[eq:ConsOfMass1]</a>, i.e. <span class="math inline">\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t) = \rho_0({\boldsymbol{x}})</span>, we can rewrite the RHS as <span class="math display">\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_\Omega \Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\rho_0({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span> Differentiating with respect to time, and exchanging the order of integration and differentiation on the RHS, we have <span class="math display">\frac{d}{dt}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_\Omega \frac{d}{dt}\bigg(\Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\bigg)\rho_0({\boldsymbol{x}}){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span> But now, using equality <a href="#eq:ConsOfMass1" data-reference-type="eqref" data-reference="eq:ConsOfMass1">[eq:ConsOfMass1]</a> again, and then applying the definition of the total derivative and Proposition&nbsp;<a href="#prop:TransformationOfVolumeIntegrals" data-reference-type="ref" data-reference="prop:TransformationOfVolumeIntegrals">[prop:TransformationOfVolumeIntegrals]</a>, we have $$
+<em>Proof.</em> Applying Proposition&nbsp;<a href="#prop:TransformationOfVolumeIntegrals" data-reference-type="ref" data-reference="prop:TransformationOfVolumeIntegrals">[prop:TransformationOfVolumeIntegrals]</a>, we have <span class="math display">\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}= \int_\Omega \Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}},</span> where <span class="math inline">\Omega_t={\boldsymbol{\varphi}}(\Omega,t)</span>. Applying the equality <a href="#eq:ConsOfMass1" data-reference-type="eqref" data-reference="eq:ConsOfMass1">[eq:ConsOfMass1]</a>, i.e. <span class="math inline">\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t) = \rho_0({\boldsymbol{x}})</span>, we can rewrite the RHS as <span class="math display">\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}= \int_\Omega \Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\rho_0({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.</span> Differentiating with respect to time, and exchanging the order of integration and differentiation on the RHS, we have <span class="math display">\frac{d}{dt}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}= \int_\Omega \frac{d}{dt}\bigg(\Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\bigg)\rho_0({\boldsymbol{x}}){\,\d V_{{\boldsymbol{x}}}}.</span> But now, using equality <a href="#eq:ConsOfMass1" data-reference-type="eqref" data-reference="eq:ConsOfMass1">[eq:ConsOfMass1]</a> again, and then applying the definition of the total derivative and Proposition&nbsp;<a href="#prop:TransformationOfVolumeIntegrals" data-reference-type="ref" data-reference="prop:TransformationOfVolumeIntegrals">[prop:TransformationOfVolumeIntegrals]</a>, we have $$
 <span class="math display">\begin{aligned}
-    \DDt{}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}
-    &amp;= \int_\Omega \frac{d}{dt}\bigg(\Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\bigg)\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
-    &amp;=\int_{\Omega_t}\DDt{\Phi}({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.
+    \DDt{}\int_{\Omega_t}\Phi({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}
+    &amp;= \int_\Omega \frac{d}{dt}\bigg(\Phi({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\bigg)\rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}\\
+    &amp;=\int_{\Omega_t}\DDt{\Phi}({\boldsymbol{y}},t)\rho({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}.
   
 \end{aligned}</span>
 <p>$$</p>
 </div>
 </section>
-<section id="balance-of-linear-momentum" class="level3">
-<h3 class="anchored" data-anchor-id="balance-of-linear-momentum">Balance of linear momentum</h3>
-<p>As stated in Axiom&nbsp;<a href="#ax:LawsOfInertia" data-reference-type="ref" data-reference="ax:LawsOfInertia">[ax:LawsOfInertia]</a>, we have <span class="math display">\int_{\Omega_t}\rho{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{t}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}},</span> where all of the integrated quantities are spatial fields. The results of Chapter&nbsp;<a href="#cha:mass-forces" data-reference-type="ref" data-reference="cha:mass-forces">[cha:mass-forces]</a> state that the traction field <span class="math inline">{\boldsymbol{t}}={\boldsymbol{S}}{\boldsymbol{n}}</span>, so that <span class="math display">\int_{\Omega_t}\rho{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span> Using the tensorial version of the Divergence Theorem, we have <span class="math display">\int_{\Omega_t}\rho{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\Omega_t}\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}}+\rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span> Now, as <span class="math inline">\Omega_t</span> is an arbitrary subset of <span class="math inline">B_t</span>, the Localisation Theorem entails that we have the following result:</p>
+<section id="balance-of-linear-momentum" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="balance-of-linear-momentum"><span class="header-section-number">5.3.2</span> Balance of linear momentum</h3>
+<p>As stated in Axiom&nbsp;<a href="#ax:LawsOfInertia" data-reference-type="ref" data-reference="ax:LawsOfInertia">[ax:LawsOfInertia]</a>, we have <span class="math display">\int_{\Omega_t}\rho{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{t}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{y}}}},</span> where all of the integrated quantities are spatial fields. The results of Chapter&nbsp;<a href="#cha:mass-forces" data-reference-type="ref" data-reference="cha:mass-forces">[cha:mass-forces]</a> state that the traction field <span class="math inline">{\boldsymbol{t}}={\boldsymbol{S}}{\boldsymbol{n}}</span>, so that <span class="math display">\int_{\Omega_t}\rho{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{y}}}}.</span> Using the tensorial version of the Divergence Theorem, we have <span class="math display">\int_{\Omega_t}\rho{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}=\int_{\Omega_t}\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}}+\rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{y}}}}.</span> Now, as <span class="math inline">\Omega_t</span> is an arbitrary subset of <span class="math inline">B_t</span>, the Localisation Theorem entails that we have the following result:</p>
 <div class="proposition">
-<p><span id="prop:LinearMomentumEulerian" label="prop:LinearMomentumEulerian"></span> If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion with associated spatial velocity field <span class="math inline">{\boldsymbol{v}}</span> and spatial mass density field <span class="math inline">\rho</span>, then the balance of linear momentum entails that <span class="math display">\rho\dot{\boldsymbol{v}}=\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}}+\rho{\boldsymbol{b}}</span> for all <span class="math inline">{\boldsymbol{y}}\in B_t</span> and <span class="math inline">t\in[0,T]</span>, where <span class="math inline">{\boldsymbol{S}}({\boldsymbol{y}},t)</span> is the Cauchy stress field and <span class="math inline">{\boldsymbol{b}}({\boldsymbol{y}},t)</span> is the spatial body force field per unit mass.</p>
+<p><span id="prop:LinearMomentumEulerian" data-label="prop:LinearMomentumEulerian"></span> If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion with associated spatial velocity field <span class="math inline">{\boldsymbol{v}}</span> and spatial mass density field <span class="math inline">\rho</span>, then the balance of linear momentum entails that <span class="math display">\rho\dot{\boldsymbol{v}}=\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}}+\rho{\boldsymbol{b}}</span> for all <span class="math inline">{\boldsymbol{y}}\in B_t</span> and <span class="math inline">t\in[0,T]</span>, where <span class="math inline">{\boldsymbol{S}}({\boldsymbol{y}},t)</span> is the Cauchy stress field and <span class="math inline">{\boldsymbol{b}}({\boldsymbol{y}},t)</span> is the spatial body force field per unit mass.</p>
 </div>
 <p>This is the dynamic version of the equilibrium condition established in Proposition&nbsp;<a href="#prop:staticequilibriumeqns" data-reference-type="ref" data-reference="prop:staticequilibriumeqns">[prop:staticequilibriumeqns]</a>: the static result corresponds to the case where <span class="math inline">\dot{\boldsymbol{v}}=0</span> for all <span class="math inline">{\boldsymbol{y}}\in B_t</span> and <span class="math inline">t\in[0,T]</span>, i.e.&nbsp;there is no motion.</p>
 <p>Recall that <span class="math display">\DDt{{\boldsymbol{v}}} = \frac{\partial{\boldsymbol{v}}}{\partial t} +(\nabla_{\boldsymbol{y}}{\boldsymbol{v}}){\boldsymbol{v}},</span> so we may equivalently write <span class="math display">\rho\bigg(\frac{\partial{\boldsymbol{v}}}{\partial t} +(\nabla_{\boldsymbol{y}}{\boldsymbol{v}}){\boldsymbol{v}}\bigg) = \nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}}+\rho{\boldsymbol{b}}.</span></p>
 </section>
-<section id="balance-of-angular-momentum" class="level3">
-<h3 class="anchored" data-anchor-id="balance-of-angular-momentum">Balance of angular momentum</h3>
+<section id="balance-of-angular-momentum" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="balance-of-angular-momentum"><span class="header-section-number">5.3.3</span> Balance of angular momentum</h3>
 <p>Taking the point about which we compute angular momentum to be <span class="math inline">{\boldsymbol{z}}=\bf0</span>, recall that the balance of angular momentum is <span class="math display">\label{eq:angularmomentum}
-  \frac{d}{dt}\int_{\Omega_t}{\boldsymbol{y}}\times (\rho{\boldsymbol{v}}){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{t}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}{\boldsymbol{y}}\times \rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}},</span> where as before, all fields in the integrands are spatial. To simplify the LHS of this equation, note that <span class="math inline">\DDt{}{\boldsymbol{y}}= {\boldsymbol{v}}</span>, and hence <span class="math display">\DDt{}\left({\boldsymbol{y}}\times{\boldsymbol{v}}\right) = \DDt{{\boldsymbol{y}}}\times{\boldsymbol{v}}+{\boldsymbol{y}}\times\DDt{{\boldsymbol{v}}} =\underbrace{{\boldsymbol{v}}\times{\boldsymbol{v}}}_{=\bf0}+ {\boldsymbol{y}}\times\DDt{{\boldsymbol{v}}}.</span> Moreover, Proposition&nbsp;<a href="#prop:TimeDerivativeMassIntegrals" data-reference-type="ref" data-reference="prop:TimeDerivativeMassIntegrals">[prop:TimeDerivativeMassIntegrals]</a> entails that <span class="math display">\begin{aligned}
-  \DDt{}\int_{\Omega_t}({\boldsymbol{y}}\times {\boldsymbol{v}})\rho{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}&amp;= \int_{\Omega_t}\rho\,\DDt{}\left({\boldsymbol{y}}\times{\boldsymbol{v}}\right){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}\\
-&amp;=\int_{\Omega_t}\rho\,{\boldsymbol{y}}\times\DDt{{\boldsymbol{v}}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}
-\end{aligned}</span> Substituting into <a href="#eq:angularmomentum" data-reference-type="eqref" data-reference="eq:angularmomentum">[eq:angularmomentum]</a> and using the fact that <span class="math inline">{\boldsymbol{t}}={\boldsymbol{S}}{\boldsymbol{n}}</span>, we obtain <span class="math display">\int_{\Omega_t}{\boldsymbol{y}}\times \left(\rho\DDt{{\boldsymbol{v}}}\right){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}{\boldsymbol{y}}\times \rho{\boldsymbol{b}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span> Now, using Proposition&nbsp;<a href="#prop:LinearMomentumEulerian" data-reference-type="ref" data-reference="prop:LinearMomentumEulerian">[prop:LinearMomentumEulerian]</a> to substitute for <span class="math inline">\rho\DDt{\boldsymbol{v}}</span> on the LHS, we have <span class="math display">\int_{\Omega_t}{\boldsymbol{y}}\times (\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}}){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}.</span> Now, proceeding as in the proof of Proposition&nbsp;<a href="#prop:staticequilibriumeqns" data-reference-type="ref" data-reference="prop:staticequilibriumeqns">[prop:staticequilibriumeqns]</a>, we have:</p>
+  \frac{d}{dt}\int_{\Omega_t}{\boldsymbol{y}}\times (\rho{\boldsymbol{v}}){\,\d V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{t}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}{\boldsymbol{y}}\times \rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{y}}}},</span> where as before, all fields in the integrands are spatial. To simplify the LHS of this equation, note that <span class="math inline">\DDt{}{\boldsymbol{y}}= {\boldsymbol{v}}</span>, and hence <span class="math display">\DDt{}\left({\boldsymbol{y}}\times{\boldsymbol{v}}\right) = \DDt{{\boldsymbol{y}}}\times{\boldsymbol{v}}+{\boldsymbol{y}}\times\DDt{{\boldsymbol{v}}} =\underbrace{{\boldsymbol{v}}\times{\boldsymbol{v}}}_{=\bf0}+ {\boldsymbol{y}}\times\DDt{{\boldsymbol{v}}}.</span> Moreover, Proposition&nbsp;<a href="#prop:TimeDerivativeMassIntegrals" data-reference-type="ref" data-reference="prop:TimeDerivativeMassIntegrals">[prop:TimeDerivativeMassIntegrals]</a> entails that <span class="math display">\begin{aligned}
+  \DDt{}\int_{\Omega_t}({\boldsymbol{y}}\times {\boldsymbol{v}})\rho{\,\d V_{{\boldsymbol{y}}}}&amp;= \int_{\Omega_t}\rho\,\DDt{}\left({\boldsymbol{y}}\times{\boldsymbol{v}}\right){\,\d V_{{\boldsymbol{y}}}}\\
+&amp;=\int_{\Omega_t}\rho\,{\boldsymbol{y}}\times\DDt{{\boldsymbol{v}}}{\,\d V_{{\boldsymbol{y}}}}
+\end{aligned}</span> Substituting into <a href="#eq:angularmomentum" data-reference-type="eqref" data-reference="eq:angularmomentum">[eq:angularmomentum]</a> and using the fact that <span class="math inline">{\boldsymbol{t}}={\boldsymbol{S}}{\boldsymbol{n}}</span>, we obtain <span class="math display">\int_{\Omega_t}{\boldsymbol{y}}\times \left(\rho\DDt{{\boldsymbol{v}}}\right){\,\d V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}{\boldsymbol{y}}\times \rho{\boldsymbol{b}}{\,\d V_{{\boldsymbol{y}}}}.</span> Now, using Proposition&nbsp;<a href="#prop:LinearMomentumEulerian" data-reference-type="ref" data-reference="prop:LinearMomentumEulerian">[prop:LinearMomentumEulerian]</a> to substitute for <span class="math inline">\rho\DDt{\boldsymbol{v}}</span> on the LHS, we have <span class="math display">\int_{\Omega_t}{\boldsymbol{y}}\times (\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}}){\,\d V_{{\boldsymbol{y}}}}=\int_{\partial\Omega_t}{\boldsymbol{y}}\times {\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}.</span> Now, proceeding as in the proof of Proposition&nbsp;<a href="#prop:staticequilibriumeqns" data-reference-type="ref" data-reference="prop:staticequilibriumeqns">[prop:staticequilibriumeqns]</a>, we have:</p>
 <div class="proposition">
 <p>Let <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> be a motion, and let <span class="math inline">{\boldsymbol{S}}</span> be the Cauchy stress field in <span class="math inline">B_t</span>. Then the balance of angular momentum entails that <span class="math display">{\boldsymbol{S}}^T({\boldsymbol{y}},t)={\boldsymbol{S}}({\boldsymbol{y}},t)\quad\text{for all }{\boldsymbol{y}}\in B_t, t\in[0,T].</span></p>
 </div>
 <p>The balance of angular momentum therefore requires that the Cauchy stress tensor is always symmetric, no matter whether the body is in motion or not. Note also that the argument used works with any fixed point <span class="math inline">{\boldsymbol{z}}</span> about which we compute the angular momentum.</p>
 </section>
-<section id="net-work" class="level3">
-<h3 class="anchored" data-anchor-id="net-work">Net work</h3>
+<section id="net-work" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="net-work"><span class="header-section-number">5.3.4</span> Net work</h3>
 <p>To study localised version of the First and Second Laws of Thermodynamics, we derive a relationship between the rate of change of kinetic energy and the power of internal and external forces.</p>
-<p>We begin by taking the local balance of linear momentum, taking the dot product of each term with the velocity field and integrating to obtain <span class="math display">\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega_t}(\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}})\cdot{\boldsymbol{v}}+\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span> We recall that <span class="math inline">\nabla_{\boldsymbol{y}}\cdot({\boldsymbol{S}}^T{\boldsymbol{v}}) = (\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}})\cdot{\boldsymbol{v}}+{\boldsymbol{S}}:\nabla_{\boldsymbol{y}}{\boldsymbol{v}}</span>, so applying this equality and the Divergence Theorem, we obtain <span class="math display">\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega_t}-{\boldsymbol{S}}:\nabla_{\boldsymbol{y}}{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}+\int_{\partial\Omega_t}{\boldsymbol{S}}^T{\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span> Recalling that <span class="math inline">{\boldsymbol{S}}</span> is symmetric and <span class="math inline">{\boldsymbol{L}}= {\operatorname{sym}}(\nabla_{\boldsymbol{y}}{\boldsymbol{v}})</span>, we have that <span class="math inline">{\boldsymbol{S}}:\nabla_{\boldsymbol{y}}{\boldsymbol{v}}= {\boldsymbol{S}}:{\boldsymbol{L}}</span>, so: <span class="math display">\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}+{\boldsymbol{S}}:{\boldsymbol{L}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\partial\Omega_t}{\boldsymbol{v}}\cdot{\boldsymbol{S}}{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span> This leads us to the following result.</p>
+<p>We begin by taking the local balance of linear momentum, taking the dot product of each term with the velocity field and integrating to obtain <span class="math display">\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega_t}(\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}})\cdot{\boldsymbol{v}}+\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}.</span> We recall that <span class="math inline">\nabla_{\boldsymbol{y}}\cdot({\boldsymbol{S}}^T{\boldsymbol{v}}) = (\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{S}})\cdot{\boldsymbol{v}}+{\boldsymbol{S}}:\nabla_{\boldsymbol{y}}{\boldsymbol{v}}</span>, so applying this equality and the Divergence Theorem, we obtain <span class="math display">\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega_t}-{\boldsymbol{S}}:\nabla_{\boldsymbol{y}}{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}+\int_{\partial\Omega_t}{\boldsymbol{S}}^T{\boldsymbol{v}}\cdot{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}.</span> Recalling that <span class="math inline">{\boldsymbol{S}}</span> is symmetric and <span class="math inline">{\boldsymbol{L}}= {\operatorname{sym}}(\nabla_{\boldsymbol{y}}{\boldsymbol{v}})</span>, we have that <span class="math inline">{\boldsymbol{S}}:\nabla_{\boldsymbol{y}}{\boldsymbol{v}}= {\boldsymbol{S}}:{\boldsymbol{L}}</span>, so: <span class="math display">\int_{\Omega_t}\rho\DDt{\boldsymbol{v}}\cdot{\boldsymbol{v}}+{\boldsymbol{S}}:{\boldsymbol{L}}{\,\d V_{{\boldsymbol{y}}}}= \int_{\partial\Omega_t}{\boldsymbol{v}}\cdot{\boldsymbol{S}}{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}.</span> This leads us to the following result.</p>
 <div class="proposition">
-<p>If <span class="math inline">{\boldsymbol{\varphi}}</span> is a motion, <span class="math inline">{\boldsymbol{S}}</span> is the Cauchy stress field, <span class="math inline">{\boldsymbol{L}}</span> is the rate of strain field, and <span class="math inline">\Omega_t\subset B_t</span>, then <span class="math display">\frac{d}{dt}K[\Omega_t]+\int_{\Omega_t} {\boldsymbol{S}}:{\boldsymbol{L}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= P[\Omega_t]\quad\text{for all }t\in[0,T],</span> where <span class="math inline">K[\Omega_t]</span> is the kinetic energy of <span class="math inline">\Omega_t</span>, and <span class="math inline">P[\Omega_t]</span> is the power of external forces acting on <span class="math inline">\Omega_t</span>. The net rate of work done on <span class="math inline">W[\Omega_t]</span> is therefore <span class="math display">W[\Omega_t] = \int_{\Omega_t} {\boldsymbol{S}}:{\boldsymbol{L}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span></p>
+<p>If <span class="math inline">{\boldsymbol{\varphi}}</span> is a motion, <span class="math inline">{\boldsymbol{S}}</span> is the Cauchy stress field, <span class="math inline">{\boldsymbol{L}}</span> is the rate of strain field, and <span class="math inline">\Omega_t\subset B_t</span>, then <span class="math display">\frac{d}{dt}K[\Omega_t]+\int_{\Omega_t} {\boldsymbol{S}}:{\boldsymbol{L}}{\,\d V_{{\boldsymbol{y}}}}= P[\Omega_t]\quad\text{for all }t\in[0,T],</span> where <span class="math inline">K[\Omega_t]</span> is the kinetic energy of <span class="math inline">\Omega_t</span>, and <span class="math inline">P[\Omega_t]</span> is the power of external forces acting on <span class="math inline">\Omega_t</span>. The net rate of work done on <span class="math inline">W[\Omega_t]</span> is therefore <span class="math display">W[\Omega_t] = \int_{\Omega_t} {\boldsymbol{S}}:{\boldsymbol{L}}{\,\d V_{{\boldsymbol{y}}}}.</span></p>
 </div>
 <p>The quantity <span class="math inline">{\boldsymbol{S}}:{\boldsymbol{L}}</span> is called the <em>stress power</em> associated with a motion. It corresponds to the rate at which work is done by internal forces (i.e.&nbsp;stresses) acting at each point in a body.</p>
 </section>
-<section id="first-law-of-thermodynamics" class="level3">
-<h3 class="anchored" data-anchor-id="first-law-of-thermodynamics">First Law of Thermodynamics</h3>
-<p>Using the expressions derived in the previous section, we can invoke Axiom&nbsp;<a href="#ax:1stLaw" data-reference-type="ref" data-reference="ax:1stLaw">[ax:1stLaw]</a> to deduce that the balance law for energy in <span class="math inline">\Omega_t\subseteq B_t</span> is <span class="math display">\frac{d}{dt}\int_{\Omega_t} \rho\phi{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega_t}{\boldsymbol{S}}:{\boldsymbol{L}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}{\boldsymbol{q}}\cdot{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho r{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}.</span> Recall that:</p>
+<section id="first-law-of-thermodynamics" class="level3" data-number="5.3.5">
+<h3 data-number="5.3.5" class="anchored" data-anchor-id="first-law-of-thermodynamics"><span class="header-section-number">5.3.5</span> First Law of Thermodynamics</h3>
+<p>Using the expressions derived in the previous section, we can invoke Axiom&nbsp;<a href="#ax:1stLaw" data-reference-type="ref" data-reference="ax:1stLaw">[ax:1stLaw]</a> to deduce that the balance law for energy in <span class="math inline">\Omega_t\subseteq B_t</span> is <span class="math display">\frac{d}{dt}\int_{\Omega_t} \rho\phi{\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega_t}{\boldsymbol{S}}:{\boldsymbol{L}}{\,\d V_{{\boldsymbol{y}}}}-\int_{\partial \Omega_t}{\boldsymbol{q}}\cdot{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho r{\,\d V_{{\boldsymbol{y}}}}.</span> Recall that:</p>
 <ul>
 <li><p><span class="math inline">\rho</span> is the mass density field,</p></li>
 <li><p><span class="math inline">\phi</span> is the internal energy field per unit mass,</p></li>
@@ -352,14 +409,14 @@ window.Quarto = {
 <li><p><span class="math inline">{\boldsymbol{L}}</span> is the rate of strain field, and</p></li>
 <li><p><span class="math inline">{\boldsymbol{S}}</span> is the Cauchy stress field.</p></li>
 </ul>
-<p>We can apply Proposition&nbsp;<a href="#prop:TimeDerivativeMassIntegrals" data-reference-type="ref" data-reference="prop:TimeDerivativeMassIntegrals">[prop:TimeDerivativeMassIntegrals]</a> along with the divergence theorem to deduce that <span class="math display">\int_{\Omega_t} \rho\DDt\phi{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega_t}{\boldsymbol{S}}:{\boldsymbol{L}}-\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{q}}+\rho r{\,{\mathrm{d}}V_{{\boldsymbol{y}}}},</span> and then an application of the Localisation Theorem entails:</p>
+<p>We can apply Proposition&nbsp;<a href="#prop:TimeDerivativeMassIntegrals" data-reference-type="ref" data-reference="prop:TimeDerivativeMassIntegrals">[prop:TimeDerivativeMassIntegrals]</a> along with the divergence theorem to deduce that <span class="math display">\int_{\Omega_t} \rho\DDt\phi{\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega_t}{\boldsymbol{S}}:{\boldsymbol{L}}-\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{q}}+\rho r{\,\d V_{{\boldsymbol{y}}}},</span> and then an application of the Localisation Theorem entails:</p>
 <div class="proposition">
 <p>If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion, then Axiom&nbsp;<a href="#ax:1stLaw" data-reference-type="ref" data-reference="ax:1stLaw">[ax:1stLaw]</a>, the First Law of Thermodynamics, entails that <span class="math display">\rho\DDt{\phi} = {\boldsymbol{S}}:{\boldsymbol{L}}-\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{q}}+ \rho r\quad\text{for all }{\boldsymbol{y}}\in B_t,t\in[0,T].</span></p>
 </div>
 </section>
-<section id="second-law-of-thermodynamics" class="level3">
-<h3 class="anchored" data-anchor-id="second-law-of-thermodynamics">Second Law of Thermodynamics</h3>
-<p>The Clausius-Duhem inequality states that <span class="math display">\frac{d}{dt}\int_{\Omega_t} \rho\eta{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}\geq \int_{\Omega_t}\frac{\rho r}{\theta}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}-\int_{\partial\Omega_t}\frac{{\boldsymbol{q}}\cdot{\boldsymbol{n}}}{\theta}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}},</span> where:</p>
+<section id="second-law-of-thermodynamics" class="level3" data-number="5.3.6">
+<h3 data-number="5.3.6" class="anchored" data-anchor-id="second-law-of-thermodynamics"><span class="header-section-number">5.3.6</span> Second Law of Thermodynamics</h3>
+<p>The Clausius-Duhem inequality states that <span class="math display">\frac{d}{dt}\int_{\Omega_t} \rho\eta{\,\d V_{{\boldsymbol{y}}}}\geq \int_{\Omega_t}\frac{\rho r}{\theta}{\,\d V_{{\boldsymbol{y}}}}-\int_{\partial\Omega_t}\frac{{\boldsymbol{q}}\cdot{\boldsymbol{n}}}{\theta}{\,\d A_{{\boldsymbol{y}}}},</span> where:</p>
 <ul>
 <li><p><span class="math inline">\rho</span> is the mass density,</p></li>
 <li><p><span class="math inline">\eta</span> is the entropy field per unit mass,</p></li>
@@ -376,8 +433,8 @@ window.Quarto = {
 <p>The dissipation field <span class="math inline">\delta</span> represents the difference between the rate of entropy increase (the first term) and the local heating (the bracketed term). <span class="math inline">\rho r</span> represents externally-induced heating, while <span class="math inline">-\nabla_{\boldsymbol{y}}\cdot{\boldsymbol{q}}</span> is heating caused through conduction from the material surrounding the given point.</p>
 <p>Note that if there is no local temperature variation, i.e. <span class="math inline">\nabla\theta=\bf0</span>, then <a href="#eq:C-DEulerian2" data-reference-type="eqref" data-reference="eq:C-DEulerian2">[eq:C-DEulerian2]</a> implies that <span class="math inline">\delta\geq0</span>, i.e.&nbsp;the internal dissipation is positive in bodies with a homogeneous temperature. We also see that if <span class="math inline">\delta=0</span>, then <span class="math inline">{\boldsymbol{q}}\cdot\nabla_{\boldsymbol{y}}\theta\leq0</span>, or in other words, the heat flux vector tends to point in the direction of <span class="math inline">-\nabla\theta</span>, so that heat flows from hotter regions to colder ones.</p>
 </section>
-<section id="summary" class="level3">
-<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<section id="summary" class="level3" data-number="5.3.7">
+<h3 data-number="5.3.7" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.3.7</span> Summary</h3>
 <p>We now summarise our Eulerian equations. Taking components with respect to a particular coordinate frame, there are 22 scalar unknowns: <span class="math display">\begin{aligned}
     \varphi_i({\boldsymbol{x}},t) &amp;&amp;&amp;\text{3 components of motion,}\\
     v_i({\boldsymbol{y}},t) &amp;&amp;&amp;\text{3 components of velocity,}\\
@@ -394,8 +451,8 @@ window.Quarto = {
     S_{ij} &amp;= S_{ji} &amp;&amp; \text{3 balance of angular momentum equations, and}\\
     \rho\DDt{\phi} &amp;= S_{ij}v_{i,j}-q_{i,i}+\rho r &amp;&amp;\text{1 energy balance equation.}
   \end{aligned}</span></p>
-<section id="remarks" class="level5">
-<h5 class="anchored" data-anchor-id="remarks">Remarks:</h5>
+<section id="remarks" class="level5" data-number="5.3.7.0.1">
+<h5 data-number="5.3.7.0.1" class="anchored" data-anchor-id="remarks"><span class="header-section-number">5.3.7.0.1</span> Remarks:</h5>
 <ul>
 <li><p>The motion map <span class="math inline">{\boldsymbol{\varphi}}</span> is often ignored within the Eulerian framework. In this case, we only care about the spatial velocity field <span class="math inline">{\boldsymbol{v}}</span>, and 3 unknowns and equations disappear.</p></li>
 <li><p>Since the number of unknowns is greater than the number of equations, more equations are required to close the system. This leads to the idea of constitutive equations which relate the fields <span class="math inline">({\boldsymbol{S}},{\boldsymbol{q}},\phi,\eta)</span> to the fields <span class="math inline">(\rho,{\boldsymbol{v}},\theta)</span>. Such relationships reflect the specific material properties of a body, and are often inherently much less certain than the physical laws we have used here.</p></li>
@@ -404,80 +461,80 @@ window.Quarto = {
 </section>
 </section>
 </section>
-<section id="localised-lagrangian-form-of-balance-laws" class="level2">
-<h2 class="anchored" data-anchor-id="localised-lagrangian-form-of-balance-laws">Localised Lagrangian form of balance laws</h2>
+<section id="localised-lagrangian-form-of-balance-laws" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="localised-lagrangian-form-of-balance-laws"><span class="header-section-number">5.4</span> Localised Lagrangian form of balance laws</h2>
 <p>Recall that the Lagrangian form of the local balance laws are expressed in terms of fields defined on the reference configuration, <span class="math inline">B</span>, or in material coordinates. The PDEs we derive are often used in solid mechanics, where material points do not get ‘mixed-up’ in the way that they do in fluids.</p>
-<section id="conservation-of-mass" class="level3">
-<h3 class="anchored" data-anchor-id="conservation-of-mass">Conservation of mass</h3>
+<section id="conservation-of-mass" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="conservation-of-mass"><span class="header-section-number">5.4.1</span> Conservation of mass</h3>
 <p>We have already covered conservation of mass in Lagrangian form through the arguments applied in Section&nbsp;<a href="#sec:EulerianMass" data-reference-type="ref" data-reference="sec:EulerianMass">1.3.1</a>:</p>
 <div class="proposition">
-<p><span id="prop:MassLagrangian" label="prop:MassLagrangian"></span> If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion with associated deformation gradient <span class="math inline">{\boldsymbol{F}}({\boldsymbol{x}},t)</span>, the spatial mass density field is <span class="math inline">\rho({\boldsymbol{y}},t)</span>, and <span class="math inline">\rho_0({\boldsymbol{x}})</span> is the mass density in the reference configuration <span class="math inline">B</span>, then the conservation of mass entails that <span class="math display">\rho_m({\boldsymbol{x}},t) = \frac{\rho_0({\boldsymbol{x}})}{\det{\boldsymbol{F}}({\boldsymbol{x}},t)}</span> for all <span class="math inline">{\boldsymbol{x}}\in B</span> and <span class="math inline">t\in[0,T]</span>, where <span class="math inline">\rho_m</span> is the material description of the mass density.</p>
+<p><span id="prop:MassLagrangian" data-label="prop:MassLagrangian"></span> If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion with associated deformation gradient <span class="math inline">{\boldsymbol{F}}({\boldsymbol{x}},t)</span>, the spatial mass density field is <span class="math inline">\rho({\boldsymbol{y}},t)</span>, and <span class="math inline">\rho_0({\boldsymbol{x}})</span> is the mass density in the reference configuration <span class="math inline">B</span>, then the conservation of mass entails that <span class="math display">\rho_m({\boldsymbol{x}},t) = \frac{\rho_0({\boldsymbol{x}})}{\det{\boldsymbol{F}}({\boldsymbol{x}},t)}</span> for all <span class="math inline">{\boldsymbol{x}}\in B</span> and <span class="math inline">t\in[0,T]</span>, where <span class="math inline">\rho_m</span> is the material description of the mass density.</p>
 </div>
 </section>
-<section id="balance-of-linear-momentum-1" class="level3">
-<h3 class="anchored" data-anchor-id="balance-of-linear-momentum-1">Balance of linear momentum</h3>
+<section id="balance-of-linear-momentum-1" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="balance-of-linear-momentum-1"><span class="header-section-number">5.4.2</span> Balance of linear momentum</h3>
 <p>We recall from Axiom&nbsp;<a href="#ax:LawsOfInertia" data-reference-type="ref" data-reference="ax:LawsOfInertia">[ax:LawsOfInertia]</a> that the balance of linear momentum for <span class="math inline">\Omega_t\subseteq B_t</span> entails that <span class="math display">\frac{d}{dt}{\boldsymbol{l}}[\Omega_t] = {\boldsymbol{r}}[\Omega_t].</span> In order to derive PDEs in material coordinates, we therefore need to express the quantities <span class="math inline">{\boldsymbol{l}}[\Omega_t]</span> and <span class="math inline">{\boldsymbol{r}}[\Omega_t]</span> in terms of those same material coordinates.</p>
 <p>Changing variable, and recalling that <span class="math inline">\Omega_t={\boldsymbol{\varphi}}(\Omega,t)</span>, and applying Proposition&nbsp;<a href="#prop:MassLagrangian" data-reference-type="ref" data-reference="prop:MassLagrangian">[prop:MassLagrangian]</a>, we find <span class="math display">\begin{aligned}
   {\boldsymbol{l}}[\Omega_t]
-  &amp;= \int_{\Omega_t} \rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}\\
-  &amp;=\int_\Omega \rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t){\boldsymbol{v}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
-  &amp;=\int_\Omega \rho_0({\boldsymbol{x}})\ppt{{\boldsymbol{\varphi}}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.
+  &amp;= \int_{\Omega_t} \rho({\boldsymbol{y}},t){\boldsymbol{v}}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}\\
+  &amp;=\int_\Omega \rho({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t){\boldsymbol{v}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}\\
+  &amp;=\int_\Omega \rho_0({\boldsymbol{x}})\ppt{{\boldsymbol{\varphi}}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}.
 \end{aligned}</span> A similar argument for <span class="math inline">{\boldsymbol{r}}[\Omega_t]</span> yields <span class="math display">\begin{aligned}
   {\boldsymbol{r}}[\Omega_t]
-  &amp;= \int_{\partial \Omega_t} {\boldsymbol{S}}({\boldsymbol{y}},t){\boldsymbol{n}}({\boldsymbol{y}}){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{b}}({\boldsymbol{y}},t){\,{\mathrm{d}}V_{{\boldsymbol{y}}}}\\
-  &amp;= \int_{\partial \Omega} {\boldsymbol{S}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t){\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}+\int_{\Omega}\rho_m({\boldsymbol{x}},t){\boldsymbol{b}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.
+  &amp;= \int_{\partial \Omega_t} {\boldsymbol{S}}({\boldsymbol{y}},t){\boldsymbol{n}}({\boldsymbol{y}}){\,\d A_{{\boldsymbol{y}}}}+\int_{\Omega_t}\rho({\boldsymbol{y}},t){\boldsymbol{b}}({\boldsymbol{y}},t){\,\d V_{{\boldsymbol{y}}}}\\
+  &amp;= \int_{\partial \Omega} {\boldsymbol{S}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t){\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}+\int_{\Omega}\rho_m({\boldsymbol{x}},t){\boldsymbol{b}}({\boldsymbol{\varphi}}({\boldsymbol{x}},t),t)\det{\boldsymbol{F}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}.
 \end{aligned}</span> Inspecting the first integral, we see that if we want to apply the Divergence Theorem, we will end up with a divergence of <span class="math inline">{\boldsymbol{S}}{\operatorname{cof}}{\boldsymbol{F}}</span>. This motivates the definition of the <em>(first) Piola-Kirchhoff stress tensor field</em>, <span class="math inline">{\boldsymbol{P}}:B\times[0,T]\to{\mathcal{V}}^2</span>, to be <span class="math display">{\boldsymbol{P}}({\boldsymbol{x}},t) := {\boldsymbol{S}}_m({\boldsymbol{x}},t){\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t).</span> To interpret this stress tensor, note that <span class="math inline">{\boldsymbol{P}}</span> transforms the normal <span class="math inline">{\boldsymbol{\nu}}</span> to an infinitesimal surface in the reference configuration to the traction <span class="math inline">{\boldsymbol{t}}= {\boldsymbol{P}}{\boldsymbol{\nu}}</span> acting act the equivalent point in the deformed configuration.</p>
 <p>For reference, we note that there is another measure of stress called the <em>second Piola-Kirchhoff stress tensor field</em>, <span class="math inline">{\boldsymbol{\Sigma}}:B\times[0,T]\to{\mathcal{V}}^2</span>, defined to be <span class="math display">{\boldsymbol{\Sigma}}({\boldsymbol{x}},t) := {\boldsymbol{F}}^{-1}({\boldsymbol{x}},t){\boldsymbol{P}}({\boldsymbol{x}},t) = {\boldsymbol{F}}^{-1}({\boldsymbol{x}},t){\boldsymbol{S}}_m({\boldsymbol{x}},t){\boldsymbol{F}}^{-T}({\boldsymbol{x}},t)\det({\boldsymbol{F}}({\boldsymbol{x}},t)).</span> This stress tensor field</p>
 <p>We now proceed by using the above definition and Proposition&nbsp;<a href="#prop:MassLagrangian" data-reference-type="ref" data-reference="prop:MassLagrangian">[prop:MassLagrangian]</a> to write <span class="math display">{\boldsymbol{r}}[\Omega_t]
-  = \int_{\partial \Omega} {\boldsymbol{P}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}+\int_{\Omega_t}\rho_0({\boldsymbol{x}}){\boldsymbol{b}}_m({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}},</span> where <span class="math inline">{\boldsymbol{b}}_m({\boldsymbol{x}},t)</span> is the material description of the body force field <span class="math inline">{\boldsymbol{b}}</span>. The conservation of linear momentum therefore entails that <span class="math display">\frac{d}{dt}\int_\Omega \rho_0({\boldsymbol{x}})\ppt{{\boldsymbol{\varphi}}}({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}
-  = \int_{\partial \Omega} {\boldsymbol{P}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}+\int_{\Omega_t}\rho_0({\boldsymbol{x}}){\boldsymbol{b}}_m({\boldsymbol{x}},t){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span> Using the fact that <span class="math inline">\rho_0</span> is independent of time, and applying the Divergence Theorem, we obtain <span class="math display">\int_\Omega \rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}
-  = \int_\Omega \nabla_{\boldsymbol{x}}\cdot {\boldsymbol{P}}+\rho_0{\boldsymbol{b}}_m{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span> Now, since this holds for all <span class="math inline">\Omega\subset B</span> (as <span class="math inline">{\boldsymbol{\varphi}}</span> is a bijection), we have the following result.</p>
+  = \int_{\partial \Omega} {\boldsymbol{P}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}+\int_{\Omega_t}\rho_0({\boldsymbol{x}}){\boldsymbol{b}}_m({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}},</span> where <span class="math inline">{\boldsymbol{b}}_m({\boldsymbol{x}},t)</span> is the material description of the body force field <span class="math inline">{\boldsymbol{b}}</span>. The conservation of linear momentum therefore entails that <span class="math display">\frac{d}{dt}\int_\Omega \rho_0({\boldsymbol{x}})\ppt{{\boldsymbol{\varphi}}}({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}
+  = \int_{\partial \Omega} {\boldsymbol{P}}({\boldsymbol{x}},t){\boldsymbol{\nu}}({\boldsymbol{x}}){\,\d A_{{\boldsymbol{x}}}}+\int_{\Omega_t}\rho_0({\boldsymbol{x}}){\boldsymbol{b}}_m({\boldsymbol{x}},t){\,\d V_{{\boldsymbol{x}}}}.</span> Using the fact that <span class="math inline">\rho_0</span> is independent of time, and applying the Divergence Theorem, we obtain <span class="math display">\int_\Omega \rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}{\,\d V_{{\boldsymbol{x}}}}
+  = \int_\Omega \nabla_{\boldsymbol{x}}\cdot {\boldsymbol{P}}+\rho_0{\boldsymbol{b}}_m{\,\d V_{{\boldsymbol{x}}}}.</span> Now, since this holds for all <span class="math inline">\Omega\subset B</span> (as <span class="math inline">{\boldsymbol{\varphi}}</span> is a bijection), we have the following result.</p>
 <div class="proposition">
 <p>If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion and <span class="math inline">\rho_0({\boldsymbol{x}})</span> is the mass density in the reference configuration <span class="math inline">B</span>, then the balance of linear momentum entails that <span class="math display">\rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2} = \nabla_{\boldsymbol{x}}\cdot{\boldsymbol{P}}+\rho_0{\boldsymbol{b}}_m</span> for all <span class="math inline">{\boldsymbol{x}}\in B</span> and <span class="math inline">t\in[0,T]</span>, where <span class="math inline">{\boldsymbol{P}}</span> is the Piola-Kirchhoff stress tensor and <span class="math inline">{\boldsymbol{b}}_m</span> is the material description of the spatial body force field <span class="math inline">{\boldsymbol{b}}</span>.</p>
 </div>
 </section>
-<section id="balance-of-angular-momentum-1" class="level3">
-<h3 class="anchored" data-anchor-id="balance-of-angular-momentum-1">Balance of angular momentum</h3>
+<section id="balance-of-angular-momentum-1" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="balance-of-angular-momentum-1"><span class="header-section-number">5.4.3</span> Balance of angular momentum</h3>
 <p>We note that the balance of angular momentum in Eulerian form entails that <span class="math inline">{\boldsymbol{S}}= {\boldsymbol{S}}^T</span>. Noting that <span class="math inline">({\operatorname{cof}}{\boldsymbol{F}}){\boldsymbol{F}}^T = (\det{\boldsymbol{F}}){\boldsymbol{I}}</span>, we deduce that <span class="math display">{\boldsymbol{P}}{\boldsymbol{F}}^T = {\boldsymbol{S}}{\boldsymbol{F}}^{-T}{\boldsymbol{F}}^T\det({\boldsymbol{F}}) = {\boldsymbol{S}}^T\det({\boldsymbol{F}}) = {\boldsymbol{F}}{\boldsymbol{F}}^{-1}{\boldsymbol{S}}^T\det({\boldsymbol{F}}) = {\boldsymbol{F}}{\boldsymbol{P}}^T.</span> We therefore find:</p>
 <div class="proposition">
 <p>If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion with associated deformation gradient <span class="math inline">{\boldsymbol{F}}:B\times[0,T]\to{\mathcal{V}}^2</span>, then the balance of linear momentum entails that <span class="math display">{\boldsymbol{P}}{\boldsymbol{F}}^T = {\boldsymbol{F}}{\boldsymbol{P}}^T.</span> for all <span class="math inline">{\boldsymbol{x}}\in B</span> and <span class="math inline">t\in[0,T]</span>, where <span class="math inline">{\boldsymbol{P}}</span> is the Piola-Kirchhoff stress tensor.</p>
 </div>
 </section>
-<section id="net-rate-of-work" class="level3">
-<h3 class="anchored" data-anchor-id="net-rate-of-work">Net rate of work</h3>
-<p>We now consider energies and power as considered when discussing the Laws of Thermodynamics. Recall that for <span class="math inline">\Omega_t\subseteq B_t</span>, we have that the kinetic energy is <span class="math display">K[\Omega_t] = \int_{\Omega_t}\tfrac12\rho|{\boldsymbol{v}}|^2{\,{\mathrm{d}}V_{{\boldsymbol{y}}}},</span> which, by applying Proposition&nbsp;<a href="#prop:MassLagrangian" data-reference-type="ref" data-reference="prop:MassLagrangian">[prop:MassLagrangian]</a> and a change of variable, transforms to <span class="math display">K[\Omega_t] = \int_\Omega \tfrac12\rho_0({\boldsymbol{x}})\left|\ppt{\boldsymbol{\varphi}}({\boldsymbol{x}},t)\right|^2{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span> Changing variable, the power of the external forces can be expressed as <span class="math display">\begin{aligned}
+<section id="net-rate-of-work" class="level3" data-number="5.4.4">
+<h3 data-number="5.4.4" class="anchored" data-anchor-id="net-rate-of-work"><span class="header-section-number">5.4.4</span> Net rate of work</h3>
+<p>We now consider energies and power as considered when discussing the Laws of Thermodynamics. Recall that for <span class="math inline">\Omega_t\subseteq B_t</span>, we have that the kinetic energy is <span class="math display">K[\Omega_t] = \int_{\Omega_t}\tfrac12\rho|{\boldsymbol{v}}|^2{\,\d V_{{\boldsymbol{y}}}},</span> which, by applying Proposition&nbsp;<a href="#prop:MassLagrangian" data-reference-type="ref" data-reference="prop:MassLagrangian">[prop:MassLagrangian]</a> and a change of variable, transforms to <span class="math display">K[\Omega_t] = \int_\Omega \tfrac12\rho_0({\boldsymbol{x}})\left|\ppt{\boldsymbol{\varphi}}({\boldsymbol{x}},t)\right|^2{\,\d V_{{\boldsymbol{x}}}}.</span> Changing variable, the power of the external forces can be expressed as <span class="math display">\begin{aligned}
   P[\Omega_t]
-  &amp;= \int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,{\mathrm{d}}V_{{\boldsymbol{y}}}}+\int_{\partial\Omega_t}{\boldsymbol{v}}\cdot({\boldsymbol{S}}{\boldsymbol{n}}){\,{\mathrm{d}}A_{{\boldsymbol{y}}}}\\
-  &amp;= \int_{\Omega}\rho_m{\boldsymbol{b}}_m\cdot{\boldsymbol{v}}_m\det{\boldsymbol{F}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{v}}_m\cdot({\boldsymbol{S}}_m{\operatorname{cof}}{\boldsymbol{F}}{\boldsymbol{\nu}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}\\
-  &amp;= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\dot{\boldsymbol{\varphi}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}\dot{\boldsymbol{\varphi}}\cdot({\boldsymbol{P}}{\boldsymbol{\nu}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}\\
-  &amp;= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\dot{\boldsymbol{\varphi}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}({\boldsymbol{P}}^T\dot{\boldsymbol{\varphi}})\cdot{\boldsymbol{\nu}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.
+  &amp;= \int_{\Omega_t}\rho{\boldsymbol{b}}\cdot{\boldsymbol{v}}{\,\d V_{{\boldsymbol{y}}}}+\int_{\partial\Omega_t}{\boldsymbol{v}}\cdot({\boldsymbol{S}}{\boldsymbol{n}}){\,\d A_{{\boldsymbol{y}}}}\\
+  &amp;= \int_{\Omega}\rho_m{\boldsymbol{b}}_m\cdot{\boldsymbol{v}}_m\det{\boldsymbol{F}}{\,\d V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}{\boldsymbol{v}}_m\cdot({\boldsymbol{S}}_m{\operatorname{cof}}{\boldsymbol{F}}{\boldsymbol{\nu}}){\,\d A_{{\boldsymbol{x}}}}\\
+  &amp;= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\dot{\boldsymbol{\varphi}}{\,\d V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}\dot{\boldsymbol{\varphi}}\cdot({\boldsymbol{P}}{\boldsymbol{\nu}}){\,\d A_{{\boldsymbol{x}}}}\\
+  &amp;= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\dot{\boldsymbol{\varphi}}{\,\d V_{{\boldsymbol{x}}}}+\int_{\partial\Omega}({\boldsymbol{P}}^T\dot{\boldsymbol{\varphi}})\cdot{\boldsymbol{\nu}}{\,\d A_{{\boldsymbol{x}}}}.
 \end{aligned}</span> The Divergence Theorem and product rule for the divergence of a tensor applied to a vector now gives <span class="math display">\begin{aligned}
   P[\Omega_t]
-  &amp;= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\ppt{\boldsymbol{\varphi}}+\nabla_{\boldsymbol{x}}\cdot\left({\boldsymbol{P}}^T\ppt{\boldsymbol{\varphi}}\right){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\\
-  &amp;=\int_{\Omega}(\nabla_{\boldsymbol{x}}\cdot{\boldsymbol{P}}+\rho_0{\boldsymbol{b}}_m)\cdot\ppt{\boldsymbol{\varphi}}+{\boldsymbol{P}}:\nabla_{\boldsymbol{x}}\ppt{\boldsymbol{\varphi}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.
-\end{aligned}</span> Differentiating and substituting for <span class="math inline">\rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}</span> using Proposition&nbsp;<a href="#prop:LinearMomentumEulerian" data-reference-type="ref" data-reference="prop:LinearMomentumEulerian">[prop:LinearMomentumEulerian]</a>, we have <span class="math display">\frac{d}{dt}K[\Omega_t] = \int_{\Omega}\rho_0\ppt{\boldsymbol{\varphi}}\cdot\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}=
-  \int_{\Omega}\ppt{\boldsymbol{\varphi}}\cdot(\nabla_{\boldsymbol{x}}\cdot{\boldsymbol{S}}+\rho_0{\boldsymbol{b}}_m){\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span> Equating this expression with the expression for the power <span class="math inline">P[\Omega_t]</span>, we have shown the following result.</p>
+  &amp;= \int_{\Omega}\rho_0{\boldsymbol{b}}_m\cdot\ppt{\boldsymbol{\varphi}}+\nabla_{\boldsymbol{x}}\cdot\left({\boldsymbol{P}}^T\ppt{\boldsymbol{\varphi}}\right){\,\d V_{{\boldsymbol{x}}}}\\
+  &amp;=\int_{\Omega}(\nabla_{\boldsymbol{x}}\cdot{\boldsymbol{P}}+\rho_0{\boldsymbol{b}}_m)\cdot\ppt{\boldsymbol{\varphi}}+{\boldsymbol{P}}:\nabla_{\boldsymbol{x}}\ppt{\boldsymbol{\varphi}}{\,\d V_{{\boldsymbol{x}}}}.
+\end{aligned}</span> Differentiating and substituting for <span class="math inline">\rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}</span> using Proposition&nbsp;<a href="#prop:LinearMomentumEulerian" data-reference-type="ref" data-reference="prop:LinearMomentumEulerian">[prop:LinearMomentumEulerian]</a>, we have <span class="math display">\frac{d}{dt}K[\Omega_t] = \int_{\Omega}\rho_0\ppt{\boldsymbol{\varphi}}\cdot\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}{\,\d V_{{\boldsymbol{x}}}}=
+  \int_{\Omega}\ppt{\boldsymbol{\varphi}}\cdot(\nabla_{\boldsymbol{x}}\cdot{\boldsymbol{S}}+\rho_0{\boldsymbol{b}}_m){\,\d V_{{\boldsymbol{x}}}}.</span> Equating this expression with the expression for the power <span class="math inline">P[\Omega_t]</span>, we have shown the following result.</p>
 <div class="proposition">
-<p>If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion with associated deformation gradient <span class="math inline">{\boldsymbol{F}}:B\times[0,T]\to{\mathcal{V}}^2</span> and the Piola-Kirchhoff stress is <span class="math inline">{\boldsymbol{P}}({\boldsymbol{x}},t)</span>, then <span class="math display">\frac{d}{dt}K[\Omega_t] +\int_\Omega {\boldsymbol{P}}:\ppt{\boldsymbol{F}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}= P[\Omega_t]</span> for any <span class="math inline">\Omega_t\subseteq B_t</span> and <span class="math inline">t\in[0,T]</span>. Put differently, the net rate of work done on <span class="math inline">\Omega_t</span> is <span class="math display">W[\Omega_t] = \int_\Omega {\boldsymbol{P}}:\ppt{\boldsymbol{F}}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\quad\text{for any }t\in[0,T].</span></p>
+<p>If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion with associated deformation gradient <span class="math inline">{\boldsymbol{F}}:B\times[0,T]\to{\mathcal{V}}^2</span> and the Piola-Kirchhoff stress is <span class="math inline">{\boldsymbol{P}}({\boldsymbol{x}},t)</span>, then <span class="math display">\frac{d}{dt}K[\Omega_t] +\int_\Omega {\boldsymbol{P}}:\ppt{\boldsymbol{F}}{\,\d V_{{\boldsymbol{x}}}}= P[\Omega_t]</span> for any <span class="math inline">\Omega_t\subseteq B_t</span> and <span class="math inline">t\in[0,T]</span>. Put differently, the net rate of work done on <span class="math inline">\Omega_t</span> is <span class="math display">W[\Omega_t] = \int_\Omega {\boldsymbol{P}}:\ppt{\boldsymbol{F}}{\,\d V_{{\boldsymbol{x}}}}\quad\text{for any }t\in[0,T].</span></p>
 </div>
 <p>We compare this result with the Eulerian version, and note that <span class="math inline">{\boldsymbol{S}}:{\boldsymbol{L}}</span> and <span class="math inline">{\boldsymbol{P}}:\ppt{\boldsymbol{F}}</span> are both stress power combinations. The former is per unit volume in the deformed configuration <span class="math inline">B_t</span>, while the latter is per unit volume in the reference configuration <span class="math inline">B</span>.</p>
 </section>
-<section id="first-law-of-thermodynamics-1" class="level3">
-<h3 class="anchored" data-anchor-id="first-law-of-thermodynamics-1">First Law of Thermodynamics</h3>
-<p>Axiom&nbsp;<a href="#ax:1stLaw" data-reference-type="ref" data-reference="ax:1stLaw">[ax:1stLaw]</a>, the First Law of Thermodynamics, states that <span class="math display">\frac{d}{dt}U[\Omega_t] = Q[\Omega_t]+W[\Omega_t].</span> Recalling the definition of <span class="math inline">U</span>, we can change variable to the reference configuration and use the conservation of mass in Lagrangian form to write <span class="math display">U[\Omega_t] = \int_{\Omega_t}\phi\rho {\,{\mathrm{d}}V_{{\boldsymbol{y}}}}= \int_{\Omega} \rho_0\phi_m{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}.</span> For the net rate of heating, we have <span class="math display">Q[\Omega_t] = \int_{\Omega_t}\rho r {\,{\mathrm{d}}V_{{\boldsymbol{y}}}}-\int_{\partial\Omega_t}{\boldsymbol{q}}\cdot{\boldsymbol{n}}{\,{\mathrm{d}}A_{{\boldsymbol{y}}}}= \int_\Omega\rho_0r_m{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}-\int_{\partial \Omega}{\boldsymbol{q}}_m\cdot({\operatorname{cof}}{\boldsymbol{F}}{\boldsymbol{\nu}}){\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.</span> Defining the material heat flux vector field <span class="math inline">\bfkappa:B\times[0,T]\to{\mathcal{V}}</span> via <span class="math display">\bfkappa({\boldsymbol{x}},t) = \big({\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t)\big)^T{\boldsymbol{q}}_m({\boldsymbol{x}},t),</span> we have <span class="math display">Q[\Omega_t] = \int_\Omega\rho_0r_m{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}-\int_{\partial \Omega}\bfkappa\cdot{\boldsymbol{\nu}}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.</span> Applying the Divergence Theorem, we have:</p>
+<section id="first-law-of-thermodynamics-1" class="level3" data-number="5.4.5">
+<h3 data-number="5.4.5" class="anchored" data-anchor-id="first-law-of-thermodynamics-1"><span class="header-section-number">5.4.5</span> First Law of Thermodynamics</h3>
+<p>Axiom&nbsp;<a href="#ax:1stLaw" data-reference-type="ref" data-reference="ax:1stLaw">[ax:1stLaw]</a>, the First Law of Thermodynamics, states that <span class="math display">\frac{d}{dt}U[\Omega_t] = Q[\Omega_t]+W[\Omega_t].</span> Recalling the definition of <span class="math inline">U</span>, we can change variable to the reference configuration and use the conservation of mass in Lagrangian form to write <span class="math display">U[\Omega_t] = \int_{\Omega_t}\phi\rho {\,\d V_{{\boldsymbol{y}}}}= \int_{\Omega} \rho_0\phi_m{\,\d V_{{\boldsymbol{x}}}}.</span> For the net rate of heating, we have <span class="math display">Q[\Omega_t] = \int_{\Omega_t}\rho r {\,\d V_{{\boldsymbol{y}}}}-\int_{\partial\Omega_t}{\boldsymbol{q}}\cdot{\boldsymbol{n}}{\,\d A_{{\boldsymbol{y}}}}= \int_\Omega\rho_0r_m{\,\d V_{{\boldsymbol{x}}}}-\int_{\partial \Omega}{\boldsymbol{q}}_m\cdot({\operatorname{cof}}{\boldsymbol{F}}{\boldsymbol{\nu}}){\,\d A_{{\boldsymbol{x}}}}.</span> Defining the material heat flux vector field <span class="math inline">\bfkappa:B\times[0,T]\to{\mathcal{V}}</span> via <span class="math display">\bfkappa({\boldsymbol{x}},t) = \big({\operatorname{cof}}{\boldsymbol{F}}({\boldsymbol{x}},t)\big)^T{\boldsymbol{q}}_m({\boldsymbol{x}},t),</span> we have <span class="math display">Q[\Omega_t] = \int_\Omega\rho_0r_m{\,\d V_{{\boldsymbol{x}}}}-\int_{\partial \Omega}\bfkappa\cdot{\boldsymbol{\nu}}{\,\d A_{{\boldsymbol{x}}}}.</span> Applying the Divergence Theorem, we have:</p>
 <div class="proposition">
 <p>If <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> is a motion with material internal energy field <span class="math inline">\phi_m</span>, material heat flux vector field <span class="math inline">\bfkappa</span> and material heat supply field <span class="math inline">r_m</span>, then <span class="math display">\rho_0\ppt{\phi_m} = {\boldsymbol{P}}:\ppt{\boldsymbol{F}}-\nabla_{\boldsymbol{x}}\cdot\bfkappa+\rho_0r_m</span> for all <span class="math inline">{\boldsymbol{x}}\in B</span> and <span class="math inline">t\in[0,T]</span>.</p>
 </div>
 </section>
-<section id="second-law-of-thermodynamics-1" class="level3">
-<h3 class="anchored" data-anchor-id="second-law-of-thermodynamics-1">Second Law of Thermodynamics</h3>
-<p>For the Second Law of Thermodynamics, we can again change variables in the integral expression of the Clausius-Duhem inequality and apply the conservation of mass as we have done above to find that <span class="math display">\int_\Omega \rho_0\ppt{\eta_m}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}\geq \int_{\Omega}\frac{\rho_0r_m}{\theta_m}{\,{\mathrm{d}}V_{{\boldsymbol{x}}}}-\int_{\partial \Omega} \frac{\bfkappa\cdot{\boldsymbol{\nu}}}{\theta_m}{\,{\mathrm{d}}A_{{\boldsymbol{x}}}}.</span> Applying the Divergence Theorem and Localisation Theorem, we obtain:</p>
+<section id="second-law-of-thermodynamics-1" class="level3" data-number="5.4.6">
+<h3 data-number="5.4.6" class="anchored" data-anchor-id="second-law-of-thermodynamics-1"><span class="header-section-number">5.4.6</span> Second Law of Thermodynamics</h3>
+<p>For the Second Law of Thermodynamics, we can again change variables in the integral expression of the Clausius-Duhem inequality and apply the conservation of mass as we have done above to find that <span class="math display">\int_\Omega \rho_0\ppt{\eta_m}{\,\d V_{{\boldsymbol{x}}}}\geq \int_{\Omega}\frac{\rho_0r_m}{\theta_m}{\,\d V_{{\boldsymbol{x}}}}-\int_{\partial \Omega} \frac{\bfkappa\cdot{\boldsymbol{\nu}}}{\theta_m}{\,\d A_{{\boldsymbol{x}}}}.</span> Applying the Divergence Theorem and Localisation Theorem, we obtain:</p>
 <div class="proposition">
 <p>Let <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> be a motion of a continuum body. Then <span class="math display">\rho_0\ppt{\eta_m}\geq \frac{\rho_0 r_m}{\theta_m}-\nabla_{\boldsymbol{x}}\cdot\Big(\frac{\bfkappa}{\theta_m}\Big)</span> for all <span class="math inline">{\boldsymbol{x}}\in B</span> and <span class="math inline">t\in[0,T]</span>.</p>
 </div>
 </section>
-<section id="summary-1" class="level3">
-<h3 class="anchored" data-anchor-id="summary-1">Summary</h3>
+<section id="summary-1" class="level3" data-number="5.4.7">
+<h3 data-number="5.4.7" class="anchored" data-anchor-id="summary-1"><span class="header-section-number">5.4.7</span> Summary</h3>
 <p>In the Lagrangian description of the motion of a general continuum body, then if we take component with respect to a given Cartesian frame, there are 18 unknown fields: <span class="math display">\begin{aligned}
     \varphi_i({\boldsymbol{x}},t) &amp;&amp;&amp;\text{3 components of motion,}\\
     P_{ij}({\boldsymbol{x}},t) &amp;&amp;&amp;\text{9 components of Piola-Kirchhoff stress,}\\
@@ -490,8 +547,8 @@ window.Quarto = {
     P_{ij}F_{jk} &amp;= F_{ik}P_{jk} &amp;&amp; \text{3 balance of angular momentum equations, and}\\
     \rho_m\ppt{\phi_m} &amp;= P_{ij}\ppt{F_{ij}}-\kappa_{i,i}+\rho_0 r_m &amp;&amp;\text{1 energy balance equation.}
   \end{aligned}</span></p>
-<section id="notes" class="level5">
-<h5 class="anchored" data-anchor-id="notes">Notes:</h5>
+<section id="notes" class="level5" data-number="5.4.7.0.1">
+<h5 data-number="5.4.7.0.1" class="anchored" data-anchor-id="notes"><span class="header-section-number">5.4.7.0.1</span> Notes:</h5>
 <ul>
 <li><p>In contrast with the Eulerian formulation, the mass density field is a known quantity, since we assume it is prescribed to be <span class="math inline">\rho_0</span>.</p></li>
 <li><p>We note that the velocity field is absent here, and this is because it can be obtained directly by differentiating <span class="math inline">{\boldsymbol{\varphi}}</span> in time.</p></li>
@@ -500,11 +557,11 @@ window.Quarto = {
 </section>
 </section>
 </section>
-<section id="frame-indifference" class="level2">
-<h2 class="anchored" data-anchor-id="frame-indifference">Frame indifference</h2>
+<section id="frame-indifference" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="frame-indifference"><span class="header-section-number">5.5</span> Frame indifference</h2>
 <p>Frame indifference is a physical principle which is assumed in classical (i.e.&nbsp;non-relativistic) mechanics. In this case, we assume that certain fields are independent of the observer, and this principle results in limitations on the constitutive equations which are valid for a material body.</p>
-<section id="superposed-rigid-motions" class="level3">
-<h3 class="anchored" data-anchor-id="superposed-rigid-motions">Superposed rigid motions</h3>
+<section id="superposed-rigid-motions" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="superposed-rigid-motions"><span class="header-section-number">5.5.1</span> Superposed rigid motions</h3>
 <p>In order to describe two observers viewing the same motion, we introduce the notion of a superposed rigid motion. We will say that two motions <span class="math inline">{\boldsymbol{\varphi}},{\boldsymbol{\varphi}}^*:B\times[0,T]\to{\mathbb{E}}^3</span> are related by a <em>superposed rigid motion</em> if it holds that <span class="math display">{\boldsymbol{\varphi}}^*({\boldsymbol{x}},t) = {\boldsymbol{Q}}(t){\boldsymbol{\varphi}}({\boldsymbol{x}},t)+{\boldsymbol{c}}(t)\quad\text{for all }{\boldsymbol{x}}\in B, t\in[0,T],</span> where <span class="math inline">{\boldsymbol{Q}}:[0,T]\to{\mathcal{V}}^2</span> is a rotation-valued mapping, and <span class="math inline">{\boldsymbol{c}}:[0,T]\to{\mathcal{V}}</span>.</p>
 <p>In this definition, <span class="math inline">{\boldsymbol{Q}}(t)</span> and <span class="math inline">{\boldsymbol{c}}(t)</span> describe the movement of one observer with respect to the other: <span class="math inline">{\boldsymbol{Q}}(t)</span> describes the relative rotation, and <span class="math inline">{\boldsymbol{c}}(t)</span> describes the relative translation. Now, consider each of the various fields we have discussed, and consider their representation in the frames of the two observers. To denote those fields observed which in the frame where the motion is <span class="math inline">{\boldsymbol{\varphi}}^*</span>, we use a star. Applying the definition above, we then find the following:</p>
 <div class="proposition">
@@ -518,8 +575,8 @@ window.Quarto = {
     \end{gathered}</span> for all <span class="math inline">{\boldsymbol{y}}\in B_t</span> and <span class="math inline">t\in[0,T]</span>.</p>
 </div>
 </section>
-<section id="the-axiom-of-frame-indifference" class="level3">
-<h3 class="anchored" data-anchor-id="the-axiom-of-frame-indifference">The Axiom of Frame-indifference</h3>
+<section id="the-axiom-of-frame-indifference" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="the-axiom-of-frame-indifference"><span class="header-section-number">5.5.2</span> The Axiom of Frame-indifference</h3>
 <p>Let <span class="math inline">B_t</span> be the current configuration of <span class="math inline">B</span> under motion <span class="math inline">{\boldsymbol{\varphi}}</span> at time <span class="math inline">t</span>, and let <span class="math inline">B^*_t</span> be the current configuration of <span class="math inline">B</span> under motion <span class="math inline">{\boldsymbol{\varphi}}^*</span> at time <span class="math inline">t</span>.</p>
 <p>The scalar field <span class="math inline">\phi</span>, vector field <span class="math inline">{\boldsymbol{w}}</span>, and tensor field <span class="math inline">{\boldsymbol{T}}</span> are <em>frame-indifferent</em> if for any superposed rigid motion <span class="math inline">{\boldsymbol{g}}(\cdot,t):B_t\to B^*_t</span>, we have <span class="math display">\begin{aligned}
   \phi^*({\boldsymbol{y}}^*,t) &amp;= \phi({\boldsymbol{y}},t),\\
@@ -529,7 +586,7 @@ window.Quarto = {
 <p>This notion of frame-indifference captures the idea that some physical quantities are inherent to the body, and are independent of the observer. Given that they are referring to the same point in the body, two observers should agree on the mass density and the temperature at a given material point. Up to a change of basis, they should also agree on the heat flux and stress tensors. Some fields will not satisfy this assumption however: the velocity of a body will depend upon the frame, as will the acceleration.</p>
 <p>It is natural to make the following assumption of frame-indifference for the fields we have considered:</p>
 <div class="axiom">
-<p><span id="ax:FrameIndifference" label="ax:FrameIndifference"></span> The spatial mass density <span class="math inline">\rho</span>, temperature <span class="math inline">\theta</span>, entropy per unit mass <span class="math inline">\eta</span>, internal energy per unit mass <span class="math inline">\phi</span>, Cauchy stress <span class="math inline">{\boldsymbol{S}}</span>, and heat flux vector <span class="math inline">{\boldsymbol{q}}</span> are all frame-indifferent fields.</p>
+<p><span id="ax:FrameIndifference" data-label="ax:FrameIndifference"></span> The spatial mass density <span class="math inline">\rho</span>, temperature <span class="math inline">\theta</span>, entropy per unit mass <span class="math inline">\eta</span>, internal energy per unit mass <span class="math inline">\phi</span>, Cauchy stress <span class="math inline">{\boldsymbol{S}}</span>, and heat flux vector <span class="math inline">{\boldsymbol{q}}</span> are all frame-indifferent fields.</p>
 </div>
 <p>This assumption places strict limitations on the constitutive equations which it is possible to use to model the material properties of a body. For example, if we express the internal energy, heat flux and Cauchy stress as functions <span class="math display">\phi = \widehat{\phi}(\rho,\theta,{\boldsymbol{L}}),\quad
   {\boldsymbol{q}}= \widehat{{\boldsymbol{q}}}(\rho,\theta,{\boldsymbol{L}}),\quad\text{and}\quad
@@ -545,7 +602,6 @@ window.Quarto = {
 <p>It is important to note that linearised theories will typically violate frame-indifference, since the relationships we have derived above are nonlinear. It is therefore important to assess whether any linearisation could be breaking down when using a linearised model to make predictions.</p>
 
 
-</section>
 </section>
 </section>
 
@@ -776,8 +832,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -888,7 +942,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1114,6 +1167,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./kinematics.html" class="pagination-link" aria-label="Kinematics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kinematics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

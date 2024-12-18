@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.12.8)  18 DEC 2024 13:31
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.12.8)  18 DEC 2024 14:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1044,24 +1044,42 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 17
 
 [2
 
-]
+] [3
 
-! LaTeX Error: Command \d already defined.
+] [4]
+chapter 1.
+
+Class scrreprt Warning: \float@addtolists detected!
+(scrreprt)              Implementation of \float@addtolist became
+(scrreprt)              deprecated in KOMA-Script v3.01 2008/11/14 and
+(scrreprt)              has been replaced by several more flexible
+(scrreprt)              features of package `tocbasic`.
+(scrreprt)              Since Version 3.12 support for deprecated
+(scrreprt)              \float@addtolist interface has been
+(scrreprt)              restricted to only some of the KOMA-Script
+(scrreprt)              features and been removed from others.
+(scrreprt)              Loading of package `scrhack' may help to
+(scrreprt)              avoid this warning, if you are using a
+(scrreprt)              a package that still implements the
+(scrreprt)              deprecated \float@addtolist interface.
+
+
+! LaTeX Error: Command \bfa already defined.
                Or name \end... illegal, see p.192 of the manual.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.258 \newcommand{\d}{{\mathrm{d}}}
-                                    
+l.340 \newcommand{\bfa}{{\boldsymbol{a}}}
+                                          
 Here is how much of TeX's memory you used:
- 22429 strings out of 476919
- 419815 string characters out of 5821840
- 1049713 words of memory out of 5000000
- 42139 multiletter control sequences out of 15000+600000
- 406994 words of font info for 56 fonts, out of 8000000 for 9000
+ 22467 strings out of 476919
+ 420609 string characters out of 5821840
+ 1058713 words of memory out of 5000000
+ 42171 multiletter control sequences out of 15000+600000
+ 407010 words of font info for 58 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  111i,7n,122p,10600b,391s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on index.pdf (2 pages).
+Output written on index.pdf (4 pages).

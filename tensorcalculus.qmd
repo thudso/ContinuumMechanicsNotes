@@ -187,8 +187,7 @@ where $x_i$ are the coordinates of $\bfx$ with respect to the frame.
 
 ::: proof
 We prove only the second expression, since the first follows
-directly from
-@prp-gradientincoords and the component expression for the
+directly from @prp-gradientincoords and the component expression for the
 trace. Fix $\bfa = a_k\bfe_k$ and let $\bfq = \bfS^T\bfa$. In
 components, we have $\bfq = q_j\bfe_j$ with $q_j = S_{ij}a_i$. Then,
 using the definition and the first expression, we have

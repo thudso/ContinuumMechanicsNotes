@@ -3,7 +3,7 @@ format: html
 ---
 
 ::: {.hidden}
-$$
+
 \newcommand{\bfa}{{\boldsymbol{a}}}
 \newcommand{\bfb}{{\boldsymbol{b}}}
 \newcommand{\bfc}{{\boldsymbol{c}}}
@@ -86,8 +86,8 @@ $$
 \newcommand{\cov}{{\operatorname{cov}}}
 \newcommand{\e}{{\mathrm{e}}}
 \newcommand{\D}{{\mathrm{D}}}
-\newcommand{\d}{{\mathrm{d}}}
-\newcommand{\dt}{{\d t}}
+\newcommand{\dd}{{\mathrm{d}}}
+\newcommand{\dt}{{\dd t}}
 \newcommand{\Dt}{{\D t}}
 \newcommand{\bigO}{{O}}
 \newcommand{\litO}{{o}}
@@ -96,5 +96,5 @@ $$
 \newcommand{\dVy}{{\,\d V_{\bfy}}}
 \newcommand{\dAy}{{\,\d A_{\bfy}}}
 \newcommand{\ds}{{\,\d s}}
-$$
+
 :::
