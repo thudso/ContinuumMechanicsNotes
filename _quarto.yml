@@ -1,0 +1,27 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "MA4J1 Continuum Mechanics Notes"
+  author: "Thomas Hudson"
+  date: "June 2024"
+  chapters:
+    - index.qmd
+    - tensoralgebra.qmd
+    - tensorcalculus.qmd
+    - massandforces.qmd
+    - kinematics.qmd
+    - balancelaws.qmd
+    - solidmechanics.qmd
+
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: styles.css
+    theme:
+      light: flatly
+      dark: darkly
+  pdf:
+    documentclass: scrreprt

@@ -1,0 +1,986 @@
+{{< include macros.qmd >}}
+
+# Tensor Algebra {#sec-tensor-algebra}
+
+## Preliminaries
+
+We begin by equipping ourselves with the mathematical tools required to
+derive mathematical models for the mechanical behaviour of objects in
+the world around us. To that end, this chapter will provide an overview
+of various concepts related to the manipulation of scalars and vectors,
+and will introduce the over-arching concept of *tensors*, which
+represent various physical quantities of interest which we will study
+later. The concept of a tensor generalises various objects you are
+already familiar with: scalars are *zeroth-order* tensors, and vectors
+are *first-order* tensors.
+
+**Aims:** By the end of this chapter, you should be able to:
+
+-   Define the notion of a Cartesian coordinate frame;
+
+-   Manipulate and recall the definition of first-order, second-order
+    and fourth-order tensors;
+
+-   Use index notation and the summation convention to express various
+    operations on tensors;
+
+-   Define the Kronecker delta and Levi--Civita symbols and be able to
+    quote various related identities;
+
+-   Give definitions for various special classes of second-order tensor;
+
+-   Recall the definition of the trace, determinant and exponential of
+    second-order tensors;
+
+-   Quote and prove results on various second-order tensor
+    decompositions; and
+
+**Basic notation.**
+Here, and throughout these notes, 3-dimensional Euclidean space will be
+the model for the space within which objects are found. We denote this
+space $\bbE^3$, and real numbers are denoted $\bbR$. Elements of $\bbR$
+are referred to as scalars, and are denoted by italic letters, e.g.
+$t\in\bbR$. Elements of $\bbE^3$ are referred to as points, and are
+denoted by bold-face italic letters, e.g. $\bfx\in\bbE^3$.
+
+## Motivation
+
+Before launching into a discussion of tensors, we briefly motivate their
+introduction, and what physical concepts we wish to explain by using
+these objects.
+
+Vectors are an important tool which we use to represent various physical
+concepts, such as displacement, velocity, acceleration and forces. We
+often represent vectors with respect to some fixed basis, so that we can
+describe them in coordinates. When considering physical modelling, we
+often want to think about how different observers may represent the same
+concept, such as the velocity of the particle, and this leads to the
+notion of a coordinate transformation. Coordinates are subjective
+representations of something which we believe is objective, like the
+velocity of a body, and so we will recap some details of how to do this
+here.
+
+In addition to considering vectors and how they transform as individual
+objects, we will also be concerned with how collections of vectors
+change. For example, consider a small cube within a material: The edges
+of this cube can be represented by 3 basis vectors. At later time, if
+the material deforms, these vectors will change, and, assuming the
+transformation between these two collections is approximately linear, we
+can collect the 3 new vectors together into an object called the strain
+tensor. The strain tensor is a second-order tensor: this is just a
+slightly different way of looking at linear transformations on vectors
+(or their matrices), which will already be familiar.
+
+At a yet higher level of abstraction, just as second-order tensors
+represent transformations of vectors, we can consider how second-order
+tensors are mapped to other second-order tensors, which leads us to the
+concept of a fourth-order tensor. An important fourth-order tensor is
+the elasticity tensor which transforms the strain second-order tensor
+into the stress second-order tensor, and we will discuss this in detail
+later in the module.
+
+## Vectors
+
+In this module, a *vector* is a quantity with both magnitude and
+direction in three-dimensional space, denoted by bold lower-case
+letters, $\bfv$. Note immediately that we are using the same notation
+for both points and vectors, which could be cause for confusion, but we
+view these as distinct objects (and see later for further discussion).
+
+Vectors will represent important physical concepts such as forces,
+momentum, velocity, and acceleration. It is expected that many of these
+concepts (applied to point particles, rather than continuum bodies) will
+be familiar. Similarly, you should also already be familiar with various
+operations on three-dimensional vectors from Linear Algebra, including
+the dot and cross products.
+
+Throughout this module, any reference to the magnitude (or norm) of a
+vector will always mean the Euclidean norm, which will be denoted by
+vertical bars $|\bfv|$. Recall that the magnitude of a vector is the
+length of the vector, and is therefore always a positive quantity, i.e.
+$|\bfv|\geq0$. The zero vector, $\bf0$, is the unique vector with zero
+magnitude, and has no particular direction attached to it. Any vector
+$\bfv$ with magnitude (or length) 1, i.e. $|\bfv|=1$, will be called a
+*unit vector*.
+
+### Vector algebra
+
+A standard geometric way to think about (and draw) vectors is to use
+arrows, with the length of the arrow indicating a vector's magnitude,
+and the direction of the arrow matching the direction of the vector. Recall that a displacement vector connects
+spatial points, vector addition joins vectors end-to-end to generate a
+new vector, and scalar multiplication alters the length and possibly
+inverts the direction of vectors. Vectors will be viewed as being equal
+if they have the same magnitude and direction, regardless of their
+position in space.
+
+We denote the set of all vectors $\calV$, and note that with the notions
+of the addition and scalar multiplication referred to above, $\calV$ has
+the structure of a real vector space, since
+$$\bfu + \bfv \in\calV\quad\text{for all }\bfu,\bfv\in\calV,\quad\text{and}\quad \alpha \bfv\in\calV\quad\text{for all }\alpha\in\bbR,\;\bfv\in\calV.$$
+
+### The scalar and vector products
+
+The *scalar product* or *dot product* of vectors $\bfu$ and $\bfv$ is
+defined geometrically as
+$$\bfu \cdot \bfv = |\bfu| |\bfv| \cos \theta,$$ where
+$\theta\in[0,\pi]$ is the angle between the tips of $\bfu$ and $\bfv$,
+if taken to emanate from the same point. Two vectors are *orthogonal* or
+*perpendicular* if $\bfu\cdot\bfv = 0$. Recall that
+$\bfu \cdot \bfu = |\bfu|^2$ (this follows directly from the definition
+above).
+
+The *vector product* or *cross product* of two 3-dimensional vectors
+$\bfu$ and $\bfv$ is defined as
+$$\bfu \times \bfv = \big(|\bfu| |\bfv| \sin \theta\big)\bfe,$$ where
+$\theta\in[0,\pi]$ is again the angle between the tips of $\bfu$ and
+$\bfv$, and $\bfe$ is the unit vector perpendicular to the plane
+containing $\bfu$ and $\bfv$, oriented in a right-hand fashion. If
+$\bfu\times\bfv=\bf0$, then $\bfu$ and $\bfv$ are *parallel*. Recall
+that the magnitude $|\bfu\times\bfv|$ is the area of the parallelogram
+with two sides given by $\bfu$ and $\bfv$ emanating from the same point.
+
+### Projections, bases and coordinate frames
+
+If $\bfe$ is a unit vector, then any vector $\bfv$ can be decomposed
+into a component which is parallel to $\bfe$, $\bfv_{\bfe}$, and a
+component which is perpendicular to $\bfe$, $\bfv_\bfe^\perp$:
+$$
+\bfv = \bfv_{\bfe}+\bfv_{\bfe}^\perp,
+$$ {#eq-orthogonalprojection}
+where $\bfv_{\bfe} = (\bfv\cdot \bfe)\bfe$ and $\bfv_{\bfe}^\perp= \bfv-\bfv_{\bfe}.$
+
+**Exercise:** Verify the properties of this decomposition. Is it unique?
+
+A *right-handed orthonormal basis* for $\calV$ means three perpendicular
+unit vectors $\{\bfe_1,\bfe_2,\bfe_3\}$ such that
+$$\bfe_1\times\bfe_2=\bfe_3,\quad\bfe_2\times\bfe_3=\bfe_1,\quad\text{and}\quad\bfe_3\times\bfe_1 = \bfe_2.$$
+Note that the notion of *right-handedness* requires that
+$(\bfe_1\times\bfe_2)\cdot\bfe_3=1$.
+
+**Exercise:** Show that three mutually perpendicular unit vectors
+$\{\bfe_1,\bfe_2,\bfe_3\}$ always satisfy
+$|(\bfe_1\times\bfe_2)\cdot\bfe_3|=1$.
+
+By repeatedly applying the orthogonal decomposition
+@eq-orthogonalprojection, any vector $\bfv$ can be uniquely
+written in *components* with respect to the basis
+$\{\bfe_1,\bfe_2,\bfe_3\}$ as
+$$\bfv = v_1\bfe_1+v_2\bfe_2+v_3\bfe_3\quad\text{with}\quad v_i = \bfv\cdot\bfe_i\in\bbR.$$
+For brevity here we have written $i$ to mean a generic subscript which
+ranges from $1$ to $3$.
+
+Recall that we often arrange the components of a vector into a
+$3\times1$ *column matrix*, here denoted
+$$[\bfv] = \left(\begin{array}{c} v_1 \\ v_2 \\ v_3 \end{array}\right).$$
+Recall that the transpose of this matrix is a $1\times3$ matrix
+$$[\bfv]^T = \left(\begin{array}{ccc} v_1 & v_2 & v_3 \end{array}\right).$$ We
+call $[\bfv]$ the matrix *representation* of $\bfv$ with respect to the
+given basis.
+
+### Interpreting vectors physically
+
+Above, we have been careful to distinguish between vectors
+$\bfv\in\calV$, which represent arrows in space, and their
+representations $[\bfv]\in\bbR^3$, which are triplets of numbers. This
+is because our representation of $\bfv$ depends upon the choice of
+basis. Physically, this corresponds to viewing the same vectors from
+different positions and orientations in space, and corresponds to the
+idea that if two observers view the same vector from different
+perspectives, they will describe the vector in different ways. Later in
+this section we will consider the same vector relative to different
+bases, and this distinction will be important.
+
+As you are likely already aware, we can also represent spatial points
+$\bfx\in\bbE^3$ through their displacement from some fixed origin. To
+encode this idea, we define the following notion: A Cartesian
+*coordinate frame* for $\bbE^3$ means a reference point $\bfo\in\bbE^3$
+called the *origin* together with a right-handed orthonormal basis
+$\{\bfe_i\}$ for the associated vector space $\calV$. Relative to this
+coordinate frame, any point $\bfx\in\bbE^3$ has *coordinates* $x_i$
+where $$x_i = (\bfx-\bfo)\cdot \bfe_i.$$ As such, we can write the
+displacement vector $\bfx-\bfo$ uniquely as
+$$\bfx -\bfo = x_1\bfe_1+x_2\bfe_2+x_3\bfe_3.$$ Later, we will see that
+it is an important physical principle that numerous quantities of
+interest are independent of the position of the observer, and therefore
+the origin of our coordinate system is not very important. From now on,
+we therefore avoid making explicit reference to the origin, and identify
+points $\bfx\in\bbE^3$ with their position vectors $\bfx-\bfo\in\calV$.
+Note that this explains the ambiguity in our notation up to this point!
+
+## Index notation
+
+In this section, we fix a coordinate frame, and consider vectors in
+terms of their components relative to this frame.
+
+### The summation convention
+
+Many operations acting on vectors (and other tensors) expressed in
+coordinates involve sums. For example, given a coordinate frame with
+basis $\{\bfe_i\}$ and vectors $\bfu,\bfv\in\calV$ with components $u_i$
+and $v_i$, the scalar product is
+$$\bfu \cdot\bfv = \bigg(\sum_{i=1}^3u_i\bfe_i\bigg)\cdot\bigg(\sum_{j=1}^3 v_i\bfe_i\bigg) = \sum_{i=1}^3\sum_{j=1}^3 u_iv_j\bfe_i\cdot\bfe_j = \sum_{i=1}^3 u_iv_i,$$
+where we have used the properties of an orthonormal basis to conclude
+that $$\bfe_i\cdot\bfe_j = \begin{cases}
+    1 & i=j\\
+    0 &i\neq j.
+  \end{cases}$$ Since sums over indices occur so frequently, it is usual
+to adopt the convention that *any repeated index letter in a term is
+summed over*. For example, we write
+$$u_i\bfe_i\quad\text{in place of}\quad \sum_{i=1}^3 u_i\bfe_i\quad\text{and}\quad u_iv_i\quad\text{in place of}\quad\sum_{i=1}^3u_iv_i.$$
+Throughout the module, the summation convention will always be assumed
+to be in force unless otherwise stated. Further examples of the
+convention in action include: $$\begin{gathered}
+  a_3b_kv_k = a_3(b_1v_1+b_2v_2+b_3v_3)\\
+  u_iv_i+v_iv_i = (u_1v_1+u_2v_2+u_3v_3)+(v_1^2+v_2^2+v_3^2)\\
+  x_ix_jy_jy_i = x_iy_ix_jy_j = (x_1y_1+x_2y_2+x_3y_3)(x_1y_1+x_2y_2+x_3y_3).
+\end{gathered}$$ A repeated index is called a *dummy index*. This
+reflects the fact that the actual letter used is irrelevant to the
+result (just as the symbol used in the argument of a integral is
+irrelevant to the result): $$u_iv_i = u_1v_1+u_2v_2+u_3v_3 = u_zv_z.$$
+Note that the convention only applies to pairs of indices: no summation
+is implied in the expressions $a_i$, $a_ib_ib_i$.
+
+Any index which is not prescribed a numerical value but is not a dummy
+index is called a *free index*. For example, in the equation
+$$
+  w_i = u_iv_jv_j,
+$$ {#eq-freeindex}
+the index $i$ is a free index, and
+$j$ is a dummy index. Since free indices can take on the value $1$, $2$
+or $3$, we can use free indices to abbreviate groups of similar
+equations. For example
+@eq-freeindex is shorthand for the three equations
+$$\begin{aligned}
+  w_1 &= u_1(v_1v_1+v_2v_2+v_3v_3),\\
+  w_2 &= u_2(v_1v_1+v_2v_2+v_3v_3),\\
+  w_3 &= u_3(v_1v_1+v_2v_2+v_3v_3),
+\end{aligned}$$ which saves a lot of writing. Similarly, equations with
+two free indices condense $9$ different equations. Note that the free
+indices on both sides of an equality should always be consistent. The
+following examples are all ambiguous!
+$$a_i = b_j\quad u_iv_j = w_iy_jy_j\quad e_ie_j = a_ia_kb_kb_j+c_pd_ld_lc_q.$$
+
+### The Kronecker delta and Levi--Civita symbols
+
+A frame $\{\bfe_i\}$ has an associated *Kronecker delta* symbol
+$\delta_{ij}$, defined to be
+$$\delta_{ij} = \bfe_i\cdot\bfe_j =\begin{cases}
+    1 & i=j\\
+    0 &i\neq j,
+  \end{cases}$$ and a *Levi--Civita symbol* or *permutation symbol*
+$\epsilon_{ijk}$, defined to be
+$$\epsilon_{ijk} = (\bfe_i\times \bfe_j)\cdot \bfe_k = \begin{cases}
+    +1 & ijk = 123, 231,\text{ or }312,\\
+    -1 & ijk = 321, 213,\text{ or }132,\\
+    0 & \text{otherwise (i.e. an index is repeated).}
+  \end{cases}$$ Notice that the numerical values of these symbols are
+the same, independently of the particular right-handed orthonormal frame
+we choose. The Kronecker delta is invariant under swapping of the
+indices, while the Levi--Civita symbol changes sign if two indices are
+transposed, but it invariant under cyclic permutation of the indices. In
+other words, we have the following identities:
+$$\delta_{ij} = \delta_{ji},\quad\text{and}\quad\epsilon_{ijk} = \epsilon_{jki}=\epsilon_{kij}= -\epsilon_{jik} = -\epsilon_{ikj} = -\epsilon_{kji}.$$
+Note that this is our first significant example of free indices in
+action!
+
+### Useful identities
+
+Since the Kronecker delta and Levi--Civita symbol are defined in terms
+of the frame vectors $\{\bfe_i\}$, various identities follow. These
+include:
+$$
+  \bfe_i = \delta_{ij}\bfe_j,\quad \bfe_i\times\bfe_j = \epsilon_{ijk}\bfe_k,\quad\text{and}\quad\bfe_i = \tfrac12\epsilon_{ijk}\bfe_j\times\bfe_k.
+$$ {#eq-frameidentities}
+
+**Exercise:** Verify these expressions from the definitions.
+
+Moreover, we can use the Kronecker delta and Levi--Civita symbol and the frame
+identities @eq-frameidentities to express various vector operations. In
+particular, if $\bfa = a_i\bfe_i$, $\bfb = b_j\bfe_j$ and
+$\bfc = c_k\bfe_k$, then $$\begin{aligned}
+    \bfa\cdot\bfb &= a_ib_j(\bfe_i \cdot \bfe_j)\\ &= a_ib_j\delta_{ij} \\&= a_ib_i,\\
+  \bfa\times\bfb &= a_ib_j(\bfe_i \times \bfe_j) \\&= a_ib_j\epsilon_{ijk}\bfe_k,\\
+  (\bfa\times\bfb)\cdot\bfc &= (a_ib_j\epsilon_{ijk}\bfe_k)\cdot(c_m\bfe_m) \\&= \epsilon_{ijk}a_ib_jc_m\delta_{km} \\&= \epsilon_{ijk}a_ib_jc_k,\\
+  \bfa\times(\bfb\times\bfc) &= (a_q\bfe_q)\times(b_ic_j\epsilon_{ijk}\bfe_k)\\ &= \epsilon_{ijk}a_qb_ic_j\bfe_q\times\bfe_k\\ &= \epsilon_{qkp}\epsilon_{ijk}a_qb_ic_j\bfe_p\\ &= \epsilon_{pqk}\epsilon_{ijk}a_qb_ic_j\bfe_p.
+\end{aligned}$$ We note that the permutation invariance of the scalar
+triple product follows from the permutation invariance of
+$\epsilon_{ijk}$, and the latter identity will be used in a moment to
+verify an important connection between the Levi--Civita symbol and the
+Kronecker delta.
+
+Note that our geometrical understanding of the scalar product and scalar
+triple product is expressed in terms of lengths and angles, and so does
+not depend upon the coordinate system used to evaluate these quantities.
+This means they are *frame-independent*, and so do not depend upon the
+coordinate system in which we observe them.
+
+In addition, we have the following identities
+connecting the Levi--Civita symbol and the Kronecker delta. These identities are
+often useful for reducing complex expression written in index notation.
+
+::: {#prp-epsilondelta}
+## Epsilon-delta identities
+Let $\epsilon_{ijk}$ be
+the Levi--Civita symbol and $\delta_{ij}$ the Kronecker delta. Then
+$$\epsilon_{abq}\epsilon_{cdq} = \delta_{ac}\delta_{bd}-\delta_{ad}\delta_{bc}\quad\text{and}\quad
+    \epsilon_{apq}\epsilon_{bpq} = 2\delta_{ab}.$$
+:::
+
+**Exercise:** Prove this result.
+
+As an application of this result, we can use the expression for the
+vector triple product above to show that $$\begin{aligned}
+  \bfa\times(\bfb\times\bfc)
+  &= \epsilon_{pqk}\epsilon_{ijk}a_qb_ic_j\bfe_p\\
+  &= (\delta_{pi}\delta_{qj}-\delta_{pj}\delta_{qi})a_qb_ic_j\bfe_p\\
+  &= (a_qc_q)b_p\bfe_p-(a_qb_q)c_p\bfe_p\\
+  &=(\bfa\cdot\bfc)\bfb-(\bfa\cdot\bfb)\bfc.
+\end{aligned}$$
+
+## Second-order tensors {#sec:second-order-tensors}
+
+Many physical quantities, including forces, velocities and accelerations
+are well-represented by vectors, or first-order tensors, which have 3
+components in a given Cartesian coordinate frame. However, other
+important quantities in our study, including the concepts of *stress*
+and *strain* are represented not by vectors, but by linear
+transformations between vectors. The need to describe these quantities
+leads to the notion of a second-order tensor with nine components in a
+given coordinate frame.
+
+### Definition and algebra
+
+A *second-order tensor* $\bfT$ on the vector space $\calV$ is a linear mapping
+$\bfT:\calV\to\calV$, i.e.
+$$\bfT(\alpha \bfu+\beta \bfv) = \alpha \bfT(\bfu)+\beta\bfT(\bfv)\quad\text{for all }\bfu,\bfv\in\calV\text{ and }\alpha,\beta\in\bbR.$$
+The set of all second-order tensors is denoted $\calV^2$. Just as with
+vectors, we define the *zero tensor* $\bfO$ which satisfies
+$\bfO(\bfv) = \bf0$ for all $\bfv\in\calV$, and the identity tensor
+$\bfI$, which satisfies $\bfI(\bfv) = \bfv$ for all $\bfv\in\calV$.
+Second-order tensors $\bfS$ and $\bfT$ are equal if and only if
+$\bfS(\bfv) = \bfT(\bfv)$ for all $\bfv\in\calV$. Since second-order
+tensors act linearly, it is common to follow a mathematical convention
+and write $\bfT\bfv$ in place of $\bfT(\bfv)$, and we will follow this
+rule from now on.
+
+**Examples:**
+
+1.  Projecting a vector onto the subspace generated by a given unit
+    vector $\bfe$ can be expressed in terms of a second-order
+    *projection* tensor $\bfP$ with 
+    $$
+    \bfP\bfv = (\bfv\cdot\bfe)\bfe.
+    $$ {#eq-ProjExample}
+
+2.  Reflecting a vector in the plane with unit normal $\bfe$ can be
+    expressed in terms of a second-order tensor $\bfT$ with
+    $$
+    \bfT\bfv = \bfv-2(\bfv\cdot\bfe)\bfe.
+    $$ {#eq-ReflExample}
+
+Using the definition linear algebra, it is easy to check that the set of
+second-order tensors is indeed a vector space, defining
+$(\bfS+\bfT)\bfv = \bfS\bfv+\bfT\bfv$ and
+$(\alpha\bfT)\bfv=\alpha(\bfT\bfv)$. Moreover, it has additional
+algebraic structure as we can multiply tensors through composition, and
+we define $\bfS\bfT\in\calV^2$ via $(\bfS\bfT)\bfv = \bfS(\bfT\bfv)$ for
+any $\bfS,\bfT\in\calV^2$ and arbitrary $\bfv$.
+
+### Coordinate representation
+In the same way that vectors have components in a coordinate frame, so
+too do second-order tensors. Given a second-order tensors $\bfS$, the
+*components* $S_{ij}$ of $\bfS$ in a Cartesian coordinate frame
+$\{\bfe_i\}$ are the nine numbers defined to be
+$$S_{ij} = \bfe_i\cdot (\bfS\bfe_j).$$ We claim that these components
+completely describe $\bfS:\calV\to\calV$. Given vectors
+$\bfv = v_i\bfe_i$ and $\bfu = u_j\bfe_j$ with $\bfv = \bfS\bfu$, we
+have
+$$v_i = \bfe_i\cdot (\bfS\bfu) = (\bfe_i\cdot\bfS\bfe_j)u_j = S_{ij}u_j.$$
+Thus the components of $\bfS$ are the coefficients in the linear
+relationship between the components of $\bfv$ and $\bfu$, as expressed
+in the particular coordinate frame we consider. As you know, it is
+common to represent these component as a $3\times 3$ matrix,
+$$[\bfS] = \left(
+    \begin{array}{ccc}
+      S_{11} & S_{12} & S_{13} \\
+      S_{21} & S_{22} & S_{23} \\
+      S_{31} & S_{32} & S_{33}
+    \end{array}\right)\in\bbR^{3\times 3}.$$ As usual, the transpose of
+this matrix is denoted $[\bfS]^T$, which has components
+$[\bfS]^T_{ij} = [\bfS]_{ji} = S_{ji}$.
+
+**Examples:**
+Choosing $\bfe = \bfe_2$ in the projection and reflection tensor
+examples given in @eq-ProjExample and @eq-ReflExample, we have that $$[\bfP] = \left(
+    \begin{array}{ccc}
+      0 & 0 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 0
+    \end{array}\right)
+  \quad\text{and}\quad
+  [\bfT] = \left(
+    \begin{array}{ccc}
+      1 & 0 & 0 \\
+      0 & -1 & 0 \\
+      0 & 0 & 1
+    \end{array}\right).$$
+
+### Tensor products, bases and the scalar product
+
+The *tensor product* (sometimes called the *dyadic product*) of two vectors $\bfa$ and $\bfb$ is the
+second-order tensor denoted $\bfa\otimes\bfb$ defined by
+$$(\bfa\otimes\bfb)\bfv = (\bfb\cdot\bfv)\bfa\quad\text{for all }\bfv\in\calV.$$
+In terms of components with respect to a particular Cartesian coordinate
+frame, it can be checked that
+$$[\bfa\otimes \bfb]_{ij} = a_ib_j,\quad\text{i.e.}\quad [\bfa\otimes\bfb] =
+  \left(
+    \begin{array}{ccc}
+      a_1b_1 & a_1b_2 & a_1b_3 \\
+      a_2b_1 & a_2b_2 & a_2b_3 \\
+      a_3b_1 & a_3b_2 & a_3b_3
+    \end{array}\right).$$
+    In a given a coordinate frame
+$\{\bfe_j\}$, the elementary tensor products
+$\{\bfe_i\otimes\bfe_j\}_{i,j=1}^3$ form a basis for the space of
+tensors $\calV^2$. In particular, for any $\bfA\in\calV^2$, we have
+$$
+\bfA = A_{ij}\bfe_i\otimes\bfe_j.
+$$
+
+It turns out that the basis defined in this way is actually an orthonormal basis.
+Just as for vectors, we can define a *scalar product* for second-order
+tensors, denoted
+$$
+  \bfS:\bfD = \tr(\bfS^T\bfD).
+$$ {#eq-scalarproduct2ndorder}
+In addition, whenever we have a scalar product, we also have a norm:
+$$
+  |\bfS|:=\sqrt{\bfS:\bfS} = \sqrt{\tr(\bfS^T\bfS)}.
+$$ {#eq-norm2ndorder}
+This norm is equivalent to the Frobenius norm which you may have seen defined for matrices.
+
+Since the scalar product and norm are defined using the trace, it is immediate that these definitions are independent of the coordinate frame in which they are computed. In practice, we can use the following result to compute them using the tensor components.
+
+::: {#prp-scalarproduct2ndorder} 
+## Scalar product and norm of tensors
+Let $\{\bfe_i\}$ be a Cartesian coordinate frame, and let $\bfS,\bfD\in\calV^2$. Then
+$$
+\bfS:\bfD = S_{ij}D_{ij},\quad\text{and}\quad
+|\bfS| = \sqrt{S_{ij}S_{ij}}
+$$
+Moreover, if $\bfS$ is symmetric, then
+$$\bfS:\bfD = \bfS:\sym\bfD = \sym\bfS:\sym\bfD.$$
+:::
+
+**Exercise:** Prove this result.
+
+We observe from the result of @prp-scalarproduct2ndorder that the Frobenius norm on tensors is similar to the Euclidean norm on vectors: both are the square root of the sum of the squares of the components.
+
+### Special classes of tensor
+
+To any tensor $\bfS\in\calV^2$, we associate a *transpose*
+$\bfS^T\in\calV^2$, which is the unique tensors with the property that
+$$(\bfS\bfu) \cdot \bfv = \bfu \cdot (\bfS^T\bfv)\quad\text{for all }\bfu,\bfv\in\calV.$$
+We say that a tensor $\bfS$ is *symmetric* if $\bfS = \bfS^T$ and
+*skew-symmetric* if $\bfS^T = -\bfS$.
+
+A tensor $\bfS\in\calV^2$ is said to be *positive-definite* if it
+satisfies $$\bfv\cdot (\bfS\bfv)>0\quad\text{for all }\bfv\neq\bf0,$$
+and is said to be *invertible* if there exists an *inverse*
+$\bfS^{-1}\in\calV^2$ satisfying
+$$\bfS\bfS^{-1} = \bfS^{-1}\bfS = \bfI.$$ The operations of inversion
+and transposition commute, i.e. $$(\bfS^{-1})^T = (\bfS^T)^{-1},$$ so as
+shorthand, we denote the resulting tensor $\bfS^{-T}$.
+
+**Exercise:** Verify that inversion and transposition commute.
+
+A tensor $\bfQ\in\calV^2$ is said to be *orthogonal* if its transpose is
+its inverse, i.e. $\bfQ^T = \bfQ^{-1}$, and hence
+$$\bfQ\bfQ^T = \bfQ^T\bfQ = \bfI.$$ An orthogonal tensor is called a
+*rotation* if, given any right-handed orthonormal frame $\{\bfe_i\}$,
+the vectors $\{\bfQ\bfe_i\}$ are also a right-handed orthonormal frame.
+We will see later that an orthogonal tensor is a rotation if and only if
+it has positive determinant.
+
+In a given coordinate frame, the above ideas correspond to the standard
+notions for the corresponding component matrices. Note that these
+concepts do not depend upon the exact choice of the frame, since none of
+the definitions required any manipulation of components!
+
+Later, it will be important to have various decompositions of tensors
+available. The first of these is given by the following result.
+
+::: {#prp-symdecomp}
+Every second-order tensor $\bfS\in\calV^2$ can be uniquely written as $$\bfS = \bfE + \bfW,$$
+where $\bfE\in\calV^2$ is a symmetric tensor, and $\bfW\in\calV^2$ is a
+skew-symmetric tensor. More specifically, we have
+$$\bfE = \tfrac12(\bfS+\bfS^T)\quad\text{and}\quad\bfW = \tfrac12(\bfS-\bfS^T).$$
+:::
+
+This result motivates the definition of two mappings,
+$\sym:\calV^2\to\calV^2$ and $\skw:\calV^2\to\calV^2$, defined as
+$$\sym(\bfS) = \tfrac12(\bfS+\bfS^T)\quad\text{and}\quad\skw(\bfS)=\tfrac12(\bfS-\bfS^T).$$
+It is straightforward to show that, in any coordinate frame, a symmetric
+tensor $\bfE$ has components which satisfy $E_{ij}=E_{ji}$ and a
+skew-symmetric tensor $\bfW$ has components which satisfy
+$W_{ij}=-W_{ji}$.
+
+In 3 dimensions, skew-symmetric tensors have an important representation
+as a cross product, as shown by the following result.
+
+::: {#prp-skewtensorvectorproduct}
+For any skew-symmetric tensor $\bfW\in\calV^2$, there is a unique vector
+$\bfw\in\calV$ such that
+$$\bfW\bfv = \bfw\times\bfv\quad\text{for all }\bfv\in\calV.$$ We write
+$\bfw = \vc(\bfW)$, and refer to $\bfw$ as the *axial vector* associated
+with $\bfW$. In any frame, we have the component identity
+$$w_j = \tfrac12\epsilon_{njm}W_{nm}.$$ Conversely, given any vector
+$\bfw\in\calV$, there is a unique skew-symmetric tensor $\bfW\in\calV^2$
+such that $$\bfw\times\bfv = \bfW\bfv\quad\text{for all }\bfv\in\calV.$$
+We write $\bfW = \ten(\bfw)$, and call $\bfW$ the *axial tensor*
+associated with $\bfw$. In any frame, we have the component identity
+$$W_{ik} = \epsilon_{ijk}w_j.$$ By definition, we note that the
+functions $\vc:\calV^2\to\calV$ and $\ten:\calV\to\calV^2$ are inverses.
+:::
+
+::: proof
+We prove the two statements in order. Suppose $\bfW\in\calV^2$
+is given, and we seek $\bfv$ such that $\bfW\bfv = \bfw\times\bfv$.
+Taking components in an arbitrary frame, this equation reads
+$$W_{ik}v_k = \epsilon_{ijk}w_jv_k.$$ Since $\bfv$ (and therefore $v_k$)
+is arbitrary, it must hold that
+$$
+    W_{ik} = \epsilon_{ijk}w_j.
+$$ {#eq-Wik}
+Our aim now is to 'solve' for $w_j$.
+Since we don't have a simple way to invert the Levi--Civita symbol, the
+natural choice is to attempt to apply the Levi--Civita symbol and use
+the identities proved in @prp-epsilondelta:
+\begin{align*}
+    \epsilon_{aik}W_{ik} &= \epsilon_{aik}\epsilon_{ijk}w_j\\
+                         &= -\epsilon_{aik}\epsilon_{jik}w_j\\
+                         &= -2\delta_{aj}w_j\\
+                         &= -2w_a.
+\end{align*} Rearranging and renaming indices, we now obtain
+$$w_j = \tfrac12\epsilon_{njm}W_{nm},$$ as required. These equations
+prescribe all components of $\bfw$, and so it is clearly unique, since
+we have obtained it above directly as a mapping from components of $W$.
+
+To establish the second result, suppose that $\bfw$ is given. We seek a
+symmetric tensor $\bfW$ such that $\bfw\times\bfv=\bfW\bfv$ for all
+$\bfv$. Taking components in an arbitrary frame, this requires that
+$$\epsilon_{ijk}w_jv_k=W_{ik}v_k.$$ Using the same argument as above, we
+arrive at @eq-Wik, which is an explicit expression for $W_{ik}$, and
+so leads to a unique definition of the tensor $\bfW$, since once again,
+all components of $\bfW$ are given through the equations above.
+
+To establish the final result, let $\bfw = \vc(\bfW)$, take components
+and apply @prp-epsilondelta to obtain
+\begin{align*}
+    \big[\ten(\vc(\bfW))\big]_{ik}
+    &= [\ten(\bfw)]_{ik}\\
+    &= \epsilon_{ijk}w_j\\
+    &=\tfrac12\epsilon_{ijk}\epsilon_{njm}W_{nm}\\
+    &=\tfrac12\big(\delta_{in}\delta_{km}-\delta_{im}\delta_{kn}\big)W_{nm}\\
+    &=\tfrac12 (W_{ik}-W_{ki})\\
+    &=W_{ik} = [\bfW]_{ik}.
+\end{align*}
+Since this identity holds for all components, it follows
+that $\ten(\vc(\bfW))=\bfW$, and a similar argument shows that
+$\vc(\ten(\bfw))=\bfw$. These two results show that the functions $\ten$
+and $\vc$ are mutual inverses.
+:::
+
+### Change of basis
+
+As we have discussed above, in a given coordinate frame, we may
+represent a vector $\bfv\in\calV$ as a triplet of components
+$[\bfv]\in\bbR^3$, and a second-order tensor $\bfS\in\calV^2$ as a
+matrix of components $[\bfS]\in\bbR^{3\times 3}$. In this section, we
+discuss how the representations $[\bfv]$ and $[\bfS]$ change with a
+change of coordinate frame.
+
+To that end, suppose that $\{\bfe_i\}$ and $\{\bfe'_i\}$ are two
+coordinate frame for $\bbE^3$.
+By a *change of basis* tensor $\bfA$ mapping from $\{\bfe_i\}$ to
+$\{\bfe'_i\}$, we mean
+$$\bfA = A_{ij}\bfe_i\otimes \bfe_j\quad\text{where}\quad A_{ij} = \bfe_i\cdot\bfe'_j.$$
+We could equally define a change of basis tensor $\bfB$ from
+$\{\bfe'_i\}$ to $\{\bfe_i\}$, defined to be
+$\bfB = B_{ij}\bfe'_i\otimes\bfe'_j$ with $B_{ij} = \bfe'_i\cdot\bfe_j$,
+and we note that since the frames we choose are arbitrary, any
+properties we deduce for $\bfA$ will also hold for $\bfB$.
+
+The idea behind a change of basis tensor is that it allow us to express
+the basis vectors of a frame in terms of the basis vectors of another.
+For example, by orthonormality of the basis $\{\bfe'_i\}$, we have
+$$
+  \bfe'_j = (\bfe_i\cdot\bfe'_j)\bfe_i = A_{ij}\bfe_i.
+$$ {#eq-changeofbasis1}
+  Similarly,
+working with respect to the second basis, we have that
+$$
+  \bfe_i = (\bfe_i\cdot\bfe'_k)\bfe'_k = A_{ik}\bfe'_k.
+$$ {#eq-changeofbasis2}
+These two identities imply the following result:
+
+::: {#prp-orthogonalitybasischange}
+The components $A_{ij}$ of a change of basis tensor $\bfA$ have the
+properties that
+$$A_{ij}A_{ik}=\delta_{jk}\quad\text{and}\quad A_{ik}A_{jk} =\delta_{ij},$$
+or in matrix notation,
+$$[\bfA]^T[\bfA] = [\bfI]\quad\text{and}\quad [\bfA][\bfA]^T = [\bfI].$$ It
+follows that $\bfA$ is an orthogonal tensor.
+:::
+
+potato
+
+::: proof
+Substituting
+@eq-changeofbasis1 into the right-hand side of
+@eq-changeofbasis2 gives $$\bfe_i = A_{ik}A_{jk}\bfe_j,$$
+which implies that $A_{ik}A_{jk}=\delta_{jk}$. Substituting
+@eq-changeofbasis2 into @eq-changeofbasis1 gives the other result.
+:::
+
+Now consider an arbitrary vector $\bfv\in\calV$. Let $[\bfv]_i=v_i$ be
+its component representation with respect to the basis $\{\bfe_i\}$, and
+$[\bfv]'_i = v'_i$ be its component representation with respect to the
+basis $\{\bfe'_i\}$. These components can be related using the basis
+change tensor $\bfA$:
+$$\bfv = v_i\bfe_i = \bfv'_j\bfe'_j  = v'_jA_{ij}\bfe_i,\quad\text{so that}\quad v_i = A_{ij}v'_j.$$
+We can similarly deduce that $v'_k = A_{ik}v_i$, and these relations can
+be written in matrix notation as
+$$[\bfv]= [\bfA][\bfv]' \quad\text{and}\quad[\bfv]' =[\bfA]^T[\bfv].$$ For
+second-order tensors $\bfS$ with component representations $[\bfS]$ and
+$[\bfS]'$ with respect to the bases consider above, we have
+$$
+  [\bfS] = [\bfA][\bfS]'[\bfA]^T\quad\text{and}\quad [\bfS]'=[\bfA]^T[\bfS][\bfA].
+$$ {#eq-2ordertensorchangeofbasis}
+
+### Traces, determinants and exponentials
+
+The *trace* is a function defined for second-order tensors, and is a
+linear mapping $\tr:\calV^2\to\bbR$ defined by
+$$\tr \bfS = \tr[\bfS] = [\bfS]_{ii},$$ where, as previously, $[\bfS]$
+denotes a component-matrix representation in an arbitrary coordinate
+frame. The trace of a tensor is therefore the same as the definition of
+the trace of a matrix given in Linear Algebra courses. The following
+result shows that the definition does not depend upon the particular
+coordinate frame chosen.
+
+::: {#prp-traceinvariance}
+Suppose $\bfS$ is a second-order tensor with respective matrix representations $[\bfS]$
+and $[\bfS]'$ in the frames $\{\bfe_i\}$ and $\{\bfe'_i\}$. Then
+$$\tr[\bfS] = \tr[\bfS]',$$ and hence the value of the trace is
+independent of the coordinate frame in which it is computed.
+:::
+
+::: proof
+Suppose $\bfA$ is the change of basis tensor mapping
+$\{\bfe_i\}$ to $\{\bfe'_i\}$. Then by applying
+@eq-2ordertensorchangeofbasis we have
+$[\bfS]_{ij} = [\bfA]_{ik}[\bfS]'_{kl}[\bfA]_{jl}$, and so, using @prp-orthogonalitybasischange, we have $$\tr[\bfS]
+    = [\bfS]_{ii}
+    = [\bfS]'_{kl}[\bfA]_{ik}[\bfA]_{il}
+    = [\bfS]'_{kl}\delta_{kl}
+    = [\bfS]'_{kk} = \tr[\bfS]'.$$
+:::
+
+The *determinant* function on second-order tensors is the mapping
+$\det:\calV^2\to\bbR$ defined by
+$$\det\bfS = \det[\bfS] = \epsilon_{ijk}[\bfS]_{1i}[\bfS]_{2j}[\bfS]_{3k},$$
+where $[\bfS]$ again denotes the component matrix representation of
+$\bfS$ in an arbitrary coordinate frame. As for the trace, the
+determinant of a tensor is the same as the determinant of its matrix
+representation. The following result shows the definition is independent
+of the coordinate frame.
+
+::: {#prp-determinantinvariance}
+Suppose $\bfS$ is a second-order tensor with respective matrix
+representations $[\bfS]$ and $[\bfS]'$ in the frames $\{\bfe_i\}$ and
+$\{\bfe'_i\}$. Then $$\det[\bfS] = \det[\bfS]',$$ and hence the value of
+the determinant is independent of the coordinate frame in which it is
+computed.
+:::
+
+**Exercise:** Prove this result.
+
+As you may have seen in a multivariable calculus module, the quantity
+$|\det\bfS|$ may be interpreted as the volume of the parallelipiped with
+edges defined by the vectors $\bfS\bfe_1$, $\bfS\bfe_2$ and
+$\bfS\bfe_3$, all emanating from the same point. The determinant also
+arises in the classification of certain types of tensors; for example, a
+second-order tensor $\bfS$ is invertible if and only if $\det\bfS\neq0$.
+Moreover, since $\det(\bfA\bfB) = \det\bfA\det\bfB$, every orthogonal
+tensor $\bfQ$ has the property that $|\det\bfQ|=1$, and rotation tensors
+are exactly those which satisfy $\det\bfQ=1$.
+
+<!-- The *exponential function* on second-order tensors is a mapping -->
+<!-- $\exp:\calV^2\to\calV^2$ defined by -->
+<!-- $$\exp \bfS = \sum_{j=0}^{\infty}\frac1{j!}\bfS^j.$$ Much as for the -->
+<!-- exponential function defined on real and complex numbers, it can be -->
+<!-- shown that the series above converges absolutely for any -->
+<!-- $\bfS\in\calV^2$, and the exponential function is therefore -->
+<!-- well-defined. The exponential function frequently arises in the theory -->
+<!-- of linear ordinary differential equations with constant coefficients, -->
+<!-- and leads to the definition of Lie Algebras, which we do not consider -->
+<!-- further here. Our main interest in this function will be in applying the -->
+<!-- following result, which we state without proof. -->
+
+<!-- ::: {#prp-exponentialskew} -->
+<!-- Let $\bfW\in\calV^2$ be a skew-symmetric tensor. Then $\exp\bfW$ is a -->
+<!-- rotation tensor, i.e. -->
+<!-- $$(\exp\bfW)^T(\exp\bfW)= \bfI\quad\text{and}\quad\det(\exp\bfW)=1.$$ -->
+<!-- Moreover, $\exp(\bfW^T) = (\exp\bfW)^T$. -->
+<!-- ::: -->
+
+### Eigenvalues, Eigenvectors and Principal Invariants {#sec-eigenv-eigenv-princ}
+
+An *eigenpair* for $\bfS\in\calV^2$ means a scalar $\lambda$ and a unit
+vector $\bfe$ satisfying $$\bfS\bfe=\lambda\bfe.$$ Any such $\lambda$ is
+called an *eigenvalue* and any such $\bfe$ is called an *eigenvector* of
+$\bfS$. We recall from Linear Algebra that $\lambda$ is an eigenvalue of
+$\bfS$ if and only if it is a root of the characteristic polynomial
+$$
+  p(\lambda)=\det(\bfS-\lambda \bfI).
+$$ {#eq-characteristicpolynomial}
+To any eigenvalue, we associate one or more linearly independent eigenvectors $\bfe$ by solving the
+equation
+$$
+  (\bfS-\lambda\bfI)\bfe = \bf0.
+$$ {#eq-eigenvectorequation}
+
+
+Throughout this module, we will exclusively consider eigenpairs in the
+context of symmetric tensors, and in this case, we note the following
+important facts. When $\bfS$ is symmetric, it can be shown that all
+three roots of the characteristic polynomial $p(\lambda)$ defined in
+@eq-characteristicpolynomial are real, and consequently, all
+solution $\bfe$ to @eq-eigenvectorequation also have real components. It
+therefore holds that any symmetric tensor has three eigenpairs
+consisting of real eigenvalues and real eigenvectors. We also have the
+following important result.
+
+::: {#prp-symmetriceigs}
+The eignvalues of any second-order symmetric, positive-definite tensor
+are strictly positive, and any two eigenvectors corresponding to
+distinct eigenvalues of a symmetric tensor are orthogonal.
+:::
+
+::: proof
+Let $\bfS\in\calV^2$ be symmetric and positive definite, and
+let $(\lambda,\bfe)$ be an eigenpair for $\bfS$. By definition, we have
+that $\bfS\bfe=\lambda\bfe$, and since $\bfe$ is a unit vector, we have
+$$\lambda = \lambda \bfe\cdot\bfe = (\bfS\bfe)\cdot\bfe >0,$$ so any
+eigenvalue must be positive, as stated. Suppose that $(\omega,\bfe')$ is
+a second eigenpair with $\lambda\neq \omega$. Then we have
+$$\lambda \bfe \cdot \bfe' = (\bfS\bfe)\cdot\bfe' = \bfe\cdot(\bfS^T\bfe') = \bfe\cdot(\bfS\bfe') = \omega\bfe\cdot\bfe',$$
+which entails that $(\lambda-\omega)\bfe\cdot\bfe'=0$. Since
+$\lambda\neq\omega$, we must have that $\bfe\cdot\bfe'=0$, completing
+the proof.
+:::
+
+We now state the following further result concerning symmetric
+second-order tensors, which is given without proof here.
+
+::: {#prp-spectraldecompositiontheorem}
+Let $\bfS\in\calV^2$ be a symmetric tensor. Then there exists a right-handed orthonormal basis
+$\{\bfe_i\}$ for $\calV$ consisting of eigenvectors of $\bfS$. The
+corresponding set of eigenvalues $\{\lambda_i\}$ are the same (up to a
+permutation of the ordering) for any such basis, and form a complete set
+of eigenvalues of $\bfS$. Moreover, we may write
+$$\bfS = \sum_{i=1}^3\lambda_i\bfe_i\otimes\bfe_i,$$ and with respect to
+the basis $\{\bfe_i\}$, $\bfS$ has component matrix representation
+$$
+[\bfS] = \left(
+      \begin{array}{ccc}
+        \lambda_1 & 0 & 0 \\
+        0 & \lambda_2 & 0 \\
+        0 & 0 & \lambda_3
+      \end{array}\right).$$
+:::
+
+We define the *principal invariants* of a second-order tensor $\bfS$ as
+the three scalars $$\begin{aligned}
+  I_1(\bfS) &= \tr\bfS,\\
+  I_2(\bfS) &= \tfrac12[(\tr\bfS)^2-\tr(\bfS^2)],\\
+  I_3(\bfS) &= \det\bfS.
+\end{aligned}$$ We note that, due to the fact that both the trace and
+the determinant are independent of the coordinate frame in which we
+consider components of the tensor $\bfS$, these invariants are
+independent of the frame too (justifying their name). For any
+$\alpha\in\bbR$, these invariants satisfy the relation
+$$p(\alpha) = \det(\bfS-\alpha \bfI) = -\alpha^3+I_1(\bfS)\alpha^2-I_2(\bfS)\alpha+I_3(\bfS),$$
+which can be verified by working in an arbitrary coordinate frame, and
+if $\bfS$ is symmetric with eigenvalues $\lambda_i$, then
+$$\begin{aligned}
+  I_1(\bfS) &= \lambda_1+\lambda_2+\lambda_3,\\
+  I_2(\bfS) &= \lambda_1\lambda_2+\lambda_2\lambda_3+\lambda_3\lambda_1,\\
+  I_3(\bfS) &= \lambda_1\lambda_2\lambda_3.
+\end{aligned}$$ For brevity, we will sometimes use the symbol
+$\calI_{\bfS}$ to denote the triplet of invariants
+$(I_1(\bfS),I_2(\bfS),I_3(\bfS))$. The principal invariants can be used
+to state the following important result in Linear Algebra (which is
+stated without proof here).
+
+::: {#prp-CayleyHamilton}
+Any second-order tensor $\bfS\in\calV^2$ satisfies
+$$\bfS^3-I_1(\bfS)\bfS^2+I_2(\bfS)\bfS-I_3(\bfS)\bfI=\bfO,$$ or in other
+words, $p(\bfS)=\bfO$ if $p$ is the characteristic polynomial of the
+tensor $\bfS$.
+:::
+
+### Further special decompositions
+
+Later, we will require use of several important tensor decompositions,
+in addition to those proved in @prp-symdecomp and @prp-spectraldecompositiontheorem. These are stated here.
+
+::: {#prp-squareroot}
+Suppose that $\bfS\in\calV^2$ is symmetric and positive definite. Then, there exists
+a unique symmetric postive definite tensor $\bfU$ such that
+$\bfU^2=\bfS$. In particular, if $(\lambda_i,\bfe_i)$ are the eigenpairs
+for $\bfS$, then we have
+$$\bfU = \sum_{i=1}^3 \sqrt{\lambda_i}\bfe_i\otimes\bfe_i,$$ and it is
+usual to write $\bfU = \sqrt{\bfS}$.
+:::
+
+The existence of square-root tensors allows us to state the following
+important representation theorem for second-order tensors.
+
+::: {#prp-polardecomposition}
+Suppose that $\bfF\in\calV^2$ satisfies $\det\bfF>0$. Then there exist *right*
+and *left polar decompositions* of $\bfF$, which take the respective
+forms $$\bfF = \bfR\bfU\quad\text{and}\quad\bfF=\bfV\bfR,$$ where
+$\bfU = \sqrt{\bfF^T\bfF}$ and $\bfV=\sqrt{\bfF\bfF^T}$ are symmetric
+positive definite tensors, and $\bfR$ is a rotation tensor.
+:::
+
+::: proof
+We note that $\bfF$ is invertible since it has positive
+determinant, and so $\bfF\bfv\neq\bf0$ for any $\bfv\neq\bf0$.
+Similarly, we have that $\bfF^T\bfv\neq\bf0$ for any $\bfv\neq\bf0$.
+From these observations we deduce that for any $\bfv\neq\bf0$,
+\begin{gather*}
+    \bfv\cdot(\bfF^T\bfF\bfv) = (\bfF\bfv)\cdot(\bfF\bfv)>0,\\
+    \bfv\cdot(\bfF\bfF^T\bfv) = (\bfF^T\bfv)\cdot(\bfF^T\bfv)>0.
+\end{gather*} It follows that $\bfF^T\bfF$ and $\bfF\bfF^T$ are
+positive definite and are clearly symmetric, so we can apply
+@prp-squareroot to ensure that $\bfU$ and $\bfV$ are
+well-defined.
+
+Next, consider the tensor defined to be $\bfR = \bfF\bfU^{-1}$. As
+$\bfF=\bfR\bfU$, and so $\det\bfF = \det\bfR\det\bfU$, we have that
+$$\det\bfR = \frac{\det\bfF}{\det\bfU}.$$ This allows us to deduce that
+$\det\bfR>0$ as the determinants of both $\bfF$ and $\bfU$ are positive.
+Moreover,
+$$\bfR^T\bfR = \bfU^{-T}(\bfF^T\bfF)\bfU^{-1} = \bfU^{-1}\bfU^2\bfU^{-1} = \bfI.$$
+It follows that $\bfR$ is a rotation as claimed, and we have established
+the right polar decomposition.
+
+To establish the left polar decomposition, we let $\bfQ=\bfV^{-1}\bfF$,
+and apply similar arguments to those above to show $\bfQ$ is a rotation.
+To show that $\bfQ=\bfR$, consider $\bfC=\bfQ^T\bfV\bfQ$, which is
+symmetric and positive definite. Then $\bfR\bfU=\bfQ\bfC$, and
+$\bfR=\bfQ\bfC\bfU^{-1}$. Since $\bfR$ is a rotation,
+$\bfR^{-1}=\bfR^T$, so multiplying $\bfR\bfU=\bfQ\bfC$ on the left by
+$\bfR^T=\bfU^{-T}\bfC^T\bfQ^T=\bfU^{-1}\bfC\bfQ^T$, we have
+$$\bfU = \bfU^{-1}\bfC\bfQ^T\bfC\quad\text{so}\quad\bfC^2=\bfU^2=\bfF^T\bfF.$$
+From the uniqueness of the tensor square root, we have that $\bfC=\bfU$,
+and so $\bfR = \bfQ\bfC\bfU^{-1}=\bfQ$. It follows that
+$\bfF=\bfR\bfU=\bfV\bfR$ as claimed.
+:::
+
+<!-- ## Fourth-order tensors -->
+
+<!-- We defined a second-order tensor as a linear transformation between -->
+<!-- vectors, or first-order tensors. When studying the behaviour of material -->
+<!-- bodies, we will encounter the concept of a linear transformation between -->
+<!-- second-order tensors, epitomised by the relationship between stress and -->
+<!-- strain in a material. This concept leads us to the definition of -->
+<!-- fourth-order tensors. As we will see, a fourther-order tensor is -->
+<!-- described by eighty-one components in any Cartesian coordinate frame for -->
+<!-- $\bbE^3$. -->
+
+<!-- ### Definition -->
+
+<!-- A *fourth-order tensor* $\bsfC$ on the vector space $\calV$ means a -->
+<!-- mapping $\bsfC:\calV^2\to\calV^2$ which is linear in the sense that -->
+<!-- $$\bsfC(\alpha \bfS+\beta \bfT) =\alpha \bsfC(\bfS)+\beta\bsfC(\bfT)\quad\text{for all }\bfS,\bfT\in\calV^2,\,\alpha,\beta\in\bbR.$$ -->
+<!-- Since fourth-order tensors are linear, we use the usual convention and -->
+<!-- omit parentheses around the argument, writing $\bsfC\bfS=\bsfC(\bfS)$. -->
+<!-- We denote the set of all fourth-order tensors on $\calV$ by the symbol -->
+<!-- $\calV^4$. We define a fourth-order *zero tensor* $\bsfO$ with the -->
+<!-- property that $\bsfO\bfS = \bfO$ for all $\bfS\in\calV^2$, and a -->
+<!-- fourth-order *identity tensor* $\bsfI$ with the property that -->
+<!-- $\bsfI\bfS=\bfS$ for any $\bfS\in\calV^2$. Two fourth-order tensors -->
+<!-- $\bsfC$ and $\bsfD$ are equal if any only if $\bsfC\bfS = \bsfD\bfS$ for -->
+<!-- all $\bfS\in\calV^2$. -->
+
+<!-- ##### Example: -->
+
+<!-- Given any fixed $\bfA\in\calV^2$, the mapping $\bsfC:\calV^2\to\calV^2$ -->
+<!-- given by $$\bsfC(\bfT)=\bfA\bfT$$ defines a fourth-order tensor. To see -->
+<!-- this, we need only establish linearity, which follows because -->
+<!-- $$\bsfC(\alpha\bfS+\beta\bfT)=\bfA(\alpha\bfS+\beta\bfT) =\alpha \bfA\bfS+\beta \bfA\bfT = \alpha \bsfC(\bfS)+\beta\bsfC(\bfT)$$ -->
+<!-- for any $\bfS,\bfT\in\calV^2$ and $\alpha,\beta\in\bbR$. -->
+
+<!-- We note that $\calV^4$ has the structure of a real vector space, since -->
+<!-- $$\bsfC+\bsfD\in\calV^4\quad\text{and}\quad \alpha\bsfC\in\calV^4$$ for -->
+<!-- all $\alpha\in\bbR$ and $\bsfC,\bsfD\in\calV^4$. It is also possible to -->
+<!-- compose fourth-order tensors to generate new fourth-order tensors, and -->
+<!-- we write $\bsfC\bsfD\in\calV^4$ to mean the map defined via -->
+<!-- $$(\bsfC\bsfD)\bfS = \bsfC(\bsfD\bfS)\quad\text{for all }\bfS\in\calV^2.$$ -->
+
+<!-- ### Representation in a coordinate frame -->
+
+<!-- The *components* of a fourth-order tensor $\bsfC$ in a Cartesian -->
+<!-- coordinate frame $\{\bfe_i\}$ are the eighty-one numbers -->
+<!-- $\sfC_{ijkl}\in\bbR$ for $1\leq i,j,k,l\leq 3$, defined to be -->
+<!-- $$\sfC_{ijkl} = \bfe_i\cdot \big(\bsfC(\bfe_k\otimes\bfe_l)\big)\bfe_j,$$ -->
+<!-- i.e. if we let $\bfS_{kl}=\bsfC(\bfe_k\otimes\bfe_l)$, then -->
+<!-- $$\sfC_{ijkl}=\bfe_i\cdot(\bfS_{kl}\bfe_j).$$ The components completely -->
+<!-- describe the transformation $\bsfC:\calV^2\to\calV^2$. Given -->
+<!-- $\bfU=\bsfC\bfT$, by linearity we have $$\begin{aligned} -->
+<!--   U_{ij} = \bfe_i\cdot(\bfU\bfe_j) -->
+<!--   &=\bfe_i\cdot \bsfC(\bfT)\bfe_j\\ -->
+<!--   &=\bfe_i \cdot \bsfC(T_{kl}\bfe_k\otimes\bfe_l)\bfe_j\\ -->
+<!--   &=\bfe_i \cdot \bsfC(\bfe_k\otimes\bfe_l)\bfe_j T_{kl}\\ -->
+<!--   &=\sfC_{ijkl}T_{kl}. -->
+<!-- \end{aligned}$$ The components of $\bsfC$ are simply the coefficients in -->
+<!-- the linear relationship between the components of $\bfU$ and $\bfT$. -->
+
+<!-- ##### Example: -->
+
+<!-- Let $\bfA\in\calV^2$ and again consider the fourth-order tensor $\bsfC$ -->
+<!-- defined via $\bsfC\bfT = \bfA\bfT$. Then the components of $\bsfC$ are -->
+<!-- $$\sfC_{ijkl} = \bfe_i\cdot \bfA(\bfe_k\otimes\bfe_l)\bfe_j = \bfe_i \cdot\bfA\bfe_k\delta_{lj}=A_{ik}\delta_{jl}.$$ -->
+
+<!-- An alternative way to compute the components of a fourth-order tensor is -->
+<!-- to use the scalar product for second-order tensors, namely: -->
+<!-- $$\sfC_{ijkl}  = (\bfe_i\otimes\bfe_j):\bsfC(\bfe_k\otimes\bfe_l).$$ To -->
+<!-- see this, define second-order tensors -->
+<!-- $\bfS_{kl} = \bsfC(\bfe_k\otimes\bfe_l)$, and note that -->
+<!-- $$\bsfC(\bfe_k\otimes\bfe_l)=\bfS_{kl} =\big(\bfe_i\cdot(\bfS_{kl}\bfe_j)\big)\bfe_i\otimes\bfe_j -->
+<!--   =\sfC_{ijkl}\bfe_i\otimes\bfe_j,$$ so that $$\begin{aligned} -->
+<!--   (\bfe_m\otimes\bfe_n):\bsfC(\bfe_k\otimes\bfe_l) -->
+<!--   &= \sfC_{ijkl}(\bfe_m\otimes\bfe_n):(\bfe_i\otimes\bfe_j)\\ -->
+<!--   &= \sfC_{ijkl}\delta_{mi}\delta_{nj}\\ -->
+<!--   &=\sfC_{mnkl}, -->
+<!-- \end{aligned}$$ as required. -->
+
+<!-- ### Dyadic products, bases -->
+
+<!-- The *dyadic product* of four vectors $\bfa,\bfb,\bfc,\bfd\in\calV$ is a -->
+<!-- fourth-order tensor $\bfa\otimes\bfb\otimes\bfc\otimes\bfd$ defined by -->
+<!-- $$(\bfa\otimes\bfb\otimes\bfc\otimes\bfd)\bfT = (\bfc\cdot\bfT\bfd)\bfa\otimes\bfb\quad\text{for all }\bfT\in\calV^2.$$ -->
+<!-- Given a coordinate frame $\{\bfe_i\}$m, the eighty-one elementary dyadic -->
+<!-- products $\{\bfe_i\otimes \bfe_j\otimes\bfe_k\otimes\bfe_l\}$ form a -->
+<!-- basis for $\calV^4$. In particular, each $\bsfC\in\calV^4$ can be -->
+<!-- uniquely represented as a linear combination -->
+<!-- \begin{equation} -->
+<!--   \bsfC = \sfC_{ijkl}\bfe_i\otimes \bfe_j\otimes\bfe_k\otimes\bfe_l,-->
+<!-- (#eq:4tensorcoordinates) -->
+<!-- \end{equation} -->
+<!-- where $\sfC_{ijkl}$ are the components of $\bsfC$ as defined above. -->

@@ -1,0 +1,100 @@
+---
+format: html
+---
+
+::: {.hidden}
+$$
+\newcommand{\bfa}{{\boldsymbol{a}}}
+\newcommand{\bfb}{{\boldsymbol{b}}}
+\newcommand{\bfc}{{\boldsymbol{c}}}
+\newcommand{\bfd}{{\boldsymbol{d}}}
+\newcommand{\bfe}{{\boldsymbol{e}}}
+\newcommand{\bff}{{\boldsymbol{f}}}
+\newcommand{\bfg}{{\boldsymbol{g}}}
+\newcommand{\bfh}{{\boldsymbol{h}}}
+\newcommand{\bfi}{{\boldsymbol{i}}}
+\newcommand{\bfj}{{\boldsymbol{j}}}
+\newcommand{\bfk}{{\boldsymbol{k}}}
+\newcommand{\bfl}{{\boldsymbol{l}}}
+\newcommand{\bfm}{{\boldsymbol{m}}}
+\newcommand{\bfn}{{\boldsymbol{n}}}
+\newcommand{\bfo}{{\boldsymbol{o}}}
+\newcommand{\bfp}{{\boldsymbol{p}}}
+\newcommand{\bfq}{{\boldsymbol{q}}}
+\newcommand{\bfr}{{\boldsymbol{r}}}
+\newcommand{\bfs}{{\boldsymbol{s}}}
+\newcommand{\bft}{{\boldsymbol{t}}}
+\newcommand{\bfu}{{\boldsymbol{u}}}
+\newcommand{\bfv}{{\boldsymbol{v}}}
+\newcommand{\bfw}{{\boldsymbol{w}}}
+\newcommand{\bfx}{{\boldsymbol{x}}}
+\newcommand{\bfy}{{\boldsymbol{y}}}
+\newcommand{\bfz}{{\boldsymbol{z}}}
+
+\newcommand{\bfA}{{\boldsymbol{A}}}
+\newcommand{\bfB}{{\boldsymbol{B}}}
+\newcommand{\bfC}{{\boldsymbol{C}}}
+\newcommand{\bfD}{{\boldsymbol{D}}}
+\newcommand{\bfE}{{\boldsymbol{E}}}
+\newcommand{\bfF}{{\boldsymbol{F}}}
+\newcommand{\bfG}{{\boldsymbol{G}}}
+\newcommand{\bfH}{{\boldsymbol{H}}}
+\newcommand{\bfI}{{\boldsymbol{I}}}
+\newcommand{\bfJ}{{\boldsymbol{J}}}
+\newcommand{\bfK}{{\boldsymbol{K}}}
+\newcommand{\bfL}{{\boldsymbol{L}}}
+\newcommand{\bfM}{{\boldsymbol{M}}}
+\newcommand{\bfN}{{\boldsymbol{N}}}
+\newcommand{\bfO}{{\boldsymbol{O}}}
+\newcommand{\bfP}{{\boldsymbol{P}}}
+\newcommand{\bfQ}{{\boldsymbol{Q}}}
+\newcommand{\bfR}{{\boldsymbol{R}}}
+\newcommand{\bfS}{{\boldsymbol{S}}}
+\newcommand{\bfT}{{\boldsymbol{T}}}
+\newcommand{\bfU}{{\boldsymbol{U}}}
+\newcommand{\bfV}{{\boldsymbol{V}}}
+\newcommand{\bfW}{{\boldsymbol{W}}}
+\newcommand{\bfX}{{\boldsymbol{X}}}
+\newcommand{\bfY}{{\boldsymbol{Y}}}
+\newcommand{\bfZ}{{\boldsymbol{Z}}}
+
+\newcommand{\bftau}{{\boldsymbol{\tau}}}
+\newcommand{\bfnu}{{\boldsymbol{\nu}}}
+\newcommand{\bfpsi}{{\boldsymbol{\psi}}}
+\newcommand{\bfphi}{{\boldsymbol{\varphi}}}
+\newcommand{\bfSigma}{{\boldsymbol{\Sigma}}}
+\newcommand{\calI}{{\mathcal{I}}}
+\newcommand{\calN}{{\mathcal{N}}}
+\newcommand{\calV}{{\mathcal{V}}}
+\newcommand{\bbE}{{\mathbb{E}}}
+\newcommand{\bbR}{{\mathbb{R}}}
+\newcommand{\bbC}{{\mathbb{C}}}
+\newcommand{\bsfC}{{\mathsf{C}}}
+\newcommand{\bsfD}{{\mathsf{D}}}
+\newcommand{\bsfI}{{\mathsf{I}}}
+\newcommand{\bsfO}{{\mathsf{O}}}
+\newcommand{\tr}{{\operatorname{tr}}}
+\newcommand{\sym}{{\operatorname{sym}}}
+\newcommand{\skw}{{\operatorname{skew}}}
+\newcommand{\vc}{{\operatorname{vec}}}
+\newcommand{\ten}{{\operatorname{ten}}}
+\newcommand{\cof}{{\operatorname{cof}}}
+\newcommand{\mass}{{\operatorname{mass}}}
+\newcommand{\vol}{{\operatorname{vol}}}
+\newcommand{\area}{{\operatorname{area}}}
+\newcommand{\com}{{\operatorname{com}}}
+\newcommand{\cov}{{\operatorname{cov}}}
+\newcommand{\e}{{\mathrm{e}}}
+\newcommand{\D}{{\mathrm{D}}}
+\newcommand{\d}{{\mathrm{d}}}
+\newcommand{\dt}{{\d t}}
+\newcommand{\Dt}{{\D t}}
+\newcommand{\bigO}{{O}}
+\newcommand{\litO}{{o}}
+\newcommand{\dVx}{{\,\d V_{\bfx}}}
+\newcommand{\dAx}{{\,\d A_{\bfx}}}
+\newcommand{\dVy}{{\,\d V_{\bfy}}}
+\newcommand{\dAy}{{\,\d A_{\bfy}}}
+\newcommand{\ds}{{\,\d s}}
+$$
+:::

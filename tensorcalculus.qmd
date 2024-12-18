@@ -1,0 +1,592 @@
+{{< include macros.qmd >}}
+
+# Tensor Calculus {#sec-tensor-calculus}
+
+## Preliminaries
+Realistic bodies have properties which vary from place to place within
+them. If we seek to describe their properties using the language of
+tensors introduced in the previous chapter, then a way to describe their
+properties is through tensor-valued functions which assign properties to
+spatial points in the body. More specifically, this chapter will
+consider functions $\phi:\bbE^3\to\bbR$, $\bfv:\bbE^3\to\calV$ and
+$\bfS:\bbE^3\to\calV^2$ which describe these properties. We will also
+wish to consider functions which describe changes in the shape of a
+body, which take the form $\bfphi:\bbE^3\to\bbE^3$, $g:\calV^2\to\bbR$
+and $\bfA:\calV^2\to\calV^2$. Many of these concepts will
+already be very familiar to you from earlier calculus modules.
+
+**Aims.** By the end of this chapter, you should be able to:
+
+-   Give a definition of differentiability for scalar, vector, and
+    tensor fields.
+
+-   Define the divergence for vector and tensor fields.
+
+-   Manipulate the gradient, divergence, curl, and Laplacian of fields
+    in components using the summation convention, and so derive various
+    product formula for these differential operators.
+
+-   Recall and apply the Divergence Theorem, the
+    Localisation Theorem and the Mean Value Theorem for multidimensional integrals.
+
+-   Understand how to differentiate functions of second-order tensors.
+
+
+### Points, tensors and representations
+
+Throughout this chapter, we assume that a single fixed Cartesian
+coordinate frame $\{\bfe_i\}$ has be specified for Euclidean space
+$\bbE^3$, and we identify points $\bfx\in\bbE^3$, vectors $\bfv\in\calV$
+and second-order tensors $\bfS\in\calV^2$ with their respective matrix
+representations, writing $$\begin{gathered}
+  \bfx = x_i\bfe_i = \left(\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}\right)\in\bbR^3,\quad
+  \bfv = v_i\bfe_i = \left(\begin{array}{c} v_1 \\ v_2 \\ v_3 \end{array}\right)\in\bbR^3\\
+  \text{and}\quad \bfS = S_{ij}\bfe_i\otimes\bfe_j =
+  \left(\begin{array}{ccc}
+          S_{11} & S_{12} & S_{13} \\
+          S_{21} & S_{22} & S_{23} \\
+          S_{31} & S_{32} & S_{33}
+        \end{array}\right)\in\bbR^{3\times 3}.
+\end{gathered}$$ It follows that we have identified $\bbE^3$ and $\calV$
+both with $\bbR^3$, and $\calV^2$ with $\bbR^{3\times3}$. Any function
+of a spatial point $\bfx$ is a function of the three real variables
+$(x_1,x_2,x_3)$, and a function of a second-order tensor $\bfS$ is a
+function of nine real variables, $(S_{11},S_{12},\dots,S_{33})$.
+
+### Norms and order symbols
+
+The standard *norms* on the spaces $\bbE^3$, $\calV$ and $\calV^2$ are
+the scalar functions $$\begin{aligned}
+  |\bfx|&=\sqrt{\bfx\cdot\bfx}&&\text{for any }\bfx\in\bbE^3,\\
+  |\bfv|&=\sqrt{\bfv\cdot\bfv}&&\text{for any }\bfv\in\calV,\\
+  \text{and}\qquad|\bfS|&=\sqrt{\bfS:\bfS}&&\text{for any }\bfS\in\calV^2.
+\end{aligned}$$
+
+Just as the norms for vectors measure their size, $|\bfS|$ measures the
+size of the tensor $\bfS$. The notion of a norm allows us to define
+limits on the spaces $\bbE^3$, $\calV$ and $\calV^2$, along with notions
+of continuity.
+
+Consider a function $\bff:U\to W$, where $U$ and $W$ can be any of the
+spaces $\bbE^3$, $\calV$, $\calV^2$ or $\bbR$. If there are constants
+$C>0$ and $r>0$ such that $|\bff(\bfu)|\leq C|\bfu|^r$ as $\bfu\to\bf0$,
+then we write
+$$\bff(\bfu) = \bigO(|\bfu|^r)\quad\text{as}\quad\bfu\to\bf0.$$ If there is a constant $r>0$ such that $$\frac{|\bff(\bfu)|}{|\bfu|^r}\to0$$ as
+$\bfu\to\bf0$, then we write
+$$\bff(\bfu)=\litO(|\bfu|^r)\quad\text{as}\quad\bfu\to\bf0.$$ The
+symbols $\bigO$ and $\litO$ are called the standard *order symbols*, and
+are used in many contexts.
+
+The order symbols are a way to describe the behaviour of a function
+close to zero, or by translating, close to any other given value. We can
+read $\bigO(|\bfu|^r)$ as a function which goes to zero 'at least as
+fast as' $|\bfu|^r$, while $\litO(|\bfu|^r)$ should be read as a
+function which goes to zero 'faster than' $|\bfu|^r$. This means that
+$\bigO\bfu)=\litO(|\bfu|^r)$ implies that $\bff(\bfu)=\bigO(|\bfu|^r)$,
+but not the converse. When $p>r$, it is however true that
+$\bff(\bfu)=\bigO(|\bfu|^p)$ implies $\bff(\bfu)=\litO(|\bfu|^r)$.
+
+Given two functions $\bff,\bfg:U\to W$, we will use the notation
+$$\bff(\bfu) = \bfg(\bfu)+\bigO(|\bfu|^r)\quad\text{as }\bfu\to\bf0$$ to
+mean that
+$$\bff(\bfu) - \bfg(\bfu) = \bigO(|\bfu|^r)\quad\text{as }\bfu\to\bf0,$$
+and the same for the order symbol $\litO$. We sometimes indicate the
+limit $\bfu\to\bf0$ using the informal terminology 'for $\bfu$ small'.
+
+## Differentiation of tensor fields
+
+In this module, a *field* is a function defined in a region of $\bbE^3$.
+A *scalar field* means a function $\phi:\bbE^3\to\bbR$, a *vector field*
+means a function $\bfv:\bbE^3\to\calV$, and a *second-order tensor
+field* means a function $\bfS:\bbE^3\to\calV^2$. This section will
+discuss the definitions and properties of various differential operators
+we may apply to these fields.
+
+### Derivatives, gradients
+
+The derivative or gradient of a field is the central notion of
+differentiation: other operations will be based on these basic
+definitions.
+
+A scalar field $\phi:\bbE^3\to\bbR$ is said to be differentiable at
+$\bfx\in\bbE^3$ if there exists a vector $\nabla \phi(\bfx)\in\calV$
+such that
+$$\phi(\bfx+\bfh) = \phi(\bfx) +\nabla \phi(\bfx)\cdot\bfh+\litO(|\bfh|),$$
+or equivalently, such that
+$$\nabla\phi(\bfx)\cdot\bfa = \frac{d}{d\alpha}\phi(\bfx+\alpha\bfa)\bigg|_{\alpha=0}\quad\text{for all }\bfa\in\calV,$$
+where $\alpha\in\bbR$. $\nabla\phi(\bfx)$ is called the *derivative* or
+*gradient* of $\phi$ at the point $\bfx$.
+
+A vector field $\bfv:\bbE^3\to\calV$ is said to be differentiable at
+$\bfx\in\bbE^3$ if there exists a second-order tensor
+$\nabla \bfv(\bfx)\in\calV^2$ such that
+$$\bfv(\bfx+\bfh) = \bfv(\bfx) +\nabla \bfv(\bfx)\bfh+\litO(|\bfh|),$$
+or equivalently, such that
+$$\nabla\bfv(\bfx)\bfa = \frac{d}{d\alpha}\bfv(\bfx+\alpha\bfa)\bigg|_{\alpha=0}\quad\text{for all }\bfa\in\calV,$$
+where $\alpha\in\bbR$. $\nabla\bfv(\bfx)$ is again called the
+*derivative* or *gradient* of $\bfv$ at the point $\bfx$.
+
+::: {#prp-gradientincoords}
+## Gradients in coordinates
+Suppose that $\phi:\bbE^3\to\bbR$ and $\bfv:\bbE^3\to\calV$ are differentiable at
+$\bfx$, and let $\{\bfe_i\}$ be an arbitrary Cartesian coordinate frame.
+Then
+$$\nabla\phi(\bfx) = \frac{\partial\phi}{\partial x_i}(\bfx)\bfe_i\quad\text{and}\quad
+    \nabla\bfv(\bfx) = \frac{\partial v_i}{\partial x_j}(\bfx)\bfe_i\otimes\bfe_j,$$
+where $\bfv(\bfx) = v_i(\bfx)\bfe_i$ and $x_i$ are the coordinates of
+$\bfx$ in the frame considered.
+:::
+
+::: proof
+Writing $\phi$ and $v_i$ as functions of the coordinates $x_i$,
+we have $\phi(\bfx) = \phi(x_1,x_2,x_3)$ and
+$v_i(\bfx) = v_i(x_1,x_2,x_3)$. If $\bfa = a_k\bfe_k$, then we can use
+the chain rule to find
+$$\nabla\phi(\bfx)\cdot\bfa = \frac{d}{d\alpha}\phi(\bfx+\alpha \bfa)\bigg|_{\alpha=0}= \frac{\partial \phi}{\partial x_i}(\bfx)a_i = \frac{\partial \phi}{\partial x_i}(\bfx)\bfe_i\cdot a_k\bfe_k.$$
+Since this must hold for all $\bfa$, the first result follows.
+Similarly, we find
+$$\frac{d}{d\alpha}v_i(\bfx+\alpha \bfa)\bigg|_{\alpha=0}= \frac{\partial v_i}{\partial x_j}(\bfx)a_j = \frac{\partial v_i}{\partial x_j}(\bfx)\bfe_j\cdot a_k\bfe_k,$$
+and so
+$$\nabla\bfv(\bfx)\bfa = \bfe_i\frac{d}{d\alpha}v_i(\bfx+\alpha\bfa)\bigg|_{\alpha=0}
+    =\bigg(\frac{\partial v_i}{\partial x_j}(\bfx)\bfe_i\otimes\bfe_j\bigg)a_k\bfe_k.$$
+Again, since this holds for all $\bfa\in\calV$, we obtain the desired
+result.
+:::
+
+**Important note:** We will often use the shorthand $\phi_{,i}$ to denote
+$\frac{\partial \phi}{\partial x_i}$ and $v_{i,j}$ to denote
+$\frac{\partial v_i}{\partial x_j}$.
+
+### Divergence
+
+The *divergence* of a vector field $\bfv:\bbE^3\to\calV$ is the scalar
+field $\nabla\cdot\bfv:\bbE^3\to\bbR$ defined to be
+$$\nabla\cdot\bfv = \tr(\nabla\bfv).$$ If $\bfv$ is the velocity field in
+a flowing fluid, then $(\nabla\cdot\bfv)(\bfx)$ can be interpreted as
+the rate of volume expansion at the point $\bfx$.
+
+Similarly, we can also define a divergence for second-order tensor
+fields. If $\bfS:\bbE^3\to\calV^2$, then the vector field
+$\nabla\cdot\bfS:\bbE^3\to\calV$ is defined to be the vector field which
+satisfies $$(\nabla \cdot \bfS)\cdot \bfa = \nabla \cdot(\bfS^T\bfa)$$
+for all constant vectors $\bfa\in\calV$. The field $\nabla\cdot\bfS$ is
+again called the *divergence* of $\bfS$.
+
+The following result provides a coordinate expression for these two
+notions of divergence in any coordinate frame.
+
+::: {#prp-divincoords} 
+## Divergence in coordinates
+Let $\{\bfe_i\}$ be an arbitrary coordinate frame, and let
+$\bfv(\bfx) = v_i(\bfx)\bfe_i$, and
+$\bfS(\bfx) = S_{ij}(\bfx)\bfe_i\otimes\bfe_j$. Then
+$$(\nabla\cdot\bfv)(\bfx) = \frac{\partial v_i}{\partial x_i}(\bfx) = v_{i,i}(\bfx)
+    \quad\text{and}\quad (\nabla\cdot\bfS)(\bfx) = \frac{\partial S_{ij}}{\partial x_j}(\bfx)\bfe_i = S_{ij,j}\bfe_i,$$
+where $x_i$ are the coordinates of $\bfx$ with respect to the frame.
+:::
+
+::: proof
+We prove only the second expression, since the first follows
+directly from
+@prp-gradientincoords and the component expression for the
+trace. Fix $\bfa = a_k\bfe_k$ and let $\bfq = \bfS^T\bfa$. In
+components, we have $\bfq = q_j\bfe_j$ with $q_j = S_{ij}a_i$. Then,
+using the definition and the first expression, we have
+$$(\nabla \cdot\bfS)\cdot\bfa = \nabla\cdot\bfq = q_{i,i} = S_{ij,j}a_i = \big(s_{ij,j}\bfe_i\big)\cdot a_k\bfe_k.$$
+Since this holds for any $\bfa\in\calV$, we have that
+$\nabla \cdot\bfS = S_{ij,j}\bfe_i$.
+:::
+
+::: {#prp-productrules}
+## Product rules
+Let $\phi$, $\bfv$ and $\bfS$ respectively be scalar, vector and
+second-order tensor fields. Then 
+$$
+\begin{gathered}
+    \nabla(\phi\bfv) = \bfv\otimes\nabla\phi+\phi\nabla\bfv,\\
+    \nabla\cdot(\phi\bfS) = \phi\nabla\cdot\bfS+\bfS\nabla\phi,\\
+    \nabla\cdot(\bfS^T\bfv) = (\nabla\cdot\bfS)\cdot\bfv + \bfS:\nabla \bfv.
+\end{gathered}
+$$
+:::
+
+**Exercise:** Prove this proposition by using the component expressions given above.
+
+### Curl
+
+The *curl* of a vector field $\bfv:\bbE^3\to\calV$ is the vector field
+$\nabla\times\bfv:\bbE^3\to\calV$ which satisfies
+$$(\nabla\times\bff)\times\bfa = (\nabla\bfv-\nabla \bfv^T)\bfa$$ for
+any constant vector $\bfa\in\calV$.
+
+If $\bfv$ is the velocity field of a flowing fluid, then the curl
+provides information on the rate and direction of rotation of this
+field. In practice, we use the following result to compute the curl in a
+particular coordinate frame.
+
+::: {#prp-curlincoords}
+## Curl in coordinates
+Let $\{\bfe_i\}$ be an arbitrary Cartesian coordinate frame, and let
+$\bfv(\bfx) = v_i(\bfx)\bfe_i$. Then
+$$(\nabla\times\bfv)(\bfx) = \epsilon_{ijk}v_{i,k}(\bfx)\bfe_j,$$ where
+$x_i$ are the coordinates of $\bfx$ with respect to the frame.
+Equivalently, we have
+$$\nabla\times\bfv = \bigg(\frac{\partial v_3}{\partial x_2}-\frac{\partial v_2}{\partial x_3}\bigg)\bfe_1+\bigg(\frac{\partial v_1}{\partial x_3}-\frac{\partial v_3}{\partial x_1}\bigg)\bfe_2+\bigg(\frac{\partial v_2}{\partial x_1}-\frac{\partial v_1}{\partial x_2}\bigg)\bfe_3.$$
+:::
+
+### Laplacian
+
+The *Laplacian* of a scalar field $\phi:\bbE^3\to\bbR$ is the scalar
+field $\nabla^2\phi:\bbE^3\to\bbR$ defined via
+$$\nabla^2\phi = \nabla\cdot(\nabla \phi).$$ Likewise, the *Laplacian*
+of a vector field $\bfv:\bbE^3\to\calV$ is the vector field
+$\nabla^2\bfv:\bbE^3\to\calV$ defined by
+$$\nabla^2\bfv = \nabla\cdot(\nabla \bfv).$$ We remark that in
+alternative standard notation the Laplacian is also often denoted
+$\Delta$, i.e. $\Delta\phi=\nabla^2\phi$. In coordinates, we have the
+following representation.
+
+::: {#prp-Laplacianincoords}
+## Laplacian in coordinates
+Let $\{\bfe_i\}$ be an arbitrary Cartesian coordinate frame, and let
+$\bfv(\bfx) = v_i(\bfx)\bfe_i$. Then
+$$\nabla^2\phi(\bfx) = \phi_{,ii}(\bfx) \quad\text{and}\quad\nabla^2\bfv(\bfx) = v_{i,jj}(\bfx)\bfe_i,$$
+where $x_i$ are the coordinates of $\bfx$ with respect to the frame.
+:::
+
+**Exercise:** Prove this proposition.
+
+## Some important integral theorems
+
+In this section, we provide statements of various important theorems
+about integrals. We will use these theorems to convert between integral
+and differential forms of the balance laws we derive later, and to prove
+various other facts about the physical tensors we study.
+
+### Divergence Theorem
+
+Recall that the divergence theorem for vector fields connects the volume
+integral of the divergence of a field over a region to the total flux
+across the boundary of the region. Various versions of this theorem can
+be proved under different assumptions on the properties of the region.
+The particular class of regions $B\subset\bbE^3$ we will consider are
+those which are *regular* in the sense that:
+
+-   $B$ consists of a finite number of disjoint, open and bounded
+    components;
+
+-   The bounding surface $\partial B$ is piecewise smooth and consists
+    of a finite number of disjoint components; and
+
+-   Each component of $\partial B$ is orientable in the sense that it
+    has two clearly distinct sides.
+
+Examples of regions that do fit these assumptions include pretty much
+all shapes we would like to consider for the purposes of modelling, but
+it is worth thinking about what sorts of regions do not fit these
+assumptions!
+
+::: {#prp-vectordivtheorem}
+## Vector divergence theorem
+Suppose $B$ is a regular region in $\bbE^3$ with a piecewise smooth
+boundary $\partial B$, and consider a vector field $\bfv:B\to\calV$.
+Then $$\int_{\partial B} \bfv\cdot\bfn \dAx = \int_B\nabla\cdot\bfv \dVx,$$
+or in components, $$\int_{\partial B}v_in_i \dAx = \int_Bv_{i,i} \dVx,$$
+where $\bfn$ is the outward-point unit normal field on $\partial B$. The
+quantity on the left-hand side of these equations is called the *flux*
+of $\bfv$ across the oriented surface $\partial B$.
+:::
+
+We note that this theorem allows us to understand what the divergence of
+a vector field really means. Consider a point $\bfy$, and the ball of
+radius $\delta$ around that point, $B_\delta(\bfy)$. If $\bfv$ is
+smooth, we can use the Divergence theorem and Taylor expand the argument
+in the volume integral to conclude that $$\begin{aligned}
+  \int_{\partial B_\delta(\bfy)}\bfv(\bfx)\cdot\bfn(\bfx)\dAx
+  &= \int_{B_\delta(\bfy)}(\nabla \cdot \bfv)(\bfx)\dVx\\
+  &= \int_{B_\delta(\bfy)}\big[(\nabla \cdot \bfv)(\bfy)+\bigO(\delta)\big]\dVx\\
+  &= \vol\big(B_\delta(\bfy)\big)\big[(\nabla \cdot \bfv)(\bfy)+\bigO(\delta)\big].
+\end{aligned}$$ This implies that, in the limit as $\delta\to0$,
+$$(\nabla \cdot \bfv)(\bfy) = \lim_{\delta\to0}\frac{1}{\vol(B_\delta(\bfy))}\int_{\partial B_\delta(\bfy)}\bfv\cdot\bfn \dAx.$$
+If we interpret $\bfv$ as a velocity field of a fluid, then the flux
+integral is the volume of fluid per unit time leaving $B_\delta(\bfy)$.
+When divided by the volume, we therefore obtain the proportion of fluid
+leaving $B_\delta(\bfy)$ per unit time, and so $(\nabla\cdot\bfv)(\bfy)$
+is a measure of the volume expansion at the point $\bfy$.
+
+We can generalise the divergence theorem to second-order tensors as
+follows:
+
+::: {#prp-tensordivthm}
+## Tensor divergence theorem
+Suppose $B$ is a regular region in $\bbE^3$ with a piecewise smooth boundary
+$\partial B$, and consider a second-order tensor field
+$\bfS:B\to\calV^2$. Then
+$$\int_{\partial B} \bfS\bfn \dAx = \int_B\nabla\cdot\bfS \dVx,$$ or in
+components, $$\int_{\partial B}S_{ij}n_j \dAx = \int_BS_{ij,j} \dVx,$$ where
+$\bfn$ is the outward-point unit normal field on $\partial B$.
+:::
+
+<!-- ### Stokes Theorem -->
+
+<!-- Next, we recap Stokes' theorem, which relates the line integral of a -->
+<!-- vector field along a simple closed curve $C$ to the surface integral of -->
+<!-- the curl over a surface $\Gamma$ with boundary $C=\partial\Gamma$. As -->
+<!-- with the divergence theorem, various versions of this theorem can be -->
+<!-- proved under different assumptions on the properties of both $C$ and -->
+<!-- $\Gamma$. In particular, we assume that: -->
+
+<!-- -   The curve $C$ does not intersect itself (it is simple), is of -->
+<!--     bounded length, and is piecewise smooth; and -->
+
+<!-- -   The surface $\Gamma$ is orientable (it has a well-defined normal -->
+<!--     field $\bfn$), is of bounded area, and is piecewise smooth. -->
+
+<!-- The orientations for the tangent field $\bft$ defined on $C$ and the -->
+<!-- normal field $\bfn$ defined on $\Gamma$ are assumed to be such that a -->
+<!-- person walking around $C$ in the direction of $\bft$ with their head -->
+<!-- pointing in the direction $\bfn$ would find the surface $\Gamma$ on -->
+<!-- their left. -->
+
+<!-- ::: {.proposition} -->
+<!-- Let $\Gamma$ be a surface in $\bbE^3$ with a piecewise smooth boundary -->
+<!-- curve $C=\partial \Gamma$, and consider a vector field -->
+<!-- $\bfv:\bbE^3\to\calV$. Then -->
+<!-- $$\int_\Gamma (\nabla\times\bfv)\cdot\bfn \dAx = \int_C \bfv\cdot\bft \ds,$$ -->
+<!-- or in components, -->
+<!-- $$\int_{\Gamma}\epsilon_{ijk}v_{j,k}n_i \dAx = \int_C v_it_i \ds,$$ where -->
+<!-- $\bfn$ is a unit normal field on $\Gamma$, and $\bft$ is a unit tangent -->
+<!-- field on $C$ oriented consistently as discussed above. Then quantity on -->
+<!-- the right-hand side of the above relation is called the *circulation* of -->
+<!-- $\bfv$ around the oriented curve $C$. -->
+<!-- ::: -->
+
+<!-- As with the Divergence Theorem, Stokes' theorem can be used to gain an -->
+<!-- idea of the meaning of the curl. Consider a point $\bfy$ and let -->
+<!-- $\Gamma_\delta$ be a disc centred at $\bfy$ with radius $\delta$. Then, -->
+<!-- assuming $\bfv$ is smooth, employing Stokes' theorem and Taylor -->
+<!-- expanding the surface integral, we have $$\begin{aligned} -->
+<!--   \int_{\partial \Gamma_\delta} \bfv\bft\ds &= \int_{\Gamma_\delta} (\nabla\times\bfv)(\bfx)\cdot\bfn(\bfx)\dAx\\ -->
+<!--                                              &= \int_{\Gamma_\delta} \big[(\nabla\times\bfv)(\bfy)\cdot\bfn(\bfy)+\bigO(\delta)\big]\dAx\\ -->
+<!--   &= \area(\Gamma_\delta)\big[(\nabla\times\bfv)(\bfy)\cdot\bfn(\bfy)+\bigO(\delta)\big]. -->
+<!-- \end{aligned}$$ Rearranging and considering the limit where -->
+<!-- $\delta\to0$, we have -->
+<!-- $$\bfn(\bfy)\cdot(\nabla\times\bfv)(\bfy) = \lim_{\delta\to0}\frac{1}{\area(\Gamma_\delta)}\int_{\partial \Gamma_\delta}\bfv\cdot\bft\ds.$$ -->
+<!-- If the curl of $\bfv$ at $\bfy$ is non-zro, we may now -->
+<!-- (retrospectively!) choose the orientation of $\Gamma_\delta$ such that -->
+<!-- $$\bfn(\bfy) = \frac{\nabla \times\bfv(\bfy)}{|\nabla \times\bfv(\bfy)|},$$ -->
+<!-- which entails that -->
+<!-- $$|(\nabla\times\bfv)(\bfy)| = \lim_{\delta\to0}\frac{1}{\area(\Gamma_\delta)}\int_{\partial \Gamma_\delta}\bfv\cdot\bft\ds.$$ -->
+<!-- If $\bfv$ is the velocity field of a fluid in space, then the line -->
+<!-- integral divided by the area tells us the proportion of fluid being -->
+<!-- carried around $\partial\Gamma_\delta$ (as opposed to escaping crossing -->
+<!-- into or out of this disc). This is a measure of the angular velocity of -->
+<!-- the fluid at the point $\bfy$ (in fact, $(\nabla\times\bfv)$ is twice -->
+<!-- the angular velocity). -->
+
+### Further useful theorems from Analysis
+
+For some purposes we will need the following two theorems. The first, a
+localisation theorem, states that if the integral of a scalar field on
+any subset of its domain is zero, then the field itself must be zero
+everywhere. The second provides forms of the Mean Value Theorem for
+multidimensional integrals.
+
+::: {#prp-localisation}
+## Localisation theorem
+Consider a continuous function $\phi:B\to\bbR$ where $B$ is an open subset of $\bbE^3$, and
+let $\Omega$ denote an arbitrary open subset of $B$. If
+$$\int_\Omega \phi(\bfx)\dVx = 0\quad\text{for any }\Omega\subseteq B,$$
+then it follows that $\phi(\bfx)=0$ for all $\bfx\in B$.
+:::
+
+**Exercise:** Prove this by contradiction (assume that $\phi$ is non-zero somewhere, and proceed from here).
+
+::: {#prp-MVTsurfaces}
+## Mean Value Theorem for surfaces
+Let $B$ be an open, connected subset of $\bbE^3$, and let $\Sigma$ be a compact, connected surface in $B$. Suppose that $\phi:B\to\bbR$ is continuous; then there
+exist points $\bfx'\in B$ and $\bfx''\in\Sigma$ such that
+$$\phi(\bfx') = \frac{1}{\vol(B)}\int_B \phi(\bfx)\dVx\quad\text{and}\quad
+    \phi(\bfx'') = \frac{1}{\area(\Sigma)}\int_\Sigma \phi(\bfx)\dAx.$$
+:::
+
+**Exercise:** Prove this. The method of proof is similar to the version you will have seen in Analysis, it just requires some more thought due to the multidimensional setting.
+
+## Functions of second-order tensors
+
+In this section, we generalise the notions of derivatives which you know
+for functions which take scalars and vectors as input to the case where
+functions take second-order tensors a input. In general we consider
+functions $\psi:\calV^2\to\bbR$; examples of such functions include the trace, determinant and norm defined above.
+<!-- and $\bfSigma:\calV^2\to\calV^2$. -->
+<!-- Examples of the former functions include the trace and determinant, and -->
+<!-- examples of the latter include the exponential function introduced in -->
+<!-- Section [\[sec:second-order-tensors\]](#sec:second-order-tensors){reference-type="ref" -->
+<!-- reference="sec:second-order-tensors"}, as well as the stress response -->
+<!-- functions we will consider later. -->
+
+### Scalar-valued functions of second-order tensors
+
+A function $\psi:\calV^2\to\bbR$ is said to be differentiable at
+$\bfA\in\calV^2$ if there exists a second-order tensor
+$D\psi(\bfA)\in\calV^2$ such that
+$$\psi(\bfA+\bfH) = \psi(\bfA) + D\psi(\bfA):\bfH+\litO(|\bfH|),$$ or
+equivalently,
+$$D\psi(\bfA):\bfB = \frac{d}{d\alpha}\psi(\bfA+\alpha\bfB)\bigg|_{\alpha=0}\quad\text{for all }\bfB\in\calV^2,$$
+where $\alpha\in\bbR$. The tensor $D\psi(\bfA)$ is called the
+*derivative* of $\psi$ at $\bfA$.
+
+If $\psi$ is differentiable at $\bfA$ the derivative is unique, a fact
+which can be shown in much the same way as for the derivative of a
+real-valued function. The second characterisation follows from the first
+by choosing $\bfH=\alpha\bfB$, dividing by $\alpha$ and letting
+$\alpha\to0$.
+
+The following result provides a characterisation of the derivative in
+any coordinate frame.
+
+::: {#prp-derivativetensor2scalar}
+## Differentiating scalar functions of tensors
+Let $\{\bfe_i\}$ be an arbitrary coordinate frame, and
+$\psi:\calV^2\to\bbR$. Then
+$$D\psi(\bfA) = \frac{\partial \psi}{\partial A_{ij}}(\bfA)\bfe_i\otimes\bfe_j,$$
+where $A_{ij}$ are the components of $\bfA\in\calV^2$ in the frame
+$\{\bfe_i\}$.
+:::
+
+::: proof
+Writing $\psi$ as a function of the components $A_{ij}$ (and
+abusing notation), we have
+$\psi(\bfA) = \psi(A_{11},A_{12}\ldots,A_{33})$. For any scalar $\alpha$
+and tensor $\bfB=B_{kl}\bfe_k\otimes \bfe_l$, this gives
+$$\psi(\bfA+\alpha\bfB)=\psi(A_{11}+\alpha B_{11},\ldots,A_{33}+\alpha B_{33}).$$
+Applying the chain rule, we have
+$$
+\begin{aligned}
+    D\psi(\bfA):\bfB &= \frac{d}{d\alpha} \psi(\bfA+\alpha\bfB)\bigg|_{\alpha=0}\\
+                     &= \frac{\partial \psi}{\partial A_{ij}}(\bfA)B_{ij}\\
+                     &= \bigg(\frac{\partial \psi}{\partial A_{ij}}(\bfA)\bfe_i\otimes\bfe_j\bigg):B_{kl}\bfe_k\otimes\bfe_l,
+\end{aligned}
+$$
+where we have used that $(\bfe_i\otimes\bfe_j):(\bfe_k\otimes\bfe_l)=\delta_{ik}\delta_{jl}$.
+This implies the result.
+:::
+
+Note that the derivative of a scalar-valued function of a second-order
+tensor is a second-order tensor valued function,
+$D\psi:\calV^2\to\calV^2$. Also, if third-order partial derivatives of
+$\psi$ exist, then we can use Taylor's Theorem to deduce that for any
+small (in the sense of the norm) tensor $\bfH\in\calV^2$, we have
+$$\psi(\bfA+\bfH)=\psi(\bfA)+\frac{\partial \psi}{\partial A_{ij}}(\bfA):H_{ij}+\bigO(|\bfH|^2),$$
+or equivalently
+$$\psi(\bfA+\bfH)=\psi(\bfA)+D\psi(\bfA):\bfH+\bigO(|\bfH|^2),$$ which
+is strong than the assumption that the difference is $\litO(|\bfH|)$ as
+indicated in the definition.
+
+**Example:** Consider the function $\psi:\calV^2\to\bbR$ defined by
+$$\psi(\bfA)=\tfrac12 \bfA:\bfA = \tfrac12 A_{kl}A_{kl}.$$ To compute
+$D\psi(\bfA)$, we compute the partial derivative with respect to a
+general component $A_{ij}$, obtaining via the product rule that
+$$\frac{\partial \psi}{\partial A_{ij}} = \frac12\frac{\partial A_{kl}}{\partial A_{ij}}A_{kl}+
+  \frac12A_{kl}\frac{\partial A_{kl}}{\partial A_{ij}}=\frac{\partial A_{kl}}{\partial A_{ij}}A_{kl}.$$
+Now, since
+$\frac{\partial A_{kl}}{\partial A_{ij}}=\delta_{ik}\delta_{jl}$, we
+have
+$$\frac{\partial \psi}{\partial A_{ij}} = \delta_{ik}\delta_{jl}A_{kl} = A_{ij},$$
+and hence we deduce $D\psi(\bfA) = A_{ij}\bfe_i\otimes\bfe_j = \bfA$.
+
+::: {#prp-derivativedet}
+## Derivative of determinant
+Let $\psi(\bfS) = \det\bfS$. If $\bfA$ is invertible, then the derivative of
+$\psi$ at $\bfA$ is $$D\psi(\bfA) = \det(\bfA)\bfA^{-T}.$$ The
+second-order tensor $\det(\bfA)\bfA^{-T}$ is also called the *cofactor*
+tensor, denoted $\cof(\bfA)=\det(\bfA)\bfA^{-T}$.
+:::
+
+::: proof
+Let $\bfB\in\calV^2$ be arbitrary, and set $\lambda = -\tfrac1\alpha$. Then
+$$\begin{aligned}
+    \psi(\bfA+\alpha\bfB)
+    &= \det(\bfA+\alpha\bfB)\\
+    &= \det\big(\alpha\bfA(\bfA^{-1}\bfB-\lambda\bfI)\big)\\
+    &= \det\big(\alpha\bfA)\det(\bfA^{-1}\bfB-\lambda\bfI).
+\end{aligned}$$
+For the first factor above, we note that
+$\det(\alpha\bfA) = \alpha^3\det \bfA$. The second factor is the
+characteristic polynomial of $\bfA^{-1}\bfB$, and so recalling the facts
+about the principal invariants stated in @sec-eigenv-eigenv-princ, we have
+$$
+\begin{aligned}
+    \det(\bfA^{-1}\bfB-\lambda\bfI)
+    &=-\lambda^3+\lambda^2I_1(\bfA^{-1}\bfB)-\lambda I_2(\bfA^{-1}\bfB)+I_3(\bfA^{-1}\bfB)\\
+    &=\frac{1}{\alpha^3}+\frac{1}{\alpha^2}I_1(\bfA^{-1}\bfB)+\frac1\alpha I_2(\bfA^{-1}\bfB)+I_3(\bfA^{-1}\bfB),
+\end{aligned}
+$$
+and hence
+$$\psi(\bfA+\alpha\bfB) =  \det\bfA\big(1+\alpha I_1(\bfA^{-1}\bfB)+\alpha^2 I_2(\bfA^{-1}\bfB)+\alpha^3 I_3(\bfA^{-1}\bfB)\big).$$
+Differentiating with respect to $\alpha$ and evaluating at $\alpha=0$,
+we have $$D\psi(\bfA):\bfB = \det(\bfA)I_1(\bfA^{-1}\bfB).$$ Since
+$I_1(\bfA^{-1}\bfB) = \tr(\bfA^{-1}\bfB) = \bfA^{-T}:\bfB$, we deduce
+that $$D\psi(\bfA):\bfB = \det(\bfA)\bfA^{-T}:\bfB,$$ and so the result
+follows from the arbitrariness of $\bfB$.
+:::
+
+The following result is handy.
+
+::: {##prp-dotdet}
+## Time derivative of determinant
+Let $\bfS:\bbR\to\calV^2$ be a time-dependent second-order tensor. Then
+$$\frac{d}{dt}\det\bfS = \det(\bfS)\tr(\bfS^{-1}\dot{\bfS}) = \det(\bfS)\bfS^{-T}:\dot{\bfS},$$
+where
+$$\dot{\bfS} = \frac{d\bfS}{dt} = \frac{dS_{ij}}{dt}\bfe_i\otimes\bfe_j.$$
+:::
+
+**Exercise:** Prove this result using the chain rule.
+
+<!-- ### Second-order tensor-valued functions of second-order tensors -->
+
+<!-- A second-order-tensor-valued function $\bfSigma:\calV^2\to\calV^2$ is -->
+<!-- said to be *differentiable* at $\bfA\in\calV^2$ if there exists a -->
+<!-- fourth-order tensor $D\bfSigma(\bfA)\in\calV^4$ such that -->
+<!-- $$\bfSigma(\bfA+\bfH) = \bfSigma(\bfA)+ D\bfSigma(\bfA)\bfH+\litO(|\bfH|),$$ -->
+<!-- or equivalently -->
+<!-- $$D\bfSigma(\bfA):\bfB = \frac{d}{d\alpha}\bfSigma(\bfA+\alpha\bfB)\bigg|_{\alpha=0}\quad\text{for any }\bfB\in\calV^2,$$ -->
+<!-- where $\alpha\in\bbR$. The tensor $D\bfSigma(\bfA)$ is called the -->
+<!-- *derivative* of $\bfSigma$ at $\bfA$. -->
+
+<!-- As with the derivative for scalar-valued functions, the tensor -->
+<!-- $D\bfSigma(\bfA)$ is unique when it exists, and similar steps can be -->
+<!-- taken to show that the latter characterisation follows from the former. -->
+<!-- The following result provides a characterisation of the derivative in a -->
+<!-- given coordinate frame. -->
+
+<!-- ::: {.proposition} -->
+<!-- Let $\{\bfe_i\}$ be an arbitrary Cartesian coordinate frame, and let -->
+<!-- $\bfSigma(\bfA)=\Sigma_{ij}(\bfA)\bfe_i\otimes\bfe_j$. Then -->
+<!-- $$D\bfSigma(\bfA) = \frac{\partial \Sigma_{ij}}{\partial A_{kl}}(\bfA)\bfe_i\otimes\bfe_j\otimes\bfe_k\otimes\bfe_l,$$ -->
+<!-- where $A_{kl}$ are the components of $\bfA$ in the given frame. -->
+<!-- ::: -->
+
+<!-- We note that the derivative of a second-order tensor-valued function -->
+<!-- $\bfSigma:\calV^2\to\calV^2$ is a fourth-order tensor valued function -->
+<!-- $D\bfSigma:\calV^2\to\calV^4$. Similarly, we can also show that if -->
+<!-- third-order partial derivatives exist, then we have -->
+<!-- $$\bfSigma(\bfA+\bfH) = \bfSigma(\bfA)+D\bfSigma(\bfA)\bfH+\bigO(|\bfH|^2)$$ -->
+<!-- (where we note the use of the $\bigO$ in place of the $\litO$ in the -->
+<!-- original definition). -->
+
+<!-- **Example:** Consider the function $\bfSigma:\calV^2\to\calV^2$ defined by -->
+<!-- $$\bfSigma(\bfA) = \tr(\bfA)\bfA.$$ Then the components -->
+<!-- $[D\bfSigma(\bfA)]_{ijkl}$ are $$\begin{aligned} -->
+<!-- _{ijkl} -->
+<!--   &= \frac{\partial \Sigma_{ij}}{\partial A_{kl}}(\bfA)\\ -->
+<!--   &=\frac{\partial A_{mm}}{\partial A_{kl}} A_{ij}+A_{mm} \frac{\partial A_{ij}}{\partial A_{kl}},\\ -->
+<!--   &=\delta_{mk}\delta_{lm}A_{ij}+A_{mm}\delta_{ik}\delta_{jl}\\ -->
+<!--   &=\delta_{kl}A_{ij}+A_{mm}\delta_{ik}\delta_{jl} -->
+<!-- \end{aligned}$$ For any $\bfB\in\calV^2$, we have $$\begin{aligned} -->
+<!--   D\bfSigma(\bfA)\bfB -->
+<!--   &= [D\bfSigma(\bfA)]_{ijkl}B_{kl}\bfe_i\otimes\bfe_j\\ -->
+<!--   &= (\delta_{kl}A_{ij}+A_{mm}\delta_{ik}\delta_{jl})B_{kl}\bfe_i\otimes\bfe_j\\ -->
+<!--   &= (A_{ij}B_{kk}+A_{mm}B_{ij})\bfe_i\otimes\bfe_j\\ -->
+<!--   &= \tr(\bfB)\bfA+\tr(\bfA)\bfB. -->
+<!-- \end{aligned}$$ -->

@@ -1,0 +1,675 @@
+{{< include macros.qmd >}}
+
+# Mass, Forces and Stress {#sec-mass-forces}
+
+## Preliminaries
+With a large amount of mathematical background now out of the way, we
+are able to begin thinking more carefully about the important physical
+concepts which will be central to developing models of solids and
+fluids. The central assumption we will make here is that it is reasonable to treat the objects we consider as *continuum* objects, i.e. that the objects are infinitely divisible, just like the real numbers
+that we use to describe them.
+
+This assumption is of course false, since we know that solids and fluids
+are made up of atoms, which are not themselves easily divisible in
+everyday contexts. Nevertheless, the equations of continuum mechanics
+are one of the great triumphs of mathematical modelling, since the
+predictions which can made with them are highly accurate, and hold even
+down to scales which are only just above the atomistic length scale.
+Exploring the extent of their validity, and the connections between
+atomistic and continuum models remains an active research topic.
+
+**Aims.** By the end of this chapter, you should be able to:
+
+-   Define what is meant by the terms *body, mass density, centre of
+    mass, body force, resultant force, resultant torque, surface force,*
+    and *traction.*
+
+-   State Cauchy's Postulate, and use it to show the existence of the
+    Cauchy stress field.
+
+-   State the definition of static mechanical equilibrium, and derive
+    the local equations satisfied by the Cauchy stress field in this
+    case.
+
+-   Explain the concept of stress, and use various terms to describe
+    particular stress states.
+
+## Bodies
+
+Our assumption that a material body is a continuum means that we can
+identify the body with $B$, an open subset of Euclidean space $\bbE^3$.
+Each point $\bfx\in B$ is identified with a material *particle*. Note
+here that our use of the word particle does not refer to an atom, but
+rather an infinitesimal part of the body. We call $B$ a configuration of
+the body in $\bbE^3$. Unless explicitly mentioned otherwise, we will
+always assume that $B$ is a regular region of $\bbE^3$.
+
+Our own experience tells us that material bodies move and change shape
+under the effects of physical processes, and we will indeed consider such
+effects later, which will necessitate thinking about how the body
+varies. For the moment however, we will ignore time variation, and focus
+only on a single configuration.
+
+### Volume and area
+
+We recall that the volume $\vol(\Omega)$ of a set
+$\Omega\subseteq\bbE^3$ can be computed by integration, so that
+$$\vol(\Omega) = \int_\Omega \dVx.$$ Similarly, the area $\area(\Gamma)$
+of a surface $\Gamma\subset\bbE^3$ can also be computed by integration,
+so that $$\area(\Gamma) = \int_\Gamma \dAx.$$
+
+## Mass, momentum, forces and torque
+
+Mass is the property of matter which quantifies its resistance to
+acceleration, and forces are the influences acting on an object which
+may result in an acceleration. In classical mechanics, this is
+exemplified by Newton's second law of motion for objects with constant
+mass, which should be familiar:
+$$
+\begin{aligned}
+\text{Net force acting} &= \text{Mass} \times \text{Acceleration},\\[1mm]
+\bfF&=m\bfa.
+\end{aligned}
+$$
+In its more general form, Newton's second law states that
+$$
+\begin{aligned}
+\text{Net force acting} &= \text{Rate of change of momentum},\\
+\bfF&=\frac{d\bfp}{dt}=\frac{d}{dt}(m\bfv),
+\end{aligned}
+$$
+where the (linear) momentum $\bfp$ is the product of the mass and the
+velocity of an object. Using the first of these relations, we see that
+the greater the mass of an object, the greater the force that is
+required to accelerate that object at the same rate.
+
+When they are first introduced, the concepts of mass and force are
+typically applied to point particles. Here, we will consider bodies
+which are extended, and so as concepts, the mass of a single point or a
+force acting on a single point makes little sense. Instead, we introduce
+fields representing densities of mass and forces. To represent the mass,
+we define a *mass density*, and we focus on two particular types of
+forces: *body force* fields which act on points within the object, and
+*surface force* fields, which are act on surfaces, either within the
+object or on its exterior.
+
+### Mass density
+
+We assume will assume that the mass of a body $B$ is distributed across
+its volume, that any subset of $B$ with non-zero volume must also have
+non-zero mass, and that the mass of any region of the body tends to zero
+as the volume of the region tends to zero.
+
+If $\Omega\subseteq B$ is an open subset of $B$, we denote the mass of
+this subset $\mass(\Omega)$. We assume that there exists a *mass density
+field* $\rho:B\to\bbR$, with units of mass per unit volume, such that
+$$\mass(\Omega) = \int_\Omega \rho(\bfx)\dVx.$$ Theoretically-speaking, if
+we know the mass and volume functions, we can formally define the mass
+density field $\rho$ as follows. Let $\bfx\in B$ and let
+$\Omega_\delta(\bfx)\subseteq B$ denote a family of volumes with
+$\bfx\in\Omega_\delta(\bfx)$ for all $\delta>0$, and
+$\vol(\Omega_\delta(\bfx))\to0$ as $\delta\to0$. Then
+$$\rho(\bfx) = \lim_{\delta\to 0} \frac{\mass(\Omega_\delta(\bfx))}{\vol(\Omega_\delta(\bfx))}.$$
+Our basic assumptions on the mass distribution is that this limit
+exists, is strictly postive, i.e. $\rho(\bfx)>0$ for each $\bfx\in B$,
+and this limit is independent of the precise choice of family
+$\Omega_\delta(\bfx)$ which have the properties described.
+
+### Centre of Mass
+
+The *centre of mass* and the *centre of volume* of an open subset
+$\Omega\subseteq B$ respectively mean the points
+$$
+\begin{aligned}
+\com(\Omega) &= \frac{1}{\mass(\Omega)}\int_\Omega \bfx\rho(\bfx)\dVx\\
+  \text{and}\quad \cov(\Omega) &= \frac{1}{\vol(\Omega)}\int_\Omega \bfx\dVx.
+\end{aligned}$$
+In general, these points need not be points in $B$ (although they will
+be if $\Omega$ is a convex set).
+
+### Body forces
+
+*Body forces* are those forces which do not arise due to direct physical
+contact between bodies. Prototypical examples include gravity, or
+electromagnetic forces. The body force per unit volume exerted on a body
+$B$ is assumed to be given by a function $\widehat{\bfb}:B\to\calV$,
+called a *body force field per unit volume* acting on $B$.
+
+Let $\Omega$ be an open subset of $B$. Then the *resultant force* on
+$\Omega$ due to the body force field is defined to be
+$$\bfr_b(\Omega) = \int_\Omega \widehat{\bfb}(\bfx)\dVx.$$ The result
+force measures the total effect of the body forces acting on $\Omega$.
+This interpretation is clear if we think of the integral as 'summing up'
+the contributions from the body force acting on every particle
+$\bfx\in \Omega$.
+
+The *resultant torque about $\bfz$* on $\Omega$ is defined to be
+$$\bftau_b(\Omega;\bfz) = \int_\Omega (\bfx-\bfz)\times \widehat{\bfb}(\bfx)\dVx.$$
+The torque measures the total turning effect of the body forces acting
+on $\Omega$ about the centre of rotation $\bfz$. Here, the integral sums
+up the contributions of each force moment
+$(\bfx-\bfz)\times\widehat{\bfb}(\bfx)$ over $\Omega$.
+
+Instead of considering body force per unit volume, we can also consider
+body forces per unit mass. The *body force per unit mass* is
+$$\bfb(x) = \frac{\widehat{\bfb}(\bfx)}{\rho(\bfx)},$$ which is
+well-defined since we assume $\rho(\bfx)>0$. In terms of this new field,
+we have
+$$\bfr_b(\Omega) = \int_\Omega \rho(\bfx)\bfb(\bfx)\dVx\quad\text{and}\quad
+  \bftau_b(\Omega;\bfz) = \int_\Omega (\bfx-\bfz)\times \rho(\bfx)\bfb(\bfx)\dVx.$$
+
+### Angular momentum and torque
+
+Before discussing forces further, we briefly discuss the definition of
+angular momentum and torque, which are the rotational versions of
+(linear) momentum and forces.
+
+The *angular momentum* of an object is the rotational equivalent of
+linear momentum, and is defined to be the vector product of the objects
+displacement from some chosen point, $\bfz$, and its linear momentum,
+i.e.:
+$$\bfl = (\bfx-\bfz)\times\bfp = m\big((\bfx-\bfz)\times\bfv\big),$$
+Here, the point $\bfz$ used to define the displacement is the point
+about which we wish to consider the object's rotation. This could be the
+centre of mass (in which case, we consider an object's *spin*), or some
+other point about which we wish to consider rotation, such as the origin
+of our coordinate system.
+
+The concept which accompanies the angular momentum and mirrors the
+notion of a force is the *torque* (or *moment*), which like angular momentum, must be taken about some point $\bfz$. This is denoted $\bftau$ and is
+defined to be $$\bftau = (\bfx-\bfz)\times\bfF.$$ Torques are analogous
+to forces in that they are additive, and if there is no net torque
+acting on an object, then there will be no change in the angular
+momentum. Furthermore, the equivalent of Newton's second law for the
+torque and the angular momentum is that the net torque is equal to the rate of change of the angular momentum, i.e.
+$$
+\bftau = \frac{d\bfl}{dt},
+$$
+(where both torque and angular momentum are taken about the same point $\bfz$).
+
+### Surface forces
+
+A *surface force* is any force that arises due to direct physical
+contact between bodies. In the case of imaginary internal surfaces
+inside a body, we say the surface force is *internal*. Internal surface
+forces are what holds a body together, and they resist the tendency for
+one part of the body to be pulled away from, or pushed through, another
+part of the body. When the force acts along the exterior surface of the
+body, we say the surface force is *external*; these are contact forces
+applied to a body by its environment.
+
+Understanding surface forces is a key step in unlocking your
+understanding of continuum mechanics, so you should take care to cover
+this material carefully.
+
+Suppose that $\Gamma$ is an oriented surface in $B$ with a unit normal
+field $\bfn:\Gamma\to\calV$. The fact that $\Gamma$ is oriented allows
+us to define a positive and a negative side to $\Gamma$. The force per
+unit area exerted by the material on the positive side on the material
+on the negative side will be assumed to be given by a function
+$\bft_\Gamma:\Gamma\to\calV$, which we call the *traction* or *surface
+force field* for $\Gamma$. When $\Gamma$ is part of the boundary
+$\partial B$, we always choose $\bfn$ to be the outward unit normal
+field. In this case, the traction field represents the external force
+per unit area applied to this portion of the boundary.
+
+The *resultant traction* on $\Gamma$ is defined to be
+$$\bfr_s(\Gamma)= \int_\Gamma \bft_\Gamma(\bfx)\dAx,$$ where $\dAx$
+represents the surface area element at $\bfx\in\Gamma$. The *resultant
+torque about $\bfz$* due to the traction field is defined to be
+$$\bftau_s(\Gamma;\bfz)= \int_\Gamma (\bfx-\bfz)\times \bft_\Gamma(\bfx)\dAx.$$
+
+### Cauchy's postulate
+
+The physical theory of surface forces in classical continuum mechanics
+is based on the following assumption, known as *Cauchy's postulate*.
+
+::: axiom
+The traction field $\bft$ on an oriented surface $\Gamma$ which passes
+through a point $\bfx\in B$ depends only on the point $\bfx$, and the
+unit normal $\bfn(\bfx)$ to the surface $\Gamma$ at that point. In
+particular, there is a function $\bft:\calN\times B\to\calV$ where
+$\calN\subset\calV$ is the set of all unit vectors, such that
+$$\bft_\Gamma(\bfx) = \bft(\bfn(\bfx),\bfx).$$ The function
+$\bft:\calN\times B\to\calV$ is called the *traction function* for $B$.
+:::
+
+The point of this postulate is that in general, it might hold that the
+traction $\bft_\Gamma$ depends on the entirety of the surface $\Gamma$,
+or at the very least upon more details of the geometry of $\Gamma$ near
+to $\bfx$, such as the curvature $\nabla\bfn(\bfx)$. We could develop
+more sophisticated theories which take more geometry into account, but
+Cauchy's postulate is highly successful as an assumption to develop
+models in a wide range of contexts.
+
+The next result can be interpreted as showing that the traction function
+satisfies a certain version of Newton's Third Law.
+
+![Illustration of $\Omega_\delta$ used in the proof of
+@prp-actionreaction.](./figs/Omegadelta.svg){width="60%"}
+
+::: {#prp-actionreaction}
+Let $\bft:\calN\times B\to\calV$ be the traction function for a body $B$.
+Suppose that $\bft(\bfn,\bfx)$ is continuous, and for any sequence of
+subsets $\Omega$ whose volumes tend to zero, we have
+$$
+\frac{1}{\area(\partial\Omega)}\int_{\partial\Omega} \bft(\bfn(\bfx),\bfx)\dAx\to\bf0\quad\text{as}\quad\vol(\Omega)\to0.
+$$ {#eq-arcondition1}
+Then it follows that
+$$\bft(-\bfn,\bfx) = -\bft(\bfn,\bfx)\quad\text{for any }\bfn\in\calN,\bfx\in B.$$
+:::
+
+::: proof
+Let $\bfx\in B$ and $\bfn\in\calN$ be arbitrary, and let $D$ be
+a disc of small radius $r$, centred at $\bfx$ with normal $\bfn$. For
+$\delta>0$, let $\Omega_\delta$ be the cylinder with centre of volume at
+$\bfx$, height $\delta$, and axis parallel to $\bfn$. Let $\Gamma_{\pm}$
+be the circular faces of the cylinder parallel to $D$, and the remaining
+surface be $\Gamma_\delta$.
+
+We note that $\area(\Gamma_\delta) = 2\pi r\delta$, which vanishes as
+$\delta\to0$, and so
+$\area(\partial\Omega_\delta)\to 2\area(D) = 2\pi r^2$ as $\delta\to0$.
+Note also that $\vol(\Omega_\delta) = \delta \pi r^2$, so
+$\vol(\Omega_\delta)\to0$ as $\delta\to0$, so this sequence of volumes
+fulfils the assumptions of the proposition, and since
+$\area(\partial\Omega_\delta)>0$ for all $\delta>0$, it follows that
+$$\lim_{\delta\to0}\int_{\partial\Omega_\delta} \bft(\widehat{\bfn}(\bfx),\bfx')\,dA_{\bfx'}=0$$
+by assumption.
+
+Next, note that the points in $\Gamma_\pm$ converge to points in $D$ as
+$\delta\to0$. Let $\widehat{\bfn}:\partial\Omega_\delta\to\calV$ be the
+outward unit normal field on $\partial\Omega_\delta$, so
+$\widehat{\bfn}=\pm\bfn$ is constant on $\Gamma_{\pm}$. We can therefore
+express $\partial\Omega_\delta = \Gamma_\delta\cup\Gamma_+\cup\Gamma_-$,
+and since $\area(\Gamma_\delta)\to0$ as $\delta\to0$ and $\bft$ is
+continuous and so bounded, we have
+$$\lim_{\delta\to0}\int_{\Gamma_\delta} \bft(\widehat{\bfn}(\bfx),\bfx')\,dA_{\bfx'}=\bf0.$$
+It follows that
+$$\int_D \bft(\bfn,\bfx')+\bft(-\bfn,\bfx')\,dA_{\bfx'} = \bf0.$$ Now,
+we apply the result of
+@prp-MVTsurfaces, which allows us to conclude that there is
+a point $\bfx_r\in D_r$ such that
+$$\bft(\bfn,\bfx_r)+\bft(-\bfn,\bfx_r)=\bf0.$$ Since this result holds
+for all $r>0$, we can now let $r\to0$. In this limit, $\bfx_r\to \bfx$,
+and since $\bft$ was assumed to be continuous, it follows that
+$$\bft(\bfn,\bfx)+\bft(-\bfn,\bfx)=\bf0.$$ This establishes the result.
+:::
+
+We have just shown that the traction exerted by material on the positive
+side of a surface on the negative side is equal and opposite to the
+traction exerted by the negative side on the positive. This is Newton's
+Third Law in action.
+
+We note that the proof given above does not make complete use of the
+full strength of the condition @eq-arcondition1, since the sequence of volumes we consider
+does not have a vanishing surface area, but we will use the full
+strength of this condition in the results which follow.
+
+## The Cauchy stress tensor
+
+Using @prp-actionreaction allows us to say more about the
+dependence of the function $\bft(\bfn,\bfx)$ upon $\bfn$. This result is
+often called *Cauchy's Theorem*, and is fundamental to Continuum
+Mechanics.
+
+::: {#prp-stresstensor}
+## Stress Tensor
+
+![The tetrahedral region used in the proof of
+@prp-stresstensor.](./figs/stresstetrahedron.svg){#fig:stresstetradhedron
+width="90%"}
+
+Let $\bft:\calN\times B\to\calV$ be the traction function for a body $B$
+which satisfies the conditions of
+@prp-actionreaction. Then $\bft(\bfn,\bfx)$ is a linear
+function of $\bfn$, i.e. for each $\bfx\in B$, there exists a
+second-order tensor $\bfS(\bfx)\in\calV^2$ such that
+$$\bft(\bfn,\bfx)= \bfS(\bfx)\bfn.$$ The field $\bfS:B\to\calV^2$ is
+called the *Cauchy stress field* for $B$.
+:::
+
+::: proof
+We will briefly suspend the summation convention for the first
+section of this proof.
+
+Consider an arbitrary Cartesian coordinate frame $\{\bfe_i\}$, and
+suppose that $\bfn\cdot\bfe_i>0$ for all $i$. Define the tetrahedral
+region
+$$T_\delta = \big\{\bfx'\in B: 0\leq (\bfx'-\bfx)\cdot\bfe_i\text{ and }(\bfx'-\bfx)\cdot\bfn\leq\delta \big\},$$
+which is illustrated in
+Figure [1.1](#fig:stresstetradhedron){reference-type="ref"
+reference="fig:stresstetradhedron"}. $T_\delta$ has four faces; let the
+three faces with outward-pointing unit normal $-\bfe_i$ be denoted
+$\Gamma_{\delta,i}$, and let the final face be denoted
+$\Gamma_{\delta,n}$, which has outward-pointing unit normal $\bfn$.
+
+We note that $\vol(T_\delta)\to0$ as $\delta\to0$, and hence
+condition @eq-arcondition1 implies that
+$$\lim_{\delta\to0}\frac{1}{\area(\partial T_\delta)}\int_{\partial T_\delta} \bft(\widehat{\bfn}(\bfx'),\bfx')\,dA_{\bfx'} = \bf0,$$
+where $\widehat{\bfn}(\bfx')$ denotes the outward-pointing unit normal
+field on $\partial T_\delta$. Using the explicit form for this field on
+each of the faces, we have $$
+    \lim_{\delta\to0}\frac{1}{\area(\partial T_\delta)}\bigg(\int_{\Gamma_{\delta,n}} \bft(\bfn,\bfx')\,dA_{\bfx'}+\sum_{i=1}^3\int_{\Gamma_{\delta,i}} \bft(-\bfe_i,\bfx')\,dA_{\bfx'}\bigg) = \bf0.$$ {#eq-tetlimit}
+It can be computed that the area of each face is
+$$\area(\Gamma_{\delta,i}) = \frac{\delta^2}{2}\frac{n_i}{n_1n_2n_3}\quad\text{and}\quad\area(\Gamma_{\delta,n}) = \frac{\delta^2}{2}\frac{1}{n_1n_2n_3},$$
+so that
+$$
+    \area(\Gamma_\delta) = n_1 \area(\Gamma_1)=n_2\area(\Gamma_2) = n_3\area(\Gamma_3),
+$$ {#eq-tetarearelation1}
+and thus $$
+    \area(\partial T_\delta) = (1+n_1+n_2+n_3)\area(\Gamma_{\delta,n}).$$ {#eq-tetarearelation2}
+We now consider the integral over each face, and apply the Mean Value
+Theorem, which entails that there exist points
+$\bfx'_{\delta,i}\in\Gamma_{\delta,i}$ and a point
+$\bfx'_{\delta,n}\in\Gamma_{\delta,n}$ such that $$\begin{gathered}
+    \bft(-\bfe_i,\bfx'_{\delta,i}) = \frac{1}{\area(\Gamma_{\delta,i})}\int_{\Gamma_{\delta,i}}\bft(-\bfe_i,\bfx')\,dA_{\bfx'}\\
+    \text{and}\quad
+    \bft(\bfn,\bfx'_{\delta,n}) = \frac{1}{\area(\Gamma_{\delta,n})}\int_{\Gamma_{\delta,i}}\bft(\bfn,\bfx')\,dA_{\bfx'}.
+  
+\end{gathered}$$ We note that as $\delta\to0$, we have that
+$\bfx'_{\delta,n}\to\bfx$ and $\bfx'_{\delta,i}\to\bfx$, since the faces
+shrink to the point $\bfx$.
+
+Using these facts and
+@eq-tetarearelation1, we have $$\begin{gathered}
+    \int_{\Gamma_{\delta,n}} \bft(\bfn,\bfx')\,dA_{\bfx'}+\sum_{i=1}^3\int_{\Gamma_{\delta,i}} \bft(-\bfe_i,\bfx')\,dA_{\bfx'}\\
+    = \area(\Gamma_{\delta,n})\bigg(\bft(\bfn,\bfx'_{\delta,n})+\sum_{i=1}^3n_i\bft(-\bfe_i,\bfx_{\delta,i})\bigg).  
+\end{gathered}$$
+Dividing by $\area(\partial T_\delta)$, and applying
+@eq-tetarearelation2 with the limit, we deduce that
+$$\bft(\bfn,\bfx)+\sum_{i=1}^3n_i\bft(-\bfe_i,\bfx) = \bf0.$$ Applying
+@prp-actionreaction, and reinstating the summation
+convention, this can be rewritten as
+$$\bft(\bfn,\bfx) = n_i\bft(\bfe_i,\bfx) = \Big(\bft(\bfe_i,\bfx)\otimes\bfe_i\Big)\bfn=\bfS(\bfx)\bfn$$
+where we define $$
+    \bfS(\bfx) = \bft(\bfe_i,\bfx)\otimes\bfe_i.
+$$ {#eq-stresstensordefinition}
+This demonstrates the
+result for all $\bfn$ such that $\bfn\cdot\bfe_i>0$.
+
+To show the result for all remaining vectors, we can first repeat the
+argument above for any $\bfn$ such that $\bfn\cdot\bfe_i\neq0$ by
+changing frame $\{\bfe_i\}$ to $\{\bfe_i'\}$ by a sequence of $90^\circ$
+rotations of the axes. To include vectors for which $\bfn\cdot\bfe_i=0$
+for at least one $i$, we can use the fact that $\bft$ is a assumed to be
+continuous.
+:::
+
+From now on, we will abbreviate notation for $\bft(\bfn(\bfx),\bfx)$,
+writing $\bft(\bfx)$, where the dependence on the normal field $\bfn$ is
+kept implicit, and so we have $\bft(\bfx) = \bfS(\bfx)\bfn$, or in some
+cases suppress all arguments to write $\bft=\bfS\bfn$.
+
+The nine components of the stress tensor $\bfS(\bfx)$ can be understood
+as the components of the three traction vectors $\bft(\bfe_i,\bfx)$
+acting across the coordinate planes at the point $\bfx$. In particular,
+taking components in
+@eq-stresstensordefinition, we have
+$$\bfS(\bfx) = S_{ij}(\bfx)\bfe_i\otimes\bfe_j\quad\text{with}\quad S_{ij}(\bfx) = t_i(\bfe_j,\bfx),$$
+and so
+$$\bft(\bfe_j,\bfx) = t_i(\bfe_j,\bfx)\bfe_i = S_{ij}(\bfx)\bfe_i.$$
+
+## Equilibrium
+
+In this section, we define what is meant by a state of mechanical
+equilibrium, and use the definition to derive differential equations
+satisfied.
+
+### Preliminaries
+
+Consider a body $B_0$ in Euclidean space $\bbE^3$, which is at a state
+of rest. Suppose the body is then subjected to an external traction and
+body force fields which cause the body to change shape and come to rest
+in a possibly different configuration $B$. The mass density field in the
+latter configuration is denoted $\rho:B\to\bbR$, the external traction
+field per unit area is $\bfh:\partial B\to\calV$, and the body force
+field per unit mass is $\bfb:B\to\calV$. All of these fields are assumed
+not to depend on time.
+
+### Necessary conditions
+
+Let $\Omega\subseteq B$ be any open subset of $B$ and let
+$\bft:\partial\Omega\to\calV$ be the traction field acting on its outer
+surface, with orientation determined by the outward-point normal field.
+The resultant force on $\Omega$ due to body and surface forces is
+$$
+  \bfr(\Omega) = \bfr_b(\Omega)+\bfr_s(\partial\Omega) = \int_\Omega \rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial\Omega}\bft(\bfx)\dAx,$$ {#eq-resultantforce}
+and the resultant torque on $\Omega$ about the point $\bfz\in\bbE^3$ is
+$$
+  \begin{aligned}
+    \bftau(\Omega;\bfz)
+    &= \bftau_b(\Omega;\bfz)+\bftau_s(\partial\Omega;\bfz)\\
+    &=\int_\Omega (\bfx-\bfz)\times\rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial \Omega}(\bfx-\bfx)\times\bft(\bfx)\dAx.
+  \end{aligned}
+  $$ {#eq-resultanttorque} At a static equilibrium, we assume that both the
+resultant force and torque for any $\Omega$ vanish, which is encoded in
+the following axiom.
+
+::: axiom
+[]{#ax:staticequilibrium label="ax:staticequilibrium"} If a body $B$ is
+in a state of *static mechanical equilibrium*, then the resultant force
+and resultant torque (taken about any fixed point) which act on any
+sub-body must vanish. That is, it holds that
+$$
+    \begin{gathered}
+      \bfr(\Omega)=\int_\Omega \rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial\Omega}\bft(\bfx)\dAx =\bf0\\
+      \bftau(\Omega;\bfz) = \int_\Omega (\bfx-\bfz)\times\rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial \Omega}(\bfx-\bfz)\times\bft(\bfx)\dAx =\bf0
+    \end{gathered}$${#eq-equilibriumconditionsINT} for any $\Omega\subseteq B$.
+:::
+
+The fact that we have freedom of choice in choosing the point $\bfz$ in
+the second equation above is a consequence of the first equation: see
+Exercises for details.
+
+### Local equations
+
+We now use
+Axiom [\[ax:staticequilibrium\]](#ax:staticequilibrium){reference-type="ref"
+reference="ax:staticequilibrium"} to derive differential equations which
+are the 'local' form of the equilibrium conditions. Since
+@prp-stresstensor asserts that $\bft$ is expressed in terms
+of the Cauchy stress tensor $\bfS$, it is unsurprising that these
+equations naturally involve this field.
+
+::: {#prp-staticequilibriumeqns}
+If the Cauchy stress field $\bfS:B\to\calV^2$ is continuously
+differentiable, and the density field $\rho:B\to\bbR$ and body force
+field $\bfb$ are continuous, then the equilibrium conditions
+[\[eq:equilibriumconditionsINT\]](#eq:equilibriumconditionsINT){reference-type="eqref"
+reference="eq:equilibriumconditionsINT"} are equivalent to
+$$\label{eq:equilibriumequationsDE}
+    \begin{gathered}
+      (\nabla\cdot\bfS)(\bfx)+\rho(\bfx)\bfb(\bfx) = \bf0 \\
+      \bfS^T(\bfx)=\bfS(\bfx)
+    \end{gathered}$$ for any $\bfx\in B$. In components, these equations
+are: $$\begin{gathered}
+      S_{ij,j}(\bfx)+\rho(\bfx)b_i(\bfx) = 0 \\
+      S_{ij}(\bfx)=S_{ji}(\bfx)
+    \end{gathered}$$
+:::
+
+::: proof
+To establish the first equation in
+[\[eq:equilibriumequationsDE\]](#eq:equilibriumequationsDE){reference-type="eqref"
+reference="eq:equilibriumequationsDE"} assuming that
+Axiom [\[ax:staticequilibrium\]](#ax:staticequilibrium){reference-type="ref"
+reference="ax:staticequilibrium"} holds, we first use the definition of
+$\bfS$ to write the first equation in
+[\[eq:equilibriumconditionsINT\]](#eq:equilibriumconditionsINT){reference-type="eqref"
+reference="eq:equilibriumconditionsINT"} as
+$$\int_{\partial \Omega}\bfS\bfn\dAx+\int_\Omega\rho\bfb\dVx=\bf0.$$
+Applying the Tensor Divergence Theorem
+@prp-tensordivthm to the first integral, we obtain
+$$\int_\Omega \big(\nabla\cdot\bfS+\rho\bfb\big)\dVx=\bf0.$$ Since this
+equation hold for an arbitrary open set $\Omega\subseteq B$, the
+Localisation Theorem
+(@prp-localisation) allows us to conclude that the integrand
+vanishes, which is exactly the first result.
+
+To establish the second result, we write the second equation in
+[\[eq:equilibriumconditionsINT\]](#eq:equilibriumconditionsINT){reference-type="eqref"
+reference="eq:equilibriumconditionsINT"} as
+$$\int_{\partial\Omega} (\bfx-\bfz)\times (\bfS\bfn)\dAx+\int_\Omega (\bfx-\bfz)\times\rho\bfb\dVx=\bf0.$$
+Since we have just shown $\rho\bfb=-\nabla\cdot\bfS$, we can substitute,
+and rewrite $$
+    \int_{\partial\Omega} (\bfx-\bfz)\times (\bfS\bfn)\dAx-\int_\Omega (\bfx-\bfz)\times\big(\nabla\cdot\bfS\big)\dVx=\bf0.$$
+    {#eq-equilibriumproof1}
+Next, note that we may define the tensor
+$\bfR=R_{il}\bfe_i\otimes\bfe_l$ to be
+$$R_{il} = \epsilon_{ijk}(x_j-z_j)S_{kl},$$ which has the property that
+$\bfR\bfn=(\bfx-\bfz)\times(\bfS\bfn)$, and hence
+[\[eq:equilibriumproof1\]](#eq:equilibriumproof1){reference-type="eqref"
+reference="eq:equilibriumproof1"} can be written as
+$$\int_{\partial\Omega}\bfR\bfn\dAx-\int_\Omega (\bfx-\bfz)\times(\nabla\cdot \bfS)\dVx=\bf0.$$
+Applying the Tensor Divergence Theorem to the first of these integrals,
+we find that
+$$\int_\Omega\nabla\cdot \bfR- (\bfx-\bfz)\times(\nabla\cdot \bfS)\dVx=\bf0.$$
+Applying the Localisation Theorem in the same way as we did above, it
+follows that
+$$\big(\nabla\cdot\bfR\big)(\bfx)-(\bfx-\bfz)\times(\nabla\cdot\bfS)(\bfx)=\bf0$$
+for all $\bfx\in B$, which in components becomes
+$$(\epsilon_{ijk}(x_j-z_j)S_{kl})_{,l}-\epsilon_{ijk}(x_j-z_j)S_{kl,l}=0.$$
+Using the product rule, we have $$\begin{aligned}
+    &(\epsilon_{ijk}(x_j-z_j)S_{kl})_{,l}-\epsilon_{ijk}(x_j-z_j)S_{kl,l}\\
+    &\quad\qquad=\epsilon_{ijk}x_{j,l}S_{kl}+\epsilon_{ijk}(x_j-z_j)S_{kl,l}-\epsilon_{ijk}(x_j-z_j)S_{kl,l}\\
+    &\quad\qquad=\epsilon_{ijk}\delta_{jl}S_{kl}\\
+    &\quad\qquad=\epsilon_{ilk}S_{kl}
+  
+\end{aligned}$$ Considering each of these equations for $i=1,2,3$, we
+see that
+$$S_{32}-S_{23}=0,\quad S_{13}-S_{31}=0\quad\text{and}\quad S_{21}-S_{12}=0.$$
+In summary, we have shown that $S_{ij}=S_{ji}$, and hence
+$\bfS(\bfx)=\bfS^T(\bfx)$ for all $\bfx\in B$, which is precisely the
+second equation in
+[\[eq:equilibriumequationsDE\]](#eq:equilibriumequationsDE){reference-type="eqref"
+reference="eq:equilibriumequationsDE"}.
+
+To show that
+[\[eq:equilibriumconditionsINT\]](#eq:equilibriumconditionsINT){reference-type="eqref"
+reference="eq:equilibriumconditionsINT"} hold starting from
+[\[eq:equilibriumequationsDE\]](#eq:equilibriumequationsDE){reference-type="eqref"
+reference="eq:equilibriumequationsDE"}, we need simply reverse the
+arguments above.
+:::
+
+1.  The Cauchy stress field is always symmetric, even when a body is not
+    in equilibrium (see later).
+
+2.  The local equilibrium equations
+    [\[eq:equilibriumequationsDE\]](#eq:equilibriumequationsDE){reference-type="eqref"
+    reference="eq:equilibriumequationsDE"} do not completely determine
+    the stress field for a body in equilibrium, since there are 3 PDEs
+    and 3 algebraic equations for 9 unknown components of $\bfS$. This
+    demonstrates that we need additional information to determine the
+    Cauchy stress, and we may address this by prescribing *constitutive
+    equations* characterising the specific material properties of a
+    body.
+
+3.  The traction field $\bfh$ acting on $\partial B$ represents the
+    surface force per unit area exterted on $B$ by its environment.
+    Applying
+    @prp-stresstensor, we have $\bfS\bfn=\bfh$ for any
+    $\bfx\in\partial B$, where $\bfn$ is the outward-point normal vector
+    on $\partial B$. This equation provides a boundary condition for the
+    local equilibrium equations
+    [\[eq:equilibriumequationsDE\]](#eq:equilibriumequationsDE){reference-type="eqref"
+    reference="eq:equilibriumequationsDE"}.
+
+4.  In deriving the equilibrium equations, we assumed that the mass
+    density $\rho$ and body force field $\bfb$ are continuous, and that
+    $\bfS$ is continuously differentiable. In practice, establishing
+    such regularity properties is an important part of the subject, and
+    a topic of active research. In this module, we will assume that all
+    fields are sufficiently regular to allow us to exchange integral
+    laws for differential equations and vice versa.
+
+## Stress concepts
+
+We now study stress in more detail, describing various states of stress
+which may exist at a point in a body. We also discuss the decomposition
+of the stress into various components which have important physical
+meaning.
+
+### Simple stress states
+
+If the stress tensor $\bfS$ at a point $\bfx\in B$ takes the form
+$$\bfS = -\pi\bfI,$$ where $\pi$ is a scalar, we say that a *spherical*
+state of stress exists at $\bfx$. In this stress state, the traction on
+any surface is parallel to the normal vector $\bfn$:
+$$\bft = \bfS\bfn = -\pi\bfn.$$
+
+The stress at a point $\bfx\in B$ is said to be *uniaxial* is there
+exists a unit vector $\bfe$ and a scalar $\sigma$ such that
+$$\bfS = \sigma \bfe\otimes\bfe.$$ If $\sigma>0$, we call this state a
+*pure tension*, and if $\sigma<0$, a *pure compression*. In this case,
+the traction on a surface with normal $\bfn$ at $\bfx$ is
+$$\bft = \bfS\bfn = (\bfe\cdot\bfn)\sigma \bfe.$$ The traction is always
+parallel to $\bfe$, and vanishes if $\bfn$ is orthogonal to $\bfe$.
+
+If there are a pair of orthogonal unit vectors $\bfa$ and $\bfb$ and a
+scalar $\tau$ such that the stress at a point $\bfx\in B$ takes the form
+$$\bfS =\tau\big(\bfa\otimes\bfb+\bfb\otimes\bfa),$$ then we say that a
+state of *pure shear* exists at $\bfx$. For this stress state, the
+traction on a surface with normal $\bfn$ is
+$$\bft = \bfS\bfn = \tau (\bfb\cdot\bfn)\bfa+\tau (\bfa\cdot\bfn)\bfb.$$
+When $\bfn=\bfa$, $\bft=\tau\bfb$ and when $\bfn=\bfb$, $\bft=\tau\bfa$.
+
+If at a point $\bfx\in B$ there are a pair of orthogonal unit vectors
+$\bfa$ and $\bfb$ such that the matrix representation of $\bfS$ with
+respect to the basis $\bfe_1=\bfa$, $\bfe_2=\bfb$ and
+$\bfe_3=\bfa\times\bfb$ is $$= \left(
+    \begin{array}{ccc}
+      S_{11} & S_{12} & 0 \\
+      S_{21} & S_{22} & 0 \\
+      0     & 0     & 0
+    \end{array}\right),$$ we say that a state of *plane stress* exists
+at $\bfx$.
+
+### Principal, normal and shear stresses
+
+The eigenvalues of the Cauchy stress $\bfS$ evaluated at a point
+$\bfx\in B$ are called the *principal stresses* at $\bfx$. The
+corresponding eigenvectors are called the *principal stress directions*
+at $\bfx$. We note that since the stress tensor is symmetric, there
+exist three real principal stresses, and three orthogonal principal
+stress directions for each point.
+
+Consider a surface with normal in direction $\bfn$ at $\bfx$. Then the
+corresponding traction vector can be decomposed into two parts:
+$$\begin{aligned}
+    \text{a \emph{normal traction}:}&\qquad&\bft_n &= (\bft\cdot\bfn)\bfn,\\
+    \text{and a \emph{shear traction}:}&\qquad&\bft_s&= \bft-(\bft\cdot\bfn)\bfn,
+  \end{aligned}$$ In particular, we have $\bft=\bft_n+\bft_s$, and we
+call $\sigma_n=|\bft_n|$ the *normal stress* and $\sigma_s=|\bft_s|$ the
+*shear stress* on the surface with normal $\bfn$ at $\bfx$.
+
+### Maximum normal and shear stresses
+
+Given a point $\bfx$ in a body of interest, it is often of interest to
+understand what surfaces passing through $\bfx$ experience the largest
+normal and shear stresses. In practice, this may be relevant due to
+knowledge about the level at which a particular material will undergo
+failure due to stresses of these types. For example, both high levels of
+tension (a normal stress state) and high levels of shear stress can
+induce cracking, and the threshold for these two different modes of
+failure is often different.
+
+::: {#prp-maxstresses}
+Suppose that the principal stresses $\sigma_i$ at a point $\bfx\in B$
+are distinct and ordered, with $$\sigma_1>\sigma_2>\sigma_3.$$ Then
+
+-   The maximum normal stress $\sigma_n$ is $\max_i|\sigma_i|$.
+
+-   The maximum shear stress $\sigma_s$ is $\frac12|\sigma_1-\sigma_3|$,
+    and this is achieved for for the two pairs of normals
+    $$\bfn = \pm\frac{1}{\sqrt 2}(\bfe_1+\bfe_3)\quad\text{and}\quad\bfn = \pm\frac{1}{\sqrt 2}(\bfe_1-\bfe_3).$$
+:::
+
+### Spherical and deviatoric stress tensors
+
+At any point $\bfx$, the Cauchy stress tensor can be decomposed into two
+parts, a *spherical stress tensor* $$\bfS_S = -p\bfI,$$ and a
+*deviatoric stress tensor* $$\bfS_D = \bfS+p\bfI = \bfS-\bfS_S,$$ where
+$p=-\frac13\tr \bfS$ is called the pressure. Note that
+$\bfS=\bfS_S+\bfS_D$.

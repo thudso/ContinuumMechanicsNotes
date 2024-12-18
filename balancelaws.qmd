@@ -1,0 +1,977 @@
+{{< include macros.qmd >}}
+
+# Balance laws {#sec-balance-laws}
+
+In this chapter, we state a variety of axioms for a mechanical theory of
+continuum bodies. As in
+Chapter [\[cha:mass-forces\]](#cha:mass-forces){reference-type="ref"
+reference="cha:mass-forces"}, we first state laws in integral form, and
+then derive local versions, which yield (systems of) PDEs. It is
+important to state at the outset that these laws apply to all continuum
+bodies, regardless of whether they are solid or fluid.
+
+##### Aims:
+
+By the end of this chapter, you should be able to:
+
+-   Provide definitions of the *mass*, *linear* and *angular momentum*
+    of a subset of body as integrals.
+
+-   Explain why we must include a description of temperature in a
+    continuum theory of matter.
+
+-   State the physical principles of the *conservation of mass*, *laws
+    of inertia*, and the *first and second laws of thermodynamics* as
+    used in continuum mechanics.
+
+-   Using physical principles and theorems to derive local forms of the
+    balance laws, in both the Eulerian and Lagrangian formalisms.
+
+-   Explain how the principle of *frame indifference* limits the
+    constitutive laws which are possible to close the equations derived.
+
+## Motivation
+
+Consider $N$ particles with masses $m_i\in\bbR$ and positions
+$\bfx_i\in\bbE^3$. We may think of these as the atoms (or perhaps
+molecules) making up a continuum body. Suppose that the potential energy
+of interaction between particles $i$ and $j$ is described by an energy
+$U_{ij}$, which is symmetric in exchange of particle indices, i.e.
+$U_{ij} = U_{ji}$. The force on particle $i$ due to interaction with
+particle $j$ is denoted
+$$\bff^{\text{int}}_{ij} = -\nabla_{\bfx_i}U_{ij}.$$ Assuming that the
+environment of the particle also acts on each particle through a force
+$\bff^{\text{env}}_i$, and these are the only forces acting, then a
+complete description of the motion of the particles is:
+$$\dot{m}_i=0,\qquad m_i\ddot{\bfx}_i = \bff^{\text{env}}_i+\sum_{j\neq i}\bff^{\text{int}}_{ij},$$
+where we do not apply the summation convention, and $i$ ranges from
+$1,\ldots,N$. These two sets of equations state that the mass of each
+particle is constant, and each particle obeys Newton's Second Law.
+
+Consider an arbitrary subset of indices $I\subset\{1,\ldots,N\}$, and
+let $\Omega_t$ be the current configuration of particles with indices
+$I$ at time $t\geq 0$. We can associate to $\Omega_t$ a total mass
+$M[\Omega_t]$, a linear momentum $\bfl[\Omega_t]$, an angular momentum
+$\bfj[\Omega_t]$, an internal energy $U[\Omega_t]$ and a kinetic energy
+$K[\Omega_t]$ as follows: $$\begin{gathered}
+    M[\Omega_t] = \sum_{i\in I}m_i,\quad\bfl[\Omega_t] = \sum_{i\in I}m_i\dot{\bfx}_i,\quad \bfj[\Omega_t] = = \sum_{i\in I}\bfx_i\times m_i\dot{\bfx}_i,\\
+    U[\Omega_t] = \sum_{\substack{i,j\in I\\i<j}} U_{ij},\quad K[\Omega_t] = \sum_{i\in I} \tfrac12m_i|\dot{\bfx}_i|^2.
+  \end{gathered}$$ If we make the assumption that $U_{ij}$ depends only
+on $\bfx_i$ and $\bfx_j$ through the distance $|\bfx_i-\bfx_j|$, then we
+have $$\begin{aligned}
+  \frac{d}{dt}M[\Omega_t] &= 0,\\
+  \frac{d}{dt}\bfl[\Omega_t] &= \sum_{i\in I}\bigg(\bff^{\text{env}}_i+\sum_{j\notin I}\bff^{\text{int}}_{ij}\bigg)\\
+  \frac{d}{dt}\bfj[\Omega_t] &= \sum_{i\in I}\bfx_i\times \bigg(\bff^{\text{env}}_i+\sum_{j\notin I}\bff^{\text{int}}_{ij}\bigg)\\
+  \frac{d}{dt}\big(U[\Omega_t]+K[\Omega_t]\big) &= \sum_{i\in I} \dot{\bfx}_i\cdot \bigg(\bff^{\text{env}}_i+\sum_{j\notin I}\bff^{\text{int}}_{ij}\bigg).
+\end{aligned}$$ These equations state that the mass of $\Omega_t$ does
+not change with time, the rate of change of linear momentum is equal to
+the resultant external force acting on $\Omega_t$, the rate of change of
+the angular momentum is equal to the resultant external torque acting on
+$\Omega_t$, and the rate of change of the energy is equal to the power
+of the external forces acting on $\Omega_t$.
+
+The equations above are balance laws, and describe how various
+physically important quantities are conserved or change due to external
+influences. These four laws provide a fundamental starting point for the
+modelling of continuum bodies, by (at least informally) letting the
+number of particles tend to infinity, and replacing sums by integrals.
+In the case of mass and linear and angular momentum, this limit is
+straightforward. However, for the energy balance, things are more
+complicated: a continuum field cannot directly represent fluctuations on
+the atomic scale. As such, continuum fields should be treated as
+'averages over' sufficiently large collections of atoms, where
+fluctuations are smoothed out.
+
+## Balance laws in integral form
+
+Consider a motion $\bfphi$, which maps a reference configuration $B$ to
+the current configuration $B_t=\bfphi(B,t)$. Let $\rho(\bfy,t)$ be the
+mass density and $\bfv(\bfy,t)$ be the velocity at a spatial point
+$\bfy\in B_t$, and let $\Omega_t\subseteq B_t$ be an arbitrary open
+subset of $B_t$. Then: $$\begin{aligned}
+    \text{The \emph{mass} of $\Omega_t$ is:}&&\mass[\Omega_t] &= \int_{\Omega_t}\rho(\bfy,t)\dVy,\\
+    \text{The \emph{linear momentum} of $\Omega_t$ is:}&&\bfl[\Omega_t] &= \int_{\Omega_t}\rho(\bfy,t)\bfv(\bfy,t)\dVy,\\
+    \text{The \emph{angular momentum} of $\Omega_t$ about $\bfz$ is:}&&\bfj[\Omega_t;\bfz] &= \int_{\Omega_t}(\bfy-\bfz)\times \rho(\bfy,t)\bfv(\bfy,t)\dVy.
+  \end{aligned}$$
+
+Assuming that we are neglecting relativistic effects and possible
+chemical reactions, the balance laws can be generalised to continuum
+bodies as follows.
+
+::: axiom
+[]{#ax:ConservationOfMass label="ax:ConservationOfMass"}
+[]{#ax:massconservation label="ax:massconservation"} The mass of any
+open subset of a continuum body is invariant as the body changes
+position and shape, i.e.
+$$\frac{d}{dt}\mass[\Omega_t] = 0\quad\text{for all }\Omega_t\subseteq B_t.$$
+:::
+
+Now, recalling the definitions of the resultant force $\bfr[\Omega]$ and
+resultant torque $\bftau[\Omega;\bfz]$, we can state the laws of
+inertia:
+
+::: axiom
+[]{#ax:LawsOfInertia label="ax:LawsOfInertia"} []{#ax:lawsofinertia
+label="ax:lawsofinertia"} The rate of change of linear momentum of any
+open subset of a continuum body equals the resultant force applied to
+it, and the rate of change of angular momentum equals the resultant
+torque, i.e.
+$$\frac{d}{dt}\bfl[\Omega_t] = \bfr[\Omega_t]\quad\text{and}\quad \frac{d}{dt}\bfj[\Omega_t;\bfz]=\bftau[\Omega_t;\bfz]\qquad\text{for all }\Omega_t\subseteq B_t.$$
+:::
+
+Both
+Axiom [\[ax:massconservation\]](#ax:massconservation){reference-type="ref"
+reference="ax:massconservation"} and
+Axiom [\[ax:lawsofinertia\]](#ax:lawsofinertia){reference-type="ref"
+reference="ax:lawsofinertia"} are assumed to hold for every motion and
+every subset of a continuum body.
+
+### First and second laws of thermodynamics
+
+Temperature is a physical property of matter that is based on our
+perceptions of hot and cold, and quantifies the microscopic fluctuations
+in the velocity of the atoms making up the material about their mean
+value.
+
+To see this more clearly, we note that the continuum velocity field
+$\bfv(\bfy,t)$ measures the average velocity of the atoms in the body at
+a spatial point $\bfy\in B_t$, but it is perfectly possible that, at
+some instant in time, many of the atoms close to this point are moving
+in different directions. This variation in the microscopic velocities of
+the atoms is what temperature is. To describe temperature at the
+continuum level, we will assume the existence of a (scalar) absolute
+*temperature field* $\theta(\bfy,t)>0$ for all points $\bfy\in B_t$ and
+times $t\geq0$. This field is positive, since we always assume that
+there is some (possibly very small) variation about the mean.
+
+By the *thermal energy* or *heat content* of a body we mean an energy
+associated with the velocity fluctuations of atoms within the body, and
+so with its temperature. We note however that heat and temperature are
+not the same! We know from our own experience that heat can be converted
+into mechanical work: deforming a body can affect its temperature and
+therefore its heat content. Similarly, heating a body can affect its
+temperature and set it in motion, for example through thermal expansion.
+This tells us that we may use the same units to describe heat energy as
+we use to describe mechanical work.
+
+Heat energy can be transformed in two basic ways:
+
+-   It can be produced or consumed by mechanical, chemical, or
+    electromagnetic processes. For example, a flowing electrical current
+    produces heat as it encounters resistance in the body.
+
+-   It can be transferred from one body to another through physical
+    contact or thermal radiation. Heat transfer through contact can be
+    further classified as heat conduction or convection depending on the
+    circumstances and nature of the bodies involved.
+
+Given $\Omega_t\subseteq B_t$, we define the *net rate of heating*
+$Q[\Omega_t]$ to be the rate at which heat is being added to $\Omega_t$.
+As suggested above (and in analogy with the treatment of forces in
+Chapter [\[cha:mass-forces\]](#cha:mass-forces){reference-type="ref"
+reference="cha:mass-forces"}), we assume that the net heating can be
+decomposed into a bulk and surface heating:
+$$Q[\Omega_t] = Q_b[\Omega_t]+Q_s[\partial\Omega_t].$$ As with our
+treatment of mass density and body forces, we assume there exists a
+*heat supply field* per unit volume $\hat{r}(\bfy,t)\in\bbR$ such that
+$$Q_b[\Omega_t] = \int_{\Omega_t}\hat{r}(\bfy,t)\dVy,$$ and
+equivalently, a heat supply field per unit mass $r(\bfy,t)\in\bbR$ with
+$r(\bfy,t) = \hat{r}(\bfy,t)/\rho(\bfy,t)$ so that, equivalently,
+$$Q_b[\Omega_t] = \int_{\Omega_t}\rho(\bfy,t)r(\bfy,t)\dVy.$$
+
+We similarly assume that there is a *heat transfer field* per unit area
+$h(\bfy,t)\in\bbR$ so that
+$$Q_s[\partial\Omega_t] = \int_{\partial \Omega_t} h(\bfy,t)\dAy.$$ More
+specifically, we assume that the heat transfer field takes the form
+$h(\bfy,t) = -\bfq(\bfy,t)\cdot\bfn(\bfy)$, where $\bfn$ is the
+outward-pointing unit normal field for the surface $\partial\Omega_t$,
+and $\bfq$ is the *heat flux vector field* in $B_t$.
+
+The direction and intensity of the heat flow across any surface is
+determined by the field $\bfq$, and the negative sign in the relation
+$h=-\bfq\cdot\bfn$ is due to choosing the outward rather than the inward
+pointing normal (we compute the flow of heat *into* the region
+$\Omega_t$). The relationship between the surface heat transfer $h$ and
+the flux $\bfq$ is analogous to the relationship between the traction
+$\bft$ and the Cauchy stress tensor $\bfS$. Indeed, similar conditions
+and arguments to those deployed in
+Propositions [\[prop:action+reaction\]](#prop:action+reaction){reference-type="ref"
+reference="prop:action+reaction"} and
+[\[prop:stresstensor\]](#prop:stresstensor){reference-type="ref"
+reference="prop:stresstensor"} show that heat transfer must take this
+form.
+
+Together, we now have that
+$$Q[\Omega_t] = \int_{\Omega_t}\rho(\bfy,t)r(\bfy,t)\dVy-\int_{\partial \Omega_t}\bfq(\bfy,t)\cdot\bfn(\bfy)\dAy.$$
+
+The *kinetic energy* of $\Omega_t$ is
+$$K[\Omega_t] = \int_{\Omega_t}\tfrac12\rho(\bfy,t)|\bfv(\bfy,t)|^2\dVy,$$
+and the *power of external forces* acting on $\Omega_t$ is
+$$P[\Omega_t] = \int_{\Omega_t}\rho(\bfy,t)\bfb(\bfy,t)\cdot\bfv(\bfy,t)\dVy+\int_{\partial \Omega_t}\bft(\bfy,t)\cdot\bfv(\bfy,t)\dAy.$$
+The *net rate of internal mechanical work* of external forces acting on
+$\Omega_t$ is the power not used up in producing motion, i.e.
+$$W[\Omega_t] = P[\Omega_t]-\frac{d}{dt}K[\Omega_t].$$ It
+$W[\Omega_t]=0$ over some time interval, then all of the mechanical
+energy delivered to the body by external forces is converted to kinetic
+energy. If $W[\Omega_t]>0$ over some time interval, then some of the
+energy delivered to the body is stored, and if $W[\Omega_t]<0$, energy
+is released from the body.
+
+From the above discussion, we see that there may be some part of the
+energy of a continuum body which is not kinetic energy. This component
+of the energy is called the *internal energy*, and represents a store of
+energy that can be increased in various ways (e.g. by heating or
+applying forces to the body), or released (e.g. by heat transfer or
+through performing mechanical work). We will assume that the internal
+energy of a body consists only of thermal and mechanical energy,
+neglecting chemical and electromagnetic effects (which can be treated
+within a similar framework).
+
+Given a subset $\Omega_t\subseteq B_t$, we denote its internal energy
+$U[\Omega_t]$, and assume that there exists an *internal energy density
+field* per unit volume $\hat{\phi}(\bfy,t)\in\bbR$ such that
+$$U[\Omega_t] = \int_{\Omega_t}\hat{\phi}(\bfy,t)\dVy.$$ As usual, we
+can define a corresponding internal energy density per unit mass
+$\phi(\bfy,t) = \hat{\phi}(\bfy,t)/\rho(\bfy,t)$ so that
+$$U[\Omega_t] = \int_{\Omega_t} \rho(\bfy,t)\phi(\bfy,t)\dVy.$$
+
+::: axiom
+[]{#ax:1stLaw label="ax:1stLaw"} The rate of change of the internal
+energy of any open subset of a continuum body is the sum of the net rate
+of heating and net rate of work applied to it, i.e.
+$$\frac{d}{dt}U[\Omega_t]=Q[\Omega_t]+W[\Omega_t]\quad\text{for all }\Omega_t\subseteq B_t,$$
+or using the relationship between $W$, $P$ and $K$:
+$$\frac{d}{dt}\Big(U[\Omega_t]+K[\Omega_t]\Big)=Q[\Omega_t]+P[\Omega_t]\quad\text{for all }\Omega_t\subseteq B_t.$$
+:::
+
+There are various fundamental differences between the continuum versions
+of the energy balance and the corresponding law for particles. These
+arise from the fact that our continuum description cannot capture the
+atomic fluctuations, which are separated from the kinetic energy.
+
+The energy balance relates the rate of change of internal energy with
+the net rate of heating and net rate of work due to external influences
+on a body. While these must be balanced, there is no restriction on the
+rates of these processes themselves. For example, if the net rate of
+work is zero over some time interval, then there is no limit on the rate
+at which a body may absorb heat and store it as internal energy. In its
+simplest form, the Second Law of Thermodynamics expresses the fact that
+bodies *do* have limits on the rate at which heat can be absorbed, but
+no limit on the rate at which heat can be released.
+
+There are many forms of the Second Law, and its precise form is far from
+settled. Our choice here is to adopt a form of the Second Law called the
+Clausius-Duhem inequality, and this is common in much of Continuum
+Mechanics.
+
+To explain the form of the Second Law we use, suppose that $\Omega_t$ is
+a homogeneous body with uniform temperature $\Theta[\Omega_t]$. We
+assume that there is some upper bound $\Xi[\Omega_t]$ which limits the
+rate of heating $Q[\Omega_t]$, so that $$\label{eq:heatinglimit}
+  Q[\Omega_t]\leq \Xi[\Omega_t].$$ The bound $\Xi[\Omega_t$ will
+generally depend upon the properties of the body $\Omega_t$.
+
+In our framework, the *entropy* of the homogeneous body $\Omega_t$ means
+the quantity $H[\Omega_t]$ defined to satisfy
+$$\frac{d}{dt}H[\Omega_t] = \frac{\Xi[\Omega_t]}{\Theta[\Omega_t]}.$$
+The entropy is therefore a quantity whose rate of change at any instant
+is the upper bound on the rate of heating per unit temperature, and so
+measures the body's ability to absorb heat.
+
+In terms of entropy, the bound in
+[\[eq:heatinglimit\]](#eq:heatinglimit){reference-type="eqref"
+reference="eq:heatinglimit"} becomes $$\label{eq:ClausiusPlanck}
+  \frac{Q[\Omega_t]}{\Theta[\Omega_t]}\leq \frac{d}{dt}H[\Omega_t].$$
+This inequality is a form of the Second Law called the *Clausius-Planck
+inequality*. If $Q[\Omega_t]=0$, this becomes
+$$0\leq \frac{d}{dt}H[\Omega_t],$$ which states that the entropy of a
+body always prefers to increase, even when the neat heating vanishes (as
+in the case of an isolated body).
+
+To make progress in our continuum setting, we now assume that the
+entropy varies throughout the body, and is described by an *entropy
+density field* per unit volume $\hat{\eta}(\bfy,t)\in\bbR$ so that
+$$H[\Omega_t] = \int_{\Omega_t}\hat{\eta}(\bfy,t)\dVy.$$ As usualy, we
+introduce an entropy density per unit mass:
+$$\eta(\bfy,t) = \frac{\hat{\eta}(\bfy,t)}{\rho(\bfy,t)}\quad\text{so that}\quad H[\Omega_t] = \int_{\Omega_t}\rho(\bfy,t)\eta(\bfy,t)\dVy.$$
+
+The generalisation of
+[\[eq:ClausiusPlanck\]](#eq:ClausiusPlanck){reference-type="eqref"
+reference="eq:ClausiusPlanck"} to spatially inhomogeneous systems is
+then the following.
+
+::: axiom
+[]{#ax:2ndLaw label="ax:2ndLaw"} The rate of entropy production in any
+open subset of a continuum body is bounded below by the heating per unit
+temperature, i.e.
+$$\frac{d}{dt}H[\Omega_t] \geq \int_{\Omega_t}\frac{\rho(\bfy,t)r(\bfy,t)}{\theta(\bfy,t)}\dVy-\int_{\partial \Omega_t}\frac{\bfq(\bfy,t)\cdot\bfn(\bfy)}{\theta(\bfy,t)}\dAy$$
+for all $\Omega_t\subseteq B_t$.
+:::
+
+This formulation of the Second Law is called the *Clausius-Duhem
+inequality*. We will assume that it hold for every motion and subset of
+a continuum body, and study its consequences.
+
+### Integral versus local balance laws
+
+So far, we have summarised balance laws for the mass, momentum, energy
+and entropy in terms of arbitrary open subsets of the current
+configuration $B_t$. We will now exploit the Localisation Theorem,
+Proposition [\[prop:localisation\]](#prop:localisation){reference-type="ref"
+reference="prop:localisation"}, to derive partial differential equations
+for the various fields we have considered. When expressed in terms of
+the spatial coordinates, we refer to such balance laws as *Eulerian*,
+and when expressed in material coordinates, we refer to the balance laws
+as being in *Lagrangian* form.
+
+## Localised Eulerian form of balance laws
+
+We will assume in this section that $\bfphi:B\times[0,T]\to\bbE^3$ is a
+motion which satisfies $\bfphi(\bfx,0) = \bfx$.
+
+### Conservation of mass {#sec:EulerianMass}
+
+Consider $\Omega_t\subseteq B_t$, and let $\Omega\subseteq B$ such that
+$\bfphi(\Omega,t) = \Omega_t$.
+Axiom [\[ax:ConservationOfMass\]](#ax:ConservationOfMass){reference-type="ref"
+reference="ax:ConservationOfMass"} entails that
+$$\mass[\Omega_t] = \mass[\Omega_0],$$ where $\Omega_0 = \Omega$.
+Furthermore, we have
+$$\mass[\Omega_t] = \int_{\Omega_t}\rho(\bfy,t)\dVy = \int_\Omega \rho_m(\bfx,t)\det\bfF(\bfx,t)\dVx,$$
+and as we have assumed that $\bfphi(\bfx,0) =\bfx$, we have
+$$\mass[\Omega_0] = \int_{\Omega}\rho(\bfx,0)\dVy = \int_\Omega \rho_0(\bfx)\dVx,$$
+where $\rho_0(\bfx) =\rho(\bfx,0)$. We must therefore have
+$$\int_\Omega \rho_m(\bfx,t)\det\bfF(\bfx,t)-\rho_0(\bfx)\dVx=0$$ for
+any $t\geq0$ and any $\Omega\subseteq B$, so the Localisation Theorem
+entails that $$\label{eq:ConsOfMass1}
+  \rho_m(\bfx,t)\det\bfF(\bfx,t) = \rho_0(\bfx)\quad\text{for all }\bfx\in B, t\geq0.$$
+To convert this form to Eulerian form, we take the total time derivative
+of both sides of this equation, finding that
+$$\bigg(\frac{d}{dt}\rho(\bfphi(\bfx,t),t)\bigg)\det\bfF(\bfx,t)+\rho(\bfphi(\bfx,t),t)\frac{d}{d t}\det\bfF(\bfx,t) = 0.$$
+For the latter term, we apply
+Proposition [\[prop:TotalDerivativeDetF\]](#prop:TotalDerivativeDetF){reference-type="ref"
+reference="prop:TotalDerivativeDetF"}, so that
+$$\bigg(\frac{d}{dt}\rho(\bfphi(\bfx,t),t)\bigg)\det\bfF(\bfx,t)+\rho(\bfphi(\bfx,t),t)\det\bfF(\bfx,t)\nabla_\bfy\cdot\bfv(\bfphi(\bfx,t),t) = 0.$$
+Dividing through by the non-zero determinant term, and taking the total
+derivative in the first term, then re-expressing everything in spatial
+coordinates by substituting $\bfy=\bfphi(\bfx,t)$, we have
+$$\frac{\partial\rho}{\partial t}(\bfy,t) + \nabla_\bfy\rho(\bfy,t)\cdot\bfv(\bfy,t)+\rho(\bfy,t)\nabla_\bfy\cdot\bfv(\bfy,t)= 0.$$
+Finally, using the property of the divergence that
+$\nabla\cdot(\phi\bfw) = \nabla\phi\cdot\bfw +\phi\nabla\cdot\bfw$, we
+have:
+$$\frac{\partial\rho}{\partial t}(\bfy,t) + \nabla_\bfy\cdot\big(\rho(\bfy,t)\bfv(\bfy,t)\big)= 0.$$
+We have just proved the following result:
+
+::: proposition
+If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion with associated spatial
+velocity field $\bfv$ and spatial mass density field $\rho$, then the
+conservation of mass entails that
+$$\frac{\partial \rho}{\partial t} +\nabla_\bfy\cdot(\rho\bfv) = 0$$ for
+all $\bfy\in B_t$ and $t\in[0,T]$. Equivalently, we have
+
+$$\DDt\rho +\rho\nabla_\bfy\cdot\bfv = 0$$ for all $\bfy\in B_t$ and
+$t\in[0,T]$.
+:::
+
+The following result allows us to express the time derivative of
+integrals involving the mass density $\rho$.
+
+::: proposition
+[]{#prop:TimeDerivativeMassIntegrals
+label="prop:TimeDerivativeMassIntegrals"} If
+$\bfphi:B\times[0,T]\to\bbE^3$ is a motion with associated spatial
+velocity field $\bfv$ and spatial mass density field $\rho$, $\Phi$ is
+any spatial scalar, vector or tensor field, and $\Omega_t\subseteq B_t$,
+then
+$$\frac{d}{dt}\int_{\Omega_t}\Phi(\bfy,t)\rho(\bfy,t)\dVy =\int_{\Omega_t}\DDt{\Phi}(\bfy,t)\rho(\bfy,t)\dVy.$$
+:::
+
+::: proof
+*Proof.* Applying
+Proposition [\[prop:TransformationOfVolumeIntegrals\]](#prop:TransformationOfVolumeIntegrals){reference-type="ref"
+reference="prop:TransformationOfVolumeIntegrals"}, we have
+$$\int_{\Omega_t}\Phi(\bfy,t)\rho(\bfy,t)\dVy = \int_\Omega \Phi(\bfphi(\bfx,t),t)\rho(\bfphi(\bfx,t),t)\det\bfF(\bfx,t)\dVx,$$
+where $\Omega_t=\bfphi(\Omega,t)$. Applying the equality
+[\[eq:ConsOfMass1\]](#eq:ConsOfMass1){reference-type="eqref"
+reference="eq:ConsOfMass1"}, i.e.
+$\rho(\bfphi(\bfx,t),t)\det\bfF(\bfx,t) = \rho_0(\bfx)$, we can rewrite
+the RHS as
+$$\int_{\Omega_t}\Phi(\bfy,t)\rho(\bfy,t)\dVy = \int_\Omega \Phi(\bfphi(\bfx,t),t)\rho_0(\bfx)\dVx.$$
+Differentiating with respect to time, and exchanging the order of
+integration and differentiation on the RHS, we have
+$$\frac{d}{dt}\int_{\Omega_t}\Phi(\bfy,t)\rho(\bfy,t)\dVy = \int_\Omega \frac{d}{dt}\bigg(\Phi(\bfphi(\bfx,t),t)\bigg)\rho_0(\bfx)\dVx.$$
+But now, using equality
+[\[eq:ConsOfMass1\]](#eq:ConsOfMass1){reference-type="eqref"
+reference="eq:ConsOfMass1"} again, and then applying the definition of
+the total derivative and
+Proposition [\[prop:TransformationOfVolumeIntegrals\]](#prop:TransformationOfVolumeIntegrals){reference-type="ref"
+reference="prop:TransformationOfVolumeIntegrals"}, we have
+$$\begin{aligned}
+    \DDt{}\int_{\Omega_t}\Phi(\bfy,t)\rho(\bfy,t)\dVy
+    &= \int_\Omega \frac{d}{dt}\bigg(\Phi(\bfphi(\bfx,t),t)\bigg)\rho(\bfphi(\bfx,t),t)\det\bfF(\bfx,t)\dVx\\
+    &=\int_{\Omega_t}\DDt{\Phi}(\bfy,t)\rho(\bfy,t)\dVy.
+  
+\end{aligned}$$
+:::
+
+### Balance of linear momentum
+
+As stated in
+Axiom [\[ax:LawsOfInertia\]](#ax:LawsOfInertia){reference-type="ref"
+reference="ax:LawsOfInertia"}, we have
+$$\int_{\Omega_t}\rho\bfv\dVy =\int_{\partial\Omega_t}\bft \dAy+\int_{\Omega_t}\rho\bfb\dVy,$$
+where all of the integrated quantities are spatial fields. The results
+of Chapter [\[cha:mass-forces\]](#cha:mass-forces){reference-type="ref"
+reference="cha:mass-forces"} state that the traction field
+$\bft=\bfS\bfn$, so that
+$$\int_{\Omega_t}\rho\bfv\dVy =\int_{\partial\Omega_t}\bfS\bfn \dAy+\int_{\Omega_t}\rho\bfb\dVy.$$
+Using the tensorial version of the Divergence Theorem, we have
+$$\int_{\Omega_t}\rho\bfv\dVy =\int_{\Omega_t}\nabla_\bfy\cdot\bfS+\rho\bfb\dVy.$$
+Now, as $\Omega_t$ is an arbitrary subset of $B_t$, the Localisation
+Theorem entails that we have the following result:
+
+::: proposition
+[]{#prop:LinearMomentumEulerian label="prop:LinearMomentumEulerian"} If
+$\bfphi:B\times[0,T]\to\bbE^3$ is a motion with associated spatial
+velocity field $\bfv$ and spatial mass density field $\rho$, then the
+balance of linear momentum entails that
+$$\rho\dot\bfv =\nabla_\bfy\cdot\bfS +\rho\bfb$$ for all $\bfy\in B_t$
+and $t\in[0,T]$, where $\bfS(\bfy,t)$ is the Cauchy stress field and
+$\bfb(\bfy,t)$ is the spatial body force field per unit mass.
+:::
+
+This is the dynamic version of the equilibrium condition established in
+Proposition [\[prop:staticequilibriumeqns\]](#prop:staticequilibriumeqns){reference-type="ref"
+reference="prop:staticequilibriumeqns"}: the static result corresponds
+to the case where $\dot\bfv=0$ for all $\bfy\in B_t$ and $t\in[0,T]$,
+i.e. there is no motion.
+
+Recall that
+$$\DDt{\bfv} = \frac{\partial\bfv}{\partial t} +(\nabla_\bfy\bfv)\bfv,$$
+so we may equivalently write
+$$\rho\bigg(\frac{\partial\bfv}{\partial t} +(\nabla_\bfy\bfv)\bfv\bigg) = \nabla_\bfy\cdot\bfS+\rho\bfb.$$
+
+### Balance of angular momentum
+
+Taking the point about which we compute angular momentum to be
+$\bfz=\bf0$, recall that the balance of angular momentum is
+$$\label{eq:angularmomentum}
+  \frac{d}{dt}\int_{\Omega_t}\bfy\times (\rho\bfv)\dVy =\int_{\partial\Omega_t}\bfy\times \bft \dAy+\int_{\Omega_t}\bfy\times \rho\bfb\dVy,$$
+where as before, all fields in the integrands are spatial. To simplify
+the LHS of this equation, note that $\DDt{}\bfy = \bfv$, and hence
+$$\DDt{}\left(\bfy\times\bfv\right) = \DDt{\bfy}\times\bfv+\bfy\times\DDt{\bfv} =\underbrace{\bfv\times\bfv}_{=\bf0}+ \bfy\times\DDt{\bfv}.$$
+Moreover,
+Proposition [\[prop:TimeDerivativeMassIntegrals\]](#prop:TimeDerivativeMassIntegrals){reference-type="ref"
+reference="prop:TimeDerivativeMassIntegrals"} entails that
+$$\begin{aligned}
+  \DDt{}\int_{\Omega_t}(\bfy\times \bfv)\rho\dVy &= \int_{\Omega_t}\rho\,\DDt{}\left(\bfy\times\bfv\right)\dVy\\
+&=\int_{\Omega_t}\rho\,\bfy\times\DDt{\bfv}\dVy
+\end{aligned}$$ Substituting into
+[\[eq:angularmomentum\]](#eq:angularmomentum){reference-type="eqref"
+reference="eq:angularmomentum"} and using the fact that $\bft=\bfS\bfn$,
+we obtain
+$$\int_{\Omega_t}\bfy\times \left(\rho\DDt{\bfv}\right)\dVy =\int_{\partial\Omega_t}\bfy\times \bfS\bfn \dAy+\int_{\Omega_t}\bfy\times \rho\bfb\dVy.$$
+Now, using
+Proposition [\[prop:LinearMomentumEulerian\]](#prop:LinearMomentumEulerian){reference-type="ref"
+reference="prop:LinearMomentumEulerian"} to substitute for
+$\rho\DDt\bfv$ on the LHS, we have
+$$\int_{\Omega_t}\bfy\times (\nabla_\bfy\cdot\bfS)\dVy =\int_{\partial\Omega_t}\bfy\times \bfS\bfn \dAy.$$
+Now, proceeding as in the proof of
+Proposition [\[prop:staticequilibriumeqns\]](#prop:staticequilibriumeqns){reference-type="ref"
+reference="prop:staticequilibriumeqns"}, we have:
+
+::: proposition
+Let $\bfphi:B\times[0,T]\to\bbE^3$ be a motion, and let $\bfS$ be the
+Cauchy stress field in $B_t$. Then the balance of angular momentum
+entails that
+$$\bfS^T(\bfy,t)=\bfS(\bfy,t)\quad\text{for all }\bfy\in B_t, t\in[0,T].$$
+:::
+
+The balance of angular momentum therefore requires that the Cauchy
+stress tensor is always symmetric, no matter whether the body is in
+motion or not. Note also that the argument used works with any fixed
+point $\bfz$ about which we compute the angular momentum.
+
+### Net work
+
+To study localised version of the First and Second Laws of
+Thermodynamics, we derive a relationship between the rate of change of
+kinetic energy and the power of internal and external forces.
+
+We begin by taking the local balance of linear momentum, taking the dot
+product of each term with the velocity field and integrating to obtain
+$$\int_{\Omega_t}\rho\DDt\bfv\cdot\bfv \dVy = \int_{\Omega_t}(\nabla_\bfy\cdot\bfS)\cdot\bfv +\rho\bfb\cdot\bfv \dVy.$$
+We recall that
+$\nabla_\bfy\cdot(\bfS^T\bfv) = (\nabla_\bfy\cdot\bfS)\cdot\bfv+\bfS:\nabla_\bfy\bfv$,
+so applying this equality and the Divergence Theorem, we obtain
+$$\int_{\Omega_t}\rho\DDt\bfv\cdot\bfv \dVy = \int_{\Omega_t}-\bfS:\nabla_\bfy\bfv\dVy+\int_{\partial\Omega_t}\bfS^T\bfv\cdot\bfn \dAy +\int_{\Omega_t}\rho\bfb\cdot\bfv \dVy.$$
+Recalling that $\bfS$ is symmetric and $\bfL = \sym(\nabla_\bfy\bfv)$,
+we have that $\bfS:\nabla_\bfy\bfv = \bfS:\bfL$, so:
+$$\int_{\Omega_t}\rho\DDt\bfv\cdot\bfv +\bfS:\bfL\dVy = \int_{\partial\Omega_t}\bfv\cdot\bfS\bfn \dAy +\int_{\Omega_t}\rho\bfb\cdot\bfv \dVy.$$
+This leads us to the following result.
+
+::: proposition
+If $\bfphi$ is a motion, $\bfS$ is the Cauchy stress field, $\bfL$ is
+the rate of strain field, and $\Omega_t\subset B_t$, then
+$$\frac{d}{dt}K[\Omega_t]+\int_{\Omega_t} \bfS:\bfL \dVy = P[\Omega_t]\quad\text{for all }t\in[0,T],$$
+where $K[\Omega_t]$ is the kinetic energy of $\Omega_t$, and
+$P[\Omega_t]$ is the power of external forces acting on $\Omega_t$. The
+net rate of work done on $W[\Omega_t]$ is therefore
+$$W[\Omega_t] = \int_{\Omega_t} \bfS:\bfL\dVy.$$
+:::
+
+The quantity $\bfS:\bfL$ is called the *stress power* associated with a
+motion. It corresponds to the rate at which work is done by internal
+forces (i.e. stresses) acting at each point in a body.
+
+### First Law of Thermodynamics
+
+Using the expressions derived in the previous section, we can invoke
+Axiom [\[ax:1stLaw\]](#ax:1stLaw){reference-type="ref"
+reference="ax:1stLaw"} to deduce that the balance law for energy in
+$\Omega_t\subseteq B_t$ is
+$$\frac{d}{dt}\int_{\Omega_t} \rho\phi\dVy = \int_{\Omega_t}\bfS:\bfL\dVy -\int_{\partial \Omega_t}\bfq\cdot\bfn\dAy +\int_{\Omega_t}\rho r\dVy.$$
+Recall that:
+
+-   $\rho$ is the mass density field,
+
+-   $\phi$ is the internal energy field per unit mass,
+
+-   $\bfq$ is the heat flux vector field,
+
+-   $r$ is the heat supply field per unit mass,
+
+-   $\bfL$ is the rate of strain field, and
+
+-   $\bfS$ is the Cauchy stress field.
+
+We can apply
+Proposition [\[prop:TimeDerivativeMassIntegrals\]](#prop:TimeDerivativeMassIntegrals){reference-type="ref"
+reference="prop:TimeDerivativeMassIntegrals"} along with the divergence
+theorem to deduce that
+$$\int_{\Omega_t} \rho\DDt\phi\dVy = \int_{\Omega_t}\bfS:\bfL-\nabla_\bfy\cdot\bfq+\rho r\dVy,$$
+and then an application of the Localisation Theorem entails:
+
+::: proposition
+If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion, then
+Axiom [\[ax:1stLaw\]](#ax:1stLaw){reference-type="ref"
+reference="ax:1stLaw"}, the First Law of Thermodynamics, entails that
+$$\rho\DDt{\phi} = \bfS:\bfL-\nabla_\bfy\cdot\bfq + \rho r\quad\text{for all }\bfy\in B_t,t\in[0,T].$$
+:::
+
+### Second Law of Thermodynamics
+
+The Clausius-Duhem inequality states that
+$$\frac{d}{dt}\int_{\Omega_t} \rho\eta\dVy \geq \int_{\Omega_t}\frac{\rho r}{\theta}\dVy-\int_{\partial\Omega_t}\frac{\bfq\cdot\bfn}{\theta}\dAy,$$
+where:
+
+-   $\rho$ is the mass density,
+
+-   $\eta$ is the entropy field per unit mass,
+
+-   $\bfq$ is the heat flux vector field, and
+
+-   $\theta$ is the absolute temperature.
+
+Applying the Divergence Theorem and the Localisation Theorem, we obtain:
+
+::: proposition
+If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion, then
+Axiom [\[ax:2ndLaw\]](#ax:2ndLaw){reference-type="ref"
+reference="ax:2ndLaw"}, i.e. the Clausius-Duhem inequality, entails that
+$$\rho\DDt{\eta}\geq \frac{\rho r}{\theta}-\nabla_\bfy\cdot\Big(\frac\bfq\theta\Big)\quad\text{for all }\bfy\in B_t, t\in[0,T].$$
+:::
+
+Expanding the divergence term and multiplying through by $\theta$ (which
+we recall is positive), we obtain $$\label{eq:C-DEulerian}
+  \theta\rho\DDt\eta\geq \rho r-\nabla_\bfy\cdot\bfq+\frac{\bfq\cdot\nabla\theta}{\theta}.$$
+Now, let us define $\delta$, the *internal dissipation density field*
+per unit volume to be
+$$\delta = \theta\rho\DDt\eta-(\rho r-\nabla_\bfy\cdot\bfq),$$ which
+allows us to rewrite
+[\[eq:C-DEulerian\]](#eq:C-DEulerian){reference-type="eqref"
+reference="eq:C-DEulerian"} as $$\label{eq:C-DEulerian2}
+  \delta-\frac{\bfq\cdot\nabla_\bfy\theta}{\theta}\geq0.$$
+
+The dissipation field $\delta$ represents the difference between the
+rate of entropy increase (the first term) and the local heating (the
+bracketed term). $\rho r$ represents externally-induced heating, while
+$-\nabla_\bfy\cdot\bfq$ is heating caused through conduction from the
+material surrounding the given point.
+
+Note that if there is no local temperature variation, i.e.
+$\nabla\theta=\bf0$, then
+[\[eq:C-DEulerian2\]](#eq:C-DEulerian2){reference-type="eqref"
+reference="eq:C-DEulerian2"} implies that $\delta\geq0$, i.e. the
+internal dissipation is positive in bodies with a homogeneous
+temperature. We also see that if $\delta=0$, then
+$\bfq\cdot\nabla_\bfy\theta\leq0$, or in other words, the heat flux
+vector tends to point in the direction of $-\nabla\theta$, so that heat
+flows from hotter regions to colder ones.
+
+### Summary
+
+We now summarise our Eulerian equations. Taking components with respect
+to a particular coordinate frame, there are 22 scalar unknowns:
+$$\begin{aligned}
+    \varphi_i(\bfx,t) &&&\text{3 components of motion,}\\
+    v_i(\bfy,t) &&&\text{3 components of velocity,}\\
+    \rho(\bfy,t) &&&\text{1 mass density field,}\\
+    S_{ij}(\bfy,t) &&&\text{9 components of Cauchy stress,}\\
+    \theta(\bfy,t) &&&\text{1 temperature field,}\\
+    q_i(\bfy,t) &&&\text{3 components of heat flux,}\\
+    \phi(\bfy,t) &&&\text{1 internal energy field per unit mass, and}\\
+    \eta(\bfy,t) &&&\text{1 entropy field per unit mass.}
+  \end{aligned}$$ From physical principles, we have deduced 11
+equations: $$\begin{aligned}[]
+    [v_i]_m &= \frac{\partial\varphi_i}{\partial t}&& \text{3 kinematic relations,}\\
+    \frac{\partial\rho}{\partial t} +(\rho v_i)_{,i}&=0&& \text{1 conservation of mass equation,}\\
+    \rho \DDt{v_i} &= S_{ij,j}+\rho b_i&& \text{3 balance of linear momentum equations,}\\
+    S_{ij} &= S_{ji} && \text{3 balance of angular momentum equations, and}\\
+    \rho\DDt{\phi} &= S_{ij}v_{i,j}-q_{i,i}+\rho r &&\text{1 energy balance equation.}
+  \end{aligned}$$
+
+##### Remarks:
+
+-   The motion map $\bfphi$ is often ignored within the Eulerian
+    framework. In this case, we only care about the spatial velocity
+    field $\bfv$, and 3 unknowns and equations disappear.
+
+-   Since the number of unknowns is greater than the number of
+    equations, more equations are required to close the system. This
+    leads to the idea of constitutive equations which relate the fields
+    $(\bfS,\bfq,\phi,\eta)$ to the fields $(\rho,\bfv,\theta)$. Such
+    relationships reflect the specific material properties of a body,
+    and are often inherently much less certain than the physical laws we
+    have used here.
+
+-   The Clausius-Duhem inequality does not allow us to determine any
+    unknown fields, as it is only an inequality. It does however lead to
+    restrictions on any constitutive relations that are proposed.
+
+## Localised Lagrangian form of balance laws
+
+Recall that the Lagrangian form of the local balance laws are expressed
+in terms of fields defined on the reference configuration, $B$, or in
+material coordinates. The PDEs we derive are often used in solid
+mechanics, where material points do not get 'mixed-up' in the way that
+they do in fluids.
+
+### Conservation of mass {#conservation-of-mass}
+
+We have already covered conservation of mass in Lagrangian form through
+the arguments applied in
+Section [1.3.1](#sec:EulerianMass){reference-type="ref"
+reference="sec:EulerianMass"}:
+
+::: proposition
+[]{#prop:MassLagrangian label="prop:MassLagrangian"} If
+$\bfphi:B\times[0,T]\to\bbE^3$ is a motion with associated deformation
+gradient $\bfF(\bfx,t)$, the spatial mass density field is
+$\rho(\bfy,t)$, and $\rho_0(\bfx)$ is the mass density in the reference
+configuration $B$, then the conservation of mass entails that
+$$\rho_m(\bfx,t) = \frac{\rho_0(\bfx)}{\det\bfF(\bfx,t)}$$ for all
+$\bfx\in B$ and $t\in[0,T]$, where $\rho_m$ is the material description
+of the mass density.
+:::
+
+### Balance of linear momentum
+
+We recall from
+Axiom [\[ax:LawsOfInertia\]](#ax:LawsOfInertia){reference-type="ref"
+reference="ax:LawsOfInertia"} that the balance of linear momentum for
+$\Omega_t\subseteq B_t$ entails that
+$$\frac{d}{dt}\bfl[\Omega_t] = \bfr[\Omega_t].$$ In order to derive PDEs
+in material coordinates, we therefore need to express the quantities
+$\bfl[\Omega_t]$ and $\bfr[\Omega_t]$ in terms of those same material
+coordinates.
+
+Changing variable, and recalling that $\Omega_t=\bfphi(\Omega,t)$, and
+applying
+Proposition [\[prop:MassLagrangian\]](#prop:MassLagrangian){reference-type="ref"
+reference="prop:MassLagrangian"}, we find $$\begin{aligned}
+  \bfl[\Omega_t]
+  &= \int_{\Omega_t} \rho(\bfy,t)\bfv(\bfy,t)\dVy\\
+  &=\int_\Omega \rho(\bfphi(\bfx,t),t)\bfv(\bfphi(\bfx,t),t)\det\bfF(\bfx,t)\dVx \\
+  &=\int_\Omega \rho_0(\bfx)\ppt{\bfphi}(\bfx,t)\dVx.
+\end{aligned}$$ A similar argument for $\bfr[\Omega_t]$ yields
+$$\begin{aligned}
+  \bfr[\Omega_t]
+  &= \int_{\partial \Omega_t} \bfS(\bfy,t)\bfn(\bfy)\dAy+\int_{\Omega_t}\rho(\bfy,t)\bfb(\bfy,t)\dVy\\
+  &= \int_{\partial \Omega} \bfS(\bfphi(\bfx,t),t)\cof\bfF(\bfx,t)\bfnu(\bfx)\dAx+\int_{\Omega}\rho_m(\bfx,t)\bfb(\bfphi(\bfx,t),t)\det\bfF(\bfx,t)\dVx.
+\end{aligned}$$ Inspecting the first integral, we see that if we want to
+apply the Divergence Theorem, we will end up with a divergence of
+$\bfS\cof\bfF$. This motivates the definition of the *(first)
+Piola-Kirchhoff stress tensor field*, $\bfP:B\times[0,T]\to\calV^2$, to
+be $$\bfP(\bfx,t) := \bfS_m(\bfx,t)\cof\bfF(\bfx,t).$$ To interpret this
+stress tensor, note that $\bfP$ transforms the normal $\bfnu$ to an
+infinitesimal surface in the reference configuration to the traction
+$\bft = \bfP\bfnu$ acting act the equivalent point in the deformed
+configuration.
+
+For reference, we note that there is another measure of stress called
+the *second Piola-Kirchhoff stress tensor field*,
+$\bfSigma:B\times[0,T]\to\calV^2$, defined to be
+$$\bfSigma(\bfx,t) := \bfF^{-1}(\bfx,t)\bfP(\bfx,t) = \bfF^{-1}(\bfx,t)\bfS_m(\bfx,t)\bfF^{-T}(\bfx,t)\det(\bfF(\bfx,t)).$$
+This stress tensor field
+
+We now proceed by using the above definition and
+Proposition [\[prop:MassLagrangian\]](#prop:MassLagrangian){reference-type="ref"
+reference="prop:MassLagrangian"} to write $$\bfr[\Omega_t]
+  = \int_{\partial \Omega} \bfP(\bfx,t)\bfnu(\bfx)\dAx+\int_{\Omega_t}\rho_0(\bfx)\bfb_m(\bfx,t)\dVx,$$
+where $\bfb_m(\bfx,t)$ is the material description of the body force
+field $\bfb$. The conservation of linear momentum therefore entails that
+$$\frac{d}{dt}\int_\Omega \rho_0(\bfx)\ppt{\bfphi}(\bfx,t)\dVx
+  = \int_{\partial \Omega} \bfP(\bfx,t)\bfnu(\bfx)\dAx+\int_{\Omega_t}\rho_0(\bfx)\bfb_m(\bfx,t)\dVx.$$
+Using the fact that $\rho_0$ is independent of time, and applying the
+Divergence Theorem, we obtain
+$$\int_\Omega \rho_0\frac{\partial^2\bfphi}{\partial t^2}\dVx
+  = \int_\Omega \nabla_\bfx\cdot \bfP+\rho_0\bfb_m\dVx.$$ Now, since
+this holds for all $\Omega\subset B$ (as $\bfphi$ is a bijection), we
+have the following result.
+
+::: proposition
+If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion and $\rho_0(\bfx)$ is the
+mass density in the reference configuration $B$, then the balance of
+linear momentum entails that
+$$\rho_0\frac{\partial^2\bfphi}{\partial t^2} = \nabla_\bfx\cdot\bfP+\rho_0\bfb_m$$
+for all $\bfx\in B$ and $t\in[0,T]$, where $\bfP$ is the Piola-Kirchhoff
+stress tensor and $\bfb_m$ is the material description of the spatial
+body force field $\bfb$.
+:::
+
+### Balance of angular momentum
+
+We note that the balance of angular momentum in Eulerian form entails
+that $\bfS = \bfS^T$. Noting that $(\cof\bfF)\bfF^T = (\det\bfF)\bfI$,
+we deduce that
+$$\bfP\bfF^T = \bfS\bfF^{-T}\bfF^T\det(\bfF) = \bfS^T\det(\bfF) = \bfF\bfF^{-1}\bfS^T\det(\bfF) = \bfF\bfP^T.$$
+We therefore find:
+
+::: proposition
+If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion with associated
+deformation gradient $\bfF:B\times[0,T]\to\calV^2$, then the balance of
+linear momentum entails that $$\bfP\bfF^T = \bfF\bfP^T.$$ for all
+$\bfx\in B$ and $t\in[0,T]$, where $\bfP$ is the Piola-Kirchhoff stress
+tensor.
+:::
+
+### Net rate of work
+
+We now consider energies and power as considered when discussing the
+Laws of Thermodynamics. Recall that for $\Omega_t\subseteq B_t$, we have
+that the kinetic energy is
+$$K[\Omega_t] = \int_{\Omega_t}\tfrac12\rho|\bfv|^2\dVy,$$ which, by
+applying
+Proposition [\[prop:MassLagrangian\]](#prop:MassLagrangian){reference-type="ref"
+reference="prop:MassLagrangian"} and a change of variable, transforms to
+$$K[\Omega_t] = \int_\Omega \tfrac12\rho_0(\bfx)\left|\ppt\bfphi(\bfx,t)\right|^2\dVx.$$
+Changing variable, the power of the external forces can be expressed as
+$$\begin{aligned}
+  P[\Omega_t]
+  &= \int_{\Omega_t}\rho\bfb\cdot\bfv\dVy+\int_{\partial\Omega_t}\bfv\cdot(\bfS\bfn)\dAy\\
+  &= \int_{\Omega}\rho_m\bfb_m\cdot\bfv_m\det\bfF\dVx+\int_{\partial\Omega}\bfv_m\cdot(\bfS_m\cof\bfF\bfnu)\dAx\\
+  &= \int_{\Omega}\rho_0\bfb_m\cdot\dot\bfphi\dVx+\int_{\partial\Omega}\dot\bfphi\cdot(\bfP\bfnu)\dAx\\
+  &= \int_{\Omega}\rho_0\bfb_m\cdot\dot\bfphi\dVx+\int_{\partial\Omega}(\bfP^T\dot\bfphi)\cdot\bfnu\dAx.
+\end{aligned}$$ The Divergence Theorem and product rule for the
+divergence of a tensor applied to a vector now gives $$\begin{aligned}
+  P[\Omega_t]
+  &= \int_{\Omega}\rho_0\bfb_m\cdot\ppt\bfphi+\nabla_\bfx\cdot\left(\bfP^T\ppt\bfphi\right)\dVx\\
+  &=\int_{\Omega}(\nabla_\bfx\cdot\bfP+\rho_0\bfb_m)\cdot\ppt\bfphi+\bfP:\nabla_\bfx\ppt\bfphi\dVx.
+\end{aligned}$$ Differentiating and substituting for
+$\rho_0\frac{\partial^2\bfphi}{\partial t^2}$ using
+Proposition [\[prop:LinearMomentumEulerian\]](#prop:LinearMomentumEulerian){reference-type="ref"
+reference="prop:LinearMomentumEulerian"}, we have
+$$\frac{d}{dt}K[\Omega_t] = \int_{\Omega}\rho_0\ppt\bfphi\cdot\frac{\partial^2\bfphi}{\partial t^2}\dVx =
+  \int_{\Omega}\ppt\bfphi\cdot(\nabla_\bfx\cdot\bfS+\rho_0\bfb_m)\dVx.$$
+Equating this expression with the expression for the power
+$P[\Omega_t]$, we have shown the following result.
+
+::: proposition
+If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion with associated
+deformation gradient $\bfF:B\times[0,T]\to\calV^2$ and the
+Piola-Kirchhoff stress is $\bfP(\bfx,t)$, then
+$$\frac{d}{dt}K[\Omega_t] +\int_\Omega \bfP:\ppt\bfF\dVx = P[\Omega_t]$$
+for any $\Omega_t\subseteq B_t$ and $t\in[0,T]$. Put differently, the
+net rate of work done on $\Omega_t$ is
+$$W[\Omega_t] = \int_\Omega \bfP:\ppt\bfF\dVx\quad\text{for any }t\in[0,T].$$
+:::
+
+We compare this result with the Eulerian version, and note that
+$\bfS:\bfL$ and $\bfP:\ppt\bfF$ are both stress power combinations. The
+former is per unit volume in the deformed configuration $B_t$, while the
+latter is per unit volume in the reference configuration $B$.
+
+### First Law of Thermodynamics
+
+Axiom [\[ax:1stLaw\]](#ax:1stLaw){reference-type="ref"
+reference="ax:1stLaw"}, the First Law of Thermodynamics, states that
+$$\frac{d}{dt}U[\Omega_t] = Q[\Omega_t]+W[\Omega_t].$$ Recalling the
+definition of $U$, we can change variable to the reference configuration
+and use the conservation of mass in Lagrangian form to write
+$$U[\Omega_t] = \int_{\Omega_t}\phi\rho \dVy = \int_{\Omega} \rho_0\phi_m\dVx.$$
+For the net rate of heating, we have
+$$Q[\Omega_t] = \int_{\Omega_t}\rho r \dVy -\int_{\partial\Omega_t}\bfq\cdot\bfn\dAy = \int_\Omega\rho_0r_m\dVx-\int_{\partial \Omega}\bfq_m\cdot(\cof\bfF\bfnu)\dAx.$$
+Defining the material heat flux vector field
+$\bfkappa:B\times[0,T]\to\calV$ via
+$$\bfkappa(\bfx,t) = \big(\cof\bfF(\bfx,t)\big)^T\bfq_m(\bfx,t),$$ we
+have
+$$Q[\Omega_t] = \int_\Omega\rho_0r_m\dVx-\int_{\partial \Omega}\bfkappa\cdot\bfnu\dAx.$$
+Applying the Divergence Theorem, we have:
+
+::: proposition
+If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion with material internal
+energy field $\phi_m$, material heat flux vector field $\bfkappa$ and
+material heat supply field $r_m$, then
+$$\rho_0\ppt{\phi_m} = \bfP:\ppt\bfF-\nabla_\bfx\cdot\bfkappa+\rho_0r_m$$
+for all $\bfx\in B$ and $t\in[0,T]$.
+:::
+
+### Second Law of Thermodynamics
+
+For the Second Law of Thermodynamics, we can again change variables in
+the integral expression of the Clausius-Duhem inequality and apply the
+conservation of mass as we have done above to find that
+$$\int_\Omega \rho_0\ppt{\eta_m}\dVx\geq \int_{\Omega}\frac{\rho_0r_m}{\theta_m}\dVx-\int_{\partial \Omega} \frac{\bfkappa\cdot\bfnu}{\theta_m}\dAx.$$
+Applying the Divergence Theorem and Localisation Theorem, we obtain:
+
+::: proposition
+Let $\bfphi:B\times[0,T]\to\bbE^3$ be a motion of a continuum body. Then
+$$\rho_0\ppt{\eta_m}\geq \frac{\rho_0 r_m}{\theta_m}-\nabla_\bfx\cdot\Big(\frac{\bfkappa}{\theta_m}\Big)$$
+for all $\bfx\in B$ and $t\in[0,T]$.
+:::
+
+### Summary
+
+In the Lagrangian description of the motion of a general continuum body,
+then if we take component with respect to a given Cartesian frame, there
+are 18 unknown fields: $$\begin{aligned}
+    \varphi_i(\bfx,t) &&&\text{3 components of motion,}\\
+    P_{ij}(\bfx,t) &&&\text{9 components of Piola-Kirchhoff stress,}\\
+    \theta_m(\bfx,t) &&&\text{1 temperature field,}\\
+    \kappa_i(\bfx,t) &&&\text{3 components of heat flux,}\\
+    \phi_m(\bfx,t) &&&\text{1 internal energy field per unit mass, and}\\
+    \eta_m(\bfx,t) &&&\text{1 entropy field per unit mass.}
+  \end{aligned}$$ From physical principles, we have deduced 7 equations:
+$$\begin{aligned}[]
+    \rho_0\frac{\partial ^2\varphi_i}{\partial t^2} &= P_{ij,j}+\rho_0[b_i]_m&& \text{3 balance of linear momentum equations,}\\
+    P_{ij}F_{jk} &= F_{ik}P_{jk} && \text{3 balance of angular momentum equations, and}\\
+    \rho_m\ppt{\phi_m} &= P_{ij}\ppt{F_{ij}}-\kappa_{i,i}+\rho_0 r_m &&\text{1 energy balance equation.}
+  \end{aligned}$$
+
+##### Notes:
+
+-   In contrast with the Eulerian formulation, the mass density field is
+    a known quantity, since we assume it is prescribed to be $\rho_0$.
+
+-   We note that the velocity field is absent here, and this is because
+    it can be obtained directly by differentiating $\bfphi$ in time.
+
+-   Once more, the number of unknowns exceeds the number of equations by
+    11, and so we need additional constitutive relations to relate
+    $(\bfP,\bfkappa,\phi_m,\eta_m)$ to $(\bfphi,\theta_m)$.
+
+## Frame indifference
+
+Frame indifference is a physical principle which is assumed in classical
+(i.e. non-relativistic) mechanics. In this case, we assume that certain
+fields are independent of the observer, and this principle results in
+limitations on the constitutive equations which are valid for a material
+body.
+
+### Superposed rigid motions
+
+In order to describe two observers viewing the same motion, we introduce
+the notion of a superposed rigid motion. We will say that two motions
+$\bfphi,\bfphi^*:B\times[0,T]\to\bbE^3$ are related by a *superposed
+rigid motion* if it holds that
+$$\bfphi^*(\bfx,t) = \bfQ(t)\bfphi(\bfx,t)+\bfc(t)\quad\text{for all }\bfx\in B, t\in[0,T],$$
+where $\bfQ:[0,T]\to\calV^2$ is a rotation-valued mapping, and
+$\bfc:[0,T]\to\calV$.
+
+In this definition, $\bfQ(t)$ and $\bfc(t)$ describe the movement of one
+observer with respect to the other: $\bfQ(t)$ describes the relative
+rotation, and $\bfc(t)$ describes the relative translation. Now,
+consider each of the various fields we have discussed, and consider
+their representation in the frames of the two observers. To denote those
+fields observed which in the frame where the motion is $\bfphi^*$, we
+use a star. Applying the definition above, we then find the following:
+
+::: proposition
+The relationship between the material fields
+$(\bfF,\bfR,\bfU,\bfV,\bfC)$ and $(\bfF^*,\bfR^*,\bfU^*,\bfV^*,\bfC^*)$
+is given by $$\begin{gathered}
+      \bfF^*=\bfQ\bfF,\quad\bfR^*=\bfQ\bfR,\\
+      \bfU^*=\bfU,\quad\bfV^*=\bfQ\bfV\bfQ^T,\quad\bfC = \bfC^*,
+    \end{gathered}$$ where these equalities hold for all $\bfx\in B$ and
+$t\in[0,T]$.
+
+Furthermore, let $\bfg(\bfy,t) = \bfQ(t)\bfy+\bfc(t)$ and let
+$\bfy^*=\bfg(\bfy,t)$. Then, for the spatial fields
+$(\nabla_\bfy\bfv,\bfL)$ and $(\nabla_\bfy\bfv^*,\bfL^*)$, we have
+$$\begin{gathered}
+      \nabla_{\bfy^*}\bfv^*(\bfy^*,t)\Big|_{\bfy^*=\bfg(\bfy,t)} = \bfQ(t)\nabla_\bfy\bfv(\bfy,t)\bfQ(t)^T+\dot\bfQ(t)\bfQ(t)^T,\\
+      \bfL^*(\bfy^*,t)\Big|_{\bfy^*=\bfg(\bfy,t)} = \bfQ(t)\bfL(\bfy,t)\bfQ(t)^T,
+    \end{gathered}$$ for all $\bfy\in B_t$ and $t\in[0,T]$.
+:::
+
+### The Axiom of Frame-indifference
+
+Let $B_t$ be the current configuration of $B$ under motion $\bfphi$ at
+time $t$, and let $B^*_t$ be the current configuration of $B$ under
+motion $\bfphi^*$ at time $t$.
+
+The scalar field $\phi$, vector field $\bfw$, and tensor field $\bfT$
+are *frame-indifferent* if for any superposed rigid motion
+$\bfg(\cdot,t):B_t\to B^*_t$, we have $$\begin{aligned}
+  \phi^*(\bfy^*,t) &= \phi(\bfy,t),\\
+  \bfw^*(\bfy^*,t) &= \bfQ(t)\bfw(\bfy,t),\\
+  \bfT^*(\bfy^*,t) &= \bfQ(t)\bfT(\bfy,t)\bfQ(t)^T,
+\end{aligned}$$ for all $\bfy\in B_t$ and $t\in[0,T]$, where
+$\bfy^*=\bfg(\bfy,t)$.
+
+This notion of frame-indifference captures the idea that some physical
+quantities are inherent to the body, and are independent of the
+observer. Given that they are referring to the same point in the body,
+two observers should agree on the mass density and the temperature at a
+given material point. Up to a change of basis, they should also agree on
+the heat flux and stress tensors. Some fields will not satisfy this
+assumption however: the velocity of a body will depend upon the frame,
+as will the acceleration.
+
+It is natural to make the following assumption of frame-indifference for
+the fields we have considered:
+
+::: axiom
+[]{#ax:FrameIndifference label="ax:FrameIndifference"} The spatial mass
+density $\rho$, temperature $\theta$, entropy per unit mass $\eta$,
+internal energy per unit mass $\phi$, Cauchy stress $\bfS$, and heat
+flux vector $\bfq$ are all frame-indifferent fields.
+:::
+
+This assumption places strict limitations on the constitutive equations
+which it is possible to use to model the material properties of a body.
+For example, if we express the internal energy, heat flux and Cauchy
+stress as functions $$\phi = \widehat{\phi}(\rho,\theta,\bfL),\quad
+  \bfq = \widehat{\bfq}(\rho,\theta,\bfL),\quad\text{and}\quad
+  \bfS = \widehat{\bfS}(\rho,\theta,\bfL),$$ (where all of the fields
+involved are evaluated at spatial point $\bfy$ and time $t$), then in
+order to comply with
+Axiom [\[ax:FrameIndifference\]](#ax:FrameIndifference){reference-type="ref"
+reference="ax:FrameIndifference"}, we must have $$\begin{aligned}
+  \widehat{\phi}(\rho^*,\theta^*,\bfL^*) &= \widehat{\phi}(\rho,\theta,\bfL),\\
+  \widehat{\bfq}(\rho^*,\theta^*,\bfL^*) &= \bfQ\widehat{\bfq}(\rho,\theta,\bfL),\\
+  \widehat{\bfS}(\rho^*,\theta^*,\bfL^*) &= \bfQ\widehat{\bfS}(\rho,\theta,\bfL)\bfQ^T.
+\end{aligned}$$ Substituting for the starred fields on the LHS, we have
+$$\begin{aligned}
+  \widehat{\phi}(\rho,\theta,\bfQ\bfL\bfQ^T) &= \widehat{\phi}(\rho,\theta,\bfL),\\
+  \widehat{\bfq}(\rho,\theta,\bfQ\bfL\bfQ^T) &= \bfQ\widehat{\bfq}(\rho,\theta,\bfL),\\
+  \widehat{\bfS}(\rho,\theta,\bfQ\bfL\bfQ^T) &= \bfQ\widehat{\bfS}(\rho,\theta,\bfL)\bfQ^T,
+\end{aligned}$$ which must hold for all rotations $\bfQ$ and all
+admissible values of $\rho, \theta$ and $\bfL$.
+
+It is important to note that linearised theories will typically violate
+frame-indifference, since the relationships we have derived above are
+nonlinear. It is therefore important to assess whether any linearisation
+could be breaking down when using a linearised model to make
+predictions.

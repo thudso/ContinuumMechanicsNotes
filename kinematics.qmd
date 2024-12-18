@@ -1,0 +1,799 @@
+{{< include macros.qmd >}}
+
+# Kinematics {#sec-kinematics}
+
+## Preliminaries
+
+Kinematics is the study of describing motion independently of
+considering mass, forces and stress. We describe the notion of strain in
+a body which changes shape over time. In the remainder of the module, we
+will discuss particular relationships between stress and strain which
+characterise different types of materials.
+
+**Aims.**
+By the end of this chapter, you should be able to:
+
+-   Define and geometrically interpret the *deformation gradient*,
+    *Cauchy-Green strain tensor*, and the *infinitesimal strain tensor*.
+
+-   Use the concept of a *motion* to describe the change in a body.
+
+-   Describe the relationship between *material* and *spatial fields*.
+
+-   Define the *total time derivative* of material and spatial fields.
+
+-   Define the *velocity*, *acceleration*, *vorticity*, *rate of strain*
+    and *spin* fields.
+
+-   Explain how volume and surface integrals of fields transform and
+    change due to motion thanks to *change of variables formulae* and
+    the *Reynolds Transport Theorem*.
+
+## Configurations and deformations
+
+At any particular time, a material body occupies an open subset
+$B\subseteq\bbE^3$, as discussed in
+@sec-mass-forces. The identification of material particles
+with point of $B$ defines what is called a *configuration* of the body.
+
+A *deformation* is a mapping between two configurations, usually a fixed
+region $B$ called the *reference configuration* and another varying
+configuration $B'$ called the *deformed configuration*. We will denote
+points in $B$ by $\bfx$, and points in $B'$ by $\bfy$. If we view $B$
+and $B'$ as two configurations of the same material body, we expect that
+there is a one-to-one correspondence between points in the two
+configurations.
+
+This leads us naturally to the idea of the deformation map. We will
+describe the mapping from $B$ to $B'$ by a function $\bfy:B\to B'$ which
+maps each point $\bfx$ to a point $\bfy(\bfx)\in B'$. The displacement
+of a material particle from its initial location $\bfx$ to final
+location $\bfy(\bfx)$ is $$\bfu(\bfx) = \bfy(\bfx)-\bfx.$$ We call
+$\bfu:B\to\calV$ the *displacement field* associated to $\bfy$.
+
+We will assume that deformation maps satisfy the following two important
+conditions:
+
+-   $\bfy:B\to B'$ is one-to-one, and
+
+-   $\det\nabla\bfy(\bfx)>0$ for all $\bfx\in B$.
+
+Deformations satisfying both of these assumptions will be called
+*admissible deformations*. The first of these assumptions means that two
+material particles cannot occupy the same location, and the second
+ensures that a body cannot be continuously mapped onto its own mirror
+image. Note that the first assumption is sufficient to ensure that
+$\bfy$ is a bijection between $B$ and $B'$.
+
+Throughout, we will assume that all deformations are admissible, and
+that all are smooth enough to allow us to justify the operations of
+differentiation we need. Finding (and guaranteeing) that these
+assumptions hold in particular cases are the topic of active research.
+
+## Measures of strain
+
+Consider the open ball $\Omega$ of radius $\delta$ centred at $\bfx_0$
+within the body we consider. Under the deformation $\bfy$, $\bfx_0$ is
+mapped to $\bfy_0=\bfy(\bfx_0)$, and $\Omega_\delta$ is mapped to a
+region $\Omega'=\bfy(\Omega)$. Any difference in shaped between
+$\Omega'$ and $\Omega$ as $\delta\to0$ is called *strain* at $\bfx_0$.
+Strain refers to the local stretching of a body induced by the
+deformation $\bfy$. The concept of strain plays a central roles in
+modelling solid materials.
+
+### The deformation gradient
+
+One way to quantify strain is through the *deformation gradient*, a
+second-order tensor field $\bfF:B\to\calV^2$ defined to be
+$$\bfF(\bfx) = \nabla \bfy(\bfx).$$ The field $\bfF$ naturally provides
+information on the local behaviour of $\bfy$, since Taylor expanding, we
+see
+$$\bfy(\bfx) = \bfy(\bfx_0) +\bfF(\bfx_0)(\bfx-\bfx_0)+\bigO\big(|\bfx-\bfx_0|^2\big),$$
+or equivalently
+$$\bfy(\bfx) = \bfc+\bfF(\bfx_0)\bfx+\bigO\big(|\bfx-\bfx_0|^2\big)\quad\text{where}\quad \bfc = \bfy(\bfx_0)-\bfF(\bfx_0)\bfx_0.$$
+
+To understand better how $\bfF$ measures strain, suppose for simplicity
+that $\bfy$ is *homogeneous*, which means the deformation gradient field
+is constant, i.e. $$\bfy(\bfx) = \bfc+ \bfF\bfx,$$ so the deformation is
+an *affine map*. We note that by virtue of this affine nature, any line
+segment in the reference configuration $B$ is mapped onto a
+corresponding line segment in the deformed configuration $B'$.
+
+We also remark that the admissibility conditions we require of
+deformations imply that $\det\nabla\bfy(\bfx)>0$, which ensures that
+$\det\bfF>0$, so $\bfF$ is invertible.
+
+#### Translations and fixed points
+
+A homogeneous deformation $\bfy$ is called a translation if $\bfF=\bfI$,
+i.e. $$\bfy(\bfx) = \bfx+\bfc\quad\text{for some fixed }\bfc\in\calV.$$
+Under such a deformation, all points in $B'$ are simply moved through a
+displacement $\bfc$, so there is no change in shape or orientation of
+the body.
+
+A homogeneous deformation has a fixed point at $\bfx'$ if
+$$
+  \bfy(\bfx) = \bfx'+ \bfF(\bfx-\bfx').
+$$ {#eq-defFixedPoint}
+The point $\bfx'$ is fixed in
+the sense that $\bfy(\bfx') = \bfx'$. Any other point in the body is
+displaced by an amount determined by $\bfF$ and the position relative to
+the fixed point $\bfx'$. For such a deformation, the body can change
+both shape and orientation. We now define a couple of classes of
+homogeneous deformation with fixed points.
+
+A homogeneous deformation $\bfy$ is called a *rotation about $\bfx'$* if
+it takes the form $$\bfy(\bfx)=\bfx'+\bfQ(\bfx-\bfx')$$ for some
+rotation tensor $\bfQ\in\calV^2$. Such deformations change the
+orientation of the body, but not its shape.
+
+A homogeneous deformation $\bfy$ is called a *stretch about $\bfx'$* if
+it takes the form $$\bfy(\bfx)=\bfx'+\bfS(\bfx-\bfx')$$ for some
+symmetric positive definite tensor $\bfS\in\calV^2$. Under such a
+deformation, the orientation of the body is not changed, but it is
+extended by different amounts in different directions with the point
+$\bfx'$ remaining fixed.
+
+The following result shows that an arbitrary homogeneous deformation can
+be expressed as a composition of a translation and deformation with a
+given fixed point.
+
+::: proposition
+Let $\bfy$ be a homogeneous deformation. Then, given any point
+$\bfx'\in\bbE^3$, we can decompose $\bfy$ as
+$$\bfy = \bft_1\circ \bfg=\bfg\circ\bft_2,$$ where $\bft_1$ and $\bft_2$
+are translations, and $\bfg$ is a homogeneous deformation with a fixed
+point at $\bfx'$. In particular:
+$$\bfg(\bfx) = \bfx'+\bfF(\bfx-\bfx').$$
+:::
+
+::: proof
+See Exercise Sheet 3.
+:::
+
+We now show that an arbitrary homogeneous deformation with a fixed point
+can always be decomposed as a rotation and a stretch about the same
+fixed point, using the polar decomposition theorem.
+
+::: {#prp-stretchdecomposition}
+If $\bfy$ is a homogeneous deformation with a fixed point $\bfx'$ and
+deformation gradient $\bfF$, let $\bfF = \bfR\bfU=\bfV\bfR$ be the right
+and left polar decompositions of $\bfF$. Then $\bfy$ can be decomposed
+as $$\bfy = \bfr\circ \bfs_1=\bfs_2\circ\bfr,$$ where $\bfr$ is a
+rotation about $\bfx'$, and $\bfs_1$ and $\bfs_2$ are stretches about
+$\bfx'$. In particular: $$\begin{gathered}
+    \bfr(\bfx) = \bfx'+\bfR(\bfx-\bfx'),\quad\bfs_1(\bfx) = \bfx'+\bfU(\bfx-\bfx')\\
+    \text{and}\quad\quad\bfs_2(\bfx) = \bfx'+\bfV(\bfx-\bfx').
+  \end{gathered}$$
+:::
+
+::: proof
+See Exercise Sheet 3.
+:::
+
+We can go further in decomposing stretches, by making the following
+definition. A homogeneous deformation $\bfy$ is called an *extension*
+about $\bfx'$ in the direction of a unit vector $\bfe$ if
+$$\bfy(\bfx) = \bfx'+\bfF(\bfx-\bfx')\quad\text{with}\quad \bfF=\bfI+(\lambda-1)\bfe\otimes\bfe,$$
+for some $\lambda>0$. This terminology is based on the observation that
+$\bfF$ changes the length of any vector parallel to $\bfe$ by a factor
+of $\lambda$, that is
+$$\bfF(\alpha\bfe) = \alpha\bfe+(\lambda-1)\alpha(\bfe\cdot\bfe)\bfe = \lambda\alpha\bfe$$
+This is a particular case of the stretch deformation introduced earlier.
+The following result shows that the stretches appearing in
+@prp-stretchdecomposition can be expressed as the
+composition of three extensions defined by the eigenvalues and
+eigenvectors of $\bfU$ and $\bfV$.
+
+::: proposition
+Let $\bfs_1$ and $\bfs_2$ be the stretches defined in
+@prp-stretchdecomposition, and let $\{\lambda_i,\bfu_i\}$
+and $\{\lambda_i,\bfv_i\}$ be the eigenpairs associated with the tensors
+$\bfU$ and $\bfV$ respectively. Then
+$$\bfs_1 = \bff_1\circ\bff_2\circ\bff_3\quad\text{and}\quad\bfs_2=\bfh_1\circ\bfh_2\circ\bfh_3,$$
+where $\bff_i$ is the extension about $\bfx'$ by $\lambda_i$ in the
+direction $\bfu_i$, and $\bfh_i$ is the extension about $\bfx'$ by
+$\lambda_i$ in the direction $\bfv_i$.
+:::
+
+**Exercise:** Prove this result.
+
+Notes:
+
+1.  The tensors $\bfU$ and $\bfV$ which appear in the right and left
+    polar decompositions of $\bfF$ have the same eigenvalues, but (in
+    general) have different eigenvectors. It follows that $\bfs_1$ and
+    $\bfs_2$ give rise to extensions by the same amounts, but in
+    different directions.
+
+2.  We call the eigenvalues $\lambda_i$ the *principal stretches*
+    associated with the deformation gradient $\bfF$, and the
+    eigenvectors $\bfu_i$ and $\bfv_i$ are respectively referred to as
+    the right and left *principal directions*. Similarly, we call $\bfU$
+    and $\bfV$ the right and left *stretch tensors*.
+
+In summary, we have shown that a homogeneous deformation can be
+decomposed in various ways, for example as a translation, then a
+rotation, then a series of extensions, or as a translation, then a
+series of extensions, and then a rotation. These different
+decompositions allow us to think about how a body might be affected by
+such a sequence of operations, and so devise physically-appropriate
+models, especially since a Taylor expansion of the deformation $\bfy$
+allows us to treat deformations close to a given point as approximately
+homogeneous.
+
+### The Cauchy--Green strain tensor
+
+Consider a general deformation $\bfy:B\to B'$ with deformation gradient
+$\bfF = \nabla \bfy$. Another measure of strain is the *right
+Cauchy-Green strain tensor* field $\bfC:B\to\calV^2$, defined by
+$$\bfC = \bfF^T\bfF,$$ Notice that $\bfC$ is symmetric and positive
+definite at every point in $B$.
+
+While $\bfF$ contains information on both rotation and stretching,
+$\bfC$ including information about stretches only: since
+$\bfF=\bfR\bfU$, $$\bfC = \bfF^T\bfF = \bfU^2,$$ we see the definition
+of $\bfC$ does not contain $\bfR$.
+
+-   Note that $\bfU$ is also independent of $\bfR$, and contains
+    information on stretches only, but $\bfC$ is easier to compute than
+    the square root $\bfU=\sqrt{\bfF^T\bfF}=\sqrt{\bfC}$.
+
+-   Recall from the Spectral Decomposition Theorem that
+    $$\bfU = \sum_{i=1}^3 \lambda_i\bfe_i\otimes\bfe_i,$$ where
+    $\lambda_i>0$ and $\bfe_i$ are orthonormal eigenvectors of $\bfU$.
+    As $\bfC = \bfU^2$, we see that
+    $$\bfC = \sum_{i=1}^3 \lambda_i^2\bfe_i\otimes\bfe_i,$$ so the
+    eigenvalues of $\bfC$ are the squares of the principal stretches.
+
+-   Another measure of strain is the *left Cauchy-Green strain tensor*,
+    $\bfB = \bfF\bfF^T$. We will not use this measure here.
+
+We now consider the interpretation of $\bfC$. Consider a point $\bfx_0$
+in the reference configuration, and let $\Omega$ be the open ball of
+radius $\alpha>0$ centred at $\bfx_0$. Consider the points
+$\bfx_1 = \bfx_0+\alpha\bfe$ and $\bfx_2=\bfx_0+\alpha\bfd$, where
+$\bfe$ and $\bfd$ are unit vectors. Let $\bfy_0=\bfy(\bfx_0)$,
+$\bfy_1=\bfy(\bfx_1)$ and $\bfy_2=\bfy(\bfx_2)$ be the corresponding
+points in the deformed configuration. Let $\phi\in[0,\pi]$ be the angle
+between $\bfv=\bfy_1-\bfy_0$ and $\bfw=\bfy_2-\bfy_0$.
+
+::: {#prp-CGstrainrelations}
+For any point $\bfx_0\in B$ and unit vectors $\bfe$ and $\bfd$, define
+$$\lambda(\bfe) = \sqrt{\bfe\cdot\bfC\bfe}>0 \quad\text{and}\quad
+    \theta(\bfe,\bfd) = \arccos\bigg(\frac{\bfe\cdot\bfC\bfd}{\sqrt{\bfe\cdot\bfC\bfe}\sqrt{\bfd\cdot\bfC\bfd}}\bigg)\in[0,\pi].$$
+Then, as $\alpha\to0$, we have that
+$$\frac{|\bfy'-\bfy_0|}{|\bfx'-\bfx_0|}\to\lambda(\bfe),\quad \frac{|\bfy''-\bfy_0|}{|\bfx''-\bfx_0|}\to\lambda(\bfd)$$
+and $$\phi\to \theta(\bfe,\bfd).$$
+:::
+
+::: proof
+Note that $\bfv = \bfy(\bfx_0+\alpha\bfe)-\bfy(\bfx_0)$, so
+Taylor expanding, we have
+$$\bfv = \alpha \bfF(\bfx_0)\bfe+\bigO(\alpha^2).$$ It follows that
+$$|\bfv|^2 = \alpha^2\bfF(\bfx_0)\bfe\cdot\bfF(\bfx_0)\bfe+\bigO(\alpha^3) = \alpha^2 \bfe\cdot\bfC(\bfx_0)\bfe+\bigO(\alpha^3).$$
+Dividing through by $\alpha^2=|\bfx'-\bfx_0|^2$, and using the fact that
+$\bfv=\bfy'-\bfy_0$, we have
+$$\frac{|\bfy'-\bfy_0|^2}{|\bfx'-\bfx_0|^2} = \frac{|\bfv|^2}{\alpha^2} = \bfe\cdot\bfC(\bfx_0)\bfe +\bigO(\alpha),$$
+which, after taking a square root, proves the first result. The second
+result follows by a similar argument.
+
+To establish the final result, we note that
+$$\cos\phi = \frac{\bfv\cdot\bfw}{|\bfv||\bfw|}.$$ Using the facts that
+$\bfv=\alpha\bfF(\bfx)\bfe+\bigO(\alpha^2)$ and
+$\bfw=\alpha\bfF(\bfx)\bfd+\bigO(\alpha^2)$, we have
+$$\frac{\bfv\cdot\bfw}{\alpha^2} = \bfe\cdot\bfC(\bfx)\bfd+\bigO(\alpha).$$
+Then, using $|\bfv| = \alpha \lambda(\bfe)+\bigO(\alpha^2)$ and
+$|\bfw|=\alpha\lambda(\bfd)+\bigO(\alpha^2)$, we conclude.
+:::
+
+**Remarks:**
+
+1.  This result states that $\lambda(\bfe)$ approximates the ratio of
+    lengths between deformed points and reference points, where the
+    reference points are separated by a short displacement in the
+    direction $\bfe$. This is the reason for naming $\lambda(\bfe)$ the
+    *stretch* in the direction $\bfe$ at the reference point $\bfx$.
+
+2.  At any fixed reference point $\bfx$, the extreme values of
+    $\lambda(\bfe)$ occur when $\bfe$ is an eigenvector of $\bfC$ (i.e.
+    a right principal direction). As a result the extreme values of
+    $\lambda(\bfe)$ are given by the maximum and minimum principal
+    stretches.
+
+3.  $\theta(\bfe,\bfd)$ approximates the angle between points in the
+    deformed configuration which lie at short distances from $\bfx$
+    along the directions $\bfe$ and $\bfd$. If
+    $\Theta(\bfe,\bfd) = \arccos(\bfe\cdot\bfd)$ is the angle between
+    these directions in the reference configuration, we define
+    $$\gamma(\bfe,\bfd) = \Theta(\bfe,\bfd)-\theta(\bfe,\bfd),$$ which
+    we call the *shear* between the directions $\bfe$ and $\bfd$ at the
+    point $\bfx$. The shear measures the change in angle between
+    directions due to deformation.
+
+The following result shows that $\bfC$ explicitly characterises the
+stretch and shear caused by a deformation.
+
+::: {#prp-stretchshear}
+Let $C_{ij}$ be the
+components of $\bfC$ with respect to an arbitrary coordinate frame
+$\{\bfe_i\}$. Then, for any point $\bfx\in B$, we have
+$$C_{ii} = \lambda(\bfe_i)^2\quad\text{and}\quad C_{ij} = \lambda(\bfe_i)\lambda(\bfe_j)\sin\big(\gamma(\bfe_i,\bfe_j)\big),$$
+where no summation is implied. The diagonal components of $\bfC$ are
+therefore the squares of the stretches along coordinate directions, and
+the off-diagonal components capture the shear between corresponding
+pairs of coordinate directions.
+:::
+
+### Rigid deformations
+
+A homogeneous deformation $\bfy:B\to B'$ is a *rigid deformation* if
+$$\bfy(\bfx) = \bfc+\bfQ\bfx$$ where $\bfc\in\calV$ and $\bfQ\in\calV^2$
+is a rotation tensor. For such deformations we have $\bfF=\bfQ$, and
+hence $$\bfC = \bfF^T\bfF = \bfQ^T\bfQ = \bfI.$$ It follows that rigid
+deformations produce no strain measured by $\bfC$. Looking carefully at
+the proof of
+@prp-CGstrainrelations, we see that the relative position
+and orientation of any three points in $B$ are unchanged by a rigid
+deformation (hence the name). It is possible to show that a deformation
+is rigid if and only if $\bfC(\bfx)=\bfI$ for all $\bfx\in B$.
+
+### The infinitesimal strain tensor
+
+Consider a deformation $\bfy:B\to B'$ with displacement field $\bfu$ and
+displacement gradient $\nabla \bfu$. The *infinitesimal strain tensor*
+field associated with $\bfy$ is $\bfE:B\to\calV^2$ defined by
+$$\bfE = \sym(\nabla\bfu) = \tfrac12(\nabla\bfu+\nabla\bfu^T).$$ Note
+that, by definition, $\bfE$ is symmetric. We also note that in the
+Engineering literature, it is common to denote the infinitesimal strain
+tensor as $\boldsymbol{\varepsilon}$.
+
+$\bfE$ is related to the deformation gradient $\bfF$ and the
+Cauchy-Green tensor $\bfC$. From the definition of $\bfu$, we see that
+$\nabla \bfu = \bfF-\bfI$, and hence $\bfE = \sym(\bfF-\bfI)$. Since
+$\bfC = \bfF^T\bfF$, we see that
+$$\bfE = \tfrac12(\bfC-\bfI)-\tfrac12\nabla\bfu^T\nabla \bfu.$$ The
+tensor $\bfE$ is particularly useful in the case of small deformations.
+A deformation $\bfy$ is *small* if there is a number
+$0\leq \varepsilon\ll 1$ such that
+$|\nabla\bfu(\bfx)| = \bigO(\varepsilon)$ for all points $\bfx\in B$,
+and in this case, we see that that
+$$\bfE = \tfrac12(\bfC-\bfI)+\bigO(\varepsilon^2).$$ If we drop terms of
+$\bigO(\varepsilon^2)$, then $\bfE$ is equivalent to $\bfC$ up to a
+multiplicative factor and offset, and $\bfE$ will arise when studying
+linearised models of stress in elastic solids.
+
+-   Note that if $\nabla \bfu =\bfO$ everywhere in $B$, we have
+    $\bfF = \bfI$, and hence $\bfy$ is a translation. It follows that
+    $\bfy$ is a small deformation when it deviates only slightly from a
+    pure translation.
+
+-   For small deformations, the tensor $\bfE$ contains similar
+    information to $\bfC$. However, we note that $\bfE$ depends linearly
+    on $\bfu$ (and hence on $\bfy$), whereas $\bfC$ depends non-linearly
+    on $\bfu$.
+
+To interpret $\bfE$, we have the following result.
+
+::: {#prp-Ecomponents}
+Let $E_{ij}$ be the components of $\bfE$ taken with respect to a Cartesian frame
+$\{\bfe_i\}$. Then, with no sum over repeated indices implies, we have
+$$E_{ii} =\lambda(\bfe_i)-1+\bigO(\varepsilon^2)\quad\text{and}\quad
+    E_{ij} =\tfrac12\sin\gamma(\bfe_i,\bfe_j)+\bigO(\varepsilon^2),$$
+where $\lambda(\bfe_i)$ is the stretch in the direction $\bfe_i$, and
+$\gamma(\bfe_i,\bfe_j)$ is the shear between the directions $\bfe_i$ and
+$\bfe_j$.
+:::
+
+This result can be proven using
+@prp-stretchshear.
+
+**Notes:**
+
+-   As shown in
+    @prp-CGstrainrelations, the stretch $\lambda(\bfe_i)$
+    is the ratio of the distance between deformed points which were
+    close to one another in the $\bfe_i$ direction in the reference
+    configuration. This means that $\lambda(\bfe_i)-1$ is approximately
+    the relative change in the length of an infinitesimal line segment
+    pointing in the $\bfe_i$ direction in the reference configuration.
+
+-   When the shear angle $\gamma(\bfe_i,\bfe_j)$ is small, we have that
+    $$E_{ij}\approx \tfrac12\sin\gamma(\bfe_i,\bfe_j)\approx \tfrac12\gamma(\bfe_i,\bfe_j),$$
+    so for small deformations, the off-diagonal components of $\bfE$ are
+    approximately half the shear angle between to line segments which
+    pointed in the directions $\bfe_i$ and $\bfe_j$ in the reference
+    configuration.
+
+### Infinitesimal rigid deformations
+
+A homogeneous deformation $\bfy$ is called *infinitesimally rigid* if
+the associated displacement field $\bfu$ takes the form
+$$\bfu(\bfx) = \bfc +\bfW\bfx$$ for some vector $\bfc\in\calV$ and a
+skew-symmetric tensor $\bfW\in\calV^2$. Recalling the result of
+@prp-skewtensorvectorproduct, we may write
+$$\bfu(\bfx) = \bfc +\bfw\times\bfx$$ where $\bfw$ is the axial vector
+of $\bfW$. For an infinitesimally rigid deformation, the displacement
+gradient is $\nabla \bfu = \bfW$, and
+$$\bfE = \sym(\nabla\bfu) = \tfrac12(\bfW+\bfW^T) = \bfO.$$ As a result,
+we see that infinitesimal rigid deformations produce no strain measured
+by $\bfE$.
+
+## Motion
+
+The continuous deformation of a body over time is called a *motion*. The
+motion of a body with reference configuration $B$ can be described by a
+continuous map $\bfphi:B\times[0,T]\to\bbE^3$, where for any fixed time
+$t$, the function $\bfphi(\cdot,t):B\to\bbE^3$ is a deformation of $B$.
+At time $t$, the body undergoing this motion is in the configuration
+$B_t = \bfphi(B,t)$, and we call $B_t$ the *current* or *deformed*
+configuration at time $t$.
+
+If $\bfphi(\cdot,0)$ is the identity map, i.e. $\bfphi(\bfx,0) = \bfx$
+for all $\bfx\in B$, we have that $B_0=B$. Assuming continuity ensures
+that the body cannot break apart into pieces, and cannot move by an
+instantaneous jump. We will assume that $\bfphi(\cdot,t)$ is admissible
+in the sense described above, and hence there exists an inverse
+deformation $\bfpsi(\cdot,t):B_t\to B$ with
+$\bfpsi(\cdot,t)=\bfphi^{-1}(\cdot,t)$, i.e.
+$\bfpsi(\bfphi(\bfx,t),t) = \bfx$.
+
+Throughout the remainder of this module, we will assume that all motions
+and their inverses are smooth in the sense that partial derivatives of
+all orders used exist and are continuous.
+
+### Material and spatial fields
+
+In our study of the motion of continuum bodies, we wish to study fields
+defined on the current configuration $B_t$, whose points we label
+$\bfy$. Since we assume such points can be expressed in terms of the
+deformation mapping $\bfy=\bfphi(\bfx,t)$, any function defined on $B_t$
+can also be expressed as a function of $B$ through 'pre-composition'
+with the motion $\bfphi:B\times[0,T]\to\bbE^3$, and any function defined
+on the reference configuration $B$ can be expressed as a function
+defined on $B_t$ through precomposition with the inverse mapping
+$\bfpsi(\cdot,t) : B_t\to\bbE^3$.
+
+By a *material field*, we mean a field which is expressed in terms of
+the points $\bfx\in B$; for example $\Omega=\Omega(\bfx,t)$ for
+$\bfx\in B$. By a *spatial field*, we mean a field expressed in terms of
+the point $\bfy\in B_t$, for example $\Gamma=\Gamma(\bfy,t)$ for
+$\bfy\in B_t$.
+
+We can freely map back and forth between these descriptions. To any
+material field $\Omega(\bfx,t)$, we can associate a spatial field
+$$\Omega_s(\bfy,t) = \Omega(\bfpsi(\bfy,t),t).$$ We call $\Omega_s$ the
+*spatial description* of the material field $\Omega$. Likewise, given a
+spatial field $\Gamma(\bfy,t)$, we can define an associated material
+field $$\Gamma_m(\bfx,t) = \Gamma(\bfphi(\bfx,t),t),$$ and we refer to
+$\Gamma_m$ as the material description of the spatial field $\Gamma$.
+
+### Derivatives
+
+Given that we have two different descriptions of the fields of interest,
+we need to distinguish differentiation with respect to the material
+coordinates $\bfx = (x_1,x_2,x_3)$ labelling points in $B$, and the
+spatial coordinates $\bfy=(\bfy_1,\bfy_2,\bfy_3)$, labelling points in
+$B_t$.
+
+To keep these derivatives separate, we use $\nabla_\bfx$ to refer to the
+gradient, divergence and curl taken in the material coordinates, and
+$\nabla_\bfy$ to refer to the gradient, divergence and curl taken in the
+spatial coordinates.
+
+We will also frequently compute the rate of change of a field with
+respect to time. The *total time derivative* or *convective derivative*
+of a field is the rate of change of a field as measured by a stationary
+observer who is tracking the motion of each particle in the body. Since
+we keep the reference configuration $B$ fixed, it follows that the
+material coordinates $\bfx\in B$ of each particle are fixed. On the
+other hand, as the current configuration varies in time, the spatial
+coordinates $\bfy\in B_t$ will change with time.
+
+We note that any material field $\Omega(\bfx,t)$ satisfies
+$$\DDt{}\Omega(\bfx,t)=\frac{\partial}{\partial t}\Omega(\bfx,t),$$
+where as for a spatial field $\Gamma(\bfy,t)$, we have
+$$\DDt{}\Gamma(\bfy,t) = \frac{\partial}{\partial t}\Gamma\big(\bfphi(\bfx,t),t\big)\bigg|_{\bfx=\bfpsi(\bfy,t)}= \frac{\partial}{\partial t}\Gamma_m(\bfx,t)\bigg|_{\bfx=\bfpsi(\bfy,t)}.$$
+We can write this as $$\DDt\Gamma = \left[\DDt{\Gamma_m}\right]_s.$$
+
+**Remarks:**
+
+-   The total time derivative of a field is sometimes called the
+    *material*, *substantial*, or *convective* derivative.
+
+-   In general, we note that
+    $\DDt{\Gamma}(\bfy,t)\neq \frac{\partial}{\partial t}\Gamma(\bfy,t)$,
+    i.e. the total time derivative and partial time derivative of a
+    spatial field are not the same. This distinction arises since the
+    partial derivative treats spatial coordinates as fixed, but the time
+    derivative takes into account the motion of the coordinates
+    themselves as they follow a given particle.
+
+### Velocity and acceleration fields
+
+Consider a motion $\bfphi$, and consider a particle $\bfx\in B$. At
+later times, the particle has position $\bfy = \bfphi(\bfx,t)\in B_t$.
+The velocity of this particle and its acceleration both labelled by its
+material coordinates, are
+$$\frac{\partial}{\partial t}\bfphi(\bfx,t)\quad\text{and}\quad
+  \frac{\partial^2}{\partial t^2}\bfphi(\bfx,t).$$ By definition, these
+are both material fields, but we will also wish to consider the spatial
+description of these fields. Setting $\bfv$ and $\bfa$ to be the spatial
+forms of these fields, we have
+$$\bfv(\bfy,t) = \frac{\partial}{\partial t}\bfphi(\bfx,t)\bigg|_{\bfx=\bfpsi(\bfy,t)}\quad\text{and}\quad
+  \bfa(\bfy,t) = \frac{\partial^2}{\partial t^2}\bfphi(\bfx,t)\bigg|_{\bfx=\bfpsi(\bfy,t)}.$$
+These two fields correspond to the velocity and acceleration of a
+particle whose spatial position is $\bfy$ at time $t$. The following
+result uses these functions to provide a convenient formula for the
+total time derivative of a spatial field.
+
+::: {#prp-totaltimederiv}
+If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion of a continuum body with
+associated spatial velocity field $\bfv$, and $\phi=\phi(\bfy,t)$ and
+$\bfw=\bfw(\bfx,t)$ are spatial fields, then
+$$\DDt{\phi} = \frac{\partial}{\partial t} \phi + \nabla_\bfy\phi\cdot \bfv\quad\text{and}\quad
+    \DDt{\bfw} = \frac{\partial}{\partial t} \bfw + \big(\nabla_\bfy\bfw\big) \bfv.$$
+:::
+
+::: proof
+Taking components in a Cartesian frame $\{\bfe_i\}$, we have
+$$\nabla_\bfy\phi = \frac{\partial \phi}{\partial y_i}\bfe_i\quad\text{and}\quad
+    \nabla_\bfy\bfw = \frac{\partial w_i}{\partial y_j}\bfe_i\otimes\bfe_j.$$
+By the definition of the total time derivative, we have
+$$\begin{aligned}
+      \DDt{\phi}(\bfy,t)\bigg|_{\bfy = \bfphi(\bfx,t)}
+      &= \frac{\partial}{\partial t} \phi(\bfphi(\bfx,t),t)\\
+      &= \frac{\partial}{\partial t} \phi(\bfy,t)\bigg|_{\bfy = \bfphi(\bfx,t)}+
+      \frac{\partial}{\partial y_i} \phi(\bfy,t)\bigg|_{\bfy = \bfphi(\bfx,t)}\frac{\partial}{\partial t}\varphi_i(\bfy,t)\bigg|_{\bfy = \bfphi(\bfx,t)}\\
+      &= \frac{\partial}{\partial t} \phi(\bfy,t)\bigg|_{\bfy = \bfphi(\bfx,t)}+
+      \frac{\partial}{\partial y_i} \phi(\bfy,t)\bigg|_{\bfy = \bfphi(\bfx,t)}v_i(\bfy,t)\bigg|_{\bfy = \bfphi(\bfx,t)}.
+    \end{aligned}$$ Expressing this result in terms of the spatial
+coordinates $\bfy$, we have the result. Writing $\bfw=w_i\bfe_i$ and
+applying the same argument to each coordinate, we obtain the result for
+$\bfw$.
+:::
+
+**Remarks:**
+
+-   This result shows that is we know the spatial velocity field $\bfv$,
+    then we can compute the total time derivative of a spatial field
+    $\phi$ without explicit knowledge of $\bfphi$ or $\bfpsi$.
+
+-   The spatial acceleration field satisfies $\bfa = \DDt\bfv$, and so
+    applying
+    @prp-totaltimederiv, we have
+    $$\bfa = \frac{\partial\bfv}{\partial t} +(\nabla_\bfy\bfv)\bfv.$$
+    The spatial acceleration is therefore a nonlinear function of the
+    spatial velocity and its derivatives.
+
+-   Many texts write $\bfv\cdot\nabla_\bfy\bfw$ in place of
+    $(\nabla_\bfy\bfw)\bfv$, but we prefer our notation here since
+    $\nabla_\bfy\bfw$ is a second-order tensor, and so our notation
+    remains consistent with the usual application of a second-order
+    tensor to a vector.
+
+## Rate of strain and spin
+
+Sometimes, we wish to quantify the rate at which points in a body of
+interest are distorting. Any measure of the rate of change of shape is
+called a *rate of strain*, while any change of orientation is called a
+*rate of rotation* or *spin*. It is important to realise that rates of
+strain and rotation are independent of the reference configuration $B$
+(in contrast to measures of strain), since these measures only compare
+the change of the body over short times. As such, these measures play an
+important role in the study of fluids.
+
+If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion with spatial velocity
+field $\bfv$, then the *rate of strain* tensor is
+$$\bfL = \sym(\nabla_\bfy\bfv) = \tfrac12\big(\nabla_\bfy\bfv+(\nabla_\bfy\bfv)^T\big).$$
+This is a spatial field $\bfL(\cdot,t):B_t\to\calV^2$, and is symmetric
+for every point $\bfy\in B_t$ and each time $t$.
+
+We also define the *spin tensor*
+$$\bfW = \skw(\nabla_\bfy\bfv) = \tfrac12\big(\nabla_\bfy\bfv-(\nabla_\bfy\bfv)^T\big).$$
+This too is a spatial field $\bfW(\cdot,t):B_t\to\calV^2$, which is skew
+for all points $\bfy\in B_t$ and times $t$.
+
+We can use arguments analogous to those used to analyse the
+infinitesimal strain tensor $\bfE$ to study $\bfL$, which leads us to
+conclude that the diagonal components of $\bfL$ quantify the
+instantaneous rate of stretch at a spatial point in the coordinate axis
+directions. Similarly, the off-diagonal components of $\bfL$ quantify
+the instantaneous rate of shearing. In particular, if we consider a
+motion $\widehat\bfphi:B_t\to B_{t+s}$ where $s\ll 1$, then $\bfL$ is
+the rate of change of both the corresponding infinitesimal strain tensor
+$\widehat\bfE$ and of the right stretch tensor $\widehat\bfU$.
+
+The skew-symmetric tensor $\bfW$ quantifies the instantaneous rate of
+rigid rotation. In particular, considering the same motion
+$\widehat\bfphi:B_t\to B_{t+s}$, then $\bfW$ is the rate of change of
+$\widehat\bfR$ which is the rotation tensor in the polar decomposition
+of the deformation gradient $\nabla_\bfx\widehat\bfphi$.
+
+### Vorticity
+
+The vorticity of a motion is the spatial vector field
+$$\bfw = \nabla_\bfy\times\bfv.$$ We note that in view of result @prp-skewtensorvectorproduct, $\bfw$ is the axial vector
+associated with the (multiple of the) spin tensor $2\bfW$. The vorticity
+therefore measures the rotation or spin at a given spatial point.
+
+### Rigid motion
+
+A motion $\bfphi$ is *rigid* if
+$$\varphi(\bfx,t) = \bfc(t)+\bfQ(t)\bfx$$ for some time-dependent vector
+$\bfc(t)$ and rotation tensor $\bfQ(t)$. For such motions it can be
+shown that the spatial velocity field takes the form
+$$\bfv(\bfy,t) = \bfomega(t)\times\big(\bfy-\bfc(t)\big)+\dot{\bfc}(t),$$
+where $\bfomega(t)$ is a time-dependent vector called the *spatial
+angular velocity* of the motion and $\dot{\bfc}$ indicates a time
+derivative. We can use
+@prp-skewtensorvectorproduct to write this as
+$$\bfv(\bfy,t) = \bfOmega(t)\big(\bfy-\bfc(t)\big)+\dot\bfc(t),$$ where
+$\bfOmega(t)$ is the second-order tensor with axial vector
+$\bfomega(t)$. It follows that
+$$\nabla_\bfy\bfv(\bfy,t) = \bfOmega(t),$$ from which we deduce
+$\bfL = \bfO$, $\bfW = \bfOmega(t)$, and $\bfw = 2\bfomega(t)$. It
+follows that rigid motions produce no rate of strain measured by $\bfL$,
+but do produce spin as measured by the spin $\bfW$ or vorticity $\bfw$.
+
+## Change of variables
+
+As we saw in the previous chapter, it is useful to express various
+physical quantities as integrals. However, we now have two sets of
+coordinates to integrate with respect to: the material coordinates
+$\bfx\in B$, and the spatial coordinates $\bfy\in B_t$. For fixed $t$,
+the mappings $\bfphi(\cdot,t)$ and $\bfpsi(\cdot,t)$ act as changes of
+variable between these two sets of coordinates.
+
+### Transformation of volume integrals
+
+As you will have seen in multivariable calculus modules, we can express
+the volume element in the spatial coordinates, $dV_\bfy$, in terms of
+material coordinates $\bfx$ by considering the volume change
+transformation of an infinitesimal cube at a fixed material point. This
+volume change factor is given by the *Jacobian (determinant)* of the
+transformation, which in the case of $\bfy = \bfphi(\bfx,t)$ is
+$$\det(\nabla_\bfx\bfphi(\bfx,t))=\det\bfF(\bfx,t),$$ and hence
+$\dVy = \det\bfF(\bfx,t)\dVx$. This leads to the following change of
+variable formula for volume integrals.
+
+::: {#prp-TransformationOfVolumeIntegrals}
+If $\phi(\bfy,t)$ is a
+spatial scalar field defined on $B_t$, and let $\Omega_t\subset B_t$,
+with $\Omega = \bfpsi(\Omega_t,t)\subset B$. Then
+$$\int_{\Omega_t}\phi(\bfy,t)\dVy = \int_\Omega \phi_m(\bfx,t)\det\bfF(\bfx,t)\dVx.$$
+:::
+
+**Remarks:**
+
+1.  By arguments similar to those applied to the expressions of the
+    Divergence Theorem and Stokes' Theorem, we can use the change of
+    variable formula to show that
+    $$\det \bfF(\bfx_0,t) = \lim_{\delta\to 0} \frac{\vol(\Omega_{\delta,t})}{\vol(\Omega_{\delta,0})},$$
+    where $\Omega_{\delta,0}$ is a ball of radius $\delta$ centred at
+    $\bfx_0\in B$, and $\Omega_{\delta,t} = \bfphi(\Omega_{\delta,0},t)$
+    is the image of the set after deformation. This means that the
+    determinant of the deformation gradient measures the volume change
+    due to deformation at a fixed material point.
+
+2.  The field $J(\bfx,t) = \det \bfF(\bfx,t)$ is called the Jacobian
+    field of a deformation, and is a measure of the *volumetric strain*
+    at a material point $\bfx\in B$ and time $t$. If $J(\bfx,t)>1$, the
+    material volume has expanded, while if $J(\bfx,t)<1$, the material
+    volume has contracted.
+
+The latter remark leads us to define a *volume-preserving* or
+*isochoric* motion to be any motion such that
+$\vol(\bfphi(\Omega,t))=\vol(\Omega)$ for all open subsets
+$\Omega\subset B$, and in this case, we have the following result:
+
+::: {#prp-volumepreserving}
+Suppose $\bfphi:B\times[0,T]\to\bbE^3$ is a motion with spatial velocity
+field $\bfv$ and deformation gradient $\bfF$. Then $\bfphi$ is
+volume-preserving in the sense above if and only if
+$\det\bfF(\bfx,t) = 1$ for all $\bfx\in B$ and $t\in[0,T]$, or
+equivalently,
+$$\nabla_\bfy\cdot\bfv(\bfy,t) = 0\quad\text{for all }\bfy\in B_t\text{ and }t\in[0,T].$$
+:::
+
+We note that simple translations and rotations are volume-preserving
+since they produce no distortion, but motions which do distort a body
+can also be volume-preserving.
+
+### Derivatives of time-dependent integrals
+
+We sometimes need to compute the time derivative of a spatial integral,
+and for this, the following result is useful.
+
+::: {#prp-TotalDerivativeDetF}
+If $\bfphi:B\times [0,T]\to\bbE^3$ is a motion with spatial velocity field
+$\bfv(\bfy,t)$ and deformation gradient $\bfF(\bfx,t)$, then
+$$\frac{\partial}{\partial t}\det\bfF(\bfx,t) = \det\bfF(\bfx,t)(\nabla_\bfy\cdot\bfv)(\bfy,t)\bigg|_{\bfy=\bfphi(\bfx,t)}.$$
+:::
+
+::: proof
+Using @prp-derivativedet and the chain rule, we have
+$$
+    \frac{\partial}{\partial t}\det\bfF(\bfx,t) = \det\bfF(\bfx,t) \tr\bigg(\bfF(\bfx,t)^{-1}\frac{\partial}{\partial t}\bfF(\bfx,t)\bigg),
+$$ {#eq-dotdet}
+and the components of the spatial velocity field satisfy
+$$v_i(\bfy,t)\bigg|_{\bfy=\bfphi(\bfx,t)} = \frac{\partial}{\partial t}\varphi_i(\bfx,t).$$
+Our aim is now to express the trace term in
+@eq-dotdet in terms of $\bfv$. Notice that
+$$F_{ij}(\bfx,t) = \frac{\partial \varphi_i}{\partial x_j}(\bfx,t),$$ so
+differentiating in time, $$\begin{aligned}
+    \frac{\partial F_{ij}}{\partial t}(\bfx,t) = \frac{\partial}{\partial t} \frac{\partial \varphi_i}{\partial x_j}(\bfx,t) &= \frac{\partial}{\partial x_j} \frac{\partial \varphi_i}{\partial t}(\bfx,t) \\
+    &= \frac{\partial}{\partial x_j}\bfv(\bfphi(\bfx,t),t)\\
+    &= \frac{\partial}{\partial y_k}\bfv(\bfy,t)\bigg|_{\bfy=\bfphi(\bfx,t)}\frac{\partial \varphi_k}{\partial x_j}(\bfx,t)\\
+    &= \frac{\partial}{\partial y_k}\bfv(\bfy,t)\bigg|_{\bfy=\bfphi(\bfx,t)}F_{kj}(\bfx,t)
+  \end{aligned}$$ In tensor notation, we have shown that
+$$\frac{\partial}{\partial t}\bfF(\bfx,t) = \nabla_\bfy\bfv(\bfy,t)\bigg|_{\bfy =\bfphi(\bfx,t)}\bfF(\bfx,t),$$
+so multiplying by $\bfF^{-1}$ on the right and taking the trace, we have
+$$\tr\bigg(\frac{\partial}{\partial t}\bfF(\bfx,t)\bfF^{-1}(\bfx,t)\bigg) =
+  \tr\big(\nabla_\bfy\bfv(\bfy,t)\big)\bigg|_{\bfy = \bfphi(\bfx,t)} = \nabla_\bfy\cdot \bfv(\bfy,t)\bigg|_{\bfy = \bfphi(\bfx,t)}.$$
+We can now conclude by using this expression in @eq-dotdet, and noting that $\tr(\bfA\bfB)=\tr(\bfB\bfA)$
+for any two tensors $\bfA,\bfB\in\calV^2$.
+:::
+
+This result shows that the time derivative of the Jacobian field depends
+only upon the field itself and the divergence of the spatial velocity.
+This leads to the following famous result.
+
+::: {#prp-Reynolds}
+## Reynolds' Transport Theorem
+Suppose $\bfphi:B\times[0,T]\to\bbE^3$ is a motion with an associated
+spatial velocity field $\bfv$. Let $\Omega_t\subset B_t$ be an arbitrary
+volume with boundary $\partial \Omega_t$ which has outward normal field
+$\bfn$. Then for any spatial scalar field $\phi$ we have
+$$\DDt{}\int_{\Omega_t}\phi\dVy = \int_{\Omega_t}\DDt{\phi}+\phi(\nabla_\bfy\cdot\bfv)\dVy,$$
+or equivalently
+$$\DDt{}\int_{\Omega_t}\phi\dVy = \int_{\Omega_t}\frac{\partial \phi}{\partial t}\dVy+\int_{\partial \Omega_t}\phi \bfv\cdot\bfn\dAy.$$
+:::
+
+**Remarks:**
+
+1.  Once more, this theorem shows that if the spatial velocity $\bfv$ is
+    known, then the time derivative of a volume integral over any subset
+    $\Omega_t\subset B_t$ can be determined without explicit knowledge
+    of $\bfphi$ or its inverse $\bfpsi$.
+
+2.  The fact this is called a 'transport theorem' is motivated by the
+    second equality. The first term on the RHS is the change of the
+    field $\phi$ in the volume $\Omega_t$, while the second term reflect
+    the amount of $\phi$ which is transported across the boundary
+    $\partial \Omega_t$, as determined by the normal component of the
+    velocity $\bfv\cdot\bfn$.
+
+### Transformation of surface integrals
+
+Along with volume integrals, we also consider how surface integrals
+transform under the mapping from the reference configuration to the
+deformed configuration. Suppose that $\Gamma\subset B$ is a referential
+surface with a unit normal field $\bfnu:\Gamma\to\calV$, and let
+$\gamma_t = \bfphi(\Gamma,t)$ be the corresponding surface in the
+deformed configuration, with accompanying normal field
+$\bfn:\gamma_t\to\calV$.
+
+It can be shown that in this case that the oriented surface area element
+satisfies
+$$\bfn(\bfy)\dAy = \cof\big(\bfF(\bfx,t)\big)\bfnu(\bfx)\dAx.$$ The
+argument is similar to that made for a transformation of surface
+integrals, but since it is relatively technical, we omit it. This leads
+us to the following result.
+
+::: proposition
+Suppose $\phi$, $\bfw$, and $\bfT$ are spatial scalar, vector and tensor
+fields, and that $\Omega\subset B$ is a subset which is mapped to
+$\Omega_t = \bfphi(B,t)\subset B_t$ under the motion $\bfphi$, where
+$\partial \Omega\subset B$ has outward-pointing normal field $\bfnu$,
+and $\partial\Omega_t\subset B_t$ has outward-pointing normal field $\bfn$.
+Then $$\begin{aligned}
+      \int_{\partial\Omega_t}\phi(\bfy,t)\bfn(\bfy)\dAy &= \int_{\partial\Omega}\phi_m(\bfx,t)\cof\bfF(\bfx,t)\bfnu(\bfx)\dAx\\
+      \int_{\partial\Omega_t}\bfw(\bfy,t)\cdot \bfn(\bfy)\dAy &= \int_{\partial\Omega}\bfw_m(\bfx,t)\cdot\big(\cof\bfF(\bfx,t)\bfnu(\bfx)\big)\dAx\\
+      \int_{\partial\Omega_t}\bfT(\bfy,t)\bfn(\bfy)\dAy &= \int_{\partial\Omega}\bfT_m(\bfx,t)\cof\bfF(\bfx,t)\bfnu(\bfx)\dAx,
+    \end{aligned}$$ where we recall that the cofactor tensor (as
+previously defined in the statement of
+Proposition [\[prop:derivativedet\]](#prop:derivativedet){reference-type="ref"
+reference="prop:derivativedet"}) is defined to be
+$$\cof(\bfF) = (\det\bfF)\bfF^{-T}.$$
+:::
