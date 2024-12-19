@@ -13,6 +13,7 @@ book:
     - massandforces.qmd
     - kinematics.qmd
     - balancelaws.qmd
+  downloads: pdf
 
 format:
   html:
@@ -22,3 +23,12 @@ format:
     theme:
       light: flatly
       dark: darkly
+  pdf:
+    documentclass: scrbook
+    papersize: a4
+    toc: true
+    toc-depth: 2
+    pdf-engine: pdflatex
+    mainfont: "Palatino"
+    sansfont: "Palatino"
+    mathfont: "Computer Modern Roman"

@@ -69,11 +69,11 @@ of continuity.
 
 Consider a function $\bff:U\to W$, where $U$ and $W$ can be any of the
 spaces $\bbE^3$, $\calV$, $\calV^2$ or $\bbR$. If there are constants
-$C>0$ and $r>0$ such that $|\bff(\bfu)|\leq C|\bfu|^r$ as $\bfu\to\bf0$,
+$C>0$ and $r>0$ such that $|\bff(\bfu)|\leq C|\bfu|^r$ as $\bfu\to\bfzero$,
 then we write
-$$\bff(\bfu) = \bigO(|\bfu|^r)\quad\text{as}\quad\bfu\to\bf0.$$ If there is a constant $r>0$ such that $$\frac{|\bff(\bfu)|}{|\bfu|^r}\to0$$ as
-$\bfu\to\bf0$, then we write
-$$\bff(\bfu)=\litO(|\bfu|^r)\quad\text{as}\quad\bfu\to\bf0.$$ The
+$$\bff(\bfu) = \bigO(|\bfu|^r)\quad\text{as}\quad\bfu\to\bfzero.$$ If there is a constant $r>0$ such that $$\frac{|\bff(\bfu)|}{|\bfu|^r}\to0$$ as
+$\bfu\to\bfzero$, then we write
+$$\bff(\bfu)=\litO(|\bfu|^r)\quad\text{as}\quad\bfu\to\bfzero.$$ The
 symbols $\bigO$ and $\litO$ are called the standard *order symbols*, and
 are used in many contexts.
 
@@ -87,11 +87,11 @@ but not the converse. When $p>r$, it is however true that
 $\bff(\bfu)=\bigO(|\bfu|^p)$ implies $\bff(\bfu)=\litO(|\bfu|^r)$.
 
 Given two functions $\bff,\bfg:U\to W$, we will use the notation
-$$\bff(\bfu) = \bfg(\bfu)+\bigO(|\bfu|^r)\quad\text{as }\bfu\to\bf0$$ to
+$$\bff(\bfu) = \bfg(\bfu)+\bigO(|\bfu|^r)\quad\text{as }\bfu\to\bfzero$$ to
 mean that
-$$\bff(\bfu) - \bfg(\bfu) = \bigO(|\bfu|^r)\quad\text{as }\bfu\to\bf0,$$
+$$\bff(\bfu) - \bfg(\bfu) = \bigO(|\bfu|^r)\quad\text{as }\bfu\to\bfzero,$$
 and the same for the order symbol $\litO$. We sometimes indicate the
-limit $\bfu\to\bf0$ using the informal terminology 'for $\bfu$ small'.
+limit $\bfu\to\bfzero$ using the informal terminology 'for $\bfu$ small'.
 
 ## Differentiation of tensor fields
 

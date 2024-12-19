@@ -51,7 +51,7 @@ $I$ at time $t\geq 0$. We can associate to $\Omega_t$ a total mass
 $M[\Omega_t]$, a linear momentum $\bfl[\Omega_t]$, an angular momentum
 $\bfj[\Omega_t]$, an internal energy $U[\Omega_t]$ and a kinetic energy
 $K[\Omega_t]$ as follows: $$\begin{gathered}
-    M[\Omega_t] = \sum_{i\in I}m_i,\quad\bfl[\Omega_t] = \sum_{i\in I}m_i\dot{\bfx}_i,\quad \bfj[\Omega_t] = = \sum_{i\in I}\bfx_i\times m_i\dot{\bfx}_i,\\
+    M[\Omega_t] = \sum_{i\in I}m_i,\quad\bfl[\Omega_t] = \sum_{i\in I}m_i\dot{\bfx}_i,\quad \bfj[\Omega_t] = \sum_{i\in I}\bfx_i\times m_i\dot{\bfx}_i,\\
     U[\Omega_t] = \sum_{\substack{i,j\in I\\i<j}} U_{ij},\quad K[\Omega_t] = \sum_{i\in I} \tfrac12m_i|\dot{\bfx}_i|^2.
   \end{gathered}$$ If we make the assumption that $U_{ij}$ depends only
 on $\bfx_i$ and $\bfx_j$ through the distance $|\bfx_i-\bfx_j|$, then we
@@ -95,7 +95,7 @@ Assuming that we are neglecting relativistic effects and possible
 chemical reactions, the balance laws can be generalised to continuum
 bodies as follows.
 
-::: {.callout-note icon=false}
+::: {.callout-important icon=false}
 ## Conservation of Mass
 The mass of any
 open subset of a continuum body is invariant as the body changes
@@ -107,7 +107,7 @@ Now, recalling the definitions of the resultant force $\bfr[\Omega]$ and
 resultant torque $\bftau[\Omega;\bfz]$, we can state the laws of
 inertia:
 
-::: {.callout-note icon=false}
+::: {.callout-important icon=false}
 ## The Laws of Inertia
 The rate of change of linear momentum of any open subset of a continuum body equals the resultant force applied to
 it, and the rate of change of angular momentum equals the resultant
@@ -222,7 +222,7 @@ can define a corresponding internal energy density per unit mass
 $\phi(\bfy,t) = \hat{\phi}(\bfy,t)/\rho(\bfy,t)$ so that
 $$U[\Omega_t] = \int_{\Omega_t} \rho(\bfy,t)\phi(\bfy,t)\dVy.$$
 
-::: {.callout-note icon="false"}
+::: {.callout-important icon="false"}
 ## First Law of Thermodynamics (Conservation of Energy)
 The rate of change of the internal
 energy of any open subset of a continuum body is the sum of the net rate
@@ -290,7 +290,7 @@ $$\eta(\bfy,t) = \frac{\hat{\eta}(\bfy,t)}{\rho(\bfy,t)}\quad\text{so that}\quad
 The generalisation of @eq-ClausiusPlanck to spatially inhomogeneous systems is
 then the following.
 
-::: {.callout-note icon="false"}
+::: {.callout-important icon="false"}
 ## Second Law of Thermodynamics
 The rate of entropy production in any
 open subset of a continuum body is bounded below by the heating per unit
@@ -447,14 +447,14 @@ $$
 ### Balance of angular momentum
 
 Taking the point about which we compute angular momentum to be
-$\bfz=\bf0$, recall that the balance of angular momentum is
+$\bfz=\bfzero$, recall that the balance of angular momentum is
 $$
   \DDt \int_{\Omega_t}\bfy\times (\rho\bfv)\dVy =\int_{\partial\Omega_t}\bfy\times \bft \dAy+\int_{\Omega_t}\bfy\times \rho\bfb\dVy,
 $$ {#eq-angularmomentum}
 where as before, all fields in the integrands are spatial. To simplify
 the LHS of this equation, note that $\DDt{}\bfy = \bfv$, and hence
 $$
-\DDt{}\left(\bfy\times\bfv\right) = \DDt{\bfy}\times\bfv+\bfy\times\DDt{\bfv} =\underbrace{\bfv\times\bfv}_{=\bf0}+ \bfy\times\DDt{\bfv}.
+\DDt{}\left(\bfy\times\bfv\right) = \DDt{\bfy}\times\bfv+\bfy\times\DDt{\bfv} =\underbrace{\bfv\times\bfv}_{=\bfzero}+ \bfy\times\DDt{\bfv}.
 $$
 Moreover, @prp-TimeDerivativeMassIntegrals entails that
 $$
@@ -597,7 +597,7 @@ $-\nabla_\bfy\cdot\bfq$ is heating caused through conduction from the
 material surrounding the given point.
 
 Note that if there is no local temperature variation, i.e.
-$\nabla\theta=\bf0$, then @eq-C-DEulerian2 implies that $\delta\geq0$, i.e. the
+$\nabla\theta=\bfzero$, then @eq-C-DEulerian2 implies that $\delta\geq0$, i.e. the
 internal dissipation is positive in bodies with a homogeneous
 temperature. We also see that if $\delta=0$, then
 $\bfq\cdot\nabla_\bfy\theta\leq0$, or in other words, the heat flux
@@ -617,14 +617,21 @@ $$\begin{aligned}
     q_i(\bfy,t) &&&\text{3 components of heat flux,}\\
     \phi(\bfy,t) &&&\text{1 internal energy field per unit mass, and}\\
     \eta(\bfy,t) &&&\text{1 entropy field per unit mass.}
-  \end{aligned}$$ From physical principles, we have deduced 11
-equations: $$\begin{aligned}[]
-    [v_i]_m &= \frac{\partial\varphi_i}{\partial t}&& \text{3 kinematic relations,}\\
-    \frac{\partial\rho}{\partial t} +(\rho v_i)_{,i}&=0&& \text{1 conservation of mass equation,}\\
-    \rho \DDt{v_i} &= S_{ij,j}+\rho b_i&& \text{3 balance of linear momentum equations,}\\
-    S_{ij} &= S_{ji} && \text{3 balance of angular momentum equations, and}\\
-    \rho\DDt{\phi} &= S_{ij}v_{i,j}-q_{i,i}+\rho r &&\text{1 energy balance equation.}
-  \end{aligned}$$
+  \end{aligned}$$ 
+
+::: {.callout-important icon="false"}
+## Eulerian equations
+From physical principles, we have deduced 11 equations:
+$$
+\begin{aligned}
+  [v_i]_m &= \frac{\partial\varphi_i}{\partial t} && \text{3 kinematic relations,}\\
+  \frac{\partial\rho}{\partial t} +(\rho v_i)_{,i}&=0 && \text{1 conservation of mass equation,}\\
+  \rho \DDt{v_i} &= S_{ij,j}+\rho b_i&& \text{3 balance of linear momentum equations,}\\
+  S_{ij} &= S_{ji} && \text{3 balance of angular momentum equations, and}\\
+  \rho\DDt{\phi} &= S_{ij}v_{i,j}-q_{i,i}+\rho r &&\text{1 energy balance equation.}
+\end{aligned}
+$$
+:::
 
 **Notes:**
 
@@ -762,9 +769,7 @@ We now consider energies and power as considered when discussing the
 Laws of Thermodynamics. Recall that for $\Omega_t\subseteq B_t$, we have
 that the kinetic energy is
 $$K[\Omega_t] = \int_{\Omega_t}\tfrac12\rho|\bfv|^2\dVy,$$ which, by
-applying
-Proposition [\[prop:MassLagrangian\]](#prop:MassLagrangian){reference-type="ref"
-reference="prop:MassLagrangian"} and a change of variable, transforms to
+applying @prp-MassLagrangian and a change of variable, transforms to
 $$K[\Omega_t] = \int_\Omega \tfrac12\rho_0(\bfx)\left|\ppt\bfphi(\bfx,t)\right|^2\dVx.$$
 Changing variable, the power of the external forces can be expressed as
 $$\begin{aligned}
@@ -779,15 +784,13 @@ divergence of a tensor applied to a vector now gives $$\begin{aligned}
   &= \int_{\Omega}\rho_0\bfb_m\cdot\ppt\bfphi+\nabla_\bfx\cdot\left(\bfP^T\ppt\bfphi\right)\dVx\\
   &=\int_{\Omega}(\nabla_\bfx\cdot\bfP+\rho_0\bfb_m)\cdot\ppt\bfphi+\bfP:\nabla_\bfx\ppt\bfphi\dVx.
 \end{aligned}$$ Differentiating and substituting for
-$\rho_0\frac{\partial^2\bfphi}{\partial t^2}$ using
-Proposition [\[prop:LinearMomentumEulerian\]](#prop:LinearMomentumEulerian){reference-type="ref"
-reference="prop:LinearMomentumEulerian"}, we have
+$\rho_0\frac{\partial^2\bfphi}{\partial t^2}$ using @prp-LinearMomentumEulerian, we have
 $$\DDt K[\Omega_t] = \int_{\Omega}\rho_0\ppt\bfphi\cdot\frac{\partial^2\bfphi}{\partial t^2}\dVx =
   \int_{\Omega}\ppt\bfphi\cdot(\nabla_\bfx\cdot\bfS+\rho_0\bfb_m)\dVx.$$
 Equating this expression with the expression for the power
 $P[\Omega_t]$, we have shown the following result.
 
-::: proposition
+::: {#prp-LagrangianWork}
 If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion with associated
 deformation gradient $\bfF:B\times[0,T]\to\calV^2$ and the
 Piola-Kirchhoff stress is $\bfP(\bfx,t)$, then
@@ -818,7 +821,7 @@ have
 $$Q[\Omega_t] = \int_\Omega\rho_0r_m\dVx-\int_{\partial \Omega}\bfkappa\cdot\bfnu\dAx.$$
 Applying the Divergence Theorem, we have:
 
-::: proposition
+::: {#prp-Lagrangian1stLaw}
 If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion with material internal
 energy field $\phi_m$, material heat flux vector field $\bfkappa$ and
 material heat supply field $r_m$, then
@@ -834,7 +837,7 @@ conservation of mass as we have done above to find that
 $$\int_\Omega \rho_0\ppt{\eta_m}\dVx\geq \int_{\Omega}\frac{\rho_0r_m}{\theta_m}\dVx-\int_{\partial \Omega} \frac{\bfkappa\cdot\bfnu}{\theta_m}\dAx.$$
 Applying the Divergence Theorem and Localisation Theorem, we obtain:
 
-::: proposition
+::: {#prp-Lagrangian2ndLaw}
 Let $\bfphi:B\times[0,T]\to\bbE^3$ be a motion of a continuum body. Then
 $$\rho_0\ppt{\eta_m}\geq \frac{\rho_0 r_m}{\theta_m}-\nabla_\bfx\cdot\Big(\frac{\bfkappa}{\theta_m}\Big)$$
 for all $\bfx\in B$ and $t\in[0,T]$.
@@ -844,19 +847,29 @@ for all $\bfx\in B$ and $t\in[0,T]$.
 
 In the Lagrangian description of the motion of a general continuum body,
 then if we take component with respect to a given Cartesian frame, there
-are 18 unknown fields: $$\begin{aligned}
+are 18 unknown fields:
+$$
+\begin{aligned}
     \varphi_i(\bfx,t) &&&\text{3 components of motion,}\\
     P_{ij}(\bfx,t) &&&\text{9 components of Piola-Kirchhoff stress,}\\
     \theta_m(\bfx,t) &&&\text{1 temperature field,}\\
     \kappa_i(\bfx,t) &&&\text{3 components of heat flux,}\\
     \phi_m(\bfx,t) &&&\text{1 internal energy field per unit mass, and}\\
     \eta_m(\bfx,t) &&&\text{1 entropy field per unit mass.}
-  \end{aligned}$$ From physical principles, we have deduced 7 equations:
-$$\begin{aligned}[]
+  \end{aligned}
+$$
+
+::: {.callout-important icon="false"}
+## Lagrangian equations
+From physical principles, we have deduced 7 equations:
+$$
+\begin{aligned}
     \rho_0\frac{\partial ^2\varphi_i}{\partial t^2} &= P_{ij,j}+\rho_0[b_i]_m&& \text{3 balance of linear momentum equations,}\\
     P_{ij}F_{jk} &= F_{ik}P_{jk} && \text{3 balance of angular momentum equations, and}\\
     \rho_m\ppt{\phi_m} &= P_{ij}\ppt{F_{ij}}-\kappa_{i,i}+\rho_0 r_m &&\text{1 energy balance equation.}
-  \end{aligned}$$
+\end{aligned}
+$$
+:::
 
 **Notes:**
 
@@ -896,7 +909,7 @@ their representation in the frames of the two observers. To denote those
 fields observed which in the frame where the motion is $\bfphi^*$, we
 use a star. Applying the definition above, we then find the following:
 
-::: proposition
+::: {#prp-FieldTransformation}
 The relationship between the material fields
 $(\bfF,\bfR,\bfU,\bfV,\bfC)$ and $(\bfF^*,\bfR^*,\bfU^*,\bfV^*,\bfC^*)$
 is given by $$\begin{gathered}
@@ -941,7 +954,7 @@ as will the acceleration.
 It is natural to make the following assumption of frame-indifference for
 the fields we have considered:
 
-::: {.callout-note icon="false"}
+::: {.callout-important icon="false"}
 ## Frame Indifference
 The spatial mass density $\rho$, temperature $\theta$, entropy per unit mass $\eta$,
 internal energy per unit mass $\phi$, Cauchy stress $\bfS$, and heat
@@ -960,12 +973,14 @@ order to comply with **Frame Indifference**, we must have $$\begin{aligned}
   \widehat{\bfq}(\rho^*,\theta^*,\bfL^*) &= \bfQ\widehat{\bfq}(\rho,\theta,\bfL),\\
   \widehat{\bfS}(\rho^*,\theta^*,\bfL^*) &= \bfQ\widehat{\bfS}(\rho,\theta,\bfL)\bfQ^T.
 \end{aligned}$$ Substituting for the starred fields on the LHS, we have
-$$\begin{aligned}
+$$
+\begin{aligned}
   \widehat{\phi}(\rho,\theta,\bfQ\bfL\bfQ^T) &= \widehat{\phi}(\rho,\theta,\bfL),\\
   \widehat{\bfq}(\rho,\theta,\bfQ\bfL\bfQ^T) &= \bfQ\widehat{\bfq}(\rho,\theta,\bfL),\\
   \widehat{\bfS}(\rho,\theta,\bfQ\bfL\bfQ^T) &= \bfQ\widehat{\bfS}(\rho,\theta,\bfL)\bfQ^T,
-\end{aligned}$$ which must hold for all rotations $\bfQ$ and all
-admissible values of $\rho, \theta$ and $\bfL$.
+\end{aligned}
+$$
+which must hold for all rotations $\bfQ$ and all admissible values of $\rho, \theta$ and $\bfL$.
 
 It is important to note that linearised theories will typically violate
 frame-indifference, since the relationships we have derived above are

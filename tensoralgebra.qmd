@@ -98,7 +98,7 @@ Throughout this module, any reference to the magnitude (or norm) of a
 vector will always mean the Euclidean norm, which will be denoted by
 vertical bars $|\bfv|$. Recall that the magnitude of a vector is the
 length of the vector, and is therefore always a positive quantity, i.e.
-$|\bfv|\geq0$. The zero vector, $\bf0$, is the unique vector with zero
+$|\bfv|\geq0$. The zero vector, $\bfzero$, is the unique vector with zero
 magnitude, and has no particular direction attached to it. Any vector
 $\bfv$ with magnitude (or length) 1, i.e. $|\bfv|=1$, will be called a
 *unit vector*.
@@ -136,7 +136,7 @@ $$\bfu \times \bfv = \big(|\bfu| |\bfv| \sin \theta\big)\bfe,$$ where
 $\theta\in[0,\pi]$ is again the angle between the tips of $\bfu$ and
 $\bfv$, and $\bfe$ is the unit vector perpendicular to the plane
 containing $\bfu$ and $\bfv$, oriented in a right-hand fashion. If
-$\bfu\times\bfv=\bf0$, then $\bfu$ and $\bfv$ are *parallel*. Recall
+$\bfu\times\bfv=\bfzero$, then $\bfu$ and $\bfv$ are *parallel*. Recall
 that the magnitude $|\bfu\times\bfv|$ is the area of the parallelogram
 with two sides given by $\bfu$ and $\bfv$ emanating from the same point.
 
@@ -356,7 +356,7 @@ $\bfT:\calV\to\calV$, i.e.
 $$\bfT(\alpha \bfu+\beta \bfv) = \alpha \bfT(\bfu)+\beta\bfT(\bfv)\quad\text{for all }\bfu,\bfv\in\calV\text{ and }\alpha,\beta\in\bbR.$$
 The set of all second-order tensors is denoted $\calV^2$. Just as with
 vectors, we define the *zero tensor* $\bfO$ which satisfies
-$\bfO(\bfv) = \bf0$ for all $\bfv\in\calV$, and the identity tensor
+$\bfO(\bfv) = \bfzero$ for all $\bfv\in\calV$, and the identity tensor
 $\bfI$, which satisfies $\bfI(\bfv) = \bfv$ for all $\bfv\in\calV$.
 Second-order tensors $\bfS$ and $\bfT$ are equal if and only if
 $\bfS(\bfv) = \bfT(\bfv)$ for all $\bfv\in\calV$. Since second-order
@@ -486,7 +486,7 @@ We say that a tensor $\bfS$ is *symmetric* if $\bfS = \bfS^T$ and
 *skew-symmetric* if $\bfS^T = -\bfS$.
 
 A tensor $\bfS\in\calV^2$ is said to be *positive-definite* if it
-satisfies $$\bfv\cdot (\bfS\bfv)>0\quad\text{for all }\bfv\neq\bf0,$$
+satisfies $$\bfv\cdot (\bfS\bfv)>0\quad\text{for all }\bfv\neq\bfzero,$$
 and is said to be *invertible* if there exists an *inverse*
 $\bfS^{-1}\in\calV^2$ satisfying
 $$\bfS\bfS^{-1} = \bfS^{-1}\bfS = \bfI.$$ The operations of inversion
@@ -749,7 +749,7 @@ $$ {#eq-characteristicpolynomial}
 To any eigenvalue, we associate one or more linearly independent eigenvectors $\bfe$ by solving the
 equation
 $$
-  (\bfS-\lambda\bfI)\bfe = \bf0.
+  (\bfS-\lambda\bfI)\bfe = \bfzero.
 $$ {#eq-eigenvectorequation}
 
 
@@ -859,9 +859,9 @@ positive definite tensors, and $\bfR$ is a rotation tensor.
 
 ::: proof
 We note that $\bfF$ is invertible since it has positive
-determinant, and so $\bfF\bfv\neq\bf0$ for any $\bfv\neq\bf0$.
-Similarly, we have that $\bfF^T\bfv\neq\bf0$ for any $\bfv\neq\bf0$.
-From these observations we deduce that for any $\bfv\neq\bf0$,
+determinant, and so $\bfF\bfv\neq\bfzero$ for any $\bfv\neq\bfzero$.
+Similarly, we have that $\bfF^T\bfv\neq\bfzero$ for any $\bfv\neq\bfzero$.
+From these observations we deduce that for any $\bfv\neq\bfzero$,
 \begin{gather*}
     \bfv\cdot(\bfF^T\bfF\bfv) = (\bfF\bfv)\cdot(\bfF\bfv)>0,\\
     \bfv\cdot(\bfF\bfF^T\bfv) = (\bfF^T\bfv)\cdot(\bfF^T\bfv)>0.

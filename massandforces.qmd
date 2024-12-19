@@ -254,7 +254,7 @@ Let $\bft:\calN\times B\to\calV$ be the traction function for a body $B$.
 Suppose that $\bft(\bfn,\bfx)$ is continuous, and for any sequence of
 subsets $\Omega$ whose volumes tend to zero, we have
 $$
-\frac{1}{\area(\partial\Omega)}\int_{\partial\Omega} \bft(\bfn(\bfx),\bfx)\dAx\to\bf0\quad\text{as}\quad\vol(\Omega)\to0.
+\frac{1}{\area(\partial\Omega)}\int_{\partial\Omega} \bft(\bfn(\bfx),\bfx)\dAx\to\bfzero\quad\text{as}\quad\vol(\Omega)\to0.
 $$ {#eq-arcondition1}
 Then it follows that
 $$\bft(-\bfn,\bfx) = -\bft(\bfn,\bfx)\quad\text{for any }\bfn\in\calN,\bfx\in B.$$
@@ -285,16 +285,16 @@ $\widehat{\bfn}=\pm\bfn$ is constant on $\Gamma_{\pm}$. We can therefore
 express $\partial\Omega_\delta = \Gamma_\delta\cup\Gamma_+\cup\Gamma_-$,
 and since $\area(\Gamma_\delta)\to0$ as $\delta\to0$ and $\bft$ is
 continuous and so bounded, we have
-$$\lim_{\delta\to0}\int_{\Gamma_\delta} \bft(\widehat{\bfn}(\bfx),\bfx')\,dA_{\bfx'}=\bf0.$$
+$$\lim_{\delta\to0}\int_{\Gamma_\delta} \bft(\widehat{\bfn}(\bfx),\bfx')\,dA_{\bfx'}=\bfzero.$$
 It follows that
-$$\int_D \bft(\bfn,\bfx')+\bft(-\bfn,\bfx')\,dA_{\bfx'} = \bf0.$$ Now,
+$$\int_D \bft(\bfn,\bfx')+\bft(-\bfn,\bfx')\,dA_{\bfx'} = \bfzero.$$ Now,
 we apply the result of
 @prp-MVTsurfaces, which allows us to conclude that there is
 a point $\bfx_r\in D_r$ such that
-$$\bft(\bfn,\bfx_r)+\bft(-\bfn,\bfx_r)=\bf0.$$ Since this result holds
+$$\bft(\bfn,\bfx_r)+\bft(-\bfn,\bfx_r)=\bfzero.$$ Since this result holds
 for all $r>0$, we can now let $r\to0$. In this limit, $\bfx_r\to \bfx$,
 and since $\bft$ was assumed to be continuous, it follows that
-$$\bft(\bfn,\bfx)+\bft(-\bfn,\bfx)=\bf0.$$ This establishes the result.
+$$\bft(\bfn,\bfx)+\bft(-\bfn,\bfx)=\bfzero.$$ This establishes the result.
 :::
 
 We have just shown that the traction exerted by material on the positive
@@ -347,13 +347,17 @@ $\Gamma_{\delta,n}$, which has outward-pointing unit normal $\bfn$.
 
 We note that $\vol(T_\delta)\to0$ as $\delta\to0$, and hence
 condition @eq-arcondition1 implies that
-$$\lim_{\delta\to0}\frac{1}{\area(\partial T_\delta)}\int_{\partial T_\delta} \bft(\widehat{\bfn}(\bfx'),\bfx')\,dA_{\bfx'} = \bf0,$$
+$$\lim_{\delta\to0}\frac{1}{\area(\partial T_\delta)}\int_{\partial T_\delta} \bft(\widehat{\bfn}(\bfx'),\bfx')\,dA_{\bfx'} = \bfzero,$$
 where $\widehat{\bfn}(\bfx')$ denotes the outward-pointing unit normal
 field on $\partial T_\delta$. Using the explicit form for this field on
-each of the faces, we have $$
-    \lim_{\delta\to0}\frac{1}{\area(\partial T_\delta)}\bigg(\int_{\Gamma_{\delta,n}} \bft(\bfn,\bfx')\,dA_{\bfx'}+\sum_{i=1}^3\int_{\Gamma_{\delta,i}} \bft(-\bfe_i,\bfx')\,dA_{\bfx'}\bigg) = \bf0.$$ {#eq-tetlimit}
+each of the faces, we have
+$$
+\lim_{\delta\to0}\frac{1}{\area(\partial T_\delta)}\bigg(\int_{\Gamma_{\delta,n}} \bft(\bfn,\bfx')\,dA_{\bfx'}+\sum_{i=1}^3\int_{\Gamma_{\delta,i}} \bft(-\bfe_i,\bfx')\,dA_{\bfx'}\bigg) = \bfzero.
+$$ {#eq-tetlimit}
 It can be computed that the area of each face is
-$$\area(\Gamma_{\delta,i}) = \frac{\delta^2}{2}\frac{n_i}{n_1n_2n_3}\quad\text{and}\quad\area(\Gamma_{\delta,n}) = \frac{\delta^2}{2}\frac{1}{n_1n_2n_3},$$
+$$
+\area(\Gamma_{\delta,i}) = \frac{\delta^2}{2}\frac{n_i}{n_1n_2n_3}\quad\text{and}\quad\area(\Gamma_{\delta,n}) = \frac{\delta^2}{2}\frac{1}{n_1n_2n_3},
+$$
 so that
 $$
     \area(\Gamma_\delta) = n_1 \area(\Gamma_1)=n_2\area(\Gamma_2) = n_3\area(\Gamma_3),
@@ -363,23 +367,28 @@ and thus $$
 We now consider the integral over each face, and apply the Mean Value
 Theorem, which entails that there exist points
 $\bfx'_{\delta,i}\in\Gamma_{\delta,i}$ and a point
-$\bfx'_{\delta,n}\in\Gamma_{\delta,n}$ such that $$\begin{gathered}
+$\bfx'_{\delta,n}\in\Gamma_{\delta,n}$ such that
+$$
+\begin{gathered}
     \bft(-\bfe_i,\bfx'_{\delta,i}) = \frac{1}{\area(\Gamma_{\delta,i})}\int_{\Gamma_{\delta,i}}\bft(-\bfe_i,\bfx')\,dA_{\bfx'}\\
     \text{and}\quad
     \bft(\bfn,\bfx'_{\delta,n}) = \frac{1}{\area(\Gamma_{\delta,n})}\int_{\Gamma_{\delta,i}}\bft(\bfn,\bfx')\,dA_{\bfx'}.
-  
-\end{gathered}$$ We note that as $\delta\to0$, we have that
-$\bfx'_{\delta,n}\to\bfx$ and $\bfx'_{\delta,i}\to\bfx$, since the faces
+\end{gathered}
+$$
+We note that as $\delta\to0$, we have that $\bfx'_{\delta,n}\to\bfx$ and $\bfx'_{\delta,i}\to\bfx$, since the faces
 shrink to the point $\bfx$.
 
 Using these facts and
-@eq-tetarearelation1, we have $$\begin{gathered}
+@eq-tetarearelation1, we have
+$$
+\begin{gathered}
     \int_{\Gamma_{\delta,n}} \bft(\bfn,\bfx')\,dA_{\bfx'}+\sum_{i=1}^3\int_{\Gamma_{\delta,i}} \bft(-\bfe_i,\bfx')\,dA_{\bfx'}\\
     = \area(\Gamma_{\delta,n})\bigg(\bft(\bfn,\bfx'_{\delta,n})+\sum_{i=1}^3n_i\bft(-\bfe_i,\bfx_{\delta,i})\bigg).  
-\end{gathered}$$
+\end{gathered}
+$$
 Dividing by $\area(\partial T_\delta)$, and applying
 @eq-tetarearelation2 with the limit, we deduce that
-$$\bft(\bfn,\bfx)+\sum_{i=1}^3n_i\bft(-\bfe_i,\bfx) = \bf0.$$ Applying
+$$\bft(\bfn,\bfx)+\sum_{i=1}^3n_i\bft(-\bfe_i,\bfx) = \bfzero.$$ Applying
 @prp-actionreaction, and reinstating the summation
 convention, this can be rewritten as
 $$\bft(\bfn,\bfx) = n_i\bft(\bfe_i,\bfx) = \Big(\bft(\bfe_i,\bfx)\otimes\bfe_i\Big)\bfn=\bfS(\bfx)\bfn$$
@@ -407,9 +416,13 @@ as the components of the three traction vectors $\bft(\bfe_i,\bfx)$
 acting across the coordinate planes at the point $\bfx$. In particular,
 taking components in
 @eq-stresstensordefinition, we have
-$$\bfS(\bfx) = S_{ij}(\bfx)\bfe_i\otimes\bfe_j\quad\text{with}\quad S_{ij}(\bfx) = t_i(\bfe_j,\bfx),$$
+$$
+\bfS(\bfx) = S_{ij}(\bfx)\bfe_i\otimes\bfe_j\quad\text{with}\quad S_{ij}(\bfx) = t_i(\bfe_j,\bfx),
+$$
 and so
-$$\bft(\bfe_j,\bfx) = t_i(\bfe_j,\bfx)\bfe_i = S_{ij}(\bfx)\bfe_i.$$
+$$
+\bft(\bfe_j,\bfx) = t_i(\bfe_j,\bfx)\bfe_i = S_{ij}(\bfx)\bfe_i.
+$$
 
 ## Equilibrium
 
@@ -435,28 +448,32 @@ $\bft:\partial\Omega\to\calV$ be the traction field acting on its outer
 surface, with orientation determined by the outward-point normal field.
 The resultant force on $\Omega$ due to body and surface forces is
 $$
-  \bfr(\Omega) = \bfr_b(\Omega)+\bfr_s(\partial\Omega) = \int_\Omega \rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial\Omega}\bft(\bfx)\dAx,$$ {#eq-resultantforce}
+  \bfr(\Omega) = \bfr_b(\Omega)+\bfr_s(\partial\Omega) = \int_\Omega \rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial\Omega}\bft(\bfx)\dAx,
+$$ { #eq-resultantforce }
 and the resultant torque on $\Omega$ about the point $\bfz\in\bbE^3$ is
 $$
-  \begin{aligned}
+\begin{aligned}
     \bftau(\Omega;\bfz)
     &= \bftau_b(\Omega;\bfz)+\bftau_s(\partial\Omega;\bfz)\\
     &=\int_\Omega (\bfx-\bfz)\times\rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial \Omega}(\bfx-\bfx)\times\bft(\bfx)\dAx.
   \end{aligned}
-  $$ {#eq-resultanttorque} At a static equilibrium, we assume that both the
-resultant force and torque for any $\Omega$ vanish, which is encoded in
+$$ { #eq-resultanttorque }
+At a static equilibrium, we assume that both the resultant force and torque for any $\Omega$ vanish, which is encoded in
 the following axiom.
 
-::: axiom
-[]{#ax:staticequilibrium label="ax:staticequilibrium"} If a body $B$ is
+::: { .callout-important icon="false" }
+## Static equilibrium
+If a body $B$ is
 in a state of *static mechanical equilibrium*, then the resultant force
 and resultant torque (taken about any fixed point) which act on any
 sub-body must vanish. That is, it holds that
 $$
-    \begin{gathered}
-      \bfr(\Omega)=\int_\Omega \rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial\Omega}\bft(\bfx)\dAx =\bf0\\
-      \bftau(\Omega;\bfz) = \int_\Omega (\bfx-\bfz)\times\rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial \Omega}(\bfx-\bfz)\times\bft(\bfx)\dAx =\bf0
-    \end{gathered}$${#eq-equilibriumconditionsINT} for any $\Omega\subseteq B$.
+\begin{gathered}
+    \bfr(\Omega)=\int_\Omega \rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial\Omega}\bft(\bfx)\dAx =\bfzero\\
+    \bftau(\Omega;\bfz) = \int_\Omega (\bfx-\bfz)\times\rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial \Omega}(\bfx-\bfz)\times\bft(\bfx)\dAx =\bfzero
+\end{gathered}
+$$ {#eq-equilibriumconditionsINT}
+for any $\Omega\subseteq B$.
 :::
 
 The fact that we have freedom of choice in choosing the point $\bfz$ in
@@ -465,101 +482,105 @@ Exercises for details.
 
 ### Local equations
 
-We now use
-Axiom [\[ax:staticequilibrium\]](#ax:staticequilibrium){reference-type="ref"
-reference="ax:staticequilibrium"} to derive differential equations which
+We now use the condition of **Static equilibrium** to derive differential equations which
 are the 'local' form of the equilibrium conditions. Since
 @prp-stresstensor asserts that $\bft$ is expressed in terms
 of the Cauchy stress tensor $\bfS$, it is unsurprising that these
 equations naturally involve this field.
 
-::: {#prp-staticequilibriumeqns}
+::: { #prp-staticequilibriumeqns }
 If the Cauchy stress field $\bfS:B\to\calV^2$ is continuously
 differentiable, and the density field $\rho:B\to\bbR$ and body force
-field $\bfb$ are continuous, then the equilibrium conditions
-[\[eq:equilibriumconditionsINT\]](#eq:equilibriumconditionsINT){reference-type="eqref"
-reference="eq:equilibriumconditionsINT"} are equivalent to
-$$\label{eq:equilibriumequationsDE}
-    \begin{gathered}
-      (\nabla\cdot\bfS)(\bfx)+\rho(\bfx)\bfb(\bfx) = \bf0 \\
-      \bfS^T(\bfx)=\bfS(\bfx)
-    \end{gathered}$$ for any $\bfx\in B$. In components, these equations
-are: $$\begin{gathered}
-      S_{ij,j}(\bfx)+\rho(\bfx)b_i(\bfx) = 0 \\
-      S_{ij}(\bfx)=S_{ji}(\bfx)
-    \end{gathered}$$
+field $\bfb$ are continuous, then the equilibrium conditions @eq-equilibriumconditionsINT
+are equivalent to
+$$
+\begin{gathered}
+    (\nabla\cdot\bfS)(\bfx)+\rho(\bfx)\bfb(\bfx) = \bfzero \\
+    \bfS^T(\bfx)=\bfS(\bfx)
+\end{gathered}
+$$ {#eq-equilibriumconditionsDE}
+for any $\bfx\in B$. In components, these equations are:
+$$
+\begin{gathered}
+    S_{ij,j}(\bfx)+\rho(\bfx)b_i(\bfx) = 0 \\
+    S_{ij}(\bfx)=S_{ji}(\bfx)
+\end{gathered}
+$$
 :::
 
 ::: proof
-To establish the first equation in
-[\[eq:equilibriumequationsDE\]](#eq:equilibriumequationsDE){reference-type="eqref"
-reference="eq:equilibriumequationsDE"} assuming that
-Axiom [\[ax:staticequilibrium\]](#ax:staticequilibrium){reference-type="ref"
-reference="ax:staticequilibrium"} holds, we first use the definition of
-$\bfS$ to write the first equation in
-[\[eq:equilibriumconditionsINT\]](#eq:equilibriumconditionsINT){reference-type="eqref"
-reference="eq:equilibriumconditionsINT"} as
-$$\int_{\partial \Omega}\bfS\bfn\dAx+\int_\Omega\rho\bfb\dVx=\bf0.$$
+To establish the first equation in @eq-equilibriumconditionsDE assuming that the condition of
+**Static Equilibrium** holds, we first use the definition of $\bfS$ to write the first equation in
+@eq-equilibriumconditionsINT as
+$$
+\int_{\partial \Omega}\bfS\bfn\dAx+\int_\Omega\rho\bfb\dVx=\bfzero.
+$$
 Applying the Tensor Divergence Theorem
 @prp-tensordivthm to the first integral, we obtain
-$$\int_\Omega \big(\nabla\cdot\bfS+\rho\bfb\big)\dVx=\bf0.$$ Since this
-equation hold for an arbitrary open set $\Omega\subseteq B$, the
-Localisation Theorem
-(@prp-localisation) allows us to conclude that the integrand
+$$
+\int_\Omega \big(\nabla\cdot\bfS+\rho\bfb\big)\dVx=\bfzero.
+$$
+Since this equation hold for an arbitrary open set $\Omega\subseteq B$, the
+Localisation Theorem (@prp-localisation) allows us to conclude that the integrand
 vanishes, which is exactly the first result.
 
-To establish the second result, we write the second equation in
-[\[eq:equilibriumconditionsINT\]](#eq:equilibriumconditionsINT){reference-type="eqref"
-reference="eq:equilibriumconditionsINT"} as
-$$\int_{\partial\Omega} (\bfx-\bfz)\times (\bfS\bfn)\dAx+\int_\Omega (\bfx-\bfz)\times\rho\bfb\dVx=\bf0.$$
+To establish the second result, we write the second equation in @eq-equilibriumconditionsINT as
+$$
+\int_{\partial\Omega} (\bfx-\bfz)\times (\bfS\bfn)\dAx+\int_\Omega (\bfx-\bfz)\times\rho\bfb\dVx=\bfzero.
+$$
 Since we have just shown $\rho\bfb=-\nabla\cdot\bfS$, we can substitute,
-and rewrite $$
-    \int_{\partial\Omega} (\bfx-\bfz)\times (\bfS\bfn)\dAx-\int_\Omega (\bfx-\bfz)\times\big(\nabla\cdot\bfS\big)\dVx=\bf0.$$
-    {#eq-equilibriumproof1}
+and rewrite
+$$
+    \int_{\partial\Omega} (\bfx-\bfz)\times (\bfS\bfn)\dAx-\int_\Omega (\bfx-\bfz)\times\big(\nabla\cdot\bfS\big)\dVx=\bfzero.
+$$ {#eq-equilibriumproof1}
 Next, note that we may define the tensor
 $\bfR=R_{il}\bfe_i\otimes\bfe_l$ to be
-$$R_{il} = \epsilon_{ijk}(x_j-z_j)S_{kl},$$ which has the property that
-$\bfR\bfn=(\bfx-\bfz)\times(\bfS\bfn)$, and hence
-[\[eq:equilibriumproof1\]](#eq:equilibriumproof1){reference-type="eqref"
-reference="eq:equilibriumproof1"} can be written as
-$$\int_{\partial\Omega}\bfR\bfn\dAx-\int_\Omega (\bfx-\bfz)\times(\nabla\cdot \bfS)\dVx=\bf0.$$
-Applying the Tensor Divergence Theorem to the first of these integrals,
-we find that
-$$\int_\Omega\nabla\cdot \bfR- (\bfx-\bfz)\times(\nabla\cdot \bfS)\dVx=\bf0.$$
+$$
+R_{il} = \epsilon_{ijk}(x_j-z_j)S_{kl},
+$$
+which has the property that
+$\bfR\bfn=(\bfx-\bfz)\times(\bfS\bfn)$, and hence @eq-equilibriumproof1 can be written as
+$$
+\int_{\partial\Omega}\bfR\bfn\dAx-\int_\Omega (\bfx-\bfz)\times(\nabla\cdot \bfS)\dVx=\bfzero.
+$$
+Applying the Tensor Divergence Theorem to the first of these integrals, we find that
+$$
+\int_\Omega\nabla\cdot \bfR- (\bfx-\bfz)\times(\nabla\cdot \bfS)\dVx=\bfzero.
+$$
 Applying the Localisation Theorem in the same way as we did above, it
 follows that
-$$\big(\nabla\cdot\bfR\big)(\bfx)-(\bfx-\bfz)\times(\nabla\cdot\bfS)(\bfx)=\bf0$$
+$$
+\big(\nabla\cdot\bfR\big)(\bfx)-(\bfx-\bfz)\times(\nabla\cdot\bfS)(\bfx)=\bfzero
+$$
 for all $\bfx\in B$, which in components becomes
-$$(\epsilon_{ijk}(x_j-z_j)S_{kl})_{,l}-\epsilon_{ijk}(x_j-z_j)S_{kl,l}=0.$$
-Using the product rule, we have $$\begin{aligned}
+$$
+(\epsilon_{ijk}(x_j-z_j)S_{kl})_{,l}-\epsilon_{ijk}(x_j-z_j)S_{kl,l}=0.
+$$
+Using the product rule, we have
+$$
+\begin{aligned}
     &(\epsilon_{ijk}(x_j-z_j)S_{kl})_{,l}-\epsilon_{ijk}(x_j-z_j)S_{kl,l}\\
     &\quad\qquad=\epsilon_{ijk}x_{j,l}S_{kl}+\epsilon_{ijk}(x_j-z_j)S_{kl,l}-\epsilon_{ijk}(x_j-z_j)S_{kl,l}\\
     &\quad\qquad=\epsilon_{ijk}\delta_{jl}S_{kl}\\
     &\quad\qquad=\epsilon_{ilk}S_{kl}
-  
-\end{aligned}$$ Considering each of these equations for $i=1,2,3$, we
-see that
-$$S_{32}-S_{23}=0,\quad S_{13}-S_{31}=0\quad\text{and}\quad S_{21}-S_{12}=0.$$
+\end{aligned}
+$$
+Considering each of these equations for $i=1,2,3$, we see that
+$$
+S_{32}-S_{23}=0,\quad S_{13}-S_{31}=0\quad\text{and}\quad S_{21}-S_{12}=0.
+$$
 In summary, we have shown that $S_{ij}=S_{ji}$, and hence
 $\bfS(\bfx)=\bfS^T(\bfx)$ for all $\bfx\in B$, which is precisely the
-second equation in
-[\[eq:equilibriumequationsDE\]](#eq:equilibriumequationsDE){reference-type="eqref"
-reference="eq:equilibriumequationsDE"}.
+second equation in @eq-equilibriumconditionsDE.
 
-To show that
-[\[eq:equilibriumconditionsINT\]](#eq:equilibriumconditionsINT){reference-type="eqref"
-reference="eq:equilibriumconditionsINT"} hold starting from
-[\[eq:equilibriumequationsDE\]](#eq:equilibriumequationsDE){reference-type="eqref"
-reference="eq:equilibriumequationsDE"}, we need simply reverse the
-arguments above.
+To show that @eq-equilibriumconditionsINT hold starting from
+@eq-equilibriumconditionsDE, we need simply reverse the arguments above.
 :::
 
 1.  The Cauchy stress field is always symmetric, even when a body is not
     in equilibrium (see later).
 
-2.  The local equilibrium equations
-    [\[eq:equilibriumequationsDE\]](#eq:equilibriumequationsDE){reference-type="eqref"
-    reference="eq:equilibriumequationsDE"} do not completely determine
+2.  The local equilibrium equations @eq-equilibriumconditionsDE do not completely determine
     the stress field for a body in equilibrium, since there are 3 PDEs
     and 3 algebraic equations for 9 unknown components of $\bfS$. This
     demonstrates that we need additional information to determine the
@@ -573,9 +594,7 @@ arguments above.
     @prp-stresstensor, we have $\bfS\bfn=\bfh$ for any
     $\bfx\in\partial B$, where $\bfn$ is the outward-point normal vector
     on $\partial B$. This equation provides a boundary condition for the
-    local equilibrium equations
-    [\[eq:equilibriumequationsDE\]](#eq:equilibriumequationsDE){reference-type="eqref"
-    reference="eq:equilibriumequationsDE"}.
+    local equilibrium equations @eq-equilibriumconditionsDE.
 
 4.  In deriving the equilibrium equations, we assumed that the mass
     density $\rho$ and body force field $\bfb$ are continuous, and that
