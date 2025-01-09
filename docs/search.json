@@ -328,35 +328,5 @@
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Balance laws</span>"
     ]
-  },
-  {
-    "objectID": "solids.html",
-    "href": "solids.html",
-    "title": "7  Solid Mechanics",
-    "section": "",
-    "text": "7.1 Elasticity Theory\nIn this final chapter, we will apply the theory we have developed to the modelling of solid materials.\nA body is an elastic solid if the following two conditions hold:\nThe first of these conditions says that the Cauchy stress is a function of strain only (rather than strain rate). This is commonly observed for a wide range of solids. The latter requirement ensures that angular momentum balance will always be satisfied, so we do not have to solve these equations separately.\nIn general, we typically use the Lagrangian formalism to express the equations governing solids. However, since we have assumed that the Cauchy stress is a prescribed function \\widehat{{\\boldsymbol{S}}}, we have that the Piola-Kirchhoff stress takes the form \n{\\boldsymbol{P}}= \\widehat{{\\boldsymbol{P}}}({\\boldsymbol{F}},{\\boldsymbol{x}}) = \\det{\\boldsymbol{F}}\\,\\widehat{{\\boldsymbol{S}}}({\\boldsymbol{F}},{\\boldsymbol{x}}){\\boldsymbol{F}}^{-T}.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Solid Mechanics</span>"
-    ]
-  },
-  {
-    "objectID": "solids.html#elasticity-theory",
-    "href": "solids.html#elasticity-theory",
-    "title": "7  Solid Mechanics",
-    "section": "",
-    "text": "Elastic solid\n\n\n\n\nThe Cauchy stress can be expressed in terms of the deformation gradient via a response function \\widehat{{\\boldsymbol{S}}}:{\\mathcal{V}}^2\\times B\\to{\\mathcal{V}}^2, i.e. \n{\\boldsymbol{S}}_m({\\boldsymbol{x}},t) = \\widehat{{\\boldsymbol{S}}}\\big({\\boldsymbol{F}}({\\boldsymbol{x}},t),{\\boldsymbol{x}}\\big)\n\nThe response function \\widehat{{\\boldsymbol{S}}} is symmetric, i.e. \n\\widehat{{\\boldsymbol{S}}}({\\boldsymbol{F}},{\\boldsymbol{x}}) = \\widehat{{\\boldsymbol{S}}}^T({\\boldsymbol{F}},{\\boldsymbol{x}})\n for any {\\boldsymbol{x}}\\in B and {\\boldsymbol{F}}\\in{\\mathcal{V}}^2 with \\det{\\boldsymbol{F}}&gt;0.\n\n\n\n\n\n\n7.1.1 Examples of stress response functions\nSome examples of functional forms used for \\widehat{{\\boldsymbol{S}}} include:\n\nThe Neo-Hookean response function: \n\\widehat{{\\boldsymbol{S}}}({\\boldsymbol{F}}) = \\frac{A({\\boldsymbol{F}}{\\boldsymbol{F}}^T-{\\boldsymbol{I}})}{\\det{\\boldsymbol{F}}}+B(\\det{\\boldsymbol{F}}-1){\\boldsymbol{I}},\n where A and B are material constants.\nThe St Venant–Kirchhoff response function: \n\\widehat{{\\boldsymbol{S}}}({\\boldsymbol{F}}) = \\lambda\\,{\\operatorname{tr}}(\\tfrac12({\\boldsymbol{F}}^T{\\boldsymbol{F}}-{\\boldsymbol{I}})){\\boldsymbol{F}}{\\boldsymbol{F}}^T+\\mu ({\\boldsymbol{F}}{\\boldsymbol{F}}^T{\\boldsymbol{F}}{\\boldsymbol{F}}^T-{\\boldsymbol{F}}{\\boldsymbol{F}}^T),\n where \\lambda and \\mu are material constants.\n\n\n\n7.1.2 Elastodynamics\n\n\n7.1.3 Frame indifference",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Solid Mechanics</span>"
-    ]
-  },
-  {
-    "objectID": "solids.html#linear-elasticity-theory",
-    "href": "solids.html#linear-elasticity-theory",
-    "title": "7  Solid Mechanics",
-    "section": "7.2 Linear Elasticity Theory",
-    "text": "7.2 Linear Elasticity Theory",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Solid Mechanics</span>"
-    ]
   }
 ]
