@@ -605,7 +605,7 @@ To that end, suppose that $\{\bfe_i\}$ and $\{\bfe'_i\}$ are two
 coordinate frame for $\bbE^3$.
 By a *change of basis* tensor $\bfA$ mapping from $\{\bfe_i\}$ to
 $\{\bfe'_i\}$, we mean
-$$\bfA = A_{ij}\bfe_i\otimes \bfe_j\quad\text{where}\quad A_{ij} = \bfe_i\cdot\bfe'_j.$$
+$$\bfA = \bfe_i'\otimes\bfe_i = A_{ij}\bfe_i\otimes \bfe_j\quad\text{where}\quad A_{ij} = \bfe_i\cdot\bfe'_j.$$
 We could equally define a change of basis tensor $\bfB$ from
 $\{\bfe'_i\}$ to $\{\bfe_i\}$, defined to be
 $\bfB = B_{ij}\bfe'_i\otimes\bfe'_j$ with $B_{ij} = \bfe'_i\cdot\bfe_j$,

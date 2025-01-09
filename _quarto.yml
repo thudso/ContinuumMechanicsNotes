@@ -13,6 +13,7 @@ book:
     - massandforces.qmd
     - kinematics.qmd
     - balancelaws.qmd
+    - solids.qmd
   downloads: pdf
 
 format:
@@ -29,6 +30,7 @@ format:
     toc: true
     toc-depth: 2
     pdf-engine: pdflatex
+    fontfamily: "domitian"
     mainfont: "Palatino"
     sansfont: "Palatino"
     mathfont: "Computer Modern Roman"

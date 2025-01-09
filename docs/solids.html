@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Thomas Hudson">
-<meta name="dcterms.date" content="2025-01-01">
 
-<title>MA4J1 Continuum Mechanics Notes</title>
+<title>7&nbsp; Solid Mechanics – MA4J1 Continuum Mechanics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./tensoralgebra.html" rel="next">
+<link href="./balancelaws.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,6 +70,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -85,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./solids.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solid Mechanics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
@@ -152,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./solids.html" class="sidebar-item-text sidebar-link">
+  <a href="./solids.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solid Mechanics</span></span></a>
   </div>
 </li>
@@ -166,10 +207,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface"><span class="header-section-number">1</span> Preface</a>
+  <li><a href="#elasticity-theory" id="toc-elasticity-theory" class="nav-link active" data-scroll-target="#elasticity-theory"><span class="header-section-number">7.1</span> Elasticity Theory</a>
   <ul class="collapse">
-  <li><a href="#aims-and-structure" id="toc-aims-and-structure" class="nav-link" data-scroll-target="#aims-and-structure"><span class="header-section-number">1.1</span> Aims and structure</a></li>
+  <li><a href="#examples-of-stress-response-functions" id="toc-examples-of-stress-response-functions" class="nav-link" data-scroll-target="#examples-of-stress-response-functions"><span class="header-section-number">7.1.1</span> Examples of stress response functions</a></li>
+  <li><a href="#elastodynamics" id="toc-elastodynamics" class="nav-link" data-scroll-target="#elastodynamics"><span class="header-section-number">7.1.2</span> Elastodynamics</a></li>
+  <li><a href="#frame-indifference" id="toc-frame-indifference" class="nav-link" data-scroll-target="#frame-indifference"><span class="header-section-number">7.1.3</span> Frame indifference</a></li>
   </ul></li>
+  <li><a href="#linear-elasticity-theory" id="toc-linear-elasticity-theory" class="nav-link" data-scroll-target="#linear-elasticity-theory"><span class="header-section-number">7.2</span> Linear Elasticity Theory</a></li>
   </ul>
 </nav>
     </div>
@@ -178,26 +222,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MA4J1 Continuum Mechanics Notes</h1>
+<h1 class="title"><span id="sec-solids" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solid Mechanics</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Thomas Hudson </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 1, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -210,19 +242,57 @@ ul.task-list li input[type="checkbox"] {
 <div class="hidden">
 
 </div>
-<section id="preface" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Preface</h1>
-<p>These notes are a guide to the main content of the fourth-year Maths module MA4J1 Continuum Mechanics taught at Warwick. They are intended to be essentially self–contained, but are based upon (my interpretation of) the content of chapters drawn from <a href="https://go.exlibris.link/CMjyhLvJ">A First Course in Continuum Mechanics</a> by Oscar Gonzalez and Andrew Stuart. This book is a good place to read more about the topics covered and to find various exercises to test your understanding of the content, but it is definitely not the only good book covering many of the topics we consider here. In particular, for those looking for additional reading, various additional books are recommended on the module Moodle page.</p>
-<section id="aims-and-structure" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="aims-and-structure"><span class="header-section-number">1.1</span> Aims and structure</h2>
-<p>The central aim of the module is to present a mathematical framework within which various continuum models of solids, liquids and gases can be described and derived, and to provide some examples of the Partial Differential Equation (PDE) models which result.</p>
-<p>As background, we make use of various concepts from Linear Algebra, Analysis and Vector Calculus. In <a href="tensoralgebra.html" class="quarto-xref"><span>Chapter 2</span></a> and <a href="tensorcalculus.html" class="quarto-xref"><span>Chapter 3</span></a>, we therefore recap various concepts and discuss some operations on these objects which may be new to you, and at the very least, may take a different perspective. Since some of these concepts will be taken as understood, it will be up to you to ensure that you are comfortable with any concepts which are not covered in detail in lectures. In particular, one of the techniques we use as a baseline throughout the module is converting back and forth between tensor notation and component notation in a particular coordinate system. You should ensure you get comfortable with doing this for yourself.</p>
-<p><a href="massandforces.html" class="quarto-xref"><span>Chapter 4</span></a> introduces some of the important physical concepts central to this module, including mass density, force and stress fields. In particular, developing an understanding of <em>stress</em> is one of the keys to unlocking this module. <a href="kinematics.html" class="quarto-xref"><span>Chapter 5</span></a> introduces the study of kinematics, or the study of motion of continuous bodies. Here, we introduce the concept of <em>strain</em>, which is another central focus for the module. In <a href="balancelaws.html" class="quarto-xref"><span>Chapter 6</span></a>, we combine these concepts to derive balance laws, which are the Partial Differential Equations which govern a continuum body’s motion. As we will see, these balance laws can be formulated in <em>Eulerian</em> or <em>Lagrangian</em> form. The former formulation is generally used for the study of fluids, while the latter is generally used for the study of solid materials.</p>
-<p>There will doubtless be errors and typos in these notes. If you spot anything, please feel free to let me know via email.</p>
-<p><a href="https://sites.google.com/view/thudso/">Dr Thomas Hudson</a>, January 2025</p>
-
-
+<p>In this final chapter, we will apply the theory we have developed to the modelling of solid materials.</p>
+<section id="elasticity-theory" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="elasticity-theory"><span class="header-section-number">7.1</span> Elasticity Theory</h2>
+<p>A body is an elastic solid if the following two conditions hold:</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Elastic solid
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>The Cauchy stress can be expressed in terms of the deformation gradient via a <em>response function</em> <span class="math inline">\widehat{{\boldsymbol{S}}}:{\mathcal{V}}^2\times B\to{\mathcal{V}}^2</span>, i.e. <span class="math display">
+{\boldsymbol{S}}_m({\boldsymbol{x}},t) = \widehat{{\boldsymbol{S}}}\big({\boldsymbol{F}}({\boldsymbol{x}},t),{\boldsymbol{x}}\big)
+</span></li>
+<li>The response function <span class="math inline">\widehat{{\boldsymbol{S}}}</span> is symmetric, i.e. <span class="math display">
+\widehat{{\boldsymbol{S}}}({\boldsymbol{F}},{\boldsymbol{x}}) = \widehat{{\boldsymbol{S}}}^T({\boldsymbol{F}},{\boldsymbol{x}})
+</span> for any <span class="math inline">{\boldsymbol{x}}\in B</span> and <span class="math inline">{\boldsymbol{F}}\in{\mathcal{V}}^2</span> with <span class="math inline">\det{\boldsymbol{F}}&gt;0</span>.</li>
+</ol>
+</div>
+</div>
+<p>The first of these conditions says that the Cauchy stress is a function of strain only (rather than strain rate). This is commonly observed for a wide range of solids. The latter requirement ensures that angular momentum balance will always be satisfied, so we do not have to solve these equations separately.</p>
+<p>In general, we typically use the Lagrangian formalism to express the equations governing solids. However, since we have assumed that the Cauchy stress is a prescribed function <span class="math inline">\widehat{{\boldsymbol{S}}}</span>, we have that the Piola-Kirchhoff stress takes the form <span class="math display">
+{\boldsymbol{P}}= \widehat{{\boldsymbol{P}}}({\boldsymbol{F}},{\boldsymbol{x}}) = \det{\boldsymbol{F}}\,\widehat{{\boldsymbol{S}}}({\boldsymbol{F}},{\boldsymbol{x}}){\boldsymbol{F}}^{-T}.
+</span></p>
+<section id="examples-of-stress-response-functions" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="examples-of-stress-response-functions"><span class="header-section-number">7.1.1</span> Examples of stress response functions</h3>
+<p>Some examples of functional forms used for <span class="math inline">\widehat{{\boldsymbol{S}}}</span> include:</p>
+<ol type="1">
+<li>The <strong>Neo-Hookean</strong> response function: <span class="math display">
+\widehat{{\boldsymbol{S}}}({\boldsymbol{F}}) = \frac{A({\boldsymbol{F}}{\boldsymbol{F}}^T-{\boldsymbol{I}})}{\det{\boldsymbol{F}}}+B(\det{\boldsymbol{F}}-1){\boldsymbol{I}},
+</span> where <span class="math inline">A</span> and <span class="math inline">B</span> are material constants.</li>
+<li>The <strong>St Venant–Kirchhoff</strong> response function: <span class="math display">
+\widehat{{\boldsymbol{S}}}({\boldsymbol{F}}) = \lambda\,{\operatorname{tr}}(\tfrac12({\boldsymbol{F}}^T{\boldsymbol{F}}-{\boldsymbol{I}})){\boldsymbol{F}}{\boldsymbol{F}}^T+\mu ({\boldsymbol{F}}{\boldsymbol{F}}^T{\boldsymbol{F}}{\boldsymbol{F}}^T-{\boldsymbol{F}}{\boldsymbol{F}}^T),
+</span> where <span class="math inline">\lambda</span> and <span class="math inline">\mu</span> are material constants.</li>
+</ol>
 </section>
+<section id="elastodynamics" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="elastodynamics"><span class="header-section-number">7.1.2</span> Elastodynamics</h3>
+</section>
+<section id="frame-indifference" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="frame-indifference"><span class="header-section-number">7.1.3</span> Frame indifference</h3>
+</section>
+</section>
+<section id="linear-elasticity-theory" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="linear-elasticity-theory"><span class="header-section-number">7.2</span> Linear Elasticity Theory</h2>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -789,11 +859,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./balancelaws.html" class="pagination-link" aria-label="Balance laws">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Balance laws</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./tensoralgebra.html" class="pagination-link" aria-label="Tensor Algebra">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tensor Algebra</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
