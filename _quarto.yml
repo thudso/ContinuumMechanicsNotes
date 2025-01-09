@@ -34,3 +34,6 @@ format:
     mainfont: "Palatino"
     sansfont: "Palatino"
     mathfont: "Computer Modern Roman"
+    colorlinks: true
+    linkcolor: blue
+    toccolor: blue
