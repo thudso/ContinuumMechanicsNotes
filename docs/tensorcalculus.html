@@ -202,7 +202,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link active" data-scroll-target="#preliminaries"><span class="header-section-number">3.1</span> Preliminaries</a>
+  <li><a href="#basic-definitions" id="toc-basic-definitions" class="nav-link active" data-scroll-target="#basic-definitions"><span class="header-section-number">3.1</span> Basic definitions</a>
   <ul class="collapse">
   <li><a href="#points-tensors-and-representations" id="toc-points-tensors-and-representations" class="nav-link" data-scroll-target="#points-tensors-and-representations"><span class="header-section-number">3.1.1</span> Points, tensors and representations</a></li>
   <li><a href="#norms-and-order-symbols" id="toc-norms-and-order-symbols" class="nav-link" data-scroll-target="#norms-and-order-symbols"><span class="header-section-number">3.1.2</span> Norms and order symbols</a></li>
@@ -252,8 +252,6 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<section id="preliminaries" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="preliminaries"><span class="header-section-number">3.1</span> Preliminaries</h2>
 <p>Realistic bodies have properties which vary from place to place within them. If we seek to describe their properties using the language of tensors introduced in the previous chapter, then a way to describe their properties is through tensor-valued functions which assign properties to spatial points in the body. More specifically, this chapter will consider functions <span class="math inline">\phi:{\mathbb{E}}^3\to{\mathbb{R}}</span>, <span class="math inline">{\boldsymbol{v}}:{\mathbb{E}}^3\to{\mathcal{V}}</span> and <span class="math inline">{\boldsymbol{S}}:{\mathbb{E}}^3\to{\mathcal{V}}^2</span> which describe these properties. We will also wish to consider functions which describe changes in the shape of a body, which take the form <span class="math inline">{\boldsymbol{\varphi}}:{\mathbb{E}}^3\to{\mathbb{E}}^3</span>, <span class="math inline">g:{\mathcal{V}}^2\to{\mathbb{R}}</span> and <span class="math inline">{\boldsymbol{A}}:{\mathcal{V}}^2\to{\mathcal{V}}^2</span>. Many of these concepts will already be very familiar to you from earlier calculus modules.</p>
 <p><strong>Aims.</strong> By the end of this chapter, you should be able to:</p>
 <ul>
@@ -263,6 +261,8 @@ window.Quarto = {
 <li><p>Recall and apply the Divergence Theorem, the Localisation Theorem and the Mean Value Theorem for multidimensional integrals.</p></li>
 <li><p>Understand how to differentiate functions of second-order tensors.</p></li>
 </ul>
+<section id="basic-definitions" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="basic-definitions"><span class="header-section-number">3.1</span> Basic definitions</h2>
 <section id="points-tensors-and-representations" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="points-tensors-and-representations"><span class="header-section-number">3.1.1</span> Points, tensors and representations</h3>
 <p>Throughout this chapter, we assume that a single fixed Cartesian coordinate frame <span class="math inline">\{{\boldsymbol{e}}_i\}</span> has be specified for Euclidean space <span class="math inline">{\mathbb{E}}^3</span>, and we identify points <span class="math inline">{\boldsymbol{x}}\in{\mathbb{E}}^3</span>, vectors <span class="math inline">{\boldsymbol{v}}\in{\mathcal{V}}</span> and second-order tensors <span class="math inline">{\boldsymbol{S}}\in{\mathcal{V}}^2</span> with their respective matrix representations, writing <span class="math display">\begin{gathered}
@@ -469,7 +469,7 @@ window.Quarto = {
     &amp;= \det({\boldsymbol{A}}+\alpha{\boldsymbol{B}})\\
     &amp;= \det\big(\alpha{\boldsymbol{A}}({\boldsymbol{A}}^{-1}{\boldsymbol{B}}-\lambda{\boldsymbol{I}})\big)\\
     &amp;= \det\big(\alpha{\boldsymbol{A}})\det({\boldsymbol{A}}^{-1}{\boldsymbol{B}}-\lambda{\boldsymbol{I}}).
-\end{aligned}</span> For the first factor above, we note that <span class="math inline">\det(\alpha{\boldsymbol{A}}) = \alpha^3\det {\boldsymbol{A}}</span>. The second factor is the characteristic polynomial of <span class="math inline">{\boldsymbol{A}}^{-1}{\boldsymbol{B}}</span>, and so recalling the facts about the principal invariants stated in <a href="tensoralgebra.html#sec-eigenv-eigenv-princ" class="quarto-xref"><span>Section 2.5.7</span></a>, we have <span class="math display">
+\end{aligned}</span> For the first factor above, we note that <span class="math inline">\det(\alpha{\boldsymbol{A}}) = \alpha^3\det {\boldsymbol{A}}</span>. The second factor is the characteristic polynomial of <span class="math inline">{\boldsymbol{A}}^{-1}{\boldsymbol{B}}</span>, and so recalling the facts about the principal invariants stated in <a href="tensoralgebra.html#sec-eigenv-eigenv-princ" class="quarto-xref"><span>Section 2.4.7</span></a>, we have <span class="math display">
 \begin{aligned}
     \det({\boldsymbol{A}}^{-1}{\boldsymbol{B}}-\lambda{\boldsymbol{I}})
     &amp;=-\lambda^3+\lambda^2I_1({\boldsymbol{A}}^{-1}{\boldsymbol{B}})-\lambda I_2({\boldsymbol{A}}^{-1}{\boldsymbol{B}})+I_3({\boldsymbol{A}}^{-1}{\boldsymbol{B}})\\

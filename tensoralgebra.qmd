@@ -2,8 +2,6 @@
 
 # Tensor Algebra {#sec-tensor-algebra}
 
-## Preliminaries
-
 We begin by equipping ourselves with the mathematical tools required to
 derive mathematical models for the mechanical behaviour of objects in
 the world around us. To that end, this chapter will provide an overview

@@ -2,7 +2,6 @@
 
 # Mass, Forces and Stress {#sec-mass-forces}
 
-## Preliminaries
 With a large amount of mathematical background now out of the way, we
 are able to begin thinking more carefully about the important physical
 concepts which will be central to developing models of solids and

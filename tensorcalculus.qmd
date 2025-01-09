@@ -2,7 +2,6 @@
 
 # Tensor Calculus {#sec-tensor-calculus}
 
-## Preliminaries
 Realistic bodies have properties which vary from place to place within
 them. If we seek to describe their properties using the language of
 tensors introduced in the previous chapter, then a way to describe their
@@ -31,6 +30,7 @@ already be very familiar to you from earlier calculus modules.
 
 -   Understand how to differentiate functions of second-order tensors.
 
+## Basic definitions
 
 ### Points, tensors and representations
 

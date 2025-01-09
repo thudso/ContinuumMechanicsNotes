@@ -2,8 +2,6 @@
 
 # Kinematics {#sec-kinematics}
 
-## Preliminaries
-
 Kinematics is the study of describing motion independently of
 considering mass, forces and stress. We describe the notion of strain in
 a body which changes shape over time. In the remainder of the module, we
