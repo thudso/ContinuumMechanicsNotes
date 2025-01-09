@@ -5,7 +5,8 @@ project:
 book:
   title: "MA4J1 Continuum Mechanics Notes"
   author: "Thomas Hudson"
-  date: "January 2025"
+  date: today
+  date-format: "D MMMM, YYYY"
   chapters:
     - index.qmd
     - tensoralgebra.qmd
