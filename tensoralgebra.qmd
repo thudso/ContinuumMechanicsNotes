@@ -424,7 +424,7 @@ examples given in @eq-ProjExample and @eq-ReflExample, we have that $$[\bfP] = \
       0 & 0 & 1
     \end{array}\right).$$
 
-### Tensor products, bases and the scalar product
+### The tensor product of vectors
 
 The *tensor product* (sometimes called the *dyadic product*) of two vectors $\bfa$ and $\bfb$ is the
 second-order tensor denoted $\bfa\otimes\bfb$ defined by
@@ -446,8 +446,167 @@ $$
 \bfA = A_{ij}\bfe_i\otimes\bfe_j.
 $$
 
-It turns out that the basis defined in this way is actually an orthonormal basis.
-Just as for vectors, we can define a *scalar product* for second-order
+It turns out that the basis defined in this way is actually an orthonormal basis in the standard inner product on second-order tensors; we discuss this fact further below.
+
+
+### Change of basis
+
+As we have discussed above, in a given coordinate frame, we may
+represent a vector $\bfv\in\calV$ as a triplet of components
+$[\bfv]\in\bbR^3$, and a second-order tensor $\bfS\in\calV^2$ as a
+matrix of components $[\bfS]\in\bbR^{3\times 3}$. In this section, we
+discuss how the representations $[\bfv]$ and $[\bfS]$ change with a
+change of coordinate frame.
+
+To that end, suppose that $\{\bfe_i\}$ and $\{\bfe'_i\}$ are two
+coordinate frame for $\bbE^3$.
+By a *change of basis* tensor $\bfA$ mapping from $\{\bfe_i\}$ to
+$\{\bfe'_i\}$, we mean
+$$\bfA = \bfe_j'\otimes\bfe_j = A_{ij}\bfe_i\otimes \bfe_j\quad\text{where}\quad A_{ij} = \bfe_i\cdot\bfe'_j.$$
+We could equally define a change of basis tensor $\bfB$ from
+$\{\bfe'_i\}$ to $\{\bfe_i\}$, defined to be
+$\bfB = \bfe_j\otimes\bfe'_j = B_{ij}\bfe'_i\otimes\bfe'_j$ with $B_{ij} = \bfe'_i\cdot\bfe_j$,
+and we note that since the frames we choose are arbitrary, any
+properties we deduce for $\bfA$ will also hold for $\bfB$.
+
+The idea behind a change of basis tensor is that it allow us to express
+the basis vectors of a frame in terms of the basis vectors of another.
+For example, by orthonormality of the basis $\{\bfe'_i\}$, we have
+$$
+  \bfe'_j = (\bfe_i\cdot\bfe'_j)\bfe_i = A_{ij}\bfe_i.
+$$ {#eq-changeofbasis1}
+Similarly, working with respect to the second basis, we have that
+$$
+  \bfe_i = (\bfe_i\cdot\bfe'_k)\bfe'_k = A_{ik}\bfe'_k.
+$$ {#eq-changeofbasis2}
+These two identities imply the following result:
+
+::: {#prp-orthogonalitybasischange}
+The components $A_{ij}$ of a change of basis tensor $\bfA$ have the
+properties that
+$$A_{ij}A_{ik}=\delta_{jk}\quad\text{and}\quad A_{ik}A_{jk} =\delta_{ij},$$
+or in matrix notation,
+$$[\bfA]^T[\bfA] = [\bfI]\quad\text{and}\quad [\bfA][\bfA]^T = [\bfI].$$ It
+follows that $\bfA$ is an orthogonal tensor.
+:::
+
+::: proof
+Substituting
+@eq-changeofbasis1 into the right-hand side of
+@eq-changeofbasis2 gives $$\bfe_i = A_{ik}A_{jk}\bfe_j,$$
+which implies that $A_{ik}A_{jk}=\delta_{jk}$. Substituting
+@eq-changeofbasis2 into @eq-changeofbasis1 gives the other result.
+:::
+
+Now consider an arbitrary vector $\bfv\in\calV$. Let $[\bfv]_i=v_i$ be
+its component representation with respect to the basis $\{\bfe_i\}$, and
+$[\bfv]'_i = v'_i$ be its component representation with respect to the
+basis $\{\bfe'_i\}$. These components can be related using the basis
+change tensor $\bfA$:
+$$\bfv = v_i\bfe_i = \bfv'_j\bfe'_j  = v'_jA_{ij}\bfe_i,\quad\text{so that}\quad v_i = A_{ij}v'_j.$$
+We can similarly deduce that $v'_k = A_{ik}v_i$, and these relations can
+be written in matrix notation as
+$$[\bfv]= [\bfA][\bfv]' \quad\text{and}\quad[\bfv]' =[\bfA]^T[\bfv].$$ For
+second-order tensors $\bfS$ with component representations $[\bfS]$ and
+$[\bfS]'$ with respect to the bases consider above, we have
+$$
+  [\bfS] = [\bfA][\bfS]'[\bfA]^T\quad\text{and}\quad [\bfS]'=[\bfA]^T[\bfS][\bfA].
+$$ {#eq-2ordertensorchangeofbasis}
+
+
+### Traces and determinants
+
+The *trace* is a function defined for second-order tensors, and is a
+linear mapping $\tr:\calV^2\to\bbR$ defined by
+$$\tr \bfS = \tr[\bfS] = [\bfS]_{ii},$$ where, as previously, $[\bfS]$
+denotes a component-matrix representation in an arbitrary coordinate
+frame. The trace of a tensor is therefore the same as the definition of
+the trace of a matrix given in Linear Algebra courses. The following
+result shows that the definition does not depend upon the particular
+coordinate frame chosen.
+
+::: {#prp-traceinvariance}
+Suppose $\bfS$ is a second-order tensor with respective matrix representations $[\bfS]$
+and $[\bfS]'$ in the frames $\{\bfe_i\}$ and $\{\bfe'_i\}$. Then
+$$\tr[\bfS] = \tr[\bfS]',$$ and hence the value of the trace is
+independent of the coordinate frame in which it is computed.
+:::
+
+::: proof
+Suppose $\bfA$ is the change of basis tensor mapping
+$\{\bfe_i\}$ to $\{\bfe'_i\}$. Then by applying
+@eq-2ordertensorchangeofbasis we have
+$[\bfS]_{ij} = [\bfA]_{ik}[\bfS]'_{kl}[\bfA]_{jl}$, and so, using @prp-orthogonalitybasischange, we have $$\tr[\bfS]
+    = [\bfS]_{ii}
+    = [\bfS]'_{kl}[\bfA]_{ik}[\bfA]_{il}
+    = [\bfS]'_{kl}\delta_{kl}
+    = [\bfS]'_{kk} = \tr[\bfS]'.$$
+:::
+
+The *determinant* function on second-order tensors is the mapping
+$\det:\calV^2\to\bbR$ defined by
+$$\det\bfS = \det[\bfS] = \epsilon_{ijk}[\bfS]_{1i}[\bfS]_{2j}[\bfS]_{3k},$$
+where $[\bfS]$ again denotes the component matrix representation of
+$\bfS$ in an arbitrary coordinate frame. As for the trace, the
+determinant of a tensor is the same as the determinant of its matrix
+representation. The following result shows the definition is independent
+of the coordinate frame.
+
+::: {#prp-determinantinvariance}
+Suppose $\bfS$ is a second-order tensor with respective matrix
+representations $[\bfS]$ and $[\bfS]'$ in the frames $\{\bfe_i\}$ and
+$\{\bfe'_i\}$. Then $$\det[\bfS] = \det[\bfS]',$$ and hence the value of
+the determinant is independent of the coordinate frame in which it is
+computed.
+:::
+
+**Exercise:** Prove this result.
+
+As you may have seen in a multivariable calculus module, the quantity
+$|\det\bfS|$ may be interpreted as the volume of the parallelipiped with
+edges defined by the vectors $\bfS\bfe_1$, $\bfS\bfe_2$ and
+$\bfS\bfe_3$, all emanating from the same point. The determinant also
+arises in the classification of certain types of tensors; for example, a
+second-order tensor $\bfS$ is invertible if and only if $\det\bfS\neq0$.
+Moreover, since $\det(\bfA\bfB) = \det\bfA\det\bfB$, every orthogonal
+tensor $\bfQ$ has the property that $|\det\bfQ|=1$, and rotation tensors
+are exactly those which satisfy $\det\bfQ=1$.
+
+<!-- The *exponential function* on second-order tensors is a mapping -->
+<!-- $\exp:\calV^2\to\calV^2$ defined by -->
+<!-- $$\exp \bfS = \sum_{j=0}^{\infty}\frac1{j!}\bfS^j.$$ Much as for the -->
+<!-- exponential function defined on real and complex numbers, it can be -->
+<!-- shown that the series above converges absolutely for any -->
+<!-- $\bfS\in\calV^2$, and the exponential function is therefore -->
+<!-- well-defined. The exponential function frequently arises in the theory -->
+<!-- of linear ordinary differential equations with constant coefficients, -->
+<!-- and leads to the definition of Lie Algebras, which we do not consider -->
+<!-- further here. Our main interest in this function will be in applying the -->
+<!-- following result, which we state without proof. -->
+
+<!-- ::: {#prp-exponentialskew} -->
+<!-- Let $\bfW\in\calV^2$ be a skew-symmetric tensor. Then $\exp\bfW$ is a -->
+<!-- rotation tensor, i.e. -->
+<!-- $$(\exp\bfW)^T(\exp\bfW)= \bfI\quad\text{and}\quad\det(\exp\bfW)=1.$$ -->
+<!-- Moreover, $\exp(\bfW^T) = (\exp\bfW)^T$. -->
+<!-- ::: -->
+
+### Transpose and symmetric tensors
+To any tensor $\bfS\in\calV^2$, we associate a *transpose*
+$\bfS^T\in\calV^2$, which is the unique tensors with the property that
+$$
+(\bfS\bfu) \cdot \bfv = \bfu \cdot (\bfS^T\bfv)\quad\text{for all }\bfu,\bfv\in\calV.
+$$
+
+We say that a tensor $\bfS$ is *symmetric* if $\bfS = \bfS^T$ and
+*skew-symmetric* if $\bfS^T = -\bfS$. Note that the components of the transpose are
+$$
+[\bfS^T]_{ij} = S_{ji}.
+$$
+
+### Scalar product and norm on tensors
+
+Now, just as for vectors, we can define a *scalar product* for second-order
 tensors, denoted
 $$
   \bfS:\bfD = \tr(\bfS^T\bfD).
@@ -467,8 +626,8 @@ $$
 \bfS:\bfD = S_{ij}D_{ij},\quad\text{and}\quad
 |\bfS| = \sqrt{S_{ij}S_{ij}}
 $$
-Moreover, if $\bfS$ is symmetric, then
-$$\bfS:\bfD = \bfS:\sym\bfD = \sym\bfS:\sym\bfD.$$
+<!-- Moreover, if $\bfS$ is symmetric, then
+$$\bfS:\bfD = \bfS:\sym\bfD = \sym\bfS:\sym\bfD.$$ -->
 :::
 
 **Exercise:** Prove this result.
@@ -476,12 +635,6 @@ $$\bfS:\bfD = \bfS:\sym\bfD = \sym\bfS:\sym\bfD.$$
 We observe from the result of @prp-scalarproduct2ndorder that the Frobenius norm on tensors is similar to the Euclidean norm on vectors: both are the square root of the sum of the squares of the components.
 
 ### Special classes of tensor
-
-To any tensor $\bfS\in\calV^2$, we associate a *transpose*
-$\bfS^T\in\calV^2$, which is the unique tensors with the property that
-$$(\bfS\bfu) \cdot \bfv = \bfu \cdot (\bfS^T\bfv)\quad\text{for all }\bfu,\bfv\in\calV.$$
-We say that a tensor $\bfS$ is *symmetric* if $\bfS = \bfS^T$ and
-*skew-symmetric* if $\bfS^T = -\bfS$.
 
 A tensor $\bfS\in\calV^2$ is said to be *positive-definite* if it
 satisfies $$\bfv\cdot (\bfS\bfv)>0\quad\text{for all }\bfv\neq\bfzero,$$
@@ -589,150 +742,6 @@ that $\ten(\vc(\bfW))=\bfW$, and a similar argument shows that
 $\vc(\ten(\bfw))=\bfw$. These two results show that the functions $\ten$
 and $\vc$ are mutual inverses.
 :::
-
-### Change of basis
-
-As we have discussed above, in a given coordinate frame, we may
-represent a vector $\bfv\in\calV$ as a triplet of components
-$[\bfv]\in\bbR^3$, and a second-order tensor $\bfS\in\calV^2$ as a
-matrix of components $[\bfS]\in\bbR^{3\times 3}$. In this section, we
-discuss how the representations $[\bfv]$ and $[\bfS]$ change with a
-change of coordinate frame.
-
-To that end, suppose that $\{\bfe_i\}$ and $\{\bfe'_i\}$ are two
-coordinate frame for $\bbE^3$.
-By a *change of basis* tensor $\bfA$ mapping from $\{\bfe_i\}$ to
-$\{\bfe'_i\}$, we mean
-$$\bfA = \bfe_i'\otimes\bfe_i = A_{ij}\bfe_i\otimes \bfe_j\quad\text{where}\quad A_{ij} = \bfe_i\cdot\bfe'_j.$$
-We could equally define a change of basis tensor $\bfB$ from
-$\{\bfe'_i\}$ to $\{\bfe_i\}$, defined to be
-$\bfB = B_{ij}\bfe'_i\otimes\bfe'_j$ with $B_{ij} = \bfe'_i\cdot\bfe_j$,
-and we note that since the frames we choose are arbitrary, any
-properties we deduce for $\bfA$ will also hold for $\bfB$.
-
-The idea behind a change of basis tensor is that it allow us to express
-the basis vectors of a frame in terms of the basis vectors of another.
-For example, by orthonormality of the basis $\{\bfe'_i\}$, we have
-$$
-  \bfe'_j = (\bfe_i\cdot\bfe'_j)\bfe_i = A_{ij}\bfe_i.
-$$ {#eq-changeofbasis1}
-  Similarly,
-working with respect to the second basis, we have that
-$$
-  \bfe_i = (\bfe_i\cdot\bfe'_k)\bfe'_k = A_{ik}\bfe'_k.
-$$ {#eq-changeofbasis2}
-These two identities imply the following result:
-
-::: {#prp-orthogonalitybasischange}
-The components $A_{ij}$ of a change of basis tensor $\bfA$ have the
-properties that
-$$A_{ij}A_{ik}=\delta_{jk}\quad\text{and}\quad A_{ik}A_{jk} =\delta_{ij},$$
-or in matrix notation,
-$$[\bfA]^T[\bfA] = [\bfI]\quad\text{and}\quad [\bfA][\bfA]^T = [\bfI].$$ It
-follows that $\bfA$ is an orthogonal tensor.
-:::
-
-potato
-
-::: proof
-Substituting
-@eq-changeofbasis1 into the right-hand side of
-@eq-changeofbasis2 gives $$\bfe_i = A_{ik}A_{jk}\bfe_j,$$
-which implies that $A_{ik}A_{jk}=\delta_{jk}$. Substituting
-@eq-changeofbasis2 into @eq-changeofbasis1 gives the other result.
-:::
-
-Now consider an arbitrary vector $\bfv\in\calV$. Let $[\bfv]_i=v_i$ be
-its component representation with respect to the basis $\{\bfe_i\}$, and
-$[\bfv]'_i = v'_i$ be its component representation with respect to the
-basis $\{\bfe'_i\}$. These components can be related using the basis
-change tensor $\bfA$:
-$$\bfv = v_i\bfe_i = \bfv'_j\bfe'_j  = v'_jA_{ij}\bfe_i,\quad\text{so that}\quad v_i = A_{ij}v'_j.$$
-We can similarly deduce that $v'_k = A_{ik}v_i$, and these relations can
-be written in matrix notation as
-$$[\bfv]= [\bfA][\bfv]' \quad\text{and}\quad[\bfv]' =[\bfA]^T[\bfv].$$ For
-second-order tensors $\bfS$ with component representations $[\bfS]$ and
-$[\bfS]'$ with respect to the bases consider above, we have
-$$
-  [\bfS] = [\bfA][\bfS]'[\bfA]^T\quad\text{and}\quad [\bfS]'=[\bfA]^T[\bfS][\bfA].
-$$ {#eq-2ordertensorchangeofbasis}
-
-### Traces, determinants and exponentials
-
-The *trace* is a function defined for second-order tensors, and is a
-linear mapping $\tr:\calV^2\to\bbR$ defined by
-$$\tr \bfS = \tr[\bfS] = [\bfS]_{ii},$$ where, as previously, $[\bfS]$
-denotes a component-matrix representation in an arbitrary coordinate
-frame. The trace of a tensor is therefore the same as the definition of
-the trace of a matrix given in Linear Algebra courses. The following
-result shows that the definition does not depend upon the particular
-coordinate frame chosen.
-
-::: {#prp-traceinvariance}
-Suppose $\bfS$ is a second-order tensor with respective matrix representations $[\bfS]$
-and $[\bfS]'$ in the frames $\{\bfe_i\}$ and $\{\bfe'_i\}$. Then
-$$\tr[\bfS] = \tr[\bfS]',$$ and hence the value of the trace is
-independent of the coordinate frame in which it is computed.
-:::
-
-::: proof
-Suppose $\bfA$ is the change of basis tensor mapping
-$\{\bfe_i\}$ to $\{\bfe'_i\}$. Then by applying
-@eq-2ordertensorchangeofbasis we have
-$[\bfS]_{ij} = [\bfA]_{ik}[\bfS]'_{kl}[\bfA]_{jl}$, and so, using @prp-orthogonalitybasischange, we have $$\tr[\bfS]
-    = [\bfS]_{ii}
-    = [\bfS]'_{kl}[\bfA]_{ik}[\bfA]_{il}
-    = [\bfS]'_{kl}\delta_{kl}
-    = [\bfS]'_{kk} = \tr[\bfS]'.$$
-:::
-
-The *determinant* function on second-order tensors is the mapping
-$\det:\calV^2\to\bbR$ defined by
-$$\det\bfS = \det[\bfS] = \epsilon_{ijk}[\bfS]_{1i}[\bfS]_{2j}[\bfS]_{3k},$$
-where $[\bfS]$ again denotes the component matrix representation of
-$\bfS$ in an arbitrary coordinate frame. As for the trace, the
-determinant of a tensor is the same as the determinant of its matrix
-representation. The following result shows the definition is independent
-of the coordinate frame.
-
-::: {#prp-determinantinvariance}
-Suppose $\bfS$ is a second-order tensor with respective matrix
-representations $[\bfS]$ and $[\bfS]'$ in the frames $\{\bfe_i\}$ and
-$\{\bfe'_i\}$. Then $$\det[\bfS] = \det[\bfS]',$$ and hence the value of
-the determinant is independent of the coordinate frame in which it is
-computed.
-:::
-
-**Exercise:** Prove this result.
-
-As you may have seen in a multivariable calculus module, the quantity
-$|\det\bfS|$ may be interpreted as the volume of the parallelipiped with
-edges defined by the vectors $\bfS\bfe_1$, $\bfS\bfe_2$ and
-$\bfS\bfe_3$, all emanating from the same point. The determinant also
-arises in the classification of certain types of tensors; for example, a
-second-order tensor $\bfS$ is invertible if and only if $\det\bfS\neq0$.
-Moreover, since $\det(\bfA\bfB) = \det\bfA\det\bfB$, every orthogonal
-tensor $\bfQ$ has the property that $|\det\bfQ|=1$, and rotation tensors
-are exactly those which satisfy $\det\bfQ=1$.
-
-<!-- The *exponential function* on second-order tensors is a mapping -->
-<!-- $\exp:\calV^2\to\calV^2$ defined by -->
-<!-- $$\exp \bfS = \sum_{j=0}^{\infty}\frac1{j!}\bfS^j.$$ Much as for the -->
-<!-- exponential function defined on real and complex numbers, it can be -->
-<!-- shown that the series above converges absolutely for any -->
-<!-- $\bfS\in\calV^2$, and the exponential function is therefore -->
-<!-- well-defined. The exponential function frequently arises in the theory -->
-<!-- of linear ordinary differential equations with constant coefficients, -->
-<!-- and leads to the definition of Lie Algebras, which we do not consider -->
-<!-- further here. Our main interest in this function will be in applying the -->
-<!-- following result, which we state without proof. -->
-
-<!-- ::: {#prp-exponentialskew} -->
-<!-- Let $\bfW\in\calV^2$ be a skew-symmetric tensor. Then $\exp\bfW$ is a -->
-<!-- rotation tensor, i.e. -->
-<!-- $$(\exp\bfW)^T(\exp\bfW)= \bfI\quad\text{and}\quad\det(\exp\bfW)=1.$$ -->
-<!-- Moreover, $\exp(\bfW^T) = (\exp\bfW)^T$. -->
-<!-- ::: -->
 
 ### Eigenvalues, Eigenvectors and Principal Invariants {#sec-eigenv-eigenv-princ}
 
