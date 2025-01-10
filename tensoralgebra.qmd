@@ -510,7 +510,7 @@ $$[\bfv]= [\bfA][\bfv]' \quad\text{and}\quad[\bfv]' =[\bfA]^T[\bfv].$$ For
 second-order tensors $\bfS$ with component representations $[\bfS]$ and
 $[\bfS]'$ with respect to the bases consider above, we have
 $$
-  [\bfS] = [\bfA][\bfS]'[\bfA]^T\quad\text{and}\quad [\bfS]'=[\bfA]^T[\bfS][\bfA].
+  [\bfS] = [\bfA]^T[\bfS]'[\bfA]\quad\text{and}\quad [\bfS]'=[\bfA][\bfS][\bfA]^T.
 $$ {#eq-2ordertensorchangeofbasis}
 
 
