@@ -478,7 +478,7 @@ window.Quarto = {
 </div>
 <p>The following result is a handy consequence of the result above.</p>
 <div id="prp-dotdet" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3.12 (Time derivative of determinant)</strong></span> Let <span class="math inline">{\boldsymbol{S}}:{\mathbb{R}}\to{\mathcal{V}}^2</span> be a time-dependent second-order tensor. Then <span class="math display">\frac{d}{dt}\det{\boldsymbol{S}}= \det({\boldsymbol{S}}){\operatorname{tr}}({\boldsymbol{S}}^{-1}\dot{{\boldsymbol{S}}}) = \det({\boldsymbol{S}}){\boldsymbol{S}}^{-T}:\dot{{\boldsymbol{S}}},</span> where <span class="math display">\dot{{\boldsymbol{S}}} = \frac{d{\boldsymbol{S}}}{dt} = \frac{dS_{ij}}{dt}{\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j.</span></p>
+<p><span class="theorem-title"><strong>Proposition 3.12 (Time derivative of determinant)</strong></span> Let <span class="math inline">{\boldsymbol{S}}:{\mathbb{R}}\to{\mathcal{V}}^2</span> be a time-dependent second-order tensor. Then <span class="math display">\frac{d}{dt}\det{\boldsymbol{S}}= \det({\boldsymbol{S}}){\operatorname{tr}}\left({\boldsymbol{S}}^{-1}\frac{d{\boldsymbol{S}}}{dt}\right) = \det({\boldsymbol{S}}){\boldsymbol{S}}^{-T}:\frac{d{\boldsymbol{S}}}{dt},</span> where <span class="math display">\frac{d{\boldsymbol{S}}}{dt} = \frac{dS_{ij}}{dt}{\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j.</span></p>
 </div>
 <p><strong>Exercise:</strong> Prove this result using the chain rule.</p>
 <!-- ### Second-order tensor-valued functions of second-order tensors -->
