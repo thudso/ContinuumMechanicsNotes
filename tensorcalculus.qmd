@@ -530,9 +530,9 @@ that $$D\psi(\bfA):\bfB = \det(\bfA)\bfA^{-T}:\bfB,$$ and so the result
 follows from the arbitrariness of $\bfB$.
 :::
 
-The following result is handy.
+The following result is a handy consequence of the result above.
 
-::: {##prp-dotdet}
+::: {#prp-dotdet}
 ## Time derivative of determinant
 Let $\bfS:\bbR\to\calV^2$ be a time-dependent second-order tensor. Then
 $$\frac{d}{dt}\det\bfS = \det(\bfS)\tr(\bfS^{-1}\dot{\bfS}) = \det(\bfS)\bfS^{-T}:\dot{\bfS},$$

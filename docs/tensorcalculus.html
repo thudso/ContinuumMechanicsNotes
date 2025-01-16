@@ -223,7 +223,6 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#scalar-valued-functions-of-second-order-tensors" id="toc-scalar-valued-functions-of-second-order-tensors" class="nav-link" data-scroll-target="#scalar-valued-functions-of-second-order-tensors"><span class="header-section-number">3.4.1</span> Scalar-valued functions of second-order tensors</a></li>
   </ul></li>
-  <li><a href="#time-derivative-of-determinant" id="toc-time-derivative-of-determinant" class="nav-link" data-scroll-target="#time-derivative-of-determinant"><span class="header-section-number">3.5</span> Time derivative of determinant</a></li>
   </ul>
 </nav>
     </div>
@@ -477,13 +476,10 @@ window.Quarto = {
 \end{aligned}
 </span> and hence <span class="math display">\psi({\boldsymbol{A}}+\alpha{\boldsymbol{B}}) =  \det{\boldsymbol{A}}\big(1+\alpha I_1({\boldsymbol{A}}^{-1}{\boldsymbol{B}})+\alpha^2 I_2({\boldsymbol{A}}^{-1}{\boldsymbol{B}})+\alpha^3 I_3({\boldsymbol{A}}^{-1}{\boldsymbol{B}})\big).</span> Differentiating with respect to <span class="math inline">\alpha</span> and evaluating at <span class="math inline">\alpha=0</span>, we have <span class="math display">D\psi({\boldsymbol{A}}):{\boldsymbol{B}}= \det({\boldsymbol{A}})I_1({\boldsymbol{A}}^{-1}{\boldsymbol{B}}).</span> Since <span class="math inline">I_1({\boldsymbol{A}}^{-1}{\boldsymbol{B}}) = {\operatorname{tr}}({\boldsymbol{A}}^{-1}{\boldsymbol{B}}) = {\boldsymbol{A}}^{-T}:{\boldsymbol{B}}</span>, we deduce that <span class="math display">D\psi({\boldsymbol{A}}):{\boldsymbol{B}}= \det({\boldsymbol{A}}){\boldsymbol{A}}^{-T}:{\boldsymbol{B}},</span> and so the result follows from the arbitrariness of <span class="math inline">{\boldsymbol{B}}</span>.</p>
 </div>
-<p>The following result is handy.</p>
-</section>
-</section>
-<section id="time-derivative-of-determinant" class="level2 {##prp-dotdet}" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="time-derivative-of-determinant"><span class="header-section-number">3.5</span> Time derivative of determinant</h2>
-<p>Let <span class="math inline">{\boldsymbol{S}}:{\mathbb{R}}\to{\mathcal{V}}^2</span> be a time-dependent second-order tensor. Then <span class="math display">\frac{d}{dt}\det{\boldsymbol{S}}= \det({\boldsymbol{S}}){\operatorname{tr}}({\boldsymbol{S}}^{-1}\dot{{\boldsymbol{S}}}) = \det({\boldsymbol{S}}){\boldsymbol{S}}^{-T}:\dot{{\boldsymbol{S}}},</span> where <span class="math display">\dot{{\boldsymbol{S}}} = \frac{d{\boldsymbol{S}}}{dt} = \frac{dS_{ij}}{dt}{\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j.</span></p>
-</section>
+<p>The following result is a handy consequence of the result above.</p>
+<div id="prp-dotdet" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.12 (Time derivative of determinant)</strong></span> Let <span class="math inline">{\boldsymbol{S}}:{\mathbb{R}}\to{\mathcal{V}}^2</span> be a time-dependent second-order tensor. Then <span class="math display">\frac{d}{dt}\det{\boldsymbol{S}}= \det({\boldsymbol{S}}){\operatorname{tr}}({\boldsymbol{S}}^{-1}\dot{{\boldsymbol{S}}}) = \det({\boldsymbol{S}}){\boldsymbol{S}}^{-T}:\dot{{\boldsymbol{S}}},</span> where <span class="math display">\dot{{\boldsymbol{S}}} = \frac{d{\boldsymbol{S}}}{dt} = \frac{dS_{ij}}{dt}{\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j.</span></p>
+</div>
 <p><strong>Exercise:</strong> Prove this result using the chain rule.</p>
 <!-- ### Second-order tensor-valued functions of second-order tensors -->
 <!-- A second-order-tensor-valued function $\bfSigma:\calV^2\to\calV^2$ is -->
@@ -529,6 +525,8 @@ window.Quarto = {
 <!-- \end{aligned}$$ -->
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

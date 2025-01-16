@@ -506,7 +506,7 @@ change tensor $\bfA$:
 $$\bfv = v_i\bfe_i = \bfv'_j\bfe'_j  = v'_jA_{ij}\bfe_i,\quad\text{so that}\quad v_i = A_{ij}v'_j.$$
 We can similarly deduce that $v'_k = A_{ik}v_i$, and these relations can
 be written in matrix notation as
-$$[\bfv]= [\bfA][\bfv]' \quad\text{and}\quad[\bfv]' =[\bfA]^T[\bfv].$$ For
+$$[\bfv]'= [\bfA][\bfv] \quad\text{and}\quad[\bfv] =[\bfA]^T[\bfv]'.$$ For
 second-order tensors $\bfS$ with component representations $[\bfS]$ and
 $[\bfS]'$ with respect to the bases consider above, we have
 $$
