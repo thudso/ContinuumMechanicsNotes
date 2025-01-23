@@ -447,18 +447,20 @@ $\bft:\partial\Omega\to\calV$ be the traction field acting on its outer
 surface, with orientation determined by the outward-point normal field.
 The resultant force on $\Omega$ due to body and surface forces is
 $$
-  \bfr(\Omega) = \bfr_b(\Omega)+\bfr_s(\partial\Omega) = \int_\Omega \rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial\Omega}\bft(\bfx)\dAx,
-$$ { #eq-resultantforce }
+  \bfr(\Omega) = \bfr_b(\Omega)+\bfr_s(\partial\Omega) 
+  = \int_\Omega \rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial\Omega}\bft(\bfx)\dAx,
+$$ {#eq-resultantforce}
 and the resultant torque on $\Omega$ about the point $\bfz\in\bbE^3$ is
 $$
 \begin{aligned}
     \bftau(\Omega;\bfz)
     &= \bftau_b(\Omega;\bfz)+\bftau_s(\partial\Omega;\bfz)\\
-    &=\int_\Omega (\bfx-\bfz)\times\rho(\bfx)\bfb(\bfx)\dVx+\int_{\partial \Omega}(\bfx-\bfx)\times\bft(\bfx)\dAx.
-  \end{aligned}
-$$ { #eq-resultanttorque }
-At a static equilibrium, we assume that both the resultant force and torque for any $\Omega$ vanish, which is encoded in
-the following axiom.
+    &=\int_\Omega (\bfx-\bfz)\times\rho(\bfx)\bfb(\bfx)\dVx
+        +\int_{\partial \Omega}(\bfx-\bfx)\times\bft(\bfx)\dAx.
+\end{aligned}
+$$ {#eq-resultanttorque}
+At a static equilibrium, we assume that both the resultant force and torque for
+any $\Omega$ vanish, which is encoded in the following axiom.
 
 ::: { .callout-important icon="false" }
 ## Static equilibrium
@@ -613,7 +615,7 @@ meaning.
 ### Simple stress states
 
 If the stress tensor $\bfS$ at a point $\bfx\in B$ takes the form
-$$\bfS = -\pi\bfI,$$ where $\pi$ is a scalar, we say that a *spherical*
+$$\bfS = -p\bfI,$$ where $p$ is a scalar pressure, we say that a *spherical*
 state of stress exists at $\bfx$. In this stress state, the traction on
 any surface is parallel to the normal vector $\bfn$:
 $$\bft = \bfS\bfn = -\pi\bfn.$$
