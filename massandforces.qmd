@@ -605,6 +605,10 @@ To show that @eq-equilibriumconditionsINT hold starting from
     fields are sufficiently regular to allow us to exchange integral
     laws for differential equations and vice versa.
 
+5.  The SI unit for stress is the Pascal, denoted Pa, and is equivalent to
+    1 Newton per square metre. In reasonable real-world cases, stresses
+    can often range up to megapascals (MPa) or gigapascals (GPa).
+
 ## Stress concepts
 
 We now study stress in more detail, describing various states of stress
@@ -618,7 +622,8 @@ If the stress tensor $\bfS$ at a point $\bfx\in B$ takes the form
 $$\bfS = -p\bfI,$$ where $p$ is a scalar pressure, we say that a *spherical*
 state of stress exists at $\bfx$. In this stress state, the traction on
 any surface is parallel to the normal vector $\bfn$:
-$$\bft = \bfS\bfn = -\pi\bfn.$$
+$$\bft = \bfS\bfn = -p\bfn.$$ The sign choice for $p$ here ensures that
+positive pressures push inwards on an object.
 
 The stress at a point $\bfx\in B$ is said to be *uniaxial* is there
 exists a unit vector $\bfe$ and a scalar $\sigma$ such that
