@@ -609,60 +609,6 @@ To show that @eq-equilibriumconditionsINT hold starting from
     1 Newton per square metre. In reasonable real-world cases, stresses
     can often range up to megapascals (MPa) or gigapascals (GPa).
 
-### An example: atmospheric pressure
-We can use the equations of static equilibrium to derive a crude model of atmospheric pressure on the Earth's surface.
-
-A good model for a gas is to assume that the Cauchy stress is spherical everywhere, so that
-$$
-\bfS(\bfx) = -p(\bfx)\bfI,
-$$
-where $p$ is the pressure. This choice is automatically symmetric, so we don't need to concern ourselves further with this condition.
-
-ince the atmosphere is a thin layer relative to the curvature of the Earth, we can take the body force per unit mass to be constant, and a sensible choice is to choose a coordinate system so that
-$$
-\bfb = -g\bfe_3.
-$$
-Putting these together, the equilibrium equations become
-$$
--\nabla_\bfx p(\bfx) -g\bfe_3 \rho(\bfx) = \boldsymbol{0}.
-$$
-This equation couples the pressure $p$ and the density $\rho$, but we still need a further relation to get an equation we can solve. One option is to treat the air in the atmosphere as an ideal gas. This means that we have the relationship
-$$
-pV = nRT,
-$$
-where:
-
-- $p$ is the pressure of the gas,
-- $V$ is the volume of the gas,
-- $n$ is the number of moles of gas,
-- $R$ is the gas constant, and
-- $T$ is the absolute temperature.
-
-This is not yet in a form we can use, but rearranging and multiply and dividing by $m_0$, the mass of the air per mole (molar mass), we have
-$$
-p = \frac{nm_0}{V}\frac{RT}{m_0}=\rho\frac{RT}{m_0}.
-$$
-We can now find solutions to our equation by taking $p$ and $\rho$ to depend only on $x_3$, the vertical height, and we find that
-$$
--\frac{\partial \rho}{\partial x_3}-\frac{gm_0}{RT}\rho = 0,
-$$
-which has solutions of the form
-$$
-\rho(x_3)=\rho_0\exp\left(-\frac{gm_0}{RT}x_3\right),
-$$
-where $\rho_0$ is the density of the air measured at ground level. We can equally convert this prediction to one concerning the pressure:
-$$
-p(x_3) = \underbrace{\frac{\rho_0RT}{m_0}}_{=p_0}\exp\left(-\frac{gm_0}{RT}x_3\right),
-$$
-where the $p_0$ factor in front of the exponential is the pressure observed at ground level.
-
-As we might expect from our experience, the density and pressure decrease with increasing height $x_3$, and the exponential rate is a reasonably good approximation to the observed behaviour, at least in the lowest layer of the atmosphere. On the other hand, there are numerous possible ways we could improve the model! Some potential issues include:
-
-- The fact that air is not an ideal gas;
-- The fact that the atmosphere is not at static equilibrium (there is definitely motion occuring!)
-- For the same reason, the pressure and density are not independent of the horizontal position; and
-- Perhaps worst of all, the temperature of the air reduces with height, whereas our model assumed it to be constant!
-
 ## Stress concepts
 
 We now study stress in more detail, describing various states of stress
@@ -769,3 +715,68 @@ parts, a *spherical stress tensor* $$\bfS_S = -p\bfI,$$ and a
 *deviatoric stress tensor* $$\bfS_D = \bfS+p\bfI = \bfS-\bfS_S,$$ where
 $p=-\frac13\tr \bfS$ is called the pressure. Note that
 $\bfS=\bfS_S+\bfS_D$.
+
+
+## An example: atmospheric pressure
+To round out this chapter, let's show how we can use the force balance equations in practice by deriving a crude model of atmospheric pressure in the Earth's atmosphere.
+
+A good assumption describing the surface forces in a gas is to assume that the Cauchy stress tensor is spherical everywhere, which means that
+$$
+\bfS(\bfx) = -p(\bfx)\bfI,
+$$
+where $p$ is the pressure, which is an unknown. This choice is automatically symmetric, so we don't need to concern ourselves further with this condition from the local equations of static equilibrium.
+
+Now, since the atmosphere is a thin layer relative to the curvature of the Earth, we can take the body force per unit mass to be constant. It is sensible to choose a coordinate system so that
+$$
+\bfb = -g\bfe_3.
+$$
+Putting these together, the equilibrium equations become
+$$
+-\nabla_\bfx p(\bfx) -g\bfe_3 \rho(\bfx) = \boldsymbol{0}.
+$$ {#eq-atmosphere}
+This equation couples the pressure $p$ and the density $\rho$, but we still need a further constitutive relation between these quantities to get an equation we can solve. One possible option is to treat the air in the atmosphere as an ideal gas. This means that we have the relationship
+$$
+pV = nRT,
+$$ {#eq-idealgaslaw}
+where:
+
+- $p$ is the pressure of the gas,
+- $V$ is the volume of the gas,
+- $n$ is the number of moles of gas,
+- $R$ is the gas constant, and
+- $T$ is the absolute temperature.
+
+This is not yet in a form we can use, but rearranging and multiply and dividing by $m_0$, the mass of the air per mole (the molar mass), we have
+$$
+p = \frac{nm_0}{V}\frac{RT}{m_0}=\rho\frac{RT}{m_0}.
+$$
+Substituting in to @eq-atmosphere, we can now find a class of solutions to our equation by taking $p$ and $\rho$ to depend only on $x_3$, the vertical height. In this case, we find that
+$$
+-\frac{\partial \rho}{\partial x_3}-\frac{gm_0}{RT}\rho = 0.
+$$
+This ODE has solutions of the form
+$$
+\rho(x_3)=\rho_0\exp\left(-\frac{gm_0}{RT}x_3\right),
+$$
+where $\rho_0$ is the density of the air measured at ground level. We can equally convert this prediction to one concerning the pressure:
+$$
+p(x_3) = \underbrace{\frac{\rho_0RT}{m_0}}_{=p_0}\exp\left(-\frac{gm_0}{RT}x_3\right),
+$$
+where the $p_0$ factor in front of the exponential is the pressure observed at ground level. A nice observation we can make from this formula is that the total mass $M$ of our model atmosphere per unit area on the ground is given by the integral
+$$
+M = \int_0^\infty\rho(x_3)\,dx_3 = \rho_0\frac{RT}{gm_0}.
+$$
+Looking at the expression for the pressure at ground level $p_0$, we find that
+$$
+p_0 = gM,
+$$
+i.e. the air pressure at ground level is caused by the weight of the air in the column above it.
+
+As we might expect from our experience, the density and pressure decrease with increasing height $x_3$, and the exponential rate is a reasonably good approximation to the observed behaviour at least in the lowest layer of the atmosphere. On the other hand, there are numerous possible ways we could improve the model. Some potential issues include:
+
+- The fact that air is not an ideal gas;
+- The fact that the atmosphere is not at static equilibrium (there is definitely motion occuring!)
+- For the same reason, the pressure and density are not independent of the horizontal position; and
+- Perhaps worst of all, the temperature of the air reduces with height, whereas our model assumed it to be constant!
+
+There are various standard models used for practical engineering that make use of the basic ideas we discuss here. To find out more, search for the term `Standard Atmosphere'.
