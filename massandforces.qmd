@@ -609,6 +609,60 @@ To show that @eq-equilibriumconditionsINT hold starting from
     1 Newton per square metre. In reasonable real-world cases, stresses
     can often range up to megapascals (MPa) or gigapascals (GPa).
 
+### An example: atmospheric pressure
+We can use the equations of static equilibrium to derive a crude model of atmospheric pressure on the Earth's surface.
+
+A good model for a gas is to assume that the Cauchy stress is spherical everywhere, so that
+$$
+\bfS(\bfx) = -p(\bfx)\bfI,
+$$
+where $p$ is the pressure. This choice is automatically symmetric, so we don't need to concern ourselves further with this condition.
+
+ince the atmosphere is a thin layer relative to the curvature of the Earth, we can take the body force per unit mass to be constant, and a sensible choice is to choose a coordinate system so that
+$$
+\bfb = -g\bfe_3.
+$$
+Putting these together, the equilibrium equations become
+$$
+-\nabla_\bfx p(\bfx) -g\bfe_3 \rho(\bfx) = \boldsymbol{0}.
+$$
+This equation couples the pressure $p$ and the density $\rho$, but we still need a further relation to get an equation we can solve. One option is to treat the air in the atmosphere as an ideal gas. This means that we have the relationship
+$$
+pV = nRT,
+$$
+where:
+
+- $p$ is the pressure of the gas,
+- $V$ is the volume of the gas,
+- $n$ is the number of moles of gas,
+- $R$ is the gas constant, and
+- $T$ is the absolute temperature.
+
+This is not yet in a form we can use, but rearranging and multiply and dividing by $m_0$, the mass of the air per mole (molar mass), we have
+$$
+p = \frac{nm_0}{V}\frac{RT}{m_0}=\rho\frac{RT}{m_0}.
+$$
+We can now find solutions to our equation by taking $p$ and $\rho$ to depend only on $x_3$, the vertical height, and we find that
+$$
+-\frac{\partial \rho}{\partial x_3}-\frac{gm_0}{RT}\rho = 0,
+$$
+which has solutions of the form
+$$
+\rho(x_3)=\rho_0\exp\left(-\frac{gm_0}{RT}x_3\right),
+$$
+where $\rho_0$ is the density of the air measured at ground level. We can equally convert this prediction to one concerning the pressure:
+$$
+p(x_3) = \underbrace{\frac{\rho_0RT}{m_0}}_{=p_0}\exp\left(-\frac{gm_0}{RT}x_3\right),
+$$
+where the $p_0$ factor in front of the exponential is the pressure observed at ground level.
+
+As we might expect from our experience, the density and pressure decrease with increasing height $x_3$, and the exponential rate is a reasonably good approximation to the observed behaviour, at least in the lowest layer of the atmosphere. On the other hand, there are numerous possible ways we could improve the model! Some potential issues include:
+
+- The fact that air is not an ideal gas;
+- The fact that the atmosphere is not at static equilibrium (there is definitely motion occuring!)
+- For the same reason, the pressure and density are not independent of the horizontal position; and
+- Perhaps worst of all, the temperature of the air reduces with height, whereas our model assumed it to be constant!
+
 ## Stress concepts
 
 We now study stress in more detail, describing various states of stress
@@ -690,6 +744,22 @@ are distinct and ordered, with $$\sigma_1>\sigma_2>\sigma_3.$$ Then
 -   The maximum shear stress $\sigma_s$ is $\frac12|\sigma_1-\sigma_3|$,
     and this is achieved for for the two pairs of normals
     $$\bfn = \pm\frac{1}{\sqrt 2}(\bfe_1+\bfe_3)\quad\text{and}\quad\bfn = \pm\frac{1}{\sqrt 2}(\bfe_1-\bfe_3).$$
+:::
+
+::: proof
+We prove only the first statement. First note that in terms of the Cauchy stress tensor, we have
+$$
+\sigma_n = |\bfn\cdot(\bfS\bfn)|.
+$$
+Since $\bfS$ is symmetric, we can decompose it in terms of the principal stresses $\sigma_i$ (the eigenvalues of $\bfS$) and the corresponding eigenvectors, so
+$$
+\sigma_n = \left|\bfn\cdot\left(\left(\sum_{i=1}^3 \sigma_i \bfe_i\otimes \bfe_i\right)\bfn\right)\right| = \left|\sum_{i=1}^3\sigma_i(\bfe_i\cdot\bfn)^2\right|.
+$$
+Now, applying the triangle inequality and using the fact that $\bfn$ is a unit vector, we have
+$$
+\sigma_n \leq \sum_{i=1}^3|\sigma_i|(\bfe_i\cdot \bfn)^2\leq \max_i|\sigma_i|.
+$$
+This shows that the normal stress is at most the value required. To show the maximum is attained, set $\bfn=\bfe_j$, where $|\sigma_j|$ is maximal.
 :::
 
 ### Spherical and deviatoric stress tensors
