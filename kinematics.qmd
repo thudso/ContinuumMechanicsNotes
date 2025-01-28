@@ -43,25 +43,25 @@ there is a one-to-one correspondence between points in the two
 configurations.
 
 This leads us naturally to the idea of the deformation map. We will
-describe the mapping from $B$ to $B'$ by a function $\bfy:B\to B'$ which
-maps each point $\bfx$ to a point $\bfy(\bfx)\in B'$. The displacement
+describe the mapping from $B$ to $B'$ by a function $\bfphi:B\to B'$ which
+maps each point $\bfx$ to a point $\bfphi(\bfx)\in B'$. The displacement
 of a material particle from its initial location $\bfx$ to final
-location $\bfy(\bfx)$ is $$\bfu(\bfx) = \bfy(\bfx)-\bfx.$$ We call
-$\bfu:B\to\calV$ the *displacement field* associated to $\bfy$.
+location $\bfphi(\bfx)$ is $$\bfu(\bfx) = \bfphi(\bfx)-\bfx.$$ We call
+$\bfu:B\to\calV$ the *displacement field* associated to $\bfphi$.
 
 We will assume that deformation maps satisfy the following two important
 conditions:
 
--   $\bfy:B\to B'$ is one-to-one, and
+-   $\bfphi:B\to B'$ is one-to-one, and
 
--   $\det\nabla\bfy(\bfx)>0$ for all $\bfx\in B$.
+-   $\det\nabla\bfphi(\bfx)>0$ for all $\bfx\in B$.
 
 Deformations satisfying both of these assumptions will be called
 *admissible deformations*. The first of these assumptions means that two
 material particles cannot occupy the same location, and the second
 ensures that a body cannot be continuously mapped onto its own mirror
 image. Note that the first assumption is sufficient to ensure that
-$\bfy$ is a bijection between $B$ and $B'$.
+$\bfphi$ is a bijection between $B$ and $B'$.
 
 Throughout, we will assume that all deformations are admissible, and
 that all are smooth enough to allow us to justify the operations of
@@ -71,62 +71,62 @@ assumptions hold in particular cases are the topic of active research.
 ## Measures of strain
 
 Consider the open ball $\Omega$ of radius $\delta$ centred at $\bfx_0$
-within the body we consider. Under the deformation $\bfy$, $\bfx_0$ is
-mapped to $\bfy_0=\bfy(\bfx_0)$, and $\Omega_\delta$ is mapped to a
-region $\Omega'=\bfy(\Omega)$. Any difference in shaped between
+within the body we consider. Under the deformation $\bfphi$, $\bfx_0$ is
+mapped to $\bfy_0=\bfphi(\bfx_0)$, and $\Omega_\delta$ is mapped to a
+region $\Omega'=\bfphi(\Omega)$. Any difference in shaped between
 $\Omega'$ and $\Omega$ as $\delta\to0$ is called *strain* at $\bfx_0$.
 Strain refers to the local stretching of a body induced by the
-deformation $\bfy$. The concept of strain plays a central roles in
+deformation $\bfphi$. The concept of strain plays a central roles in
 modelling solid materials.
 
 ### The deformation gradient
 
 One way to quantify strain is through the *deformation gradient*, a
 second-order tensor field $\bfF:B\to\calV^2$ defined to be
-$$\bfF(\bfx) = \nabla \bfy(\bfx).$$ The field $\bfF$ naturally provides
-information on the local behaviour of $\bfy$, since Taylor expanding, we
+$$\bfF(\bfx) = \nabla \bfphi(\bfx).$$ The field $\bfF$ naturally provides
+information on the local behaviour of $\bfphi$, since Taylor expanding, we
 see
-$$\bfy(\bfx) = \bfy(\bfx_0) +\bfF(\bfx_0)(\bfx-\bfx_0)+\bigO\big(|\bfx-\bfx_0|^2\big),$$
+$$\bfphi(\bfx) = \bfphi(\bfx_0) +\bfF(\bfx_0)(\bfx-\bfx_0)+\bigO\big(|\bfx-\bfx_0|^2\big),$$
 or equivalently
-$$\bfy(\bfx) = \bfc+\bfF(\bfx_0)\bfx+\bigO\big(|\bfx-\bfx_0|^2\big)\quad\text{where}\quad \bfc = \bfy(\bfx_0)-\bfF(\bfx_0)\bfx_0.$$
+$$\bfphi(\bfx) = \bfc+\bfF(\bfx_0)\bfx+\bigO\big(|\bfx-\bfx_0|^2\big)\quad\text{where}\quad \bfc = \bfphi(\bfx_0)-\bfF(\bfx_0)\bfx_0.$$
 
 To understand better how $\bfF$ measures strain, suppose for simplicity
-that $\bfy$ is *homogeneous*, which means the deformation gradient field
-is constant, i.e. $$\bfy(\bfx) = \bfc+ \bfF\bfx,$$ so the deformation is
+that $\bfphi$ is *homogeneous*, which means the deformation gradient field
+is constant, i.e. $$\bfphi(\bfx) = \bfc+ \bfF\bfx,$$ so the deformation is
 an *affine map*. We note that by virtue of this affine nature, any line
 segment in the reference configuration $B$ is mapped onto a
 corresponding line segment in the deformed configuration $B'$.
 
 We also remark that the admissibility conditions we require of
-deformations imply that $\det\nabla\bfy(\bfx)>0$, which ensures that
+deformations imply that $\det\nabla\bfphi(\bfx)>0$, which ensures that
 $\det\bfF>0$, so $\bfF$ is invertible.
 
 #### Translations and fixed points
 
-A homogeneous deformation $\bfy$ is called a translation if $\bfF=\bfI$,
-i.e. $$\bfy(\bfx) = \bfx+\bfc\quad\text{for some fixed }\bfc\in\calV.$$
+A homogeneous deformation $\bfphi$ is called a translation if $\bfF=\bfI$,
+i.e. $$\bfphi(\bfx) = \bfx+\bfc\quad\text{for some fixed }\bfc\in\calV.$$
 Under such a deformation, all points in $B'$ are simply moved through a
 displacement $\bfc$, so there is no change in shape or orientation of
 the body.
 
 A homogeneous deformation has a fixed point at $\bfx'$ if
 $$
-  \bfy(\bfx) = \bfx'+ \bfF(\bfx-\bfx').
+  \bfphi(\bfx) = \bfx'+ \bfF(\bfx-\bfx').
 $$ {#eq-defFixedPoint}
 The point $\bfx'$ is fixed in
-the sense that $\bfy(\bfx') = \bfx'$. Any other point in the body is
+the sense that $\bfphi(\bfx') = \bfx'$. Any other point in the body is
 displaced by an amount determined by $\bfF$ and the position relative to
 the fixed point $\bfx'$. For such a deformation, the body can change
 both shape and orientation. We now define a couple of classes of
 homogeneous deformation with fixed points.
 
-A homogeneous deformation $\bfy$ is called a *rotation about $\bfx'$* if
-it takes the form $$\bfy(\bfx)=\bfx'+\bfQ(\bfx-\bfx')$$ for some
+A homogeneous deformation $\bfphi$ is called a *rotation about $\bfx'$* if
+it takes the form $$\bfphi(\bfx)=\bfx'+\bfQ(\bfx-\bfx')$$ for some
 rotation tensor $\bfQ\in\calV^2$. Such deformations change the
 orientation of the body, but not its shape.
 
-A homogeneous deformation $\bfy$ is called a *stretch about $\bfx'$* if
-it takes the form $$\bfy(\bfx)=\bfx'+\bfS(\bfx-\bfx')$$ for some
+A homogeneous deformation $\bfphi$ is called a *stretch about $\bfx'$* if
+it takes the form $$\bfphi(\bfx)=\bfx'+\bfS(\bfx-\bfx')$$ for some
 symmetric positive definite tensor $\bfS\in\calV^2$. Under such a
 deformation, the orientation of the body is not changed, but it is
 extended by different amounts in different directions with the point
@@ -137,9 +137,9 @@ be expressed as a composition of a translation and deformation with a
 given fixed point.
 
 ::: proposition
-Let $\bfy$ be a homogeneous deformation. Then, given any point
-$\bfx'\in\bbE^3$, we can decompose $\bfy$ as
-$$\bfy = \bft_1\circ \bfg=\bfg\circ\bft_2,$$ where $\bft_1$ and $\bft_2$
+Let $\bfphi$ be a homogeneous deformation. Then, given any point
+$\bfx'\in\bbE^3$, we can decompose $\bfphi$ as
+$$\bfphi = \bft_1\circ \bfg=\bfg\circ\bft_2,$$ where $\bft_1$ and $\bft_2$
 are translations, and $\bfg$ is a homogeneous deformation with a fixed
 point at $\bfx'$. In particular:
 $$\bfg(\bfx) = \bfx'+\bfF(\bfx-\bfx').$$
@@ -154,10 +154,10 @@ can always be decomposed as a rotation and a stretch about the same
 fixed point, using the polar decomposition theorem.
 
 ::: {#prp-stretchdecomposition}
-If $\bfy$ is a homogeneous deformation with a fixed point $\bfx'$ and
+If $\bfphi$ is a homogeneous deformation with a fixed point $\bfx'$ and
 deformation gradient $\bfF$, let $\bfF = \bfR\bfU=\bfV\bfR$ be the right
-and left polar decompositions of $\bfF$. Then $\bfy$ can be decomposed
-as $$\bfy = \bfr\circ \bfs_1=\bfs_2\circ\bfr,$$ where $\bfr$ is a
+and left polar decompositions of $\bfF$. Then $\bfphi$ can be decomposed
+as $$\bfphi = \bfr\circ \bfs_1=\bfs_2\circ\bfr,$$ where $\bfr$ is a
 rotation about $\bfx'$, and $\bfs_1$ and $\bfs_2$ are stretches about
 $\bfx'$. In particular: $$\begin{gathered}
     \bfr(\bfx) = \bfx'+\bfR(\bfx-\bfx'),\quad\bfs_1(\bfx) = \bfx'+\bfU(\bfx-\bfx')\\
@@ -170,9 +170,9 @@ See Exercise Sheet 3.
 :::
 
 We can go further in decomposing stretches, by making the following
-definition. A homogeneous deformation $\bfy$ is called an *extension*
+definition. A homogeneous deformation $\bfphi$ is called an *extension*
 about $\bfx'$ in the direction of a unit vector $\bfe$ if
-$$\bfy(\bfx) = \bfx'+\bfF(\bfx-\bfx')\quad\text{with}\quad \bfF=\bfI+(\lambda-1)\bfe\otimes\bfe,$$
+$$\bfphi(\bfx) = \bfx'+\bfF(\bfx-\bfx')\quad\text{with}\quad \bfF=\bfI+(\lambda-1)\bfe\otimes\bfe,$$
 for some $\lambda>0$. This terminology is based on the observation that
 $\bfF$ changes the length of any vector parallel to $\bfe$ by a factor
 of $\lambda$, that is
@@ -216,14 +216,14 @@ rotation, then a series of extensions, or as a translation, then a
 series of extensions, and then a rotation. These different
 decompositions allow us to think about how a body might be affected by
 such a sequence of operations, and so devise physically-appropriate
-models, especially since a Taylor expansion of the deformation $\bfy$
+models, especially since a Taylor expansion of the deformation $\bfphi$
 allows us to treat deformations close to a given point as approximately
 homogeneous.
 
 ### The Cauchy--Green strain tensor
 
-Consider a general deformation $\bfy:B\to B'$ with deformation gradient
-$\bfF = \nabla \bfy$. Another measure of strain is the *right
+Consider a general deformation $\bfphi:B\to B'$ with deformation gradient
+$\bfF = \nabla \bfphi$. Another measure of strain is the *right
 Cauchy-Green strain tensor* field $\bfC:B\to\calV^2$, defined by
 $$\bfC = \bfF^T\bfF,$$ Notice that $\bfC$ is symmetric and positive
 definite at every point in $B$.
@@ -251,8 +251,8 @@ We now consider the interpretation of $\bfC$. Consider a point $\bfx_0$
 in the reference configuration, and let $\Omega$ be the open ball of
 radius $\alpha>0$ centred at $\bfx_0$. Consider the points
 $\bfx_1 = \bfx_0+\alpha\bfe$ and $\bfx_2=\bfx_0+\alpha\bfd$, where
-$\bfe$ and $\bfd$ are unit vectors. Let $\bfy_0=\bfy(\bfx_0)$,
-$\bfy_1=\bfy(\bfx_1)$ and $\bfy_2=\bfy(\bfx_2)$ be the corresponding
+$\bfe$ and $\bfd$ are unit vectors. Let $\bfy_0=\bfphi(\bfx_0)$,
+$\bfy_1=\bfphi(\bfx_1)$ and $\bfy_2=\bfphi(\bfx_2)$ be the corresponding
 points in the deformed configuration. Let $\phi\in[0,\pi]$ be the angle
 between $\bfv=\bfy_1-\bfy_0$ and $\bfw=\bfy_2-\bfy_0$.
 
@@ -266,7 +266,7 @@ and $$\phi\to \theta(\bfe,\bfd).$$
 :::
 
 ::: proof
-Note that $\bfv = \bfy(\bfx_0+\alpha\bfe)-\bfy(\bfx_0)$, so
+Note that $\bfv = \bfphi(\bfx_0+\alpha\bfe)-\bfphi(\bfx_0)$, so
 Taylor expanding, we have
 $$\bfv = \alpha \bfF(\bfx_0)\bfe+\bigO(\alpha^2).$$ It follows that
 $$|\bfv|^2 = \alpha^2\bfF(\bfx_0)\bfe\cdot\bfF(\bfx_0)\bfe+\bigO(\alpha^3) = \alpha^2 \bfe\cdot\bfC(\bfx_0)\bfe+\bigO(\alpha^3).$$
@@ -325,8 +325,8 @@ pairs of coordinate directions.
 
 ### Rigid deformations
 
-A homogeneous deformation $\bfy:B\to B'$ is a *rigid deformation* if
-$$\bfy(\bfx) = \bfc+\bfQ\bfx$$ where $\bfc\in\calV$ and $\bfQ\in\calV^2$
+A homogeneous deformation $\bfphi:B\to B'$ is a *rigid deformation* if
+$$\bfphi(\bfx) = \bfc+\bfQ\bfx$$ where $\bfc\in\calV$ and $\bfQ\in\calV^2$
 is a rotation tensor. For such deformations we have $\bfF=\bfQ$, and
 hence $$\bfC = \bfF^T\bfF = \bfQ^T\bfQ = \bfI.$$ It follows that rigid
 deformations produce no strain measured by $\bfC$. Looking carefully at
@@ -338,9 +338,9 @@ is rigid if and only if $\bfC(\bfx)=\bfI$ for all $\bfx\in B$.
 
 ### The infinitesimal strain tensor
 
-Consider a deformation $\bfy:B\to B'$ with displacement field $\bfu$ and
+Consider a deformation $\bfphi:B\to B'$ with displacement field $\bfu$ and
 displacement gradient $\nabla \bfu$. The *infinitesimal strain tensor*
-field associated with $\bfy$ is $\bfE:B\to\calV^2$ defined by
+field associated with $\bfphi$ is $\bfE:B\to\calV^2$ defined by
 $$\bfE = \sym(\nabla\bfu) = \tfrac12(\nabla\bfu+\nabla\bfu^T).$$ Note
 that, by definition, $\bfE$ is symmetric. We also note that in the
 Engineering literature, it is common to denote the infinitesimal strain
@@ -352,7 +352,7 @@ $\nabla \bfu = \bfF-\bfI$, and hence $\bfE = \sym(\bfF-\bfI)$. Since
 $\bfC = \bfF^T\bfF$, we see that
 $$\bfE = \tfrac12(\bfC-\bfI)-\tfrac12\nabla\bfu^T\nabla \bfu.$$ The
 tensor $\bfE$ is particularly useful in the case of small deformations.
-A deformation $\bfy$ is *small* if there is a number
+A deformation $\bfphi$ is *small* if there is a number
 $0\leq \varepsilon\ll 1$ such that
 $|\nabla\bfu(\bfx)| = \bigO(\varepsilon)$ for all points $\bfx\in B$,
 and in this case, we see that that
@@ -362,8 +362,8 @@ multiplicative factor and offset, and $\bfE$ will arise when studying
 linearised models of stress in elastic solids.
 
 -   Note that if $\nabla \bfu =\bfO$ everywhere in $B$, we have
-    $\bfF = \bfI$, and hence $\bfy$ is a translation. It follows that
-    $\bfy$ is a small deformation when it deviates only slightly from a
+    $\bfF = \bfI$, and hence $\bfphi$ is a translation. It follows that
+    $\bfphi$ is a small deformation when it deviates only slightly from a
     pure translation.
 
 -   For small deformations, the tensor $\bfE$ contains similar
@@ -405,7 +405,7 @@ This result can be proven using
 
 ### Infinitesimal rigid deformations
 
-A homogeneous deformation $\bfy$ is called *infinitesimally rigid* if
+A homogeneous deformation $\bfphi$ is called *infinitesimally rigid* if
 the associated displacement field $\bfu$ takes the form
 $$\bfu(\bfx) = \bfc +\bfW\bfx$$ for some vector $\bfc\in\calV$ and a
 skew-symmetric tensor $\bfW\in\calV^2$. Recalling the result of
