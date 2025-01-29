@@ -66,6 +66,7 @@ format: html
 \providecommand{\bfnu}{{\boldsymbol{\nu}}}
 \providecommand{\bfpsi}{{\boldsymbol{\psi}}}
 \providecommand{\bfphi}{{\boldsymbol{\varphi}}}
+\providecommand{\bfeps}{{\boldsymbol{\varepsilon}}}
 \providecommand{\bfSigma}{{\boldsymbol{\Sigma}}}
 \providecommand{\bfOmega}{{\boldsymbol{\Omega}}}
 \providecommand{\calI}{{\mathcal{I}}}

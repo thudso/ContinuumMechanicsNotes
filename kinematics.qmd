@@ -32,11 +32,11 @@ By the end of this chapter, you should be able to:
 At any particular time, a material body occupies an open subset
 $B\subseteq\bbE^3$, as discussed in
 @sec-mass-forces. The identification of material particles
-with point of $B$ defines what is called a *configuration* of the body.
+with point of $B$ defines what is called a **configuration** of the body.
 
-A *deformation* is a mapping between two configurations, usually a fixed
-region $B$ called the *reference configuration* and another varying
-configuration $B'$ called the *deformed configuration*. We will denote
+A **deformation** is a mapping between two configurations, usually a fixed
+region $B$ called the **reference configuration** and another varying
+configuration $B'$ called the **deformed configuration**. We will denote
 points in $B$ by $\bfx$, and points in $B'$ by $\bfy$. If we view $B$
 and $B'$ as two configurations of the same material body, we expect that
 there is a one-to-one correspondence between points in the two
@@ -47,17 +47,22 @@ describe the mapping from $B$ to $B'$ by a function $\bfphi:B\to B'$ which
 maps each point $\bfx$ to a point $\bfphi(\bfx)\in B'$. The displacement
 of a material particle from its initial location $\bfx$ to final
 location $\bfphi(\bfx)$ is $$\bfu(\bfx) = \bfphi(\bfx)-\bfx.$$ We call
-$\bfu:B\to\calV$ the *displacement field* associated to $\bfphi$.
+$\bfu:B\to\calV$ the **displacement field** associated to $\bfphi$.
+
 
 We will assume that deformation maps satisfy the following two important
 conditions:
 
+::: {.callout-note icon="false"}
+## Admissible deformation
+A deformation $\bfphi:B\to B'$ is said to be **admissible** if:
+
 -   $\bfphi:B\to B'$ is one-to-one, and
 
 -   $\det\nabla\bfphi(\bfx)>0$ for all $\bfx\in B$.
+:::
 
-Deformations satisfying both of these assumptions will be called
-*admissible deformations*. The first of these assumptions means that two
+ The first of these assumptions means that two
 material particles cannot occupy the same location, and the second
 ensures that a body cannot be continuously mapped onto its own mirror
 image. Note that the first assumption is sufficient to ensure that
@@ -81,54 +86,88 @@ modelling solid materials.
 
 ### The deformation gradient
 
-One way to quantify strain is through the *deformation gradient*, a
+One way to quantify strain is by taking the derivative of the deformation:
+
+:::{.callout-note icon="false"}
+## Deformation gradient
+The **deformation gradient** is a
 second-order tensor field $\bfF:B\to\calV^2$ defined to be
-$$\bfF(\bfx) = \nabla \bfphi(\bfx).$$ The field $\bfF$ naturally provides
+$$\bfF(\bfx) = \nabla \bfphi(\bfx).$$ 
+:::
+
+The field $\bfF$ naturally provides
 information on the local behaviour of $\bfphi$, since Taylor expanding, we
 see
 $$\bfphi(\bfx) = \bfphi(\bfx_0) +\bfF(\bfx_0)(\bfx-\bfx_0)+\bigO\big(|\bfx-\bfx_0|^2\big),$$
 or equivalently
 $$\bfphi(\bfx) = \bfc+\bfF(\bfx_0)\bfx+\bigO\big(|\bfx-\bfx_0|^2\big)\quad\text{where}\quad \bfc = \bfphi(\bfx_0)-\bfF(\bfx_0)\bfx_0.$$
 
-To understand better how $\bfF$ measures strain, suppose for simplicity
-that $\bfphi$ is *homogeneous*, which means the deformation gradient field
-is constant, i.e. $$\bfphi(\bfx) = \bfc+ \bfF\bfx,$$ so the deformation is
-an *affine map*. We note that by virtue of this affine nature, any line
+To understand better how $\bfF$ measures strain, we will look at the following simple class of deformations.
+
+::: {.callout-note icon="false"}
+## Homogeneous deformation
+A deformation $\bfphi$ is **homogeneous** if its deformation gradient field
+is constant, i.e. it can be written as
+$$
+\bfphi(\bfx) = \bfc+ \bfF\bfx
+$$
+for a constant vector $\bfc\in\calV$ and a constant tensor $\bfF\in\calV^2$.
+:::
+
+In other words, homogeneous deformations are **affine maps**. We note that by virtue of this affine nature, any line
 segment in the reference configuration $B$ is mapped onto a
 corresponding line segment in the deformed configuration $B'$.
-
 We also remark that the admissibility conditions we require of
 deformations imply that $\det\nabla\bfphi(\bfx)>0$, which ensures that
 $\det\bfF>0$, so $\bfF$ is invertible.
 
-#### Translations and fixed points
+### Translations, Rotations and Rigid body deformations
 
-A homogeneous deformation $\bfphi$ is called a translation if $\bfF=\bfI$,
+We now define some special classes of homogeneous deformation.
+
+::: {.callout-note icon="false"}
+## Translations
+A homogeneous deformation $\bfphi$ is called a **translation** if $\bfF=\bfI$,
 i.e. $$\bfphi(\bfx) = \bfx+\bfc\quad\text{for some fixed }\bfc\in\calV.$$
-Under such a deformation, all points in $B'$ are simply moved through a
-displacement $\bfc$, so there is no change in shape or orientation of
-the body.
+:::
 
-A homogeneous deformation has a fixed point at $\bfx'$ if
+Under the action of a translation, all points in $B'$ are simply moved through a displacement $\bfc$, so there is no change in shape or orientation of the body.
+
+::: {.callout-note icon="false"}
+## Rotation
+A homogeneous deformation $\bfphi$ is called a **rotation about $\bfx'$** if
+it takes the form $$\bfphi(\bfx)=\bfx'+\bfQ(\bfx-\bfx')$$ for some
+rotation tensor $\bfQ\in\calV^2$.
+:::
+
+As for translations, rotations change the orientation of the body, but not its shape. Together, we can combine these two classes to get:
+
+::: {.callout-note icon="false"}
+## Rigid deformation
+A homogeneous deformation $\bfphi$ is called a **rigid deformation** if it can be written as $$\bfphi(\bfx) = \bfc+\bfQ\bfx$$ where $\bfc\in\calV$ and $\bfQ\in\calV^2$ is a rotation tensor.
+:::
+
+Rigid deformations are important since they correspond to moving a body in three dimensions with changing its shape. Similarly, they encode important symmetries of Euclidean space, allowing us to change the origin and orthonormal basis of our coordinate system.
+
+Looking back at our definition of what it means to be a rotation about a point $\bfx'$, we see that it makes sense to define $\bfx'$ as a fixed point of the deformation, since $\bfphi(\bfx') = \bfx'$. This gives us the following definition:
+
+::: {.callout-note icon="false"}
+## Fixed point
+A homogeneous deformation has a **fixed point** at $\bfx'$ if
 $$
   \bfphi(\bfx) = \bfx'+ \bfF(\bfx-\bfx').
 $$ {#eq-defFixedPoint}
-The point $\bfx'$ is fixed in
-the sense that $\bfphi(\bfx') = \bfx'$. Any other point in the body is
-displaced by an amount determined by $\bfF$ and the position relative to
-the fixed point $\bfx'$. For such a deformation, the body can change
-both shape and orientation. We now define a couple of classes of
-homogeneous deformation with fixed points.
+:::
 
-A homogeneous deformation $\bfphi$ is called a *rotation about $\bfx'$* if
-it takes the form $$\bfphi(\bfx)=\bfx'+\bfQ(\bfx-\bfx')$$ for some
-rotation tensor $\bfQ\in\calV^2$. Such deformations change the
-orientation of the body, but not its shape.
+For a deformation with a fixed point, any point which is not $\bfx'$ in the body is displaced by an amount determined by $\bfF$ and the position relative to the fixed point $\bfx'$. For such a deformation, the body can change both shape and orientation, and we now define some classes of homogeneous deformation with fixed points.
 
-A homogeneous deformation $\bfphi$ is called a *stretch about $\bfx'$* if
+::: {.callout-note icon="false"}
+## Stretch
+A homogeneous deformation $\bfphi$ is called a **stretch about $\bfx'$** if
 it takes the form $$\bfphi(\bfx)=\bfx'+\bfS(\bfx-\bfx')$$ for some
-symmetric positive definite tensor $\bfS\in\calV^2$. Under such a
-deformation, the orientation of the body is not changed, but it is
+symmetric positive definite tensor $\bfS\in\calV^2$. 
+:::
+When undergoing a stretch, the orientation of the body is not changed, but it is
 extended by different amounts in different directions with the point
 $\bfx'$ remaining fixed.
 
@@ -136,22 +175,18 @@ The following result shows that an arbitrary homogeneous deformation can
 be expressed as a composition of a translation and deformation with a
 given fixed point.
 
-::: proposition
+:::  {#prp-translationdecomp}
 Let $\bfphi$ be a homogeneous deformation. Then, given any point
 $\bfx'\in\bbE^3$, we can decompose $\bfphi$ as
 $$\bfphi = \bft_1\circ \bfg=\bfg\circ\bft_2,$$ where $\bft_1$ and $\bft_2$
-are translations, and $\bfg$ is a homogeneous deformation with a fixed
-point at $\bfx'$. In particular:
-$$\bfg(\bfx) = \bfx'+\bfF(\bfx-\bfx').$$
+are **translations**, and $\bfg$ is a homogeneous deformation with a **fixed
+point** at $\bfx'$. In particular, $\bfg$ takes the form
+$$
+\bfg(\bfx) = \bfx'+\bfF(\bfx-\bfx').
+$$
 :::
 
-::: proof
-See Exercise Sheet 3.
-:::
-
-We now show that an arbitrary homogeneous deformation with a fixed point
-can always be decomposed as a rotation and a stretch about the same
-fixed point, using the polar decomposition theorem.
+The following result shows that an arbitrary homogeneous deformation with a fixed point can always be decomposed as a rotation and a stretch about the same fixed point, using the polar decomposition theorem.
 
 ::: {#prp-stretchdecomposition}
 If $\bfphi$ is a homogeneous deformation with a fixed point $\bfx'$ and
@@ -165,15 +200,17 @@ $\bfx'$. In particular: $$\begin{gathered}
   \end{gathered}$$
 :::
 
-::: proof
-See Exercise Sheet 3.
-:::
-
 We can go further in decomposing stretches, by making the following
-definition. A homogeneous deformation $\bfphi$ is called an *extension*
-about $\bfx'$ in the direction of a unit vector $\bfe$ if
+definition. 
+
+::: {.callout-note icon="false"}
+## Extension
+A homogeneous deformation $\bfphi$ is called an **extension**
+about $\bfx'$ in the direction of the unit vector $\bfe$ if
 $$\bfphi(\bfx) = \bfx'+\bfF(\bfx-\bfx')\quad\text{with}\quad \bfF=\bfI+(\lambda-1)\bfe\otimes\bfe,$$
-for some $\lambda>0$. This terminology is based on the observation that
+for some $\lambda>0$.
+:::
+ This terminology is based on the observation that
 $\bfF$ changes the length of any vector parallel to $\bfe$ by a factor
 of $\lambda$, that is
 $$\bfF(\alpha\bfe) = \alpha\bfe+(\lambda-1)\alpha(\bfe\cdot\bfe)\bfe = \lambda\alpha\bfe$$
@@ -183,7 +220,7 @@ The following result shows that the stretches appearing in
 composition of three extensions defined by the eigenvalues and
 eigenvectors of $\bfU$ and $\bfV$.
 
-::: proposition
+::: {#prp-extensiondecomp}
 Let $\bfs_1$ and $\bfs_2$ be the stretches defined in
 @prp-stretchdecomposition, and let $\{\lambda_i,\bfu_i\}$
 and $\{\lambda_i,\bfv_i\}$ be the eigenpairs associated with the tensors
@@ -194,21 +231,19 @@ direction $\bfu_i$, and $\bfh_i$ is the extension about $\bfx'$ by
 $\lambda_i$ in the direction $\bfv_i$.
 :::
 
-**Exercise:** Prove this result.
+We make a few notes about this result:
 
-Notes:
-
-1.  The tensors $\bfU$ and $\bfV$ which appear in the right and left
+-  The tensors $\bfU$ and $\bfV$ which appear in the right and left
     polar decompositions of $\bfF$ have the same eigenvalues, but (in
     general) have different eigenvectors. It follows that $\bfs_1$ and
     $\bfs_2$ give rise to extensions by the same amounts, but in
     different directions.
 
-2.  We call the eigenvalues $\lambda_i$ the *principal stretches*
+-  We call the eigenvalues $\lambda_i$ the **principal stretches**
     associated with the deformation gradient $\bfF$, and the
     eigenvectors $\bfu_i$ and $\bfv_i$ are respectively referred to as
-    the right and left *principal directions*. Similarly, we call $\bfU$
-    and $\bfV$ the right and left *stretch tensors*.
+    the right and left **principal directions**. Similarly, we call $\bfU$
+    and $\bfV$ the right and left **stretch tensors**.
 
 In summary, we have shown that a homogeneous deformation can be
 decomposed in various ways, for example as a translation, then a
@@ -222,14 +257,16 @@ homogeneous.
 
 ### The Cauchy--Green strain tensor
 
-Consider a general deformation $\bfphi:B\to B'$ with deformation gradient
-$\bfF = \nabla \bfphi$. Another measure of strain is the *right
-Cauchy-Green strain tensor* field $\bfC:B\to\calV^2$, defined by
-$$\bfC = \bfF^T\bfF,$$ Notice that $\bfC$ is symmetric and positive
-definite at every point in $B$.
+A second measure of strain is:
 
-While $\bfF$ contains information on both rotation and stretching,
-$\bfC$ including information about stretches only: since
+::: {.callout-note icon="false"}
+## Cauchy-Green strain
+The **(right) Cauchy-Green strain tensor** field is $\bfC:B\to\calV^2$, defined by
+$$\bfC = \bfF^T\bfF.$$
+:::
+
+Notice that $\bfC$ is symmetric and positive definite at every point in $B$. While $\bfF$ contains information on both rotation and stretching,
+$\bfC$ includes information about stretches only. Since
 $\bfF=\bfR\bfU$, $$\bfC = \bfF^T\bfF = \bfU^2,$$ we see the definition
 of $\bfC$ does not contain $\bfR$.
 
@@ -244,73 +281,77 @@ of $\bfC$ does not contain $\bfR$.
     $$\bfC = \sum_{i=1}^3 \lambda_i^2\bfe_i\otimes\bfe_i,$$ so the
     eigenvalues of $\bfC$ are the squares of the principal stretches.
 
--   Another measure of strain is the *left Cauchy-Green strain tensor*,
-    $\bfB = \bfF\bfF^T$. We will not use this measure here.
+-   Another measure of strain is the **left Cauchy-Green strain tensor**,
+    $\bfB = \bfF\bfF^T = \bfV^2$.
 
-We now consider the interpretation of $\bfC$. Consider a point $\bfx_0$
-in the reference configuration, and let $\Omega$ be the open ball of
-radius $\alpha>0$ centred at $\bfx_0$. Consider the points
-$\bfx_1 = \bfx_0+\alpha\bfe$ and $\bfx_2=\bfx_0+\alpha\bfd$, where
-$\bfe$ and $\bfd$ are unit vectors. Let $\bfy_0=\bfphi(\bfx_0)$,
-$\bfy_1=\bfphi(\bfx_1)$ and $\bfy_2=\bfphi(\bfx_2)$ be the corresponding
-points in the deformed configuration. Let $\phi\in[0,\pi]$ be the angle
-between $\bfv=\bfy_1-\bfy_0$ and $\bfw=\bfy_2-\bfy_0$.
+We now consider the interpretation of $\bfC$. Consider an arbitrary point $\bfx_0$ in the reference configuration, and let $\Omega$ be the open ball of radius $\alpha>0$ centred at $\bfx_0$. Consider the points
+$$
+\bfx' = \bfx_0+\alpha\bfe'\quad\text{and}\quad\bfx''=\bfx_0+\alpha\bfe'',
+$$
+where $\bfe'$ and $\bfe''$ are unit vectors. Let
+$$
+\bfy_0=\bfphi(\bfx_0),\quad
+\bfy'=\bfphi(\bfx')\quad\text{and}
+\quad\bfy''=\bfphi(\bfx'')
+$$
+be the corresponding points in the deformed configuration. Let $\phi\in[0,\pi]$ be the angle
+between the displacement vectors $\bfy'-\bfy_0$ and $\bfy''-\bfy_0$ in the deformed configuration. Then we have the following result:
 
 ::: {#prp-CGstrainrelations}
-For any point $\bfx_0\in B$ and unit vectors $\bfe$ and $\bfd$, define
-$$\lambda(\bfe) = \sqrt{\bfe\cdot\bfC\bfe}>0 \quad\text{and}\quad
-    \theta(\bfe,\bfd) = \arccos\bigg(\frac{\bfe\cdot\bfC\bfd}{\sqrt{\bfe\cdot\bfC\bfe}\sqrt{\bfd\cdot\bfC\bfd}}\bigg)\in[0,\pi].$$
+For any point $\bfx_0\in B$ and unit vectors $\bfe'$ and $\bfe''$, define
+$$\lambda(\bfe') = \sqrt{\bfe'\cdot\bfC\bfe'}>0 \quad\text{and}\quad
+    \theta(\bfe',\bfe'') = \arccos\bigg(\frac{\bfe'\cdot\bfC\bfe''}{\lambda(\bfe')\lambda(\bfe'')}\bigg)\in[0,\pi].$$
 Then, as $\alpha\to0$, we have that
-$$\frac{|\bfy'-\bfy_0|}{|\bfx'-\bfx_0|}\to\lambda(\bfe),\quad \frac{|\bfy''-\bfy_0|}{|\bfx''-\bfx_0|}\to\lambda(\bfd)$$
-and $$\phi\to \theta(\bfe,\bfd).$$
+$$\frac{|\bfy'-\bfy_0|}{|\bfx'-\bfx_0|}\to\lambda(\bfe'),\quad \frac{|\bfy''-\bfy_0|}{|\bfx''-\bfx_0|}\to\lambda(\bfe'')$$
+and $$\phi\to \theta(\bfe',\bfe'').$$
 :::
 
 ::: proof
-Note that $\bfv = \bfphi(\bfx_0+\alpha\bfe)-\bfphi(\bfx_0)$, so
+Note that $\bfy'-\bfy_0 = \bfphi(\bfx_0+\alpha\bfe')-\bfphi(\bfx_0)$, so
 Taylor expanding, we have
-$$\bfv = \alpha \bfF(\bfx_0)\bfe+\bigO(\alpha^2).$$ It follows that
-$$|\bfv|^2 = \alpha^2\bfF(\bfx_0)\bfe\cdot\bfF(\bfx_0)\bfe+\bigO(\alpha^3) = \alpha^2 \bfe\cdot\bfC(\bfx_0)\bfe+\bigO(\alpha^3).$$
-Dividing through by $\alpha^2=|\bfx'-\bfx_0|^2$, and using the fact that
-$\bfv=\bfy'-\bfy_0$, we have
-$$\frac{|\bfy'-\bfy_0|^2}{|\bfx'-\bfx_0|^2} = \frac{|\bfv|^2}{\alpha^2} = \bfe\cdot\bfC(\bfx_0)\bfe +\bigO(\alpha),$$
+$$\bfy'-\bfy_0 = \alpha \bfF(\bfx_0)\bfe'+\bigO(\alpha^2).$$ It follows that
+$$|\bfy'-\bfy_0|^2 = \alpha^2\Big(\bfF(\bfx_0)\bfe'\Big)\cdot\Big(\bfF(\bfx_0)\bfe'\Big)+\bigO(\alpha^3) = \alpha^2 \bfe'\cdot\bfC(\bfx_0)\bfe'+\bigO(\alpha^3).$$
+Dividing through by $\alpha^2=|\bfx'-\bfx_0|^2$, we have
+$$
+\frac{|\bfy'-\bfy_0|^2}{|\bfx'-\bfx_0|^2}
+ = \bfe'\cdot\bfC(\bfx_0)\bfe' +\bigO(\alpha),$$
 which, after taking a square root, proves the first result. The second
 result follows by a similar argument.
 
 To establish the final result, we note that
-$$\cos\phi = \frac{\bfv\cdot\bfw}{|\bfv||\bfw|}.$$ Using the facts that
-$\bfv=\alpha\bfF(\bfx)\bfe+\bigO(\alpha^2)$ and
-$\bfw=\alpha\bfF(\bfx)\bfd+\bigO(\alpha^2)$, we have
-$$\frac{\bfv\cdot\bfw}{\alpha^2} = \bfe\cdot\bfC(\bfx)\bfd+\bigO(\alpha).$$
-Then, using $|\bfv| = \alpha \lambda(\bfe)+\bigO(\alpha^2)$ and
-$|\bfw|=\alpha\lambda(\bfd)+\bigO(\alpha^2)$, we conclude.
+$$\cos\phi = \frac{(\bfy'-\bfy_0)\cdot(\bfy''-\bfy_0)}{|\bfy'-\bfy_0||\bfy''-\bfy_0|}.$$ Using the facts that
+$\bfy'-\bfy_0=\alpha\bfF(\bfx)\bfe'+\bigO(\alpha^2)$ and
+$\bfy''-\bfy_0=\alpha\bfF(\bfx)\bfe''+\bigO(\alpha^2)$, and using the first part of the result, we have
+$$
+\cos\phi = \bfe'\cdot\bfC(\bfx)\bfe''+\bigO(\alpha).
+$$
+Letting $\alpha\to0$, we conclude.
 :::
 
 **Remarks:**
 
-1.  This result states that $\lambda(\bfe)$ approximates the ratio of
+-  This result states that $\lambda(\bfe)$ approximates the ratio of
     lengths between deformed points and reference points, where the
     reference points are separated by a short displacement in the
     direction $\bfe$. This is the reason for naming $\lambda(\bfe)$ the
     *stretch* in the direction $\bfe$ at the reference point $\bfx$.
 
-2.  At any fixed reference point $\bfx$, the extreme values of
+-  At any fixed reference point $\bfx$, the extreme values of
     $\lambda(\bfe)$ occur when $\bfe$ is an eigenvector of $\bfC$ (i.e.
     a right principal direction). As a result the extreme values of
     $\lambda(\bfe)$ are given by the maximum and minimum principal
     stretches.
 
-3.  $\theta(\bfe,\bfd)$ approximates the angle between points in the
+-  $\theta(\bfe',\bfe'')$ approximates the angle between points in the
     deformed configuration which lie at short distances from $\bfx$
-    along the directions $\bfe$ and $\bfd$. If
-    $\Theta(\bfe,\bfd) = \arccos(\bfe\cdot\bfd)$ is the angle between
+    along the directions $\bfe'$ and $\bfe''$. If
+    $\Theta(\bfe',\bfe'') = \arccos(\bfe'\cdot\bfe'')$ is the angle between
     these directions in the reference configuration, we define
-    $$\gamma(\bfe,\bfd) = \Theta(\bfe,\bfd)-\theta(\bfe,\bfd),$$ which
-    we call the *shear* between the directions $\bfe$ and $\bfd$ at the
-    point $\bfx$. The shear measures the change in angle between
-    directions due to deformation.
+    $$\gamma(\bfe',\bfe'') = \Theta(\bfe',\bfe'')-\theta(\bfe',\bfe''),$$ which
+    we call the **shear** between the directions $\bfe'$ and $\bfe''$ at the point $\bfx$. The shear measures the change in angle between directions due to deformation.
 
 The following result shows that $\bfC$ explicitly characterises the
-stretch and shear caused by a deformation.
+stretch and shear caused by a deformation when considered in a particular coordinate frame.
 
 ::: {#prp-stretchshear}
 Let $C_{ij}$ be the
@@ -323,11 +364,7 @@ the off-diagonal components capture the shear between corresponding
 pairs of coordinate directions.
 :::
 
-### Rigid deformations
-
-A homogeneous deformation $\bfphi:B\to B'$ is a *rigid deformation* if
-$$\bfphi(\bfx) = \bfc+\bfQ\bfx$$ where $\bfc\in\calV$ and $\bfQ\in\calV^2$
-is a rotation tensor. For such deformations we have $\bfF=\bfQ$, and
+To finish our discussion of the Cauchy-Green strain, we note that if $\bfphi$ is a rigid deformation, we have $\bfF=\bfQ$ where $\bfQ$ is a rotation tensor, and
 hence $$\bfC = \bfF^T\bfF = \bfQ^T\bfQ = \bfI.$$ It follows that rigid
 deformations produce no strain measured by $\bfC$. Looking carefully at
 the proof of
@@ -336,57 +373,54 @@ and orientation of any three points in $B$ are unchanged by a rigid
 deformation (hence the name). It is possible to show that a deformation
 is rigid if and only if $\bfC(\bfx)=\bfI$ for all $\bfx\in B$.
 
+
 ### The infinitesimal strain tensor
 
 Consider a deformation $\bfphi:B\to B'$ with displacement field $\bfu$ and
-displacement gradient $\nabla \bfu$. The *infinitesimal strain tensor*
-field associated with $\bfphi$ is $\bfE:B\to\calV^2$ defined by
-$$\bfE = \sym(\nabla\bfu) = \tfrac12(\nabla\bfu+\nabla\bfu^T).$$ Note
-that, by definition, $\bfE$ is symmetric. We also note that in the
-Engineering literature, it is common to denote the infinitesimal strain
-tensor as $\boldsymbol{\varepsilon}$.
+displacement gradient $\nabla \bfu$. We define:
 
-$\bfE$ is related to the deformation gradient $\bfF$ and the
+::: {.callout-note icon="false"}
+## Infinitesimal strain
+The **infinitesimal strain tensor**
+field associated with a deformation is $\bfeps:B\to\calV^2$ defined by
+$$\bfeps = \sym(\nabla\bfu) = \tfrac12(\nabla\bfu+\nabla\bfu^T).$$
+:::
+
+Note that, by definition, $\bfeps$ is symmetric. $\bfeps$ can related to the deformation gradient $\bfF$ and the
 Cauchy-Green tensor $\bfC$. From the definition of $\bfu$, we see that
-$\nabla \bfu = \bfF-\bfI$, and hence $\bfE = \sym(\bfF-\bfI)$. Since
+$\nabla \bfu = \bfF-\bfI$, and hence $\bfeps = \sym(\bfF-\bfI)$. Since
 $\bfC = \bfF^T\bfF$, we see that
-$$\bfE = \tfrac12(\bfC-\bfI)-\tfrac12\nabla\bfu^T\nabla \bfu.$$ The
-tensor $\bfE$ is particularly useful in the case of small deformations.
-A deformation $\bfphi$ is *small* if there is a number
-$0\leq \varepsilon\ll 1$ such that
-$|\nabla\bfu(\bfx)| = \bigO(\varepsilon)$ for all points $\bfx\in B$,
-and in this case, we see that that
-$$\bfE = \tfrac12(\bfC-\bfI)+\bigO(\varepsilon^2).$$ If we drop terms of
-$\bigO(\varepsilon^2)$, then $\bfE$ is equivalent to $\bfC$ up to a
-multiplicative factor and offset, and $\bfE$ will arise when studying
+$$\bfeps = \tfrac12(\bfC-\bfI)-\tfrac12\nabla\bfu^T\nabla \bfu.$$ The
+tensor $\bfeps$ is particularly useful in the case of small deformations.
+A deformation $\bfphi$ induces **small strains** if the displacement gradient is small, i.e. $|\nabla\bfu(\bfx)|\ll 1$ for all points $\bfx\in B$.
+In this case, we see that that
+$$\bfeps = \tfrac12(\bfC-\bfI)+\bigO\left(|\nabla\bfu|^2\right).$$ If we drop the latter terms, then $\bfeps$ is equivalent to $\bfC$ up to a multiplicative factor and offset, and $\bfeps$ will arise when studying
 linearised models of stress in elastic solids.
 
 -   Note that if $\nabla \bfu =\bfO$ everywhere in $B$, we have
     $\bfF = \bfI$, and hence $\bfphi$ is a translation. It follows that
     $\bfphi$ is a small deformation when it deviates only slightly from a
-    pure translation.
+    pure *translation* (not a rigid body motion!).
 
--   For small deformations, the tensor $\bfE$ contains similar
-    information to $\bfC$. However, we note that $\bfE$ depends linearly
+-   For small deformations, the tensor $\bfeps$ contains similar
+    information to $\bfC$. However, we note that $\bfeps$ depends linearly
     on $\bfu$ (and hence on $\bfy$), whereas $\bfC$ depends non-linearly
     on $\bfu$.
 
-To interpret $\bfE$, we have the following result.
+To interpret $\bfeps$, we have the following result.
 
 ::: {#prp-Ecomponents}
-Let $E_{ij}$ be the components of $\bfE$ taken with respect to a Cartesian frame
+Let $\varepsilon_{ij}$ be the components of $\bfeps$ taken with respect to a Cartesian frame
 $\{\bfe_i\}$. Then, with no sum over repeated indices implies, we have
-$$E_{ii} =\lambda(\bfe_i)-1+\bigO(\varepsilon^2)\quad\text{and}\quad
-    E_{ij} =\tfrac12\sin\gamma(\bfe_i,\bfe_j)+\bigO(\varepsilon^2),$$
+$$\varepsilon_{ii} =\lambda(\bfe_i)-1+\bigO(|\nabla\bfu|^2)\quad\text{and}\quad
+    \varepsilon_{ij} =\tfrac12\sin\gamma(\bfe_i,\bfe_j)+\bigO(|\nabla\bfu|^2),$$
 where $\lambda(\bfe_i)$ is the stretch in the direction $\bfe_i$, and
 $\gamma(\bfe_i,\bfe_j)$ is the shear between the directions $\bfe_i$ and
 $\bfe_j$.
 :::
 
-This result can be proven using
+The result above can be proven using
 @prp-stretchshear.
-
-**Notes:**
 
 -   As shown in
     @prp-CGstrainrelations, the stretch $\lambda(\bfe_i)$
@@ -397,8 +431,8 @@ This result can be proven using
     pointing in the $\bfe_i$ direction in the reference configuration.
 
 -   When the shear angle $\gamma(\bfe_i,\bfe_j)$ is small, we have that
-    $$E_{ij}\approx \tfrac12\sin\gamma(\bfe_i,\bfe_j)\approx \tfrac12\gamma(\bfe_i,\bfe_j),$$
-    so for small deformations, the off-diagonal components of $\bfE$ are
+    $$\varepsilon_{ij}\approx \tfrac12\sin\gamma(\bfe_i,\bfe_j)\approx \tfrac12\gamma(\bfe_i,\bfe_j),$$
+    so for small deformations, the off-diagonal components of $\bfeps$ are
     approximately half the shear angle between to line segments which
     pointed in the directions $\bfe_i$ and $\bfe_j$ in the reference
     configuration.
@@ -413,9 +447,9 @@ skew-symmetric tensor $\bfW\in\calV^2$. Recalling the result of
 $$\bfu(\bfx) = \bfc +\bfw\times\bfx$$ where $\bfw$ is the axial vector
 of $\bfW$. For an infinitesimally rigid deformation, the displacement
 gradient is $\nabla \bfu = \bfW$, and
-$$\bfE = \sym(\nabla\bfu) = \tfrac12(\bfW+\bfW^T) = \bfO.$$ As a result,
+$$\bfeps = \sym(\nabla\bfu) = \tfrac12(\bfW+\bfW^T) = \bfO.$$ As a result,
 we see that infinitesimal rigid deformations produce no strain measured
-by $\bfE$.
+by $\bfeps$.
 
 ## Motion
 
@@ -593,14 +627,14 @@ This too is a spatial field $\bfW(\cdot,t):B_t\to\calV^2$, which is skew
 for all points $\bfy\in B_t$ and times $t$.
 
 We can use arguments analogous to those used to analyse the
-infinitesimal strain tensor $\bfE$ to study $\bfL$, which leads us to
+infinitesimal strain tensor $\bfeps$ to study $\bfL$, which leads us to
 conclude that the diagonal components of $\bfL$ quantify the
 instantaneous rate of stretch at a spatial point in the coordinate axis
 directions. Similarly, the off-diagonal components of $\bfL$ quantify
 the instantaneous rate of shearing. In particular, if we consider a
 motion $\widehat\bfphi:B_t\to B_{t+s}$ where $s\ll 1$, then $\bfL$ is
 the rate of change of both the corresponding infinitesimal strain tensor
-$\widehat\bfE$ and of the right stretch tensor $\widehat\bfU$.
+$\widehat\bfeps$ and of the right stretch tensor $\widehat\bfU$.
 
 The skew-symmetric tensor $\bfW$ quantifies the instantaneous rate of
 rigid rotation. In particular, considering the same motion
@@ -617,14 +651,15 @@ therefore measures the rotation or spin at a given spatial point.
 
 ### Rigid motion
 
-A motion $\bfphi$ is *rigid* if
-$$\varphi(\bfx,t) = \bfc(t)+\bfQ(t)\bfx$$ for some time-dependent vector
+A motion $\bfphi$ is **rigid** if it is a rigid deformation at each time $t$, i.e.
+$$
+\bfphi(\bfx,t) = \bfc(t)+\bfQ(t)\bfx
+$$ for some time-dependent vector
 $\bfc(t)$ and rotation tensor $\bfQ(t)$. For such motions it can be
 shown that the spatial velocity field takes the form
-$$\bfv(\bfy,t) = \bfomega(t)\times\big(\bfy-\bfc(t)\big)+\dot{\bfc}(t),$$
-where $\bfomega(t)$ is a time-dependent vector called the *spatial
-angular velocity* of the motion and $\dot{\bfc}$ indicates a time
-derivative. We can use
+$$\bfv(\bfy,t) = \bfomega\times(\bfy-\bfc)+\frac{\dd\bfc}{\dd t},$$
+where $\bfomega(t)$ is a time-dependent vector called the **spatial
+angular velocity** of the motion. We can use
 @prp-skewtensorvectorproduct to write this as
 $$\bfv(\bfy,t) = \bfOmega(t)\big(\bfy-\bfc(t)\big)+\dot\bfc(t),$$ where
 $\bfOmega(t)$ is the second-order tensor with axial vector
