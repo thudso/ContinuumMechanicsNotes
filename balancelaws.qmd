@@ -17,8 +17,8 @@ bodies, regardless of whether they are solid or fluid.
 -   Explain why we must include a description of temperature in a
     continuum theory of matter.
 
--   State the physical principles of the *conservation of mass*, *laws
-    of inertia*, and the *first and second laws of thermodynamics* as
+-   State the physical principles of the *conservation of mass*, *laws of inertia*,
+    and the *first law of thermodynamics* as
     used in continuum mechanics.
 
 -   Using physical principles and theorems to derive local forms of the
@@ -91,6 +91,8 @@ subset of $B_t$. Then: $$\begin{aligned}
     \text{The \emph{angular momentum} of $\Omega_t$ about $\bfz$ is:}&&\bfj[\Omega_t;\bfz] &= \int_{\Omega_t}(\bfy-\bfz)\times \rho(\bfy,t)\bfv(\bfy,t)\dVy.
   \end{aligned}$$
 
+### Conservation of mass and the laws of inertia
+
 Assuming that we are neglecting relativistic effects and possible
 chemical reactions, the balance laws can be generalised to continuum
 bodies as follows.
@@ -118,7 +120,7 @@ $$\DDt\bfl[\Omega_t] = \bfr[\Omega_t]\quad\text{and}\quad \DDt\bfj[\Omega_t;\bfz
 Both **Conservation of Mass** and **The Laws of Inertia** are assumed to hold for every motion and
 every subset of a continuum body.
 
-### The laws of thermodynamics
+### Conservation of energy
 
 Temperature is a physical property of matter that is based on our
 perceptions of hot and cold, and quantifies the microscopic fluctuations
@@ -223,7 +225,7 @@ $\phi(\bfy,t) = \hat{\phi}(\bfy,t)/\rho(\bfy,t)$ so that
 $$U[\Omega_t] = \int_{\Omega_t} \rho(\bfy,t)\phi(\bfy,t)\dVy.$$
 
 ::: {.callout-important icon="false"}
-## First Law of Thermodynamics (Conservation of Energy)
+## The First Law of Thermodynamics (Conservation of Energy)
 The rate of change of the internal
 energy of any open subset of a continuum body is the sum of the net rate
 of heating and net rate of work applied to it, i.e.
@@ -242,11 +244,13 @@ the net rate of heating and net rate of work due to external influences
 on a body. While these must be balanced, there is no restriction on the
 rates of these processes themselves. For example, if the net rate of
 work is zero over some time interval, then there is no limit on the rate
-at which a body may absorb heat and store it as internal energy. In its
-simplest form, the Second Law of Thermodynamics expresses the fact that
+at which a body may absorb heat and store it as internal energy. While we
+will not focus on it here, The Second Law of Thermodynamics expresses the fact that
 bodies *do* have limits on the rate at which heat can be absorbed, but
-no limit on the rate at which heat can be released.
-
+no limit on the rate at which heat can be released. This also entails
+constitutive restrictions, but we will focus mainly on *isothermal* processes,
+so will not discuss this further (unless I find time later).
+<!-- 
 There are many forms of the Second Law, and its precise form is far from
 settled. Our choice here is to adopt a form of the Second Law called the
 Clausius-Duhem inequality, and this is common in much of Continuum
@@ -301,22 +305,19 @@ for all $\Omega_t\subseteq B_t$.
 
 This formulation of the Second Law is called the *Clausius-Duhem
 inequality*. We will assume that it hold for every motion and subset of
-a continuum body, and study its consequences.
+a continuum body, and study its consequences. -->
 
-### Integral versus local balance laws
+## Localised Eulerian form of balance laws
 
-So far, we have summarised balance laws for the mass, momentum, energy
-and entropy in terms of arbitrary open subsets of the current
+So far, we have summarised balance laws for the mass, momentum, and energy
+in terms of arbitrary open subsets of the current
 configuration $B_t$. We will now exploit the Localisation Theorem,
 @prp-localisation, to derive partial differential equations
 for the various fields we have considered. When expressed in terms of
 the spatial coordinates, we refer to such balance laws as *Eulerian*,
 and when expressed in material coordinates, we refer to the balance laws
-as being in *Lagrangian* form.
-
-## Localised Eulerian form of balance laws
-
-We will assume in this section that $\bfphi:B\times[0,T]\to\bbE^3$ is a
+as being in *Lagrangian* form. Our focus is first on the Eulerian form, and
+we will assume in this section that $\bfphi:B\times[0,T]\to\bbE^3$ is a
 motion which satisfies $\bfphi(\bfx,0) = \bfx$.
 
 ### Conservation of mass {#sec-EulerianMass}
@@ -425,14 +426,14 @@ Theorem entails that we have the following result:
 If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion with associated spatial
 velocity field $\bfv$ and spatial mass density field $\rho$, then the
 balance of linear momentum entails that
-$$\rho\dot\bfv =\nabla_\bfy\cdot\bfS +\rho\bfb$$ for all $\bfy\in B_t$
+$$\rho\DDt\bfv =\nabla_\bfy\cdot\bfS +\rho\bfb$$ for all $\bfy\in B_t$
 and $t\in[0,T]$, where $\bfS(\bfy,t)$ is the Cauchy stress field and
 $\bfb(\bfy,t)$ is the spatial body force field per unit mass.
 :::
 
 This is the dynamic version of the equilibrium condition established in
 @prp-staticequilibriumeqns: the static result corresponds
-to the case where $\dot\bfv=0$ for all $\bfy\in B_t$ and $t\in[0,T]$,
+to the case where $\DDt\bfv=0$ for all $\bfy\in B_t$ and $t\in[0,T]$,
 i.e. there is no motion.
 
 Recall that
@@ -550,7 +551,7 @@ and then an application of the Localisation Theorem entails:
 If $\bfphi:B\times[0,T]\to\bbE^3$ is a motion, then the **First Law of Thermodynamics** entails that
 $$\rho\DDt{\phi} = \bfS:\bfL-\nabla_\bfy\cdot\bfq + \rho r\quad\text{for all }\bfy\in B_t,t\in[0,T].$$
 :::
-
+<!-- 
 ### Second Law of Thermodynamics
 
 The Clausius-Duhem inequality states that
@@ -602,21 +603,20 @@ internal dissipation is positive in bodies with a homogeneous
 temperature. We also see that if $\delta=0$, then
 $\bfq\cdot\nabla_\bfy\theta\leq0$, or in other words, the heat flux
 vector tends to point in the direction of $-\nabla\theta$, so that heat
-flows from hotter regions to colder ones.
+flows from hotter regions to colder ones. -->
 
 ### Summary
 
 We now summarise our Eulerian equations. Taking components with respect
-to a particular coordinate frame, there are 22 scalar unknowns:
+to a particular coordinate frame, there are 21 scalar unknowns:
 $$\begin{aligned}
     \varphi_i(\bfx,t) &&&\text{3 components of motion,}\\
     v_i(\bfy,t) &&&\text{3 components of velocity,}\\
     \rho(\bfy,t) &&&\text{1 mass density field,}\\
     S_{ij}(\bfy,t) &&&\text{9 components of Cauchy stress,}\\
     \theta(\bfy,t) &&&\text{1 temperature field,}\\
-    q_i(\bfy,t) &&&\text{3 components of heat flux,}\\
-    \phi(\bfy,t) &&&\text{1 internal energy field per unit mass, and}\\
-    \eta(\bfy,t) &&&\text{1 entropy field per unit mass.}
+    q_i(\bfy,t) &&&\text{3 components of heat flux, and}\\
+    \phi(\bfy,t) &&&\text{1 internal energy field per unit mass.}
   \end{aligned}$$ 
 
 ::: {.callout-important icon="false"}
@@ -642,14 +642,14 @@ $$
 -   Since the number of unknowns is greater than the number of
     equations, more equations are required to close the system. This
     leads to the idea of constitutive equations which relate the fields
-    $(\bfS,\bfq,\phi,\eta)$ to the fields $(\rho,\bfv,\theta)$. Such
+    $(\bfS,\bfq,\phi)$ to the fields $(\rho,\bfv,\theta)$. Such
     relationships reflect the specific material properties of a body,
     and are often inherently much less certain than the physical laws we
     have used here.
-
+<!-- 
 -   The Clausius-Duhem inequality does not allow us to determine any
     unknown fields, as it is only an inequality. It does however lead to
-    restrictions on any constitutive relations that are proposed.
+    restrictions on any constitutive relations that are proposed. -->
 
 ## Localised Lagrangian form of balance laws
 
@@ -829,6 +829,7 @@ $$\rho_0\ppt{\phi_m} = \bfP:\ppt\bfF-\nabla_\bfx\cdot\bfkappa+\rho_0r_m$$
 for all $\bfx\in B$ and $t\in[0,T]$.
 :::
 
+<!-- 
 ### Second Law of Thermodynamics
 
 For the Second Law of Thermodynamics, we can again change variables in
@@ -841,21 +842,20 @@ Applying the Divergence Theorem and Localisation Theorem, we obtain:
 Let $\bfphi:B\times[0,T]\to\bbE^3$ be a motion of a continuum body. Then
 $$\rho_0\ppt{\eta_m}\geq \frac{\rho_0 r_m}{\theta_m}-\nabla_\bfx\cdot\Big(\frac{\bfkappa}{\theta_m}\Big)$$
 for all $\bfx\in B$ and $t\in[0,T]$.
-:::
+::: -->
 
 ### Summary
 
 In the Lagrangian description of the motion of a general continuum body,
 then if we take component with respect to a given Cartesian frame, there
-are 18 unknown fields:
+are 17 unknown fields:
 $$
 \begin{aligned}
     \varphi_i(\bfx,t) &&&\text{3 components of motion,}\\
     P_{ij}(\bfx,t) &&&\text{9 components of Piola-Kirchhoff stress,}\\
     \theta_m(\bfx,t) &&&\text{1 temperature field,}\\
-    \kappa_i(\bfx,t) &&&\text{3 components of heat flux,}\\
-    \phi_m(\bfx,t) &&&\text{1 internal energy field per unit mass, and}\\
-    \eta_m(\bfx,t) &&&\text{1 entropy field per unit mass.}
+    \kappa_i(\bfx,t) &&&\text{3 components of heat flux, and}\\
+    \phi_m(\bfx,t) &&&\text{1 internal energy field per unit mass.}
   \end{aligned}
 $$
 

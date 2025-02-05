@@ -661,7 +661,7 @@ $$\bfv(\bfy,t) = \bfomega\times(\bfy-\bfc)+\frac{\dd\bfc}{\dd t},$$
 where $\bfomega(t)$ is a time-dependent vector called the **spatial
 angular velocity** of the motion. We can use
 @prp-skewtensorvectorproduct to write this as
-$$\bfv(\bfy,t) = \bfOmega(t)\big(\bfy-\bfc(t)\big)+\dot\bfc(t),$$ where
+$$\bfv(\bfy,t) = \bfOmega(t)\big(\bfy-\bfc(t)\big)+\frac{\dd\bfc}{\dt}(t),$$ where
 $\bfOmega(t)$ is the second-order tensor with axial vector
 $\bfomega(t)$. It follows that
 $$\nabla_\bfy\bfv(\bfy,t) = \bfOmega(t),$$ from which we deduce
