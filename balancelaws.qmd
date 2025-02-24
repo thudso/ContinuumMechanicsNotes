@@ -1,6 +1,6 @@
 {{< include macros.qmd >}}
 
-# Balance laws {#sec-balance-laws}
+# Balance Laws {#sec-balance-laws}
 
 In this chapter, we state a variety of axioms for a mechanical theory of
 continuum bodies. As in
@@ -883,7 +883,7 @@ $$
     11, and so we need additional constitutive relations to relate
     $(\bfP,\bfkappa,\phi_m,\eta_m)$ to $(\bfphi,\theta_m)$.
 
-## Frame indifference
+## Frame indifference {#sec-frame-indifference}
 
 Frame indifference is a physical principle which is assumed in classical
 (i.e. non-relativistic) mechanics. In this case, we assume that certain
@@ -918,13 +918,13 @@ is given by $$\begin{gathered}
     \end{gathered}$$ where these equalities hold for all $\bfx\in B$ and
 $t\in[0,T]$.
 
-Furthermore, let $\bfg(\bfy,t) = \bfQ(t)\bfy+\bfc(t)$ and let
+<!-- Furthermore, let $\bfg(\bfy,t) = \bfQ(t)\bfy+\bfc(t)$ and let
 $\bfy^*=\bfg(\bfy,t)$. Then, for the spatial fields
 $(\nabla_\bfy\bfv,\bfL)$ and $(\nabla_\bfy\bfv^*,\bfL^*)$, we have
 $$\begin{gathered}
       \nabla_{\bfy^*}\bfv^*(\bfy^*,t)\Big|_{\bfy^*=\bfg(\bfy,t)} = \bfQ(t)\nabla_\bfy\bfv(\bfy,t)\bfQ(t)^T+\dot\bfQ(t)\bfQ(t)^T,\\
       \bfL^*(\bfy^*,t)\Big|_{\bfy^*=\bfg(\bfy,t)} = \bfQ(t)\bfL(\bfy,t)\bfQ(t)^T,
-    \end{gathered}$$ for all $\bfy\in B_t$ and $t\in[0,T]$.
+    \end{gathered}$$ for all $\bfy\in B_t$ and $t\in[0,T]$. -->
 :::
 
 ### The Axiom of Frame-indifference
@@ -956,7 +956,7 @@ the fields we have considered:
 
 ::: {.callout-important icon="false"}
 ## Frame Indifference
-The spatial mass density $\rho$, temperature $\theta$, entropy per unit mass $\eta$,
+The spatial mass density $\rho$, temperature $\theta$,
 internal energy per unit mass $\phi$, Cauchy stress $\bfS$, and heat
 flux vector $\bfq$ are all frame-indifferent fields.
 :::
@@ -964,23 +964,28 @@ flux vector $\bfq$ are all frame-indifferent fields.
 This assumption places strict limitations on the constitutive equations
 which it is possible to use to model the material properties of a body.
 For example, if we express the internal energy, heat flux and Cauchy
-stress as functions $$\phi = \widehat{\phi}(\rho,\theta,\bfL),\quad
-  \bfq = \widehat{\bfq}(\rho,\theta,\bfL),\quad\text{and}\quad
-  \bfS = \widehat{\bfS}(\rho,\theta,\bfL),$$ (where all of the fields
-involved are evaluated at spatial point $\bfy$ and time $t$), then in
-order to comply with **Frame Indifference**, we must have $$\begin{aligned}
-  \widehat{\phi}(\rho^*,\theta^*,\bfL^*) &= \widehat{\phi}(\rho,\theta,\bfL),\\
-  \widehat{\bfq}(\rho^*,\theta^*,\bfL^*) &= \bfQ\widehat{\bfq}(\rho,\theta,\bfL),\\
-  \widehat{\bfS}(\rho^*,\theta^*,\bfL^*) &= \bfQ\widehat{\bfS}(\rho,\theta,\bfL)\bfQ^T.
-\end{aligned}$$ Substituting for the starred fields on the LHS, we have
+stress as functions
+$$
+\phi = \widehat{\phi}(\rho,\theta,\bfF),\quad
+\bfq = \widehat{\bfq}(\rho,\theta,\bfF),\quad\text{and}\quad
+\bfS = \widehat{\bfS}(\rho,\theta,\bfF),$$
+then in order to comply with the principle of frame indifference, we must have
 $$
 \begin{aligned}
-  \widehat{\phi}(\rho,\theta,\bfQ\bfL\bfQ^T) &= \widehat{\phi}(\rho,\theta,\bfL),\\
-  \widehat{\bfq}(\rho,\theta,\bfQ\bfL\bfQ^T) &= \bfQ\widehat{\bfq}(\rho,\theta,\bfL),\\
-  \widehat{\bfS}(\rho,\theta,\bfQ\bfL\bfQ^T) &= \bfQ\widehat{\bfS}(\rho,\theta,\bfL)\bfQ^T,
+  \widehat{\phi}(\rho^*,\theta^*,\bfF^*) &= \widehat{\phi}(\rho,\theta,\bfF),\\
+  \widehat{\bfq}(\rho^*,\theta^*,\bfF^*) &= \bfQ\widehat{\bfq}(\rho,\theta,\bfF),\\
+  \widehat{\bfS}(\rho^*,\theta^*,\bfF^*) &= \bfQ\widehat{\bfS}(\rho,\theta,\bfF)\bfQ^T.
 \end{aligned}
 $$
-which must hold for all rotations $\bfQ$ and all admissible values of $\rho, \theta$ and $\bfL$.
+Substituting for the starred fields on the LHS, we have
+$$
+\begin{aligned}
+  \widehat{\phi}(\rho,\theta,\bfQ\bfF) &= \widehat{\phi}(\rho,\theta,\bfF),\\
+  \widehat{\bfq}(\rho,\theta,\bfQ\bfF) &= \bfQ\widehat{\bfq}(\rho,\theta,\bfF),\\
+  \widehat{\bfS}(\rho,\theta,\bfQ\bfF) &= \bfQ\widehat{\bfS}(\rho,\theta,\bfF)\bfQ^T,
+\end{aligned}
+$$
+which must hold for all rotations $\bfQ$ and all admissible values of $\rho, \theta$ and $\bfF$.
 
 It is important to note that linearised theories will typically violate
 frame-indifference, since the relationships we have derived above are

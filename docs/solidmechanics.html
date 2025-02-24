@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Thomas Hudson">
 
-<title>MA4J1 Continuum Mechanics Notes</title>
+<title>7&nbsp; Solid Mechanics – MA4J1 Continuum Mechanics Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./tensoralgebra.html" rel="next">
+<link href="./balancelaws.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,6 +70,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -84,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./solidmechanics.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solid Mechanics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -115,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
@@ -151,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./solidmechanics.html" class="sidebar-item-text sidebar-link">
+  <a href="./solidmechanics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solid Mechanics</span></span></a>
   </div>
 </li>
@@ -165,10 +207,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface"><span class="header-section-number">1</span> Preface</a>
+  <li><a href="#elastic-solids" id="toc-elastic-solids" class="nav-link active" data-scroll-target="#elastic-solids"><span class="header-section-number">7.1</span> Elastic solids</a></li>
+  <li><a href="#hyperelasticity-and-conservation-of-energy" id="toc-hyperelasticity-and-conservation-of-energy" class="nav-link" data-scroll-target="#hyperelasticity-and-conservation-of-energy"><span class="header-section-number">7.2</span> Hyperelasticity and conservation of energy</a></li>
+  <li><a href="#frame-indifference" id="toc-frame-indifference" class="nav-link" data-scroll-target="#frame-indifference"><span class="header-section-number">7.3</span> Frame indifference</a></li>
+  <li><a href="#initial-and-boundary-conditions" id="toc-initial-and-boundary-conditions" class="nav-link" data-scroll-target="#initial-and-boundary-conditions"><span class="header-section-number">7.4</span> Initial and Boundary conditions</a>
   <ul class="collapse">
-  <li><a href="#aims-and-structure" id="toc-aims-and-structure" class="nav-link" data-scroll-target="#aims-and-structure"><span class="header-section-number">1.1</span> Aims and structure</a></li>
+  <li><a href="#initial-conditions" id="toc-initial-conditions" class="nav-link" data-scroll-target="#initial-conditions"><span class="header-section-number">7.4.1</span> Initial conditions</a></li>
+  <li><a href="#boundary-conditions" id="toc-boundary-conditions" class="nav-link" data-scroll-target="#boundary-conditions"><span class="header-section-number">7.4.2</span> Boundary conditions</a></li>
+  <li><a href="#full-pde-problems" id="toc-full-pde-problems" class="nav-link" data-scroll-target="#full-pde-problems"><span class="header-section-number">7.4.3</span> Full PDE problems</a></li>
   </ul></li>
+  <li><a href="#example-hyperelastic-material-laws" id="toc-example-hyperelastic-material-laws" class="nav-link" data-scroll-target="#example-hyperelastic-material-laws"><span class="header-section-number">7.5</span> Example hyperelastic material laws</a></li>
   </ul>
 </nav>
     </div>
@@ -177,26 +225,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MA4J1 Continuum Mechanics Notes</h1>
+<h1 class="title"><span id="sec-solids" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solid Mechanics</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Thomas Hudson </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">24 February, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -209,19 +245,230 @@ ul.task-list li input[type="checkbox"] {
 <div class="hidden">
 
 </div>
-<section id="preface" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Preface</h1>
-<p>These notes are a guide to the main content of the fourth-year Maths module MA4J1 Continuum Mechanics taught at Warwick. They are intended to be essentially self–contained, but are based upon (my interpretation of) the content of chapters drawn from <a href="https://go.exlibris.link/CMjyhLvJ">A First Course in Continuum Mechanics</a> by Oscar Gonzalez and Andrew Stuart. This book is a good place to read more about the topics covered and to find various exercises to test your understanding of the content, but it is definitely not the only good book covering many of the topics we consider here. In particular, for those looking for additional reading, various additional books are recommended on the module Moodle page.</p>
-<section id="aims-and-structure" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="aims-and-structure"><span class="header-section-number">1.1</span> Aims and structure</h2>
-<p>The central aim of the module is to present a mathematical framework within which various continuum models of solids, liquids and gases can be described and derived, and to provide some examples of the Partial Differential Equation (PDE) models which result.</p>
-<p>As background, we make use of various concepts from Linear Algebra, Analysis and Vector Calculus. In <a href="tensoralgebra.html" class="quarto-xref"><span>Chapter 2</span></a> and <a href="tensorcalculus.html" class="quarto-xref"><span>Chapter 3</span></a>, we therefore recap various concepts and discuss some operations on these objects which may be new to you, and at the very least, may take a different perspective. Since some of these concepts will be taken as understood, it will be up to you to ensure that you are comfortable with any concepts which are not covered in detail in lectures. In particular, one of the techniques we use as a baseline throughout the module is converting back and forth between tensor notation and component notation in a particular coordinate system. You should ensure you get comfortable with doing this for yourself.</p>
-<p><a href="massandforces.html" class="quarto-xref"><span>Chapter 4</span></a> introduces some of the important physical concepts central to this module, including mass density, force and stress fields. In particular, developing an understanding of <em>stress</em> is one of the keys to unlocking this module. <a href="kinematics.html" class="quarto-xref"><span>Chapter 5</span></a> introduces the study of kinematics, or the study of motion of continuous bodies. Here, we introduce the concept of <em>strain</em>, which is another central focus for the module. In <a href="balancelaws.html" class="quarto-xref"><span>Chapter 6</span></a>, we combine these concepts to derive balance laws, which are the Partial Differential Equations which govern a continuum body’s motion. As we will see, these balance laws can be formulated in <em>Eulerian</em> or <em>Lagrangian</em> form. The former formulation is generally used for the study of fluids, while the latter is generally used for the study of solid materials.</p>
-<p>There will doubtless be errors and typos in these notes. If you spot anything, please feel free to let me know via email.</p>
-<p><a href="https://sites.google.com/view/thudso/">Dr Thomas Hudson</a>, January 2025</p>
-
-
+<p>In this chapter, we apply the principles we have developed to the study of solid materials, focusing specifically on elasticity theory. As mentioned, in solid mechanics the canonical choice is to use the <em>Lagrangian</em> or <em>material</em> formulation of the balance laws. In particular, we focus on the momentum balance equations, which are: <span id="eq-Lag-mom"><span class="math display">
+\rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2} = \nabla_{\boldsymbol{x}}\cdot {\boldsymbol{P}}+\rho_0{\boldsymbol{b}}_m,
+\quad\text{and}\quad
+{\boldsymbol{P}}{\boldsymbol{F}}^T = {\boldsymbol{F}}{\boldsymbol{P}}^T.
+\tag{7.1}</span></span> We note that we can immediately deduce <em>force balance</em> equations for statice problems from these equations by neglecting the momentum change term, in which case they become <span id="eq-Lag-frc"><span class="math display">
+\nabla_{\boldsymbol{x}}\cdot {\boldsymbol{P}}+\rho_0{\boldsymbol{b}}_m = {\boldsymbol{0}},
+\quad\text{and}\quad
+{\boldsymbol{P}}{\boldsymbol{F}}^T = {\boldsymbol{F}}{\boldsymbol{P}}^T.
+\tag{7.2}</span></span></p>
+<p>To make further progress with either of these sets of equations, we must introduce a <em>constitutive law</em> for the stress in terms of strain, often referred to as <em>stress–strain</em> relation.</p>
+<section id="elastic-solids" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="elastic-solids"><span class="header-section-number">7.1</span> Elastic solids</h2>
+<p><em>Elasticity</em> refers to the property of solid objects to stretch and then return to their original shape, releasing energy in an (approximately) reversible process. To model such cases, we make the following definition.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Elastic solid
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A continuum body <span class="math inline">B</span> is said to be an <strong>elastic solid</strong> if the following 2 properties are satisfied:</p>
+<ol type="1">
+<li><p>The Cauchy stress field can be expressed as a function of the deformation gradient, i.e. <span class="math display">
+{\boldsymbol{S}}_m({\boldsymbol{x}},t) = \widehat{{\boldsymbol{S}}}({\boldsymbol{F}}({\boldsymbol{x}},t),{\boldsymbol{x}})
+</span> for any <span class="math inline">{\boldsymbol{x}}\in B</span> and <span class="math inline">t\in[0,T]</span>.</p></li>
+<li><p>The function <span class="math inline">\widehat{{\boldsymbol{S}}}</span> is always symmetric for valid deformation gradients, i.e. <span class="math display">
+\widehat{{\boldsymbol{S}}}({\boldsymbol{F}},{\boldsymbol{x}})^T = \widehat{{\boldsymbol{S}}}({\boldsymbol{F}},{\boldsymbol{x}})
+</span> for any <span class="math inline">{\boldsymbol{x}}\in B</span> and any <span class="math inline">{\boldsymbol{F}}\in{\mathcal{V}}^2</span> with <span class="math inline">\det{\boldsymbol{F}}&gt;0</span>.</p></li>
+</ol>
+</div>
+</div>
+<p>Some notes on the above definition:</p>
+<ul>
+<li>The function <span class="math inline">\widehat{{\boldsymbol{S}}}</span> is called the <strong>elastic stress response function</strong> of the body.</li>
+<li>The dependence on the point <span class="math inline">{\boldsymbol{x}}</span> in the stress response function allows us in general to represent the fact that the body may be made up of different materials in different places. The simplest cases have no explicit dependence on <span class="math inline">{\boldsymbol{x}}</span>, in which case we say the body is <strong>homogeneous</strong>.</li>
+<li>Using the relationship between the Cauchy and Piola–Kirchhoff stresses, we can choose to prescribe either the Cauchy stress by defining a function <span class="math inline">\widehat{{\boldsymbol{S}}}</span> as above, or by prescribing the Piola-Kirchhoff stress by defining a function <span class="math inline">\widehat{{\boldsymbol{P}}}({\boldsymbol{F}})</span>. We can move between the two approaches using the relation: <span class="math display">
+{\boldsymbol{P}}= \widehat{{\boldsymbol{S}}}({\boldsymbol{F}}){\operatorname{cof}}{\boldsymbol{F}}= \det{\boldsymbol{F}}\,\widehat{{\boldsymbol{S}}}({\boldsymbol{F}}){\boldsymbol{F}}^{-T}\quad\text{or}\quad
+{\boldsymbol{S}}= \frac{\widehat{{\boldsymbol{P}}}({\boldsymbol{F}}){\boldsymbol{F}}^T}{\det {\boldsymbol{F}}}.
+</span></li>
+</ul>
 </section>
+<section id="hyperelasticity-and-conservation-of-energy" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="hyperelasticity-and-conservation-of-energy"><span class="header-section-number">7.2</span> Hyperelasticity and conservation of energy</h2>
+<p>Next, we discuss conservation of energy. If we assume that the body is <strong>isothermal</strong>, so it is held at a constant temperature <span class="math inline">\theta=\theta_0</span> and there is no heat flow, then we can neglect all heat related terms in the energy balance equation.</p>
+<p>In particular, in the Lagrangian formualtion, we assume the heat flux <span class="math inline">{\boldsymbol{\kappa}}={\boldsymbol{0}}</span> and the heat supply field <span class="math inline">r=0</span>, and the local equation for conservation of energy in Lagrangian form is <span class="math display">
+\rho_0\frac{\partial \phi_m}{\partial t} = {\boldsymbol{P}}:\frac{\partial{\boldsymbol{F}}}{\partial t}.
+</span> This encodes the fact that the internal energy per unit mass only changes due to internal mechanical work, and no energy is lost as heat.</p>
+<p>One way to guarantee that this equation holds is to assume that the Piola-Kirchhoff stress function can be expressed as the derivative of a function <span class="math inline">W:{\mathcal{V}}^2\to{\mathbb{R}}</span> called the <strong>strain energy density</strong>, i.e. <span class="math display">
+{\boldsymbol{P}}({\boldsymbol{F}}) = DW({\boldsymbol{F}})\quad\text{or in components}\quad
+P_{ij} = \frac{\partial W}{\partial F_{ij}}({\boldsymbol{F}}).
+</span> Thanks to the chain rule, we find that <span class="math display">
+\rho_0\frac{\partial \phi_m}{\partial t} = DW({\boldsymbol{F}}):\frac{\partial{\boldsymbol{F}}}{\partial t} = {\frac{{\mathrm{D}}}{{{\mathrm{D}}t}}}W({\boldsymbol{F}}).
+</span> and so we find that (up to a constant) <span class="math inline">\rho_0\phi_m = W({\boldsymbol{F}})</span>, where we are implicitly suppressing the dependence on the temperature <span class="math inline">\theta_0</span>. This choice leads to the following definition.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hyperelastic material
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>hyperelastic material</strong> is an elastic material for which:</p>
+<ol type="1">
+<li>The Piola–Kirchhoff stress response function satisfies <span class="math display">
+\widehat{{\boldsymbol{P}}}({\boldsymbol{F}}) = DW({\boldsymbol{F}})
+</span> where <span class="math inline">W:{\mathcal{V}}^2\to{\mathbb{R}}</span> is the <strong>strain energy density</strong>; and</li>
+<li>For any <span class="math inline">{\boldsymbol{F}}\in{\mathcal{V}}^2</span> with <span class="math inline">\det{\boldsymbol{F}}&gt;0</span>, we have that conservation of angular momentum is guaranteed, i.e. <span class="math display">
+DW({\boldsymbol{F}}){\boldsymbol{F}}^T = {\boldsymbol{F}}DW({\boldsymbol{F}})^T.
+</span></li>
+</ol>
+</div>
+</div>
+<p>We will see that the existence of a strain energy density leads to various interesting mathematical consequences.</p>
+</section>
+<section id="frame-indifference" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="frame-indifference"><span class="header-section-number">7.3</span> Frame indifference</h2>
+<p>Above, we have seen that conservation of energy suggests a structure for the constitutive laws we can consider: likewise, we now show that the principle of frame indifference also constrains the possible stress reponse functions. In particular, we have the following result.</p>
+<div id="prp-FrameIndiffStress" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 7.1</strong></span> If the following symmetry holds for the strain energy density: <span class="math display">
+W({\boldsymbol{Q}}{\boldsymbol{F}}) = W({\boldsymbol{F}})
+</span> for any <span class="math inline">{\boldsymbol{F}}\in{\mathcal{V}}^2</span> with <span class="math inline">\det{\boldsymbol{F}}&gt;0</span> and any rotation tensor <span class="math inline">{\boldsymbol{Q}}\in{\mathcal{V}}^2</span>, then the internal energy and stress tensors are automatically frame indifferent.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Clearly, <span class="math inline">W</span> is a frame indifferent field by the definition given at the end of <a href="balancelaws.html#sec-frame-indifference" class="quarto-xref"><span>Section 6.5</span></a>, since <span class="math display">
+W^* = W({\boldsymbol{F}}^*) = W({\boldsymbol{Q}}{\boldsymbol{F}}) = W,
+</span> and so defining the internal energy per unit mass as <span class="math inline">\phi_m:=W/\rho_0</span>, it must also be frame indifferent.</p>
+<p>Next, we check that the assumption that <span class="math inline">{\boldsymbol{P}}= DW</span> means that <span class="math inline">{\boldsymbol{S}}</span> also transforms appropriately. Note that <span class="math display">
+{\boldsymbol{S}}_m = \frac{{\boldsymbol{P}}{\boldsymbol{F}}^T}{\det{\boldsymbol{F}}},
+</span> and we need to show that <span class="math inline">{\boldsymbol{S}}^*_m = {\boldsymbol{Q}}{\boldsymbol{S}}_m{\boldsymbol{Q}}^T</span> in order to verify the requirement of frame indifference. Using the chain rule, we have <span class="math display">
+\frac{\partial W}{\partial F_{ij}} = \frac{\partial W}{\partial F^*_{kl}}\frac{\partial F^*_{kl}}{\partial F_{ij}} =
+\frac{\partial W}{\partial F^*_{kl}}\frac{\partial }{\partial F_{ij}}\Big(Q_{ka}F_{al}\Big) = \frac{\partial W}{\partial F^*_{kl}}Q_{ka}\delta_{ai}\delta_{jl} = \frac{\partial W}{\partial F^*_{kj}}Q_{ki}.
+</span> Interpreting the above relationship in tensorial form, we have <span class="math display">
+DW({\boldsymbol{F}}) = {\boldsymbol{Q}}^T DW({\boldsymbol{F}}^*) = {\boldsymbol{Q}}^T DW({\boldsymbol{Q}}{\boldsymbol{F}}).
+</span> Multiplying on the right by <span class="math inline">({\operatorname{cof}}{\boldsymbol{F}})^{-1}</span>, then <span class="math inline">{\boldsymbol{Q}}^T{\boldsymbol{Q}}={\boldsymbol{I}}</span> and using the fact that <span class="math inline">\det{\boldsymbol{Q}}= 1</span>, we have <span class="math display">
+{\boldsymbol{S}}_m = \frac{DW({\boldsymbol{F}}){\boldsymbol{F}}^T}{\det{\boldsymbol{F}}} = \frac{{\boldsymbol{Q}}^T DW({\boldsymbol{Q}}{\boldsymbol{F}}){\boldsymbol{F}}^T}{\det{\boldsymbol{F}}} = \frac{{\boldsymbol{Q}}^T DW({\boldsymbol{Q}}{\boldsymbol{F}})({\boldsymbol{Q}}{\boldsymbol{F}})^T{\boldsymbol{Q}}}{\det({\boldsymbol{Q}}{\boldsymbol{F}})} = {\boldsymbol{Q}}^T{\boldsymbol{S}}^*_m{\boldsymbol{Q}}.
+</span> This shows that <span class="math inline">{\boldsymbol{S}}</span> transforms correctly, and so the material is automatically frame indifferent.</p>
+</div>
+</section>
+<section id="initial-and-boundary-conditions" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="initial-and-boundary-conditions"><span class="header-section-number">7.4</span> Initial and Boundary conditions</h2>
+<p>Given a particular constitutive relationship between the Piola-Kirchhoff stress <span class="math inline">{\boldsymbol{P}}</span> and the deformation gradient <span class="math inline">{\boldsymbol{F}}</span>, we have to solve either the evolution problem <a href="#eq-Lag-mom" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> or the force balance problem <a href="#eq-Lag-frc" class="quarto-xref">Equation&nbsp;<span>7.2</span></a>. In the former case we need both initial and boundary conditions, while in the second we need just boundary conditions.</p>
+<section id="initial-conditions" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="initial-conditions"><span class="header-section-number">7.4.1</span> Initial conditions</h3>
+<p>Generally speaking, the initial conditions chosen are based on assumptions about the position and velocity of the material points at the starting point. They usually take the form <span class="math display">
+{\boldsymbol{\varphi}}({\boldsymbol{x}},0) = {\boldsymbol{\varphi}}_0({\boldsymbol{x}})\quad\text{and}\quad\frac{\partial{\boldsymbol{\varphi}}}{\partial t}({\boldsymbol{x}},0) = {\boldsymbol{v}}_0({\boldsymbol{x}}),
+</span> where <span class="math inline">{\boldsymbol{\varphi}}_0</span> and <span class="math inline">{\boldsymbol{v}}_0</span> are respectively the initial deformation and initial velocity field defined for any <span class="math inline">{\boldsymbol{x}}\in B_0</span>. In simple cases we might take <span class="math inline">{\boldsymbol{\varphi}}_0({\boldsymbol{x}}) = {\boldsymbol{x}}</span>, if the body is initially relaxed.</p>
+</section>
+<section id="boundary-conditions" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="boundary-conditions"><span class="header-section-number">7.4.2</span> Boundary conditions</h3>
+<p>The standard boundary conditions for either dynamical or static problems in elasticity are usually of two possible forms; either the position of the boundary points is prescribed, known as <strong>Dirichlet boundary conditions</strong>, or the stress on the boundary is prescribed, known as <strong>Neumann boundary conditions</strong>. Typically we split the boundary of the body up into two parts on which these conditions are prescribed, <span class="math inline">\Gamma_D</span> and <span class="math inline">\Gamma_N</span>, and the conditions become: <span class="math display">
+\begin{aligned}
+{\boldsymbol{\varphi}}&amp;= {\boldsymbol{g}}&amp;\text{on }\Gamma_D\subset\partial B,\\
+{\boldsymbol{P}}{\boldsymbol{\nu}}&amp;= {\boldsymbol{t}}&amp;\text{on }\Gamma_N\subset\partial B,
+\end{aligned}
+</span> where <span class="math inline">{\boldsymbol{g}}</span> and <span class="math inline">{\boldsymbol{t}}</span> may depend on time (as may the sets on which they are imposed).</p>
+<p>More complex choices of boundary condition do exist, normally arising from frictional contact between the elastic body and some other object.</p>
+</section>
+<section id="full-pde-problems" class="level3" data-number="7.4.3">
+<h3 data-number="7.4.3" class="anchored" data-anchor-id="full-pde-problems"><span class="header-section-number">7.4.3</span> Full PDE problems</h3>
+<p>In full, we are now able to state the general PDE problems of elasticity.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Elastodynamics problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> satisfying the following initial-boundary value problem: <span class="math display">
+\begin{aligned}
+    \rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}&amp;=\nabla_{\boldsymbol{x}}\cdot \widehat{{\boldsymbol{P}}}({\boldsymbol{F}})+\rho_0{\boldsymbol{b}}_m &amp;\text{in }&amp;B\times[0,T],\\
+    {\boldsymbol{\varphi}}(\cdot,0)&amp;={\boldsymbol{\varphi}}_0 &amp;\text{in }&amp;B,\\
+    \frac{\partial{\boldsymbol{\varphi}}}{\partial t}(\cdot,0)&amp;={\boldsymbol{v}}_0 &amp;\text{in }&amp;B,\\
+    {\boldsymbol{\varphi}}&amp;={\boldsymbol{g}}&amp;\text{on }&amp;\Gamma_D\times[0,T],\\
+    \widehat{{\boldsymbol{P}}}({\boldsymbol{F}}){\boldsymbol{\nu}}&amp;={\boldsymbol{t}}&amp;\text{on }&amp;\Gamma_N\times[0,T].
+\end{aligned}
+</span></p>
+</div>
+</div>
+<ul>
+<li>This problem is a nonlinear system of 3 coupled PDEs for the 3 components of <span class="math inline">{\boldsymbol{\varphi}}</span> which is second-order in both space and time.</li>
+<li>Existence and uniqueness can be proved under assumptions on the stress response function <span class="math inline">\widehat{{\boldsymbol{P}}}</span>, the smoothness of the boundaries <span class="math inline">B</span> and of the data (i.e.&nbsp;the initial and boundary conditions), but this is beyond the scope of this module.</li>
+<li>Typically, solutions of the equations oscillate in time, and we think of this as a <strong>nonlinear hyperbolic</strong> PDE system. Wave-like solutions make physical sense as elastic waves are exactly how sound travels through solid materials.</li>
+<li>Given the complexity of these equations, explicit solutions to these equations are rare, so numerical approximate solutions must be sought. The most common approach is to use Finite Elements.</li>
+<li>A common assumption for practical purposes is that the body force per unit mass <span class="math inline">{\boldsymbol{b}}_m</span> arises due to a uniform gravitational field, in which case we may take <span class="math inline">{\boldsymbol{b}}= -g{\boldsymbol{e}}_3</span>. Since this function is independent of position, we find that <span class="math inline">{\boldsymbol{b}}_m = -g{\boldsymbol{e}}_3</span>.</li>
+</ul>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Elastostatics problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find <span class="math inline">{\boldsymbol{\varphi}}:B\to{\mathbb{E}}^3</span> satisfying the boundary value problem: <span class="math display">
+\begin{aligned}
+    \nabla_{\boldsymbol{x}}\cdot \widehat{{\boldsymbol{P}}}({\boldsymbol{F}})+\rho_0{\boldsymbol{b}}_m&amp;={\boldsymbol{0}}&amp;\text{in }&amp;B\times[0,T],\\
+    {\boldsymbol{\varphi}}&amp;={\boldsymbol{g}}&amp;\text{on }&amp;\Gamma_D,\\
+    \widehat{{\boldsymbol{P}}}({\boldsymbol{F}}){\boldsymbol{\nu}}&amp;={\boldsymbol{t}}&amp;\text{on }&amp;\Gamma_N.
+\end{aligned}
+</span></p>
+</div>
+</div>
+<ul>
+<li>This problem is a nonlinear system of 3 coupled PDEs for the 3 components of <span class="math inline">{\boldsymbol{\varphi}}</span> which is second-order in space.</li>
+<li>As for the elastodynamics problem above, existence of solutions can be proved under smoothness assumptions on the body and the data, which is again beyond the scope of this module.</li>
+<li>Once again, numerical solution is usually necessary, and Finite Elements can be used to approximate solutions.</li>
+<li>An important caveat for the elastostatics equations is that non-uniqueness can occur! A prime example is elastic buckling.</li>
+<li>When the material is hyperelastic, the above equation formulation can be show to be the Euler-Lagrange equation of a variational problem. In this case, we seek to minimise the total energy in the system, expressed as <span class="math display">
+I({\boldsymbol{\varphi}}) := \int_B W(\nabla_{\boldsymbol{x}}{\boldsymbol{\varphi}})-\rho_0{\boldsymbol{b}}_m\cdot{\boldsymbol{\varphi}}\,{\,{\mathrm{d}}V_{{\boldsymbol{x}}}},
+</span> over all <span class="math inline">{\boldsymbol{\varphi}}</span> which satisfy to the boundary conditions. It turns out this is a powerful way to prove existence of solutions to the problem using techniques from the Calculus of Variations.</li>
+</ul>
+</section>
+</section>
+<section id="example-hyperelastic-material-laws" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="example-hyperelastic-material-laws"><span class="header-section-number">7.5</span> Example hyperelastic material laws</h2>
+<p>In practice, almost all sensible elastic material laws are also hyperelastic. The following are all examples of hyperelastic material laws that are used to describe rubber-like materials:</p>
+<ul>
+<li>A <strong>St Venant–Kirchhoff</strong> material has strain energy density <span class="math display">
+W({\boldsymbol{F}}) = \frac{\lambda}{2}({\operatorname{tr}}{\boldsymbol{E}})^2+\mu {\operatorname{tr}}({\boldsymbol{E}}^2)
+</span> where <span class="math inline">{\boldsymbol{E}}= \tfrac12({\boldsymbol{F}}^T{\boldsymbol{F}}-{\boldsymbol{I}})</span> is the Lagrange strain and <span class="math inline">\lambda,\mu&gt;0</span> are material parameters.</li>
+<li>A <strong>Neo-Hookean</strong> material has a strain energy density of the form <span class="math display">
+\begin{gathered}
+W({\boldsymbol{F}}) := a\,|{\boldsymbol{F}}|^2+\Gamma(\det{\boldsymbol{F}})\\
+\text{where}\qquad \Gamma(J) :=c\,J^2-d\log J,
+\end{gathered}
+</span> where <span class="math inline">a,c,d&gt;0</span> are material parameters.</li>
+<li>A <strong>Mooney-Rivlin</strong> material has strain energy density <span class="math display">
+W({\boldsymbol{F}}) = a\,|{\boldsymbol{F}}|^2+b\,|{\operatorname{cof}}{\boldsymbol{F}}|^2+\Gamma(\det{\boldsymbol{F}}),
+</span> where <span class="math inline">\Gamma</span> is as for the neo-Hookean material, and <span class="math inline">a,b,c,d&gt;0</span> are material parameters.</li>
+</ul>
+<p>Note that the neo-Hookean model is just the Mooney-Rivlin model with <span class="math inline">b=0</span>, so is simply a special case. Note also that all material parameters involved in these equations have units of energy per unit volume, or equivalently of stress (force per unit area).</p>
+<div id="cell-fig-energyplot" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div id="fig-energyplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-energyplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="solidmechanics_files/figure-html/fig-energyplot-output-1.png" width="597" height="429" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-energyplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: The variation of the Neo-Hookean energy density as a function of various forms of stretch. Here, a=0.6MPa and c=0.6MPa, which are values representative of rubber.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-energyplot" class="quarto-xref">Figure&nbsp;<span>7.1</span></a> shows strain energies for a neo-Hookean material where the parameters used are indicative of those which would be used to represent rubber, showing the different results for uniaxial, biaxial and triaxial stretches, i.e.&nbsp;where we use the deformation gradient: <span class="math display">
+{\boldsymbol{F}}_\lambda = \begin{cases}
+    \lambda {\boldsymbol{e}}_1\otimes{\boldsymbol{e}}_1 + {\boldsymbol{e}}_2\otimes{\boldsymbol{e}}_2 + {\boldsymbol{e}}_3\otimes{\boldsymbol{e}}_3 &amp; \text{in the uniaxial case,}\\
+    \lambda {\boldsymbol{e}}_1\otimes{\boldsymbol{e}}_1 + \lambda{\boldsymbol{e}}_2\otimes{\boldsymbol{e}}_2 + {\boldsymbol{e}}_3\otimes{\boldsymbol{e}}_3 &amp; \text{in the biaxial case, and}\\
+    \lambda {\boldsymbol{e}}_1\otimes{\boldsymbol{e}}_1 + \lambda{\boldsymbol{e}}_2\otimes{\boldsymbol{e}}_2 + \lambda{\boldsymbol{e}}_3\otimes{\boldsymbol{e}}_3 &amp; \text{in the triaxial case.}
+\end{cases}
+</span> Note that in each case, the parameters are chosen to guarantee that <span class="math inline">{\boldsymbol{F}}_1={\boldsymbol{I}}</span> is a minimum of the energy.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -788,11 +1035,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./balancelaws.html" class="pagination-link" aria-label="Balance Laws">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Balance Laws</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./tensoralgebra.html" class="pagination-link" aria-label="Tensor Algebra">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tensor Algebra</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

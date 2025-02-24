@@ -1,0 +1,257 @@
+{{< include macros.qmd >}}
+
+# Solid Mechanics {#sec-solids}
+
+In this chapter, we apply the principles we have developed to the study of
+solid materials, focusing specifically on elasticity theory. As mentioned, in solid mechanics the canonical choice is to use the *Lagrangian* or *material* formulation of the balance laws. In particular, we focus on the momentum balance equations, which are:
+$$
+\rho_0\frac{\partial^2\bfphi}{\partial t^2} = \nabla_\bfx\cdot \bfP+\rho_0\bfb_m,
+\quad\text{and}\quad
+\bfP\bfF^T = \bfF\bfP^T.
+$$ {#eq-Lag-mom}
+We note that we can immediately deduce *force balance* equations for statice problems from these equations by neglecting the momentum change term, in which case they become
+$$
+\nabla_\bfx\cdot \bfP+\rho_0\bfb_m = \bfzero,
+\quad\text{and}\quad
+\bfP\bfF^T = \bfF\bfP^T.
+$$ {#eq-Lag-frc}
+
+To make further progress with either of these sets of equations, we must introduce a *constitutive law* for the stress in terms of strain, often referred to as *stress--strain* relation.
+
+## Elastic solids
+*Elasticity* refers to the property of solid objects to stretch and then return to their original shape, releasing energy in an (approximately) reversible process. To model such cases, we make the following definition.
+
+::: {.callout-tip icon="false"}
+## Elastic solid
+A continuum body $B$ is said to be an **elastic solid** if the following 2 properties are satisfied:
+
+1. The Cauchy stress field can be expressed as a function of the deformation gradient, i.e.
+$$
+\bfS_m(\bfx,t) = \widehat{\bfS}(\bfF(\bfx,t),\bfx)
+$$
+for any $\bfx\in B$ and $t\in[0,T]$.
+
+2. The function $\widehat{\bfS}$ is always symmetric for valid deformation gradients, i.e.
+$$
+\widehat{\bfS}(\bfF,\bfx)^T = \widehat{\bfS}(\bfF,\bfx)
+$$
+for any $\bfx\in B$ and any $\bfF\in\calV^2$ with $\det\bfF>0$.
+:::
+
+Some notes on the above definition:
+
+- The function $\widehat{\bfS}$ is called the **elastic stress response function** of the body.
+- The dependence on the point $\bfx$ in the stress response function allows us in general to represent the fact that the body may be made up of different materials in different places. The simplest cases have no explicit dependence on $\bfx$, in which case we say the body is **homogeneous**.
+- Using the relationship between the Cauchy and Piola--Kirchhoff stresses, we can choose to prescribe either the Cauchy stress by defining a function $\widehat{\bfS}$ as above, or by prescribing the Piola-Kirchhoff stress by defining a function $\widehat{\bfP}(\bfF)$. We can move between the two approaches using the relation:
+$$
+\bfP = \widehat{\bfS}(\bfF)\cof\bfF = \det\bfF\,\widehat{\bfS}(\bfF)\bfF^{-T}\quad\text{or}\quad
+\bfS = \frac{\widehat{\bfP}(\bfF)\bfF^T}{\det \bfF}.
+$$
+
+## Hyperelasticity and conservation of energy
+
+Next, we discuss conservation of energy. If we assume that the body is **isothermal**, so it is held at a constant temperature $\theta=\theta_0$ and there is no heat flow, then we can neglect all heat related terms in the energy balance equation.
+
+In particular, in the Lagrangian formualtion, we assume the heat flux $\bfkappa=\bfzero$ and the heat supply field $r=0$, and the local equation for conservation of energy in Lagrangian form is
+$$
+\rho_0\frac{\partial \phi_m}{\partial t} = \bfP:\frac{\partial\bfF}{\partial t}.
+$$
+This encodes the fact that the internal energy per unit mass only changes due to internal mechanical work, and no energy is lost as heat.
+
+One way to guarantee that this equation holds is to assume that the Piola-Kirchhoff stress function can be expressed as the derivative of a function $W:\calV^2\to\bbR$ called the **strain energy density**, i.e.
+$$
+\bfP(\bfF) = DW(\bfF)\quad\text{or in components}\quad
+P_{ij} = \frac{\partial W}{\partial F_{ij}}(\bfF).
+$$
+Thanks to the chain rule, we find that
+$$
+\rho_0\frac{\partial \phi_m}{\partial t} = DW(\bfF):\frac{\partial\bfF}{\partial t} = \DDt W(\bfF).
+$$
+and so we find that (up to a constant) $\rho_0\phi_m = W(\bfF)$, where we are implicitly suppressing the dependence on the temperature $\theta_0$. This choice leads to the following definition.
+
+::: {.callout-tip icon="false"}
+## Hyperelastic material
+A **hyperelastic material** is an elastic material for which:
+
+1. The Piola--Kirchhoff stress response function satisfies
+$$
+\widehat{\bfP}(\bfF) = DW(\bfF)
+$$
+where $W:\calV^2\to\bbR$ is the **strain energy density**; and 
+2. For any $\bfF\in\calV^2$ with $\det\bfF>0$, we have that conservation of angular momentum is guaranteed, i.e.
+$$
+DW(\bfF)\bfF^T = \bfF DW(\bfF)^T.
+$$
+:::
+We will see that the existence of a strain energy density leads to various interesting mathematical consequences.
+
+## Frame indifference
+Above, we have seen that conservation of energy suggests a structure for the constitutive laws we can consider: likewise, we now show that the principle of frame indifference also constrains the possible stress reponse functions. In particular, we have the following result.
+
+::: {#prp-FrameIndiffStress}
+If the following symmetry holds for the strain energy density:
+$$
+W(\bfQ\bfF) = W(\bfF)
+$$
+for any $\bfF\in\calV^2$ with $\det\bfF>0$ and any rotation tensor $\bfQ\in\calV^2$, then the internal energy and stress tensors are automatically frame indifferent.
+:::
+
+
+::: proof
+Clearly, $W$ is a frame indifferent field by the definition given at the end of @sec-frame-indifference, since
+$$
+W^* = W(\bfF^*) = W(\bfQ\bfF) = W,
+$$
+and so defining the internal energy per unit mass as $\phi_m:=W/\rho_0$, it must also be frame indifferent.
+
+Next, we check that the assumption that $\bfP = DW$ means that $\bfS$ also transforms appropriately. Note that
+$$
+\bfS_m = \frac{\bfP\bfF^T}{\det\bfF},
+$$
+and we need to show that $\bfS^*_m = \bfQ\bfS_m\bfQ^T$ in order to verify the requirement of frame indifference.
+Using the chain rule, we have
+$$
+\frac{\partial W}{\partial F_{ij}} = \frac{\partial W}{\partial F^*_{kl}}\frac{\partial F^*_{kl}}{\partial F_{ij}} = 
+\frac{\partial W}{\partial F^*_{kl}}\frac{\partial }{\partial F_{ij}}\Big(Q_{ka}F_{al}\Big) = \frac{\partial W}{\partial F^*_{kl}}Q_{ka}\delta_{ai}\delta_{jl} = \frac{\partial W}{\partial F^*_{kj}}Q_{ki}.
+$$
+Interpreting the above relationship in tensorial form, we have
+$$
+DW(\bfF) = \bfQ^T DW(\bfF^*) = \bfQ^T DW(\bfQ\bfF).
+$$
+Multiplying on the right by $(\cof\bfF)^{-1}$, then $\bfQ^T\bfQ=\bfI$ and using the fact that $\det\bfQ = 1$, we have
+$$
+\bfS_m = \frac{DW(\bfF)\bfF^T}{\det\bfF} = \frac{\bfQ^T DW(\bfQ\bfF)\bfF^T}{\det\bfF} = \frac{\bfQ^T DW(\bfQ\bfF)(\bfQ\bfF)^T\bfQ}{\det(\bfQ\bfF)} = \bfQ^T\bfS^*_m\bfQ.
+$$
+This shows that $\bfS$ transforms correctly, and so the material is automatically frame indifferent.
+:::
+
+
+## Initial and Boundary conditions
+Given a particular constitutive relationship between the Piola-Kirchhoff stress $\bfP$ and the deformation gradient $\bfF$, we have to solve either the evolution problem @eq-Lag-mom or the force balance problem @eq-Lag-frc. In the former case we need both initial and boundary conditions, while in the second we need just boundary conditions.
+
+### Initial conditions
+Generally speaking, the initial conditions chosen are based on assumptions about the position and velocity of the material points at the starting point. They usually take the form
+$$
+\bfphi(\bfx,0) = \bfphi_0(\bfx)\quad\text{and}\quad\frac{\partial\bfphi}{\partial t}(\bfx,0) = \bfv_0(\bfx),
+$$
+where $\bfphi_0$ and $\bfv_0$ are respectively the initial deformation and initial velocity field defined for any $\bfx\in B_0$. In simple cases we might take $\bfphi_0(\bfx) = \bfx$, if the body is initially relaxed.
+
+### Boundary conditions
+The standard boundary conditions for either dynamical or static problems in elasticity are usually of two possible forms; either the position of the boundary points is prescribed, known as **Dirichlet boundary conditions**, or the stress on the boundary is prescribed, known as **Neumann boundary conditions**. Typically we split the boundary of the body up into two parts on which these conditions are prescribed, $\Gamma_D$ and $\Gamma_N$, and the conditions become:
+$$
+\begin{aligned}
+\bfphi &= \bfg&\text{on }\Gamma_D\subset\partial B,\\
+\bfP\bfnu &= \bft&\text{on }\Gamma_N\subset\partial B,
+\end{aligned}
+$$
+where $\bfg$ and $\bft$ may depend on time (as may the sets on which they are imposed).
+
+More complex choices of boundary condition do exist, normally arising from frictional contact between the elastic body and some other object.
+
+### Full PDE problems
+In full, we are now able to state the general PDE problems of elasticity.
+
+::: {.callout-tip icon="false"}
+## Elastodynamics problem
+Find $\bfphi:B\times[0,T]\to\bbE^3$ satisfying the following initial-boundary value problem:
+$$
+\begin{aligned}
+    \rho_0\frac{\partial^2\bfphi}{\partial t^2}&=\nabla_\bfx\cdot \widehat{\bfP}(\bfF)+\rho_0\bfb_m &\text{in }&B\times[0,T],\\
+    \bfphi(\cdot,0)&=\bfphi_0 &\text{in }&B,\\
+    \frac{\partial\bfphi}{\partial t}(\cdot,0)&=\bfv_0 &\text{in }&B,\\
+    \bfphi &=\bfg&\text{on }&\Gamma_D\times[0,T],\\
+    \widehat{\bfP}(\bfF)\bfnu &=\bft&\text{on }&\Gamma_N\times[0,T].
+\end{aligned}
+$$
+:::
+
+- This problem is a nonlinear system of 3 coupled PDEs for the 3 components of $\bfphi$ which is second-order in both space and time.
+- Existence and uniqueness can be proved under assumptions on the stress response function $\widehat{\bfP}$, the smoothness of the boundaries $B$ and of the data (i.e. the initial and boundary conditions), but this is beyond the scope of this module.
+- Typically, solutions of the equations oscillate in time, and we think of this as a **nonlinear hyperbolic** PDE system. Wave-like solutions make physical sense as elastic waves are exactly how sound travels through solid materials.
+- Given the complexity of these equations, explicit solutions to these equations are rare, so numerical approximate solutions must be sought. The most common approach is to use Finite Elements.
+- A common assumption for practical purposes is that the body force per unit mass $\bfb_m$ arises due to a uniform gravitational field, in which case we may take $\bfb = -g\bfe_3$. Since this function is independent of position, we find that $\bfb_m = -g\bfe_3$.
+
+::: {.callout-tip icon="false"}
+## Elastostatics problem
+Find $\bfphi:B\to\bbE^3$ satisfying the boundary value problem:
+$$
+\begin{aligned}
+    \nabla_\bfx\cdot \widehat{\bfP}(\bfF)+\rho_0\bfb_m&=\bfzero &\text{in }&B\times[0,T],\\
+    \bfphi &=\bfg&\text{on }&\Gamma_D,\\
+    \widehat{\bfP}(\bfF)\bfnu &=\bft&\text{on }&\Gamma_N.
+\end{aligned}
+$$
+:::
+
+- This problem is a nonlinear system of 3 coupled PDEs for the 3 components of $\bfphi$ which is second-order in space.
+- As for the elastodynamics problem above, existence of solutions can be proved under smoothness assumptions on the body and the data, which is again beyond the scope of this module.
+- Once again, numerical solution is usually necessary, and Finite Elements can be used to approximate solutions.
+- An important caveat for the elastostatics equations is that non-uniqueness can occur! A prime example is elastic buckling.
+- When the material is hyperelastic, the above equation formulation can be show to be the Euler-Lagrange equation of a variational problem. In this case, we seek to minimise the total energy in the system, expressed as
+$$
+I(\bfphi) := \int_B W(\nabla_\bfx\bfphi)-\rho_0\bfb_m\cdot\bfphi\,\dVx,
+$$
+over all $\bfphi$ which satisfy to the boundary conditions. It turns out this is a powerful way to prove existence of solutions to the problem using techniques from the Calculus of Variations.
+
+## Example hyperelastic material laws
+
+In practice, almost all sensible elastic material laws are also hyperelastic.
+The following are all examples of hyperelastic material laws that are used to describe rubber-like materials:
+
+- A **St Venant--Kirchhoff** material has strain energy density
+$$
+W(\bfF) = \frac{\lambda}{2}(\tr\bfE)^2+\mu \tr(\bfE^2)
+$$
+where $\bfE = \tfrac12(\bfF^T\bfF-\bfI)$ is the Lagrange strain and $\lambda,\mu>0$ are material parameters.
+- A **Neo-Hookean** material has a strain energy density of the form
+$$
+\begin{gathered}
+W(\bfF) := a\,|\bfF|^2+\Gamma(\det\bfF)\\
+\text{where}\qquad \Gamma(J) :=c\,J^2-d\log J,
+\end{gathered}
+$$
+where $a,c,d>0$ are material parameters.
+- A **Mooney-Rivlin** material has strain energy density
+$$
+W(\bfF) = a\,|\bfF|^2+b\,|\cof\bfF|^2+\Gamma(\det\bfF),
+$$
+where $\Gamma$ is as for the neo-Hookean material, and $a,b,c,d>0$ are material parameters.
+
+Note that the neo-Hookean model is just the Mooney-Rivlin model with $b=0$, so is simply a special case. Note also that all material parameters involved in these equations have units of energy per unit volume, or equivalently of stress (force per unit area).
+```{python}
+#| label: fig-energyplot
+#| echo: false
+#| fig-cap: "The variation of the Neo-Hookean energy density as a function of various forms of stretch. Here, a=0.6MPa and c=0.6MPa, which are values representative of rubber."
+
+import matplotlib.pyplot as plt
+import numpy as np
+import numpy.linalg as la
+a = 0.6 ## MPa
+kappa = 0.6 ## MPa
+c = kappa/9 - 4*a/9
+ls = np.arange(0.00001,4.001,0.01)
+F1 = lambda l : np.array([[l, 0.0, 0.0], [0., 1., 0.], [0., 0., 1.]])
+F2 = lambda l : np.array([[l, 0.0, 0.0], [0., l, 0.], [0., 0., 1.]])
+F3 = lambda l : np.array([[l, 0.0, 0.0], [0., l, 0.], [0., 0., l]])
+cofF = lambda F : la.det(F)*(la.inv(F).T)
+W = lambda F : a*la.norm(F,ord='fro')**2+c*la.det(F)-(2*a+c)*np.log(la.det(F)) - 3*a - c
+plt.plot(ls,[W(F1(l)) for l in ls],label="Uniaxial")
+plt.plot(ls,[W(F2(l)) for l in ls],label="Biaxial")
+plt.plot(ls,[W(F3(l)) for l in ls],label="Triaxial")
+plt.xlabel("$\lambda$")
+plt.ylabel("Strain energy density, $W(F_\lambda)$ in MPa")
+plt.ylim((0.0,15.0))
+plt.xlim((0.0,4.0))
+plt.legend()
+plt.show()
+```
+
+@fig-energyplot shows strain energies for a neo-Hookean material where the parameters used are indicative of those which would be used to represent rubber, showing the different results for uniaxial, biaxial and triaxial stretches, i.e. where we use the deformation gradient:
+$$
+\bfF_\lambda = \begin{cases}
+    \lambda \bfe_1\otimes\bfe_1 + \bfe_2\otimes\bfe_2 + \bfe_3\otimes\bfe_3 & \text{in the uniaxial case,}\\
+    \lambda \bfe_1\otimes\bfe_1 + \lambda\bfe_2\otimes\bfe_2 + \bfe_3\otimes\bfe_3 & \text{in the biaxial case, and}\\
+    \lambda \bfe_1\otimes\bfe_1 + \lambda\bfe_2\otimes\bfe_2 + \lambda\bfe_3\otimes\bfe_3 & \text{in the triaxial case.}
+\end{cases}
+$$
+Note that in each case, the parameters are chosen to guarantee that $\bfF_1=\bfI$ is a minimum of the energy.

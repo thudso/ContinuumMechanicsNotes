@@ -779,4 +779,4 @@ As we might expect from our experience, the density and pressure decrease with i
 - For the same reason, the pressure and density are not independent of the horizontal position; and
 - Perhaps worst of all, the temperature of the air reduces with height, whereas our model assumed it to be constant!
 
-There are various standard models used for practical engineering that make use of the basic ideas we discuss here. To find out more, search for the term `Standard Atmosphere'.
+There are various standard models used for practical engineering that make use of the basic ideas we discuss here. To find out more, search for the term 'Standard Atmosphere'.
