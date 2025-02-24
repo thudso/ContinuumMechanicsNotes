@@ -14,6 +14,7 @@ book:
     - massandforces.qmd
     - kinematics.qmd
     - balancelaws.qmd
+    - solidmechanics.qmd
   downloads: pdf
 
 format:
