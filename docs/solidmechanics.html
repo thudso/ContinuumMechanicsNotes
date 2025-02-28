@@ -217,6 +217,10 @@ window.Quarto = {
   <li><a href="#full-pde-problems" id="toc-full-pde-problems" class="nav-link" data-scroll-target="#full-pde-problems"><span class="header-section-number">7.4.3</span> Full PDE problems</a></li>
   </ul></li>
   <li><a href="#example-hyperelastic-material-laws" id="toc-example-hyperelastic-material-laws" class="nav-link" data-scroll-target="#example-hyperelastic-material-laws"><span class="header-section-number">7.5</span> Example hyperelastic material laws</a></li>
+  <li><a href="#material-symmetry" id="toc-material-symmetry" class="nav-link" data-scroll-target="#material-symmetry"><span class="header-section-number">7.6</span> Material symmetry</a>
+  <ul class="collapse">
+  <li><a href="#isotropic-examples" id="toc-isotropic-examples" class="nav-link" data-scroll-target="#isotropic-examples"><span class="header-section-number">7.6.1</span> Isotropic examples</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -291,8 +295,8 @@ Elastic solid
 </section>
 <section id="hyperelasticity-and-conservation-of-energy" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="hyperelasticity-and-conservation-of-energy"><span class="header-section-number">7.2</span> Hyperelasticity and conservation of energy</h2>
-<p>Next, we discuss conservation of energy. If we assume that the body is <strong>isothermal</strong>, so it is held at a constant temperature <span class="math inline">\theta=\theta_0</span> and there is no heat flow, then we can neglect all heat related terms in the energy balance equation.</p>
-<p>In particular, in the Lagrangian formualtion, we assume the heat flux <span class="math inline">{\boldsymbol{\kappa}}={\boldsymbol{0}}</span> and the heat supply field <span class="math inline">r=0</span>, and the local equation for conservation of energy in Lagrangian form is <span class="math display">
+<p>Next, we discuss conservation of energy. If we assume that the body is <strong>isothermal</strong>, so it is held at a constant temperature <span class="math inline">\theta=\theta_0</span> and there is no heat flow, then we neglect all heat related terms in the energy balance equation.</p>
+<p>In particular, in the Lagrangian formulation, we neglect the heat flux <span class="math inline">{\boldsymbol{\kappa}}={\boldsymbol{0}}</span> and the heat supply field <span class="math inline">r=0</span>, and the local equation for conservation of energy in Lagrangian form is <span class="math display">
 \rho_0\frac{\partial \phi_m}{\partial t} = {\boldsymbol{P}}:\frac{\partial{\boldsymbol{F}}}{\partial t}.
 </span> This encodes the fact that the internal energy per unit mass only changes due to internal mechanical work, and no energy is lost as heat.</p>
 <p>One way to guarantee that this equation holds is to assume that the Piola-Kirchhoff stress function can be expressed as the derivative of a function <span class="math inline">W:{\mathcal{V}}^2\to{\mathbb{R}}</span> called the <strong>strain energy density</strong>, i.e. <span class="math display">
@@ -430,7 +434,7 @@ I({\boldsymbol{\varphi}}) := \int_B W(\nabla_{\boldsymbol{x}}{\boldsymbol{\varph
 </section>
 <section id="example-hyperelastic-material-laws" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="example-hyperelastic-material-laws"><span class="header-section-number">7.5</span> Example hyperelastic material laws</h2>
-<p>In practice, almost all sensible elastic material laws are also hyperelastic. The following are all examples of hyperelastic material laws that are used to describe rubber-like materials:</p>
+<p>In practice, almost all sensible elastic material laws are hyperelastic. The following are all examples of hyperelastic material laws that are used to describe rubber-like materials:</p>
 <ul>
 <li>A <strong>St Venant–Kirchhoff</strong> material has strain energy density <span class="math display">
 W({\boldsymbol{F}}) = \frac{\lambda}{2}({\operatorname{tr}}{\boldsymbol{E}})^2+\mu {\operatorname{tr}}({\boldsymbol{E}}^2)
@@ -467,8 +471,161 @@ Figure&nbsp;7.1: The variation of the Neo-Hookean energy density as a function o
     \lambda {\boldsymbol{e}}_1\otimes{\boldsymbol{e}}_1 + \lambda{\boldsymbol{e}}_2\otimes{\boldsymbol{e}}_2 + \lambda{\boldsymbol{e}}_3\otimes{\boldsymbol{e}}_3 &amp; \text{in the triaxial case.}
 \end{cases}
 </span> Note that in each case, the parameters are chosen to guarantee that <span class="math inline">{\boldsymbol{F}}_1={\boldsymbol{I}}</span> is a minimum of the energy.</p>
+</section>
+<section id="material-symmetry" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="material-symmetry"><span class="header-section-number">7.6</span> Material symmetry</h2>
+<p>Note that elastic materials with a frame indifferent stress response function must satisfy the symmetry <span class="math display">
+{\boldsymbol{Q}}\widehat{{\boldsymbol{S}}}({\boldsymbol{F}}){\boldsymbol{Q}}^T = \widehat{{\boldsymbol{S}}}({\boldsymbol{Q}}{\boldsymbol{F}}).
+</span> Here, we can think of <span class="math inline">{\boldsymbol{Q}}</span> as being a change of basis <em>after</em> having applied the deformation gradient <span class="math inline">{\boldsymbol{F}}</span>, which corresponds to a change of frame for observing the material.</p>
+<p>If on the other hand we require that <span class="math display">
+\widehat{{\boldsymbol{S}}}({\boldsymbol{F}}{\boldsymbol{R}}) = \widehat{{\boldsymbol{S}}}({\boldsymbol{F}})
+</span> for <span class="math inline">{\boldsymbol{R}}</span> taken from some subgroup of all rotations, we can encode material <em>symmetry</em>. We can think of the rotation <span class="math inline">{\boldsymbol{R}}</span> as acting <em>before</em> the strain <span class="math inline">{\boldsymbol{F}}</span> on an infinitesimal piece of the material.</p>
+<p>Some examples of when we might wish to assume some material symmetries follow.</p>
+<ul>
+<li><p>Softwood is often made up of long straight fibres, see <a href="#fig-plank" class="quarto-xref">Figure&nbsp;<span>7.2 (a)</span></a>. Rotating a small piece of such a material about the axis of the fibres will keep the material properties similar. On the other hand, changing the orientation of the fibres (the grain direction) will affect the properties significantly. Grain orientation is an important consideration when using wood in practice.</p></li>
+<li><p>Polycrystalline materials and polymeric materials like rubber often behave <em>isotropically</em>, i.e.&nbsp;they have material properties which are invariant under any rotation, see <a href="#fig-steel" class="quarto-xref">Figure&nbsp;<span>7.2 (b)</span></a>. In this case, a small sample of the material behaves pretty much identically, no matter which direction it is rotated.</p></li>
+</ul>
+<div id="fig-materials" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-materials-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-materials" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-plank" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-plank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/PinePlank.jpg" style="height:60mm" data-ref-parent="fig-materials" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-plank-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) A pine plank.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-materials" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-steel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-steel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/steel.jpg" style="height:60mm" data-ref-parent="fig-materials" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-steel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Steel bars.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-materials-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: Examples of a materials with different symmetries.
+</figcaption>
+</figure>
+</div>
+<p>We will focus on isotropic materials, since this is the strongest symmetry assumption we can make, and so is the most restrictive:</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Isotropy
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An elastic body is said to be isotropic if the stress response function satisfies the symmetry <span class="math display">
+\widehat{{\boldsymbol{S}}}({\boldsymbol{F}}{\boldsymbol{Q}}) = \widehat{{\boldsymbol{S}}}({\boldsymbol{F}})
+</span> for all rotations <span class="math inline">{\boldsymbol{Q}}</span> and for any admissible deformation gradient <span class="math inline">{\boldsymbol{F}}</span>.</p>
+</div>
+</div>
+<p>As we might expect, isotropy imposes significant restrictions on the possible material laws we can expect, and the following result gives a complete characterisation in the hyperelastic case.</p>
+<div id="prp-IsotropicElasticity" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 7.2</strong></span> The following 3 conditions are equivalent:</p>
+<ol type="1">
+<li><p>A homogeneous hyperelastic body is frame indifferent and isotropic.</p></li>
+<li><p>The stored energy density can be expressed as a permutation invariant function of the 3 principal stretches <span class="math inline">\lambda_i</span>, i.e. <span class="math display">
+W({\boldsymbol{F}}) = \Phi(\lambda_1,\lambda_2,\lambda_3),
+</span> for some function <span class="math inline">\Phi:(0,+\infty)^3\to{\mathbb{R}}</span>.</p></li>
+<li><p>The stored energy density can be expressed as a function of the three principal invariants of <span class="math inline">{\boldsymbol{U}}</span> only, i.e. <span class="math display">
+W({\boldsymbol{F}}) = \widetilde{\Phi}\Big(I_1({\boldsymbol{U}}),I_2({\boldsymbol{U}}),I_3({\boldsymbol{U}})\Big)
+</span> for some function <span class="math inline">\widetilde{\Phi}:(0,+\infty)^3\to{\mathbb{R}}</span>.</p></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We first show 1 <span class="math inline">\Rightarrow</span> 2. In combination, frame indifference and isotropy mean that <span class="math display">
+W({\boldsymbol{F}}) = W({\boldsymbol{Q}}_1{\boldsymbol{F}}{\boldsymbol{Q}}_2)
+</span> for any two rotations <span class="math inline">{\boldsymbol{Q}}_1</span> and <span class="math inline">{\boldsymbol{Q}}_2</span>. Using the polar decomposition of <span class="math inline">{\boldsymbol{F}}</span>, we write <span class="math display">
+W({\boldsymbol{F}}) = W({\boldsymbol{R}}{\boldsymbol{U}}) = W({\boldsymbol{U}}),
+</span> since <span class="math inline">{\boldsymbol{R}}</span> is a rotation. Then, as <span class="math inline">{\boldsymbol{U}}</span> is a symmetric positive definite tensor, we can diagonalise it, implying that <span class="math display">
+W({\boldsymbol{U}}) = W({\boldsymbol{Q}}{\boldsymbol{D}}{\boldsymbol{Q}}^T) = W({\boldsymbol{D}})
+</span> where <span class="math inline">{\boldsymbol{D}}</span> is a tensor that has components only on the diagonal in a given coordinate frame. These components are the eigenvalues of <span class="math inline">{\boldsymbol{U}}</span>, which we recall are the principal stretches, and so as a consequence, we can write <span class="math display">
+W({\boldsymbol{F}}) = \Phi(\lambda_1,\lambda_2,\lambda_3),
+</span> where <span class="math inline">\Phi</span> is some function. This function must be permutation invariant since we can introduce rotations which permute the diagonal components of <span class="math inline">{\boldsymbol{D}}</span>; for example, note that <span class="math display">
+\left(
+\begin{array}{ccc}
+  0 &amp; 1 &amp; 0 \\
+-1 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 1
+\end{array}
+\right)
+\left(
+\begin{array}{ccc}
+  \lambda_1 &amp; 0 &amp; 0 \\
+  0 &amp; \lambda_2 &amp; 0 \\
+  0 &amp; 0 &amp; \lambda_3
+\end{array}
+\right)
+\left(
+\begin{array}{ccc}
+  0 &amp; -1 &amp; 0 \\
+  1 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 1
+\end{array}
+\right)
+=
+\left(
+\begin{array}{ccc}
+  \lambda_2 &amp; 0 &amp; 0 \\
+  0 &amp; \lambda_1 &amp; 0 \\
+  0 &amp; 0 &amp; \lambda_3
+\end{array}
+\right),
+</span> and this proves statement 1.</p>
+<p>Now we show 2 <span class="math inline">\Rightarrow</span> 3. We note that the principal stretches are roots of the characteristic polynomial <span class="math display">
+0 = \det({\boldsymbol{U}}-\lambda{\boldsymbol{I}}) = -\lambda^3+I_1({\boldsymbol{U}})\lambda^2-I_2({\boldsymbol{U}})\lambda+I_3({\boldsymbol{U}}),
+</span> and the roots of a polynomial are continuous functions of its coefficients. As such, there is some continuous function that maps the triple of invariants to the triple of stretches (effectively, this is the ‘cubic formula’). Composing this function with <span class="math inline">\Phi</span>, it follows that the function <span class="math inline">\widetilde{\Phi}</span> exists.</p>
+<p>Finally, we show 3 <span class="math inline">\Rightarrow</span> 1. In this case, we begin by noting that <span class="math inline">{\boldsymbol{U}}= \sqrt{{\boldsymbol{F}}^T{\boldsymbol{F}}}</span>, and so each invariant of <span class="math inline">{\boldsymbol{U}}</span> is insensitive to left multiplication by a rigid body rotation. Similarly, we note that <span class="math inline">({\boldsymbol{F}}{\boldsymbol{Q}})^T({\boldsymbol{F}}{\boldsymbol{Q}}) = {\boldsymbol{Q}}^T{\boldsymbol{F}}^T{\boldsymbol{F}}{\boldsymbol{Q}}</span>, and it can be checked directly that <span class="math display">
+\sqrt{({\boldsymbol{F}}{\boldsymbol{Q}})^T({\boldsymbol{F}}{\boldsymbol{Q}})} = {\boldsymbol{Q}}^T{\boldsymbol{U}}{\boldsymbol{Q}},
+</span> since positive definite square roots are unique. Next, we can use the permutation invariance of the trace to see that <span class="math display">
+{\operatorname{tr}}({\boldsymbol{U}}) = {\operatorname{tr}}({\boldsymbol{Q}}{\boldsymbol{U}}{\boldsymbol{Q}}^T)\quad\text{and}\quad{\operatorname{tr}}({\boldsymbol{U}}^2) = {\operatorname{tr}}({\boldsymbol{Q}}{\boldsymbol{U}}^2{\boldsymbol{Q}}^T),
+</span> and similarly <span class="math inline">\det({\boldsymbol{U}}) = \det({\boldsymbol{Q}}{\boldsymbol{U}}{\boldsymbol{Q}}^T)</span>. It follows that all terms in the invariants transform correctly under right multiplication, and therefore the strain energy density is also isotropic.</p>
+</div>
+<section id="isotropic-examples" class="level3" data-number="7.6.1">
+<h3 data-number="7.6.1" class="anchored" data-anchor-id="isotropic-examples"><span class="header-section-number">7.6.1</span> Isotropic examples</h3>
+<p>We have now very significantly narrowed the range of possible stored energy density functions. We will show that the example hyperelastic laws given above are all frame indifferent and isotropic stored energy densities.</p>
+<ul>
+<li><p>For a <strong>St Venant-Kirchhoff</strong> material, the stored energy density was written using the trace of <span class="math inline">{\boldsymbol{E}}= \frac12({\boldsymbol{F}}^T{\boldsymbol{F}}-{\boldsymbol{I}})</span> and <span class="math inline">{\boldsymbol{E}}^2</span>. We show these are expressible in a permutation invariant way in terms of the principal stretches. First: <span class="math display">
+2{\operatorname{tr}}{\boldsymbol{E}}= {\operatorname{tr}}({\boldsymbol{F}}^T{\boldsymbol{F}})-{\operatorname{tr}}({\boldsymbol{I}}) = {\operatorname{tr}}({\boldsymbol{C}})-3
+={\operatorname{tr}}({\boldsymbol{U}}^2)-3.
+</span> Diagonalising <span class="math inline">{\boldsymbol{U}}</span>, we have <span class="math display">
+{\operatorname{tr}}({\boldsymbol{U}}^2) = {\operatorname{tr}}({\boldsymbol{Q}}{\boldsymbol{D}}^2{\boldsymbol{Q}}^T) = {\operatorname{tr}}({\boldsymbol{Q}}^T{\boldsymbol{Q}}{\boldsymbol{D}}^2) = {\operatorname{tr}}({\boldsymbol{D}}^2).
+</span> The latter expression is the sum of the squares of the principal invariants, and is permutation invariant as required. Inspecting the term <span class="math inline">{\operatorname{tr}}{\boldsymbol{E}}^2</span>, we find the only term we need to account for further is <span class="math inline">{\operatorname{tr}}({\boldsymbol{F}}^T{\boldsymbol{F}}{\boldsymbol{F}}^T{\boldsymbol{F}})</span>. Diagonalising once more, we have <span class="math display">
+{\operatorname{tr}}({\boldsymbol{F}}^T{\boldsymbol{F}}{\boldsymbol{F}}^T{\boldsymbol{F}}) = {\operatorname{tr}}({\boldsymbol{U}}^4) = {\operatorname{tr}}({\boldsymbol{D}}^4) = \lambda_1^4+\lambda_2^4+\lambda_3^4.
+</span> Once more, this is a permutation-invariant function of the principal stretches.</p></li>
+<li><p>For a <strong>Mooney-Rivlin</strong> material, we note that for the first term, <span class="math display">
+|{\boldsymbol{F}}|^2 = {\operatorname{tr}}({\boldsymbol{F}}^T{\boldsymbol{F}}) = {\operatorname{tr}}({\boldsymbol{U}}^2) = \lambda_1^2+\lambda_2^2+\lambda_3^2,
+</span> where <span class="math inline">\lambda_i</span> are the principal stretches. Next, we note that <span class="math display">
+|{\operatorname{cof}}{\boldsymbol{F}}|^2 = (\det{\boldsymbol{F}})^2{\operatorname{tr}}({\boldsymbol{F}}^{-1}{\boldsymbol{F}}^{-T}).
+</span> Using the polar decomposition, we can write <span class="math display">
+\begin{aligned}
+{\operatorname{tr}}({\boldsymbol{F}}^{-1}{\boldsymbol{F}}^{-T}) &amp;= {\operatorname{tr}}({\boldsymbol{U}}^{-1}{\boldsymbol{R}}^T{\boldsymbol{R}}{\boldsymbol{U}}^{-T}) \\
+&amp;= {\operatorname{tr}}({\boldsymbol{U}}^{-2}) = {\operatorname{tr}}({\boldsymbol{D}}^{-2})=\lambda_1^{-2}+\lambda_2^{-2}+\lambda_3^{-2}.
+\end{aligned}
+</span> Multiplying by <span class="math inline">\det{\boldsymbol{U}}^2=\det{\boldsymbol{D}}^2</span>, we obtain <span class="math display">
+|{\operatorname{cof}}{\boldsymbol{F}}|^2=\lambda_1^2\lambda_2^2+\lambda_2^2\lambda_3^2+\lambda_3^2\lambda_1^2.
+</span> Similarly for the final term, we observe that <span class="math inline">\det{\boldsymbol{F}}= \det{\boldsymbol{R}}{\boldsymbol{U}}= \det{\boldsymbol{U}}= \lambda_1\lambda_2\lambda_3</span>. In each case, we have expressed the terms as a permutation invariant function of the principal stretches, so we are done.</p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
