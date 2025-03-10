@@ -221,6 +221,12 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#isotropic-examples" id="toc-isotropic-examples" class="nav-link" data-scroll-target="#isotropic-examples"><span class="header-section-number">7.6.1</span> Isotropic examples</a></li>
   </ul></li>
+  <li><a href="#linear-elasticity" id="toc-linear-elasticity" class="nav-link" data-scroll-target="#linear-elasticity"><span class="header-section-number">7.7</span> Linear Elasticity</a>
+  <ul class="collapse">
+  <li><a href="#linearisation" id="toc-linearisation" class="nav-link" data-scroll-target="#linearisation"><span class="header-section-number">7.7.1</span> Linearisation</a></li>
+  <li><a href="#symmetries-of-the-elasticity-tensor" id="toc-symmetries-of-the-elasticity-tensor" class="nav-link" data-scroll-target="#symmetries-of-the-elasticity-tensor"><span class="header-section-number">7.7.2</span> Symmetries of the elasticity tensor</a></li>
+  <li><a href="#isotropy-1" id="toc-isotropy-1" class="nav-link" data-scroll-target="#isotropy-1"><span class="header-section-number">7.7.3</span> Isotropy</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -275,21 +281,21 @@ Elastic solid
 <p>A continuum body <span class="math inline">B</span> is said to be an <strong>elastic solid</strong> if the following 2 properties are satisfied:</p>
 <ol type="1">
 <li><p>The Cauchy stress field can be expressed as a function of the deformation gradient, i.e. <span class="math display">
-{\boldsymbol{S}}_m({\boldsymbol{x}},t) = \widehat{{\boldsymbol{S}}}({\boldsymbol{F}}({\boldsymbol{x}},t),{\boldsymbol{x}})
+{\boldsymbol{S}}_m({\boldsymbol{x}},t) = \widetilde{{\boldsymbol{S}}}({\boldsymbol{F}}({\boldsymbol{x}},t),{\boldsymbol{x}})
 </span> for any <span class="math inline">{\boldsymbol{x}}\in B</span> and <span class="math inline">t\in[0,T]</span>.</p></li>
-<li><p>The function <span class="math inline">\widehat{{\boldsymbol{S}}}</span> is always symmetric for valid deformation gradients, i.e. <span class="math display">
-\widehat{{\boldsymbol{S}}}({\boldsymbol{F}},{\boldsymbol{x}})^T = \widehat{{\boldsymbol{S}}}({\boldsymbol{F}},{\boldsymbol{x}})
+<li><p>The function <span class="math inline">\widetilde{{\boldsymbol{S}}}</span> is always symmetric for valid deformation gradients, i.e. <span class="math display">
+\widetilde{{\boldsymbol{S}}}({\boldsymbol{F}},{\boldsymbol{x}})^T = \widetilde{{\boldsymbol{S}}}({\boldsymbol{F}},{\boldsymbol{x}})
 </span> for any <span class="math inline">{\boldsymbol{x}}\in B</span> and any <span class="math inline">{\boldsymbol{F}}\in{\mathcal{V}}^2</span> with <span class="math inline">\det{\boldsymbol{F}}&gt;0</span>.</p></li>
 </ol>
 </div>
 </div>
 <p>Some notes on the above definition:</p>
 <ul>
-<li>The function <span class="math inline">\widehat{{\boldsymbol{S}}}</span> is called the <strong>elastic stress response function</strong> of the body.</li>
+<li>The function <span class="math inline">\widetilde{{\boldsymbol{S}}}</span> is called the <strong>elastic stress response function</strong> of the body.</li>
 <li>The dependence on the point <span class="math inline">{\boldsymbol{x}}</span> in the stress response function allows us in general to represent the fact that the body may be made up of different materials in different places. The simplest cases have no explicit dependence on <span class="math inline">{\boldsymbol{x}}</span>, in which case we say the body is <strong>homogeneous</strong>.</li>
-<li>Using the relationship between the Cauchy and Piola–Kirchhoff stresses, we can choose to prescribe either the Cauchy stress by defining a function <span class="math inline">\widehat{{\boldsymbol{S}}}</span> as above, or by prescribing the Piola-Kirchhoff stress by defining a function <span class="math inline">\widehat{{\boldsymbol{P}}}({\boldsymbol{F}})</span>. We can move between the two approaches using the relation: <span class="math display">
-{\boldsymbol{P}}= \widehat{{\boldsymbol{S}}}({\boldsymbol{F}}){\operatorname{cof}}{\boldsymbol{F}}= \det{\boldsymbol{F}}\,\widehat{{\boldsymbol{S}}}({\boldsymbol{F}}){\boldsymbol{F}}^{-T}\quad\text{or}\quad
-{\boldsymbol{S}}= \frac{\widehat{{\boldsymbol{P}}}({\boldsymbol{F}}){\boldsymbol{F}}^T}{\det {\boldsymbol{F}}}.
+<li>Using the relationship between the Cauchy and Piola–Kirchhoff stresses, we can choose to prescribe either the Cauchy stress by defining a function <span class="math inline">\widetilde{{\boldsymbol{S}}}</span> as above, or by prescribing the Piola-Kirchhoff stress by defining a function <span class="math inline">\widetilde{{\boldsymbol{P}}}({\boldsymbol{F}})</span>. We can move between the two approaches using the relation: <span class="math display">
+{\boldsymbol{P}}= \widetilde{{\boldsymbol{S}}}({\boldsymbol{F}}){\operatorname{cof}}{\boldsymbol{F}}= \det{\boldsymbol{F}}\,\widetilde{{\boldsymbol{S}}}({\boldsymbol{F}}){\boldsymbol{F}}^{-T}\quad\text{or}\quad
+{\boldsymbol{S}}= \frac{\widetilde{{\boldsymbol{P}}}({\boldsymbol{F}}){\boldsymbol{F}}^T}{\det {\boldsymbol{F}}}.
 </span></li>
 </ul>
 </section>
@@ -318,7 +324,7 @@ Hyperelastic material
 <p>A <strong>hyperelastic material</strong> is an elastic material for which:</p>
 <ol type="1">
 <li>The Piola–Kirchhoff stress response function satisfies <span class="math display">
-\widehat{{\boldsymbol{P}}}({\boldsymbol{F}}) = DW({\boldsymbol{F}})
+\widetilde{{\boldsymbol{P}}}({\boldsymbol{F}}) = DW({\boldsymbol{F}})
 </span> where <span class="math inline">W:{\mathcal{V}}^2\to{\mathbb{R}}</span> is the <strong>strain energy density</strong>; and</li>
 <li>For any <span class="math inline">{\boldsymbol{F}}\in{\mathcal{V}}^2</span> with <span class="math inline">\det{\boldsymbol{F}}&gt;0</span>, we have that conservation of angular momentum is guaranteed, i.e. <span class="math display">
 DW({\boldsymbol{F}}){\boldsymbol{F}}^T = {\boldsymbol{F}}DW({\boldsymbol{F}})^T.
@@ -386,18 +392,18 @@ Elastodynamics problem
 <div class="callout-body-container callout-body">
 <p>Find <span class="math inline">{\boldsymbol{\varphi}}:B\times[0,T]\to{\mathbb{E}}^3</span> satisfying the following initial-boundary value problem: <span class="math display">
 \begin{aligned}
-    \rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}&amp;=\nabla_{\boldsymbol{x}}\cdot \widehat{{\boldsymbol{P}}}({\boldsymbol{F}})+\rho_0{\boldsymbol{b}}_m &amp;\text{in }&amp;B\times[0,T],\\
+    \rho_0\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2}&amp;=\nabla_{\boldsymbol{x}}\cdot \widetilde{{\boldsymbol{P}}}({\boldsymbol{F}})+\rho_0{\boldsymbol{b}}_m &amp;\text{in }&amp;B\times[0,T],\\
     {\boldsymbol{\varphi}}(\cdot,0)&amp;={\boldsymbol{\varphi}}_0 &amp;\text{in }&amp;B,\\
     \frac{\partial{\boldsymbol{\varphi}}}{\partial t}(\cdot,0)&amp;={\boldsymbol{v}}_0 &amp;\text{in }&amp;B,\\
     {\boldsymbol{\varphi}}&amp;={\boldsymbol{g}}&amp;\text{on }&amp;\Gamma_D\times[0,T],\\
-    \widehat{{\boldsymbol{P}}}({\boldsymbol{F}}){\boldsymbol{\nu}}&amp;={\boldsymbol{t}}&amp;\text{on }&amp;\Gamma_N\times[0,T].
+    \widetilde{{\boldsymbol{P}}}({\boldsymbol{F}}){\boldsymbol{\nu}}&amp;={\boldsymbol{t}}&amp;\text{on }&amp;\Gamma_N\times[0,T].
 \end{aligned}
 </span></p>
 </div>
 </div>
 <ul>
 <li>This problem is a nonlinear system of 3 coupled PDEs for the 3 components of <span class="math inline">{\boldsymbol{\varphi}}</span> which is second-order in both space and time.</li>
-<li>Existence and uniqueness can be proved under assumptions on the stress response function <span class="math inline">\widehat{{\boldsymbol{P}}}</span>, the smoothness of the boundaries <span class="math inline">B</span> and of the data (i.e.&nbsp;the initial and boundary conditions), but this is beyond the scope of this module.</li>
+<li>Existence and uniqueness can be proved under assumptions on the stress response function <span class="math inline">\widetilde{{\boldsymbol{P}}}</span>, the smoothness of the boundaries <span class="math inline">B</span> and of the data (i.e.&nbsp;the initial and boundary conditions), but this is beyond the scope of this module.</li>
 <li>Typically, solutions of the equations oscillate in time, and we think of this as a <strong>nonlinear hyperbolic</strong> PDE system. Wave-like solutions make physical sense as elastic waves are exactly how sound travels through solid materials.</li>
 <li>Given the complexity of these equations, explicit solutions to these equations are rare, so numerical approximate solutions must be sought. The most common approach is to use Finite Elements.</li>
 <li>A common assumption for practical purposes is that the body force per unit mass <span class="math inline">{\boldsymbol{b}}_m</span> arises due to a uniform gravitational field, in which case we may take <span class="math inline">{\boldsymbol{b}}= -g{\boldsymbol{e}}_3</span>. Since this function is independent of position, we find that <span class="math inline">{\boldsymbol{b}}_m = -g{\boldsymbol{e}}_3</span>.</li>
@@ -414,9 +420,9 @@ Elastostatics problem
 <div class="callout-body-container callout-body">
 <p>Find <span class="math inline">{\boldsymbol{\varphi}}:B\to{\mathbb{E}}^3</span> satisfying the boundary value problem: <span class="math display">
 \begin{aligned}
-    \nabla_{\boldsymbol{x}}\cdot \widehat{{\boldsymbol{P}}}({\boldsymbol{F}})+\rho_0{\boldsymbol{b}}_m&amp;={\boldsymbol{0}}&amp;\text{in }&amp;B\times[0,T],\\
+    \nabla_{\boldsymbol{x}}\cdot \widetilde{{\boldsymbol{P}}}({\boldsymbol{F}})+\rho_0{\boldsymbol{b}}_m&amp;={\boldsymbol{0}}&amp;\text{in }&amp;B\times[0,T],\\
     {\boldsymbol{\varphi}}&amp;={\boldsymbol{g}}&amp;\text{on }&amp;\Gamma_D,\\
-    \widehat{{\boldsymbol{P}}}({\boldsymbol{F}}){\boldsymbol{\nu}}&amp;={\boldsymbol{t}}&amp;\text{on }&amp;\Gamma_N.
+    \widetilde{{\boldsymbol{P}}}({\boldsymbol{F}}){\boldsymbol{\nu}}&amp;={\boldsymbol{t}}&amp;\text{on }&amp;\Gamma_N.
 \end{aligned}
 </span></p>
 </div>
@@ -475,10 +481,10 @@ Figure&nbsp;7.1: The variation of the Neo-Hookean energy density as a function o
 <section id="material-symmetry" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="material-symmetry"><span class="header-section-number">7.6</span> Material symmetry</h2>
 <p>Note that elastic materials with a frame indifferent stress response function must satisfy the symmetry <span class="math display">
-{\boldsymbol{Q}}\widehat{{\boldsymbol{S}}}({\boldsymbol{F}}){\boldsymbol{Q}}^T = \widehat{{\boldsymbol{S}}}({\boldsymbol{Q}}{\boldsymbol{F}}).
+{\boldsymbol{Q}}\widetilde{{\boldsymbol{S}}}({\boldsymbol{F}}){\boldsymbol{Q}}^T = \widetilde{{\boldsymbol{S}}}({\boldsymbol{Q}}{\boldsymbol{F}}).
 </span> Here, we can think of <span class="math inline">{\boldsymbol{Q}}</span> as being a change of basis <em>after</em> having applied the deformation gradient <span class="math inline">{\boldsymbol{F}}</span>, which corresponds to a change of frame for observing the material.</p>
 <p>If on the other hand we require that <span class="math display">
-\widehat{{\boldsymbol{S}}}({\boldsymbol{F}}{\boldsymbol{R}}) = \widehat{{\boldsymbol{S}}}({\boldsymbol{F}})
+\widetilde{{\boldsymbol{S}}}({\boldsymbol{F}}{\boldsymbol{R}}) = \widetilde{{\boldsymbol{S}}}({\boldsymbol{F}})
 </span> for <span class="math inline">{\boldsymbol{R}}</span> taken from some subgroup of all rotations, we can encode material <em>symmetry</em>. We can think of the rotation <span class="math inline">{\boldsymbol{R}}</span> as acting <em>before</em> the strain <span class="math inline">{\boldsymbol{F}}</span> on an infinitesimal piece of the material.</p>
 <p>Some examples of when we might wish to assume some material symmetries follow.</p>
 <ul>
@@ -532,7 +538,7 @@ Isotropy
 </div>
 <div class="callout-body-container callout-body">
 <p>An elastic body is said to be isotropic if the stress response function satisfies the symmetry <span class="math display">
-\widehat{{\boldsymbol{S}}}({\boldsymbol{F}}{\boldsymbol{Q}}) = \widehat{{\boldsymbol{S}}}({\boldsymbol{F}})
+\widetilde{{\boldsymbol{S}}}({\boldsymbol{F}}{\boldsymbol{Q}}) = \widetilde{{\boldsymbol{S}}}({\boldsymbol{F}})
 </span> for all rotations <span class="math inline">{\boldsymbol{Q}}</span> and for any admissible deformation gradient <span class="math inline">{\boldsymbol{F}}</span>.</p>
 </div>
 </div>
@@ -623,6 +629,105 @@ W({\boldsymbol{F}}) = \Phi(\lambda_1,\lambda_2,\lambda_3),
 |{\operatorname{cof}}{\boldsymbol{F}}|^2=\lambda_1^2\lambda_2^2+\lambda_2^2\lambda_3^2+\lambda_3^2\lambda_1^2.
 </span> Similarly for the final term, we observe that <span class="math inline">\det{\boldsymbol{F}}= \det{\boldsymbol{R}}{\boldsymbol{U}}= \det{\boldsymbol{U}}= \lambda_1\lambda_2\lambda_3</span>. In each case, we have expressed the terms as a permutation invariant function of the principal stretches, so we are done.</p></li>
 </ul>
+</section>
+</section>
+<section id="linear-elasticity" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="linear-elasticity"><span class="header-section-number">7.7</span> Linear Elasticity</h2>
+<p>The equations of elasticity we have derived are challenging to solve exactly due to their inherent nonlinearity which arises from frame indifference. In practice, it often convenient and reasonable to use a linearised form of the equations. Typically, we focus on cases where <span class="math inline">{\boldsymbol{F}}</span> stays close to the identity, but any fixed rotation tensor would also be possible.</p>
+<section id="linearisation" class="level3" data-number="7.7.1">
+<h3 data-number="7.7.1" class="anchored" data-anchor-id="linearisation"><span class="header-section-number">7.7.1</span> Linearisation</h3>
+<p>Suppose that we consider a hyperelastic solid for which <span class="math inline">DW({\boldsymbol{I}})=\widetilde{{\boldsymbol{P}}}({\boldsymbol{I}})={\boldsymbol{O}}</span>, i.e.&nbsp;the reference configuration is stress-free, and moreover assume that the deformation gradient in the material stays close to the identity, i.e. <span class="math display">
+|{\boldsymbol{F}}-{\boldsymbol{I}}|\ll 1.
+</span> Recalling that <span class="math display">
+{\boldsymbol{F}}= \nabla_{\boldsymbol{x}}{\boldsymbol{\varphi}}= {\boldsymbol{I}}+\nabla_{\boldsymbol{x}}{\boldsymbol{u}},
+</span> we can Taylor expand the stress response to obtain <span class="math display">
+\begin{aligned}
+\widetilde{P}_{ij}({\boldsymbol{F}}) &amp;= \widetilde{P}_{ij}({\boldsymbol{I}})+\frac{\partial \widetilde{P}_{ij}}{\partial F_{kl}}({\boldsymbol{I}})\Big(F_{kl}-\delta_{kl}\Big)+O\big(|{\boldsymbol{F}}-{\boldsymbol{I}}|^2\big)\\
+&amp;=\frac{\partial \widetilde{P}_{ij}}{\partial F_{kl}}({\boldsymbol{I}})u_{k,l}+O\big(|{\boldsymbol{F}}-{\boldsymbol{I}}|^2\big),
+\end{aligned}
+</span> where the first term vanishes due to the assumption made above, and in the second term we have used the definition of the displacement gradient. If we drop all quadratic and higher-orer terms, we see that the Piola-Kirchhoff stress can be approximated as simply being a linear function of the displacement gradient. This leads us to define the fourth-order <strong>elasticity tensor</strong> with components <span class="math display">
+{\mathbb{C}}_{ijkl}:=\frac{\partial\widetilde{P}_{ij}}{\partial F_{kl}}({\boldsymbol{I}}) = \frac{\partial^2 W}{\partial F_{ij}\partial F_{kl}}({\boldsymbol{I}}).
+</span> A fourth-order tensor is a linear map from second-order tensors to second-order tensors, and we can define components in various ways, for example via the expressions <span class="math display">
+{\mathbb{C}}_{ijkl} = {\boldsymbol{e}}_i\cdot \left(\left({\mathbb{C}}({\boldsymbol{e}}_k\otimes{\boldsymbol{e}}_l)\right){\boldsymbol{e}}_j\right) = ({\boldsymbol{e}}_i\otimes{\boldsymbol{e}}_j):\left({\mathbb{C}}({\boldsymbol{e}}_k\otimes{\boldsymbol{e}}_l)\right),
+</span> where <span class="math inline">\{{\boldsymbol{e}}_i\}</span> are the basis vectors in a fixed Cartesian coordinate frame.</p>
+<p>A nice feature of this linearisation is that we can recast the elastodynamics and elastostatics problems in terms of the displacement field <span class="math inline">{\boldsymbol{u}}</span> alone, since the acceleration and velocity fields are <span class="math display">
+\frac{\partial^2{\boldsymbol{\varphi}}}{\partial t^2} = \frac{\partial^2{\boldsymbol{u}}}{\partial t^2}\quad\text{and}\quad\frac{\partial{\boldsymbol{\varphi}}}{\partial t} = \frac{\partial{\boldsymbol{u}}}{\partial t}.
+</span> In particular, dropping higher-order terms, we obtain the following linearised version of our elastodynamics and elastostatics problems.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Linear elastodynamics problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find <span class="math inline">{\boldsymbol{u}}:B\times[0,T]\to{\mathbb{E}}^3</span> satisfying the following initial-boundary value problem: <span class="math display">
+\begin{aligned}
+    \rho_0\frac{\partial^2{\boldsymbol{u}}}{\partial t^2}&amp;=\nabla_{\boldsymbol{x}}\cdot \left({\mathbb{C}}\nabla_{\boldsymbol{x}}{\boldsymbol{u}}\right)+\rho_0{\boldsymbol{b}}_m &amp;\text{in }&amp;B\times[0,T],\\
+    {\boldsymbol{u}}(\cdot,0)&amp;={\boldsymbol{u}}_0 &amp;\text{in }&amp;B,\\
+    \frac{\partial{\boldsymbol{u}}}{\partial t}(\cdot,0)&amp;={\boldsymbol{v}}_0 &amp;\text{in }&amp;B,\\
+    {\boldsymbol{u}}&amp;={\boldsymbol{g}}-{\boldsymbol{x}}&amp;\text{on }&amp;\Gamma_D\times[0,T],\\
+    \left({\mathbb{C}}\nabla_{\boldsymbol{x}}{\boldsymbol{u}}\right){\boldsymbol{\nu}}&amp;={\boldsymbol{t}}&amp;\text{on }&amp;\Gamma_N\times[0,T].
+\end{aligned}
+</span></p>
+</div>
+</div>
+<ul>
+<li>This problem is a linear system of 3 coupled PDEs for the 3 components of <span class="math inline">{\boldsymbol{u}}</span> which is second-order in both space and time.</li>
+<li>Note we must shift the exact positions for Dirichlet boundary conditions to displacements, and we replace the stress-strain relation everywhere by the linearised form.</li>
+<li>Typically, solutions of the equations oscillate in time, and we think of this as a <strong>linear hyperbolic</strong> PDE system. Wave-like solutions make physical sense as elastic waves are exactly how sound travels through solid materials. Unlike for the nonlinear theory we have developed above, the principle of superposition does apply to solutions of the linear elastodynamics equations.</li>
+</ul>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Linear elastostatics problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find <span class="math inline">{\boldsymbol{u}}:B\to{\mathbb{E}}^3</span> satisfying the boundary value problem: <span class="math display">
+\begin{aligned}
+    \nabla_{\boldsymbol{x}}\cdot \left({\mathbb{C}}\nabla_{\boldsymbol{x}}{\boldsymbol{u}}\right)+\rho_0{\boldsymbol{b}}_m&amp;={\boldsymbol{0}}&amp;\text{in }&amp;B\times[0,T],\\
+    {\boldsymbol{u}}&amp;={\boldsymbol{g}}-{\boldsymbol{x}}&amp;\text{on }&amp;\Gamma_D,\\
+    \left({\mathbb{C}}\nabla_{\boldsymbol{x}}{\boldsymbol{u}}\right){\boldsymbol{\nu}}&amp;={\boldsymbol{t}}&amp;\text{on }&amp;\Gamma_N.
+\end{aligned}
+</span></p>
+</div>
+</div>
+</section>
+<section id="symmetries-of-the-elasticity-tensor" class="level3" data-number="7.7.2">
+<h3 data-number="7.7.2" class="anchored" data-anchor-id="symmetries-of-the-elasticity-tensor"><span class="header-section-number">7.7.2</span> Symmetries of the elasticity tensor</h3>
+<p>The elasticity tensor <span class="math inline">{\mathbb{C}}</span> has <span class="math inline">3^4=81</span> components; however, we will see that as a consequence of our assumptions, there are actually only <span class="math inline">21</span> independent entries.</p>
+<p>First, let’s observe that <span class="math display">
+\widetilde{{\boldsymbol{S}}}({\boldsymbol{F}}) = \frac{\widetilde{{\boldsymbol{P}}}({\boldsymbol{F}}){\boldsymbol{F}}^T}{\det{\boldsymbol{F}}}.
+</span> If we Taylor expand about <span class="math inline">{\boldsymbol{I}}</span>, then as long as <span class="math inline">\widetilde{{\boldsymbol{P}}}({\boldsymbol{I}})={\boldsymbol{O}}</span>, various terms vanish and we have <span class="math display">
+\widetilde{S}_{ij}({\boldsymbol{F}}) = \frac{\partial P_{ij}}{\partial F_{kl}}({\boldsymbol{I}})u_{k,l} + O(|{\boldsymbol{F}}-{\boldsymbol{I}}|^2) = {\mathbb{C}}_{ijkl}u_{k,l} + O(|{\boldsymbol{F}}-{\boldsymbol{I}}|^2).
+</span> The fact that we require symmetry of <span class="math inline">{\boldsymbol{S}}</span> to ensure that angular momentum balance holds entails that <span class="math inline">{\mathbb{C}}_{ijkl} = {\mathbb{C}}_{jikl}</span> for any indices <span class="math inline">i,j,k,l</span>. This is called the <em>minor symmetry</em> of the elasticity tensor.</p>
+<p>If <span class="math inline">{\mathbb{C}}</span> were derived as the second derivative of a strain energy density <span class="math inline">W</span>, then it must also satisfy the <em>major symmetry</em>, i.e. <span class="math display">
+{\mathbb{C}}_{ijkl} = \frac{\partial^2 W}{\partial F_{ij}\partial F_{kl}} = \frac{\partial^2 W}{\partial F_{kl}\partial F_{ij}} = {\mathbb{C}}_{klij}.
+</span> Putting both of these symmetries together, we see that we also have <span class="math display">
+{\mathbb{C}}_{ijkl} = {\mathbb{C}}_{ijlk},
+</span> and as a result, we have <span class="math display">
+{\mathbb{C}}_{ijkl}u_{k,l} = \tfrac12{\mathbb{C}}_{ijkl}(u_{k,l}+u_{l,k}) = {\mathbb{C}}_{ijkl}\varepsilon_{kl},
+</span> where <span class="math inline">{\boldsymbol{\varepsilon}}= {\operatorname{sym}}(\nabla_{\boldsymbol{x}}{\boldsymbol{u}})</span> is the infinitesimal strain.</p>
+<p>If we wish to show there are 21 independent components of the elasticity tensor, we need only note that there are <span class="math inline">21</span> possible choices of independent pairs taken from the collection <span class="math display">
+\{(1,1),(2,2),(3,3),(1,2),(2,3),(3,1)\}.
+</span></p>
+</section>
+<section id="isotropy-1" class="level3" data-number="7.7.3">
+<h3 data-number="7.7.3" class="anchored" data-anchor-id="isotropy-1"><span class="header-section-number">7.7.3</span> Isotropy</h3>
+<p>In practice, we do not often need 21 independent coefficients to describe a material due to symmetry. In the isotropic case, we need only 2, which we now discuss.</p>
+<p>Recall that an isotropic hyperelastic solid satisfies <span class="math display">
+W({\boldsymbol{Q}}_1{\boldsymbol{F}}{\boldsymbol{Q}}_2) = W({\boldsymbol{F}})
+</span> for any rotations <span class="math inline">{\boldsymbol{Q}}_1</span> and <span class="math inline">{\boldsymbol{Q}}_2</span>. Using this relationship with <span class="math inline">{\boldsymbol{Q}}_1 = {\boldsymbol{Q}}</span> and <span class="math inline">{\boldsymbol{Q}}_2 = {\boldsymbol{Q}}^T</span> and applying the chain rule, we can check that <span class="math display">
+{\boldsymbol{Q}}({\mathbb{C}}{\boldsymbol{\varepsilon}}){\boldsymbol{Q}}^T = {\mathbb{C}}({\boldsymbol{Q}}{\boldsymbol{\varepsilon}}{\boldsymbol{Q}}^T)
+</span> for any rotation <span class="math inline">{\boldsymbol{Q}}</span> and for any tensor <span class="math inline">{\boldsymbol{\varepsilon}}</span>. <span class="math inline">{\mathbb{C}}</span> is a linear map on tensors, and it can be shown that the only way to construct a linear map with the necessary symmetries is to demand that <span class="math display">
+{\mathbb{C}}{\boldsymbol{\varepsilon}}= \lambda \,{\operatorname{tr}}({\boldsymbol{\varepsilon}}){\boldsymbol{I}}+ 2\mu\,{\operatorname{sym}}({\boldsymbol{\varepsilon}}),
+</span> where <span class="math inline">\lambda</span> and <span class="math inline">\mu</span> are the only 2 independent coefficients required. These coefficient are called the Lamé parameters, and are not the only possible ways to parametrise isotropic elasticity, as we discuss next.</p>
 
 
 </section>
