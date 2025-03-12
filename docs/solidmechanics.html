@@ -226,6 +226,7 @@ window.Quarto = {
   <li><a href="#linearisation" id="toc-linearisation" class="nav-link" data-scroll-target="#linearisation"><span class="header-section-number">7.7.1</span> Linearisation</a></li>
   <li><a href="#symmetries-of-the-elasticity-tensor" id="toc-symmetries-of-the-elasticity-tensor" class="nav-link" data-scroll-target="#symmetries-of-the-elasticity-tensor"><span class="header-section-number">7.7.2</span> Symmetries of the elasticity tensor</a></li>
   <li><a href="#isotropy-1" id="toc-isotropy-1" class="nav-link" data-scroll-target="#isotropy-1"><span class="header-section-number">7.7.3</span> Isotropy</a></li>
+  <li><a href="#other-elastic-moduli" id="toc-other-elastic-moduli" class="nav-link" data-scroll-target="#other-elastic-moduli"><span class="header-section-number">7.7.4</span> Other elastic moduli</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -728,8 +729,145 @@ W({\boldsymbol{Q}}_1{\boldsymbol{F}}{\boldsymbol{Q}}_2) = W({\boldsymbol{F}})
 </span> for any rotation <span class="math inline">{\boldsymbol{Q}}</span> and for any tensor <span class="math inline">{\boldsymbol{\varepsilon}}</span>. <span class="math inline">{\mathbb{C}}</span> is a linear map on tensors, and it can be shown that the only way to construct a linear map with the necessary symmetries is to demand that <span class="math display">
 {\mathbb{C}}{\boldsymbol{\varepsilon}}= \lambda \,{\operatorname{tr}}({\boldsymbol{\varepsilon}}){\boldsymbol{I}}+ 2\mu\,{\operatorname{sym}}({\boldsymbol{\varepsilon}}),
 </span> where <span class="math inline">\lambda</span> and <span class="math inline">\mu</span> are the only 2 independent coefficients required. These coefficient are called the Lamé parameters, and are not the only possible ways to parametrise isotropic elasticity, as we discuss next.</p>
+</section>
+<section id="other-elastic-moduli" class="level3" data-number="7.7.4">
+<h3 data-number="7.7.4" class="anchored" data-anchor-id="other-elastic-moduli"><span class="header-section-number">7.7.4</span> Other elastic moduli</h3>
+<p>While the Lamé parameters are one way to parametrise linear elasticity, there are other possible choices. Important examples are:</p>
+<ul>
+<li>The <strong>bulk modulus</strong> <span class="math inline">\kappa</span>,</li>
+<li>The <strong>shear modulus</strong> <span class="math inline">G</span> (this is identical to <span class="math inline">\mu</span> used above),</li>
+<li>The <strong>Young’s modulus</strong> <span class="math inline">E</span>, and</li>
+<li>The <strong>Poisson ratio</strong> <span class="math inline">\nu</span>.</li>
+</ul>
+<p>We will discuss each of these parameters in turn.</p>
+<section id="bulk-modulus" class="level4" data-number="7.7.4.1">
+<h4 data-number="7.7.4.1" class="anchored" data-anchor-id="bulk-modulus"><span class="header-section-number">7.7.4.1</span> Bulk modulus</h4>
+<p>Suppose that we take a piece of material and uniformly expand or compress it, and ask what stress is induced in the material. In particular, if we consider a deformation gradient of the form <span class="math display">
+{\boldsymbol{F}}= (1+\tfrac13\alpha){\boldsymbol{I}},
+</span> then the volume change induced is <span class="math display">
+\det{\boldsymbol{F}}= (1+\tfrac13\alpha)^3 = 1+\alpha+O(\alpha^2),
+</span> so <span class="math inline">\alpha</span> is approximately the relative change in the volume (at least for deformations where we stay close to the identity, which is the standing assumption we make in linear elasticity). Looking at the corresponding displacement gradient, we have <span class="math display">
+\nabla_{\boldsymbol{x}}{\boldsymbol{u}}={\boldsymbol{F}}-{\boldsymbol{I}}=  \tfrac13\alpha{\boldsymbol{I}},
+</span> and hence <span class="math display">
+{\mathbb{C}}\nabla_{\boldsymbol{x}}{\boldsymbol{u}}= \lambda\alpha{\boldsymbol{I}}+\tfrac{2}{3}\alpha\mu{\boldsymbol{I}}=  \alpha (\lambda +\tfrac23\mu){\boldsymbol{I}}.
+</span> In this case, a spherical state of stress is induced in the material, with a magnitude which is proportional to the fractional change in volume. The bulk modulus is the appropriate coefficient, i.e. <span class="math display">
+\kappa = \lambda+\tfrac23\mu.
+</span></p>
+</section>
+<section id="shear-modulus" class="level4" data-number="7.7.4.2">
+<h4 data-number="7.7.4.2" class="anchored" data-anchor-id="shear-modulus"><span class="header-section-number">7.7.4.2</span> Shear modulus</h4>
+<p>Next we consider small shear deformations, where <span class="math display">
+{\boldsymbol{F}}= {\boldsymbol{I}}+ \alpha {\boldsymbol{e}}_1\otimes{\boldsymbol{e}}_2.
+</span> In this case, the displacement gradient is <span class="math display">
+\nabla_{\boldsymbol{x}}{\boldsymbol{u}}= \alpha {\boldsymbol{e}}_1\otimes{\boldsymbol{e}}_2,
+</span> and so plugging in, we obtain <span class="math display">
+{\mathbb{C}}\nabla_{\boldsymbol{x}}{\boldsymbol{u}}= \mu \alpha({\boldsymbol{e}}_1\otimes{\boldsymbol{e}}_2+{\boldsymbol{e}}_2\otimes{\boldsymbol{e}}_1).
+</span> Here, we see that <span class="math inline">\mu</span> is the coefficient of proportionality between a shear deformation and the shear stress induced, so we define <span class="math inline">G=\mu</span> to be the shear modulus of the material.</p>
+</section>
+<section id="youngs-modulus-and-poisson-ratio" class="level4" data-number="7.7.4.3">
+<h4 data-number="7.7.4.3" class="anchored" data-anchor-id="youngs-modulus-and-poisson-ratio"><span class="header-section-number">7.7.4.3</span> Young’s modulus and Poisson ratio</h4>
+<p>A final option is to consider a uniaxial tension experiment in which we induce a deformation of the form <span class="math display">
+{\boldsymbol{F}}= (1+\alpha) {\boldsymbol{e}}_1\otimes{\boldsymbol{e}}_1 + (1-\beta){\boldsymbol{e}}_2\otimes{\boldsymbol{e}}_2+(1-\beta){\boldsymbol{e}}_3\otimes{\boldsymbol{e}}_3.
+</span> Here we think of <span class="math inline">\alpha</span> as being the fractional increase in length in the <span class="math inline">{\boldsymbol{e}}_1</span> direction, and by introducing <span class="math inline">\beta</span>, we allow ourselves the flexibility to have a reduction in the width of the sample in the perpendicular directions. In this case, <span class="math display">
+\nabla_{\boldsymbol{x}}{\boldsymbol{u}}=
+  \begin{pmatrix}
+    \alpha &amp; 0 &amp; 0\\
+    0 &amp; -\beta &amp; 0\\
+    0 &amp; 0 &amp; -\beta
+  \end{pmatrix}
+</span> and hence plugging in, we find <span class="math display">
+{\mathbb{C}}\nabla_{\boldsymbol{x}}{\boldsymbol{u}}=
+\begin{pmatrix}
+    (\lambda+2\mu)\alpha-2\lambda\beta &amp; 0 &amp; 0\\
+    0 &amp; \lambda\alpha-2(\lambda+\mu)\beta &amp; 0\\
+    0 &amp; 0 &amp; \lambda\alpha-2(\lambda+\mu)\beta
+  \end{pmatrix}
+</span> Note that if the material is stress free on the surfaces of the sample that are not being strained, then the <span class="math inline">22</span> and <span class="math inline">33</span> components of the stress should vanish. To achieve this, we should choose <span class="math display">
+\beta = \frac{\lambda}{2(\lambda+\mu)}\alpha.
+</span> This special ratio of coefficients is called the Poisson ratio, denoted <span class="math display">
+\nu = \frac{\lambda}{2(\lambda+\mu)},
+</span> and unlike the other parameters in linear elasticity we have been considering it is dimensionless.</p>
+<p>If we pick <span class="math inline">\beta</span> in this way, then we find that the stress induced in the <span class="math inline">11</span> component is <span class="math display">
+(\lambda+2\mu)\alpha-2\lambda\beta =
+\frac{\mu(3\lambda+2\mu)}{\lambda+\mu}\alpha,
+</span> and the coefficient of proportionality is the Young’s modulus, denoted <span class="math display">
+E = \frac{\mu(3\lambda+2\mu)}{\lambda+\mu}.
+</span></p>
+</section>
+<section id="discussion" class="level4" data-number="7.7.4.4">
+<h4 data-number="7.7.4.4" class="anchored" data-anchor-id="discussion"><span class="header-section-number">7.7.4.4</span> Discussion</h4>
+<p>In the cases above, we showed that all of the elastic moduli we have described can be obtained from the Lamé parameters, but given any pair of these parameters, we can transform to any other pair. For example, in terms of Young’s modulus <span class="math inline">E</span> and the Poisson ratio <span class="math inline">\nu</span>, the isotropic elasticity tensor becomes <span class="math display">
+{\mathbb{C}}{\boldsymbol{\varepsilon}}= \frac{E\nu}{(1+\nu)(1-2\nu)}{\operatorname{tr}}({\boldsymbol{\varepsilon}}){\boldsymbol{I}}+\frac{E}{1+\nu}{\operatorname{sym}}({\boldsymbol{\varepsilon}}).
+</span> You can see in this case that something bad happens if <span class="math inline">\nu</span> tends to <span class="math inline">\tfrac12</span>, since the coefficient in the first term blows up. This corresponds to the case where the material is <em>incompressible</em>, i.e.&nbsp;where volume change is not permitted. We can see this in an alternative expression for the bulk modulus: <span class="math display">
+\kappa = \frac{E}{3(1-2\nu)}.
+</span> Unlike for fluids, in the vast majority of real elastic materials, incompressibility is not normally a feature of elastic solids, and most materials have a Poisson ration of around <span class="math inline">0.2</span>–<span class="math inline">0.4</span>. The other elasticity coefficients all tend to be positive; for some example values for real materials at room temperature, see <a href="#tbl-moduli" class="quarto-xref">Table&nbsp;<span>7.1</span></a>. In terms of units, with exception of the Poisson ratio, all of the moduli discussed are expressed in units of energy per unit volume; in SI units, the natural units are <span class="math inline">\text{kg}\,\text{m}^{-1}\,\text{s}^{-2}</span>. Energy per unit volume is equivalent to force per unit area, and the unit most often used is therefore the Pascal, or equivalently Newtons per metre squared. Elastic moduli for real materials tend to be in the range of <span class="math inline">10^6</span>–<span class="math inline">10^{12}</span> Pascals, so it is common to use Megapascals (MPa) and Gigapascals (GPa) to express the moduli in practice.</p>
+<div id="tbl-moduli" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-moduli-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7.1: Approximate elastic moduli for some materials at room temperature.
+</figcaption>
+<div aria-describedby="tbl-moduli-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Material</th>
+<th><span class="math inline">\kappa</span> (GPa)</th>
+<th><span class="math inline">G</span> (GPa)</th>
+<th><span class="math inline">\nu</span></th>
+<th><span class="math inline">E</span> (GPa)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Aluminium</td>
+<td>75</td>
+<td>25</td>
+<td>0.36</td>
+<td>70</td>
+</tr>
+<tr class="even">
+<td>Copper</td>
+<td>140</td>
+<td>47</td>
+<td>0.35</td>
+<td>125</td>
+</tr>
+<tr class="odd">
+<td>Diamond</td>
+<td>540</td>
+<td>460</td>
+<td>0.2</td>
+<td>1100</td>
+</tr>
+<tr class="even">
+<td>Lead</td>
+<td>41</td>
+<td>5</td>
+<td>0.44</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>Silicone Rubber</td>
+<td>2</td>
+<td>0.01</td>
+<td>0.48</td>
+<td>0.05</td>
+</tr>
+<tr class="even">
+<td>Stainless Steel</td>
+<td>140</td>
+<td>78</td>
+<td>0.27</td>
+<td>195</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 
 
+</section>
 </section>
 </section>
 
