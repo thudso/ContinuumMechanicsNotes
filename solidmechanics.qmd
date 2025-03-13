@@ -474,10 +474,6 @@ $$
 $$
 :::
 
-- This problem is a linear system of 3 coupled PDEs for the 3 components of $\bfu$ which is second-order in both space and time.
-- Note we must shift the exact positions for Dirichlet boundary conditions to displacements, and we replace the stress-strain relation everywhere by the linearised form.
-- Typically, solutions of the equations oscillate in time, and we think of this as a **linear hyperbolic** PDE system. Wave-like solutions make physical sense as elastic waves are exactly how sound travels through solid materials. Unlike for the nonlinear theory we have developed above, the principle of superposition does apply to solutions of the linear elastodynamics equations.
-
 ::: {.callout-tip icon="false"}
 ## Linear elastostatics problem
 Find $\bfu:B\to\bbE^3$ satisfying the boundary value problem:
@@ -489,6 +485,14 @@ $$
 \end{aligned}
 $$
 :::
+
+- Both problems involve solving linear system of 3 coupled PDEs for the 3 components of $\bfu$. In the case of linear elastodynamics, we have a hyperbolic system which is second-order in both space and time, and in the case of linear elastostatics, we have an elliptic system which is second-order in space only.
+- As before, solutions of the elastodynamics problem are wave-like. Unlike for the nonlinear theory we have developed above, the principle of superposition does apply to solutions of the linear elastodynamics equations.
+- In both cases we have existence and uniqueness of solutions under appropriate conditions on the elasticity tensor $\bbC$; a key requirement is the Legendre-Hadamard conditions, which requires that there exists a positive constant $\gamma>0$ such that
+$$
+\bbC_{ijkl}\xi_j\xi_l\geq\gamma\xi_a\xi_a = \gamma|\bfxi|^2.
+$$
+- Note we must shift the exact positions for Dirichlet boundary conditions to displacements, and we replace the stress-strain relation everywhere by the linearised form.
 
 ### Symmetries of the elasticity tensor
 The elasticity tensor $\bbC$ has $3^4=81$ components; however, we will see that as a consequence of our assumptions, there are actually only $21$ independent entries.
