@@ -490,9 +490,10 @@ $$
 - As before, solutions of the elastodynamics problem are wave-like. Unlike for the nonlinear theory we have developed above, the principle of superposition does apply to solutions of the linear elastodynamics equations.
 - In both cases we have existence and uniqueness of solutions under appropriate conditions on the elasticity tensor $\bbC$; a key requirement is the Legendre-Hadamard conditions, which requires that there exists a positive constant $\gamma>0$ such that
 $$
-\bbC_{ijkl}\xi_j\xi_l\geq\gamma\xi_a\xi_a = \gamma|\bfxi|^2.
+\left(\bbC(\bfu\otimes\bfxi)\right):(\bfu\otimes\bfxi) = \bbC_{ijkl}u_i\xi_ju_j\xi_l\geq \gamma|\bfu|^2|\bfxi|^2
 $$
-- Note we must shift the exact positions for Dirichlet boundary conditions to displacements, and we replace the stress-strain relation everywhere by the linearised form.
+for any $\bfu$ and $\bfxi\in\calV$.
+- Note we must shift the exact positions for Dirichlet boundary conditions to displacements, and we replace the stress-strain relation everywhere by the linearised form, including in the stress boundary conditions.
 
 ### Symmetries of the elasticity tensor
 The elasticity tensor $\bbC$ has $3^4=81$ components; however, we will see that as a consequence of our assumptions, there are actually only $21$ independent entries.

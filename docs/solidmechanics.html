@@ -698,9 +698,9 @@ Linear elastostatics problem
 <li>Both problems involve solving linear system of 3 coupled PDEs for the 3 components of <span class="math inline">{\boldsymbol{u}}</span>. In the case of linear elastodynamics, we have a hyperbolic system which is second-order in both space and time, and in the case of linear elastostatics, we have an elliptic system which is second-order in space only.</li>
 <li>As before, solutions of the elastodynamics problem are wave-like. Unlike for the nonlinear theory we have developed above, the principle of superposition does apply to solutions of the linear elastodynamics equations.</li>
 <li>In both cases we have existence and uniqueness of solutions under appropriate conditions on the elasticity tensor <span class="math inline">{\mathbb{C}}</span>; a key requirement is the Legendre-Hadamard conditions, which requires that there exists a positive constant <span class="math inline">\gamma&gt;0</span> such that <span class="math display">
-{\mathbb{C}}_{ijkl}\xi_j\xi_l\geq\gamma\xi_a\xi_a = \gamma|{\boldsymbol{\xi}}|^2.
-</span></li>
-<li>Note we must shift the exact positions for Dirichlet boundary conditions to displacements, and we replace the stress-strain relation everywhere by the linearised form.</li>
+\left({\mathbb{C}}({\boldsymbol{u}}\otimes{\boldsymbol{\xi}})\right):({\boldsymbol{u}}\otimes{\boldsymbol{\xi}}) = {\mathbb{C}}_{ijkl}u_i\xi_ju_j\xi_l\geq \gamma|{\boldsymbol{u}}|^2|{\boldsymbol{\xi}}|^2
+</span> for any <span class="math inline">{\boldsymbol{u}}</span> and <span class="math inline">{\boldsymbol{\xi}}\in{\mathcal{V}}</span>.</li>
+<li>Note we must shift the exact positions for Dirichlet boundary conditions to displacements, and we replace the stress-strain relation everywhere by the linearised form, including in the stress boundary conditions.</li>
 </ul>
 </section>
 <section id="symmetries-of-the-elasticity-tensor" class="level3" data-number="7.7.2">
