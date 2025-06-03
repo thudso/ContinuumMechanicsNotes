@@ -536,9 +536,9 @@ independent of the coordinate frame in which it is computed.
 Suppose $\bfA$ is the change of basis tensor mapping
 $\{\bfe_i\}$ to $\{\bfe'_i\}$. Then by applying
 @eq-2ordertensorchangeofbasis we have
-$[\bfS]_{ij} = [\bfA]_{ik}[\bfS]'_{kl}[\bfA]_{jl}$, and so, using @prp-orthogonalitybasischange, we have $$\tr[\bfS]
+$[\bfS]_{ij} = [\bfA]_{ki}[\bfS]'_{kl}[\bfA]_{lj}$, and so, using @prp-orthogonalitybasischange, we have $$\tr[\bfS]
     = [\bfS]_{ii}
-    = [\bfS]'_{kl}[\bfA]_{ik}[\bfA]_{il}
+    = [\bfS]'_{kl}[\bfA]_{ki}[\bfA]_{li}
     = [\bfS]'_{kl}\delta_{kl}
     = [\bfS]'_{kk} = \tr[\bfS]'.$$
 :::

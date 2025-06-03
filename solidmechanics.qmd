@@ -176,7 +176,7 @@ $$
 Find $\bfphi:B\to\bbE^3$ satisfying the boundary value problem:
 $$
 \begin{aligned}
-    \nabla_\bfx\cdot \widetilde{\bfP}(\bfF)+\rho_0\bfb_m&=\bfzero &\text{in }&B\times[0,T],\\
+    \nabla_\bfx\cdot \widetilde{\bfP}(\bfF)+\rho_0\bfb_m&=\bfzero &\text{in }&B,\\
     \bfphi &=\bfg&\text{on }&\Gamma_D,\\
     \widetilde{\bfP}(\bfF)\bfnu &=\bft&\text{on }&\Gamma_N.
 \end{aligned}

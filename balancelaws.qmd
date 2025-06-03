@@ -328,7 +328,7 @@ $$\mass[\Omega_t] = \mass[\Omega_0],$$ where $\Omega_0 = \Omega$.
 Furthermore, we have
 $$\mass[\Omega_t] = \int_{\Omega_t}\rho(\bfy,t)\dVy = \int_\Omega \rho_m(\bfx,t)\det\bfF(\bfx,t)\dVx,$$
 and as we have assumed that $\bfphi(\bfx,0) =\bfx$, we have
-$$\mass[\Omega_0] = \int_{\Omega}\rho(\bfx,0)\dVy = \int_\Omega \rho_0(\bfx)\dVx,$$
+$$\mass[\Omega_0] = \int_{\Omega}\rho(\bfx,0)\dVx = \int_\Omega \rho_0(\bfx)\dVx,$$
 where $\rho_0(\bfx) =\rho(\bfx,0)$. We must therefore have
 $$\int_\Omega \rho_m(\bfx,t)\det\bfF(\bfx,t)-\rho_0(\bfx)\dVx=0$$ for
 any $t\geq0$ and any $\Omega\subseteq B$, so the Localisation Theorem
